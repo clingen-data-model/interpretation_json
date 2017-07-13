@@ -1,0 +1,21 @@
+{
+  "id": "VS010",
+  "type": "ValueSet",
+  "name": "PredictionType",
+  "includesCoding": [
+    {
+      "id": "CG-prediction-type:me",
+      "type": "Coding",
+      "code": "me",
+      "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+      "display": "missense effect"
+    },
+    {
+      "id": "CG-prediction-type:sp",
+      "type": "Coding",
+      "code": "sp",
+      "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+      "display": "splicing prediction"
+    }
+  ]
+}

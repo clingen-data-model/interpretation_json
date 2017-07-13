@@ -1,0 +1,21 @@
+{
+  "id": "VS011",
+  "type": "ValueSet",
+  "name": "CriterionEvaluation",
+  "includesCoding": [
+    {
+      "id": "CG-criterion-outcome:met",
+      "type": "Coding",
+      "code": "met",
+      "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+      "display": "Met"
+    },
+    {
+      "id": "CG-criterion-outcome:not-met",
+      "type": "Coding",
+      "code": "not-met",
+      "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+      "display": "Not Met"
+    }
+  ]
+}

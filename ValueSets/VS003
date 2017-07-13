@@ -1,0 +1,42 @@
+{
+  "id": "VS003",
+  "type": "ValueSet",
+  "name": "Significance",
+  "includesCoding": [
+    {
+      "id": "LN:LA26332-9",
+      "type": "Coding",
+      "code": "LA26332-9",
+      "system": "http://loinc.org/",
+      "display": "Likely Pathogenic"
+    },
+    {
+      "id": "LN:LA26333-7",
+      "type": "Coding",
+      "code": "LA26333-7",
+      "system": "http://loinc.org/",
+      "display": "Uncertain Signficance"
+    },
+    {
+      "id": "LN:LA26334-5",
+      "type": "Coding",
+      "code": "LA26334-5",
+      "system": "http://loinc.org/",
+      "display": "Likely Benign"
+    },
+    {
+      "id": "LN:LA6668-3",
+      "type": "Coding",
+      "code": "LA6668-3",
+      "system": "http://loinc.org/",
+      "display": "Pathogenic"
+    },
+    {
+      "id": "LN:LA6675-8",
+      "type": "Coding",
+      "code": "LA6675-8",
+      "system": "http://loinc.org/",
+      "display": "Benign"
+    }
+  ]
+}

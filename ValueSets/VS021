@@ -1,0 +1,28 @@
+{
+  "id": "VS021",
+  "type": "ValueSet",
+  "name": "ContributoryRole",
+  "includesCoding": [
+    {
+      "id": "CG-contributory-role:assessor",
+      "type": "Coding",
+      "code": "assessor",
+      "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+      "display": "assessor"
+    },
+    {
+      "id": "CG-contributory-role:curator",
+      "type": "Coding",
+      "code": "curator",
+      "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+      "display": "curator"
+    },
+    {
+      "id": "CG-contributory-role:interpreter",
+      "type": "Coding",
+      "code": "interpreter",
+      "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+      "display": "interpreter"
+    }
+  ]
+}

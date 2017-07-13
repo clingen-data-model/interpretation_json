@@ -1,0 +1,203 @@
+{
+  "id": "VS002",
+  "type": "ValueSet",
+  "name": "MolecularConsequence",
+  "includesCoding": [
+    {
+      "id": "SO:0000159",
+      "type": "Coding",
+      "code": "0000159",
+      "system": "http://sequenceontology.org/",
+      "display": "deletion"
+    },
+    {
+      "id": "SO:0000191",
+      "type": "Coding",
+      "code": "0000191",
+      "system": "http://sequenceontology.org/",
+      "display": "interior intron"
+    },
+    {
+      "id": "SO:0000199",
+      "type": "Coding",
+      "code": "0000199",
+      "system": "http://sequenceontology.org/",
+      "display": "translocation"
+    },
+    {
+      "id": "SO:0000203",
+      "type": "Coding",
+      "code": "0000203",
+      "system": "http://sequenceontology.org/",
+      "display": "three prime UTR"
+    },
+    {
+      "id": "SO:0000204",
+      "type": "Coding",
+      "code": "0000204",
+      "system": "http://sequenceontology.org/",
+      "display": "five prime UTR"
+    },
+    {
+      "id": "SO:0000507",
+      "type": "Coding",
+      "code": "0000507",
+      "system": "http://sequenceontology.org/",
+      "display": "pseudogenic exon"
+    },
+    {
+      "id": "SO:0000667",
+      "type": "Coding",
+      "code": "0000667",
+      "system": "http://sequenceontology.org/",
+      "display": "insertion"
+    },
+    {
+      "id": "SO:0001019",
+      "type": "Coding",
+      "code": "0001019",
+      "system": "http://sequenceontology.org/",
+      "display": "copy number variation"
+    },
+    {
+      "id": "SO:0001568",
+      "type": "Coding",
+      "code": "0001568",
+      "system": "http://sequenceontology.org/",
+      "display": "splicing variant"
+    },
+    {
+      "id": "SO:0001578",
+      "type": "Coding",
+      "code": "0001578",
+      "system": "http://sequenceontology.org/",
+      "display": "stop lost"
+    },
+    {
+      "id": "SO:0001583",
+      "type": "Coding",
+      "code": "0001583",
+      "system": "http://sequenceontology.org/",
+      "display": "missense variant"
+    },
+    {
+      "id": "SO:0001586",
+      "type": "Coding",
+      "code": "0001586",
+      "system": "http://sequenceontology.org/",
+      "display": "non conservative missense variant"
+    },
+    {
+      "id": "SO:0001587",
+      "type": "Coding",
+      "code": "0001587",
+      "system": "http://sequenceontology.org/",
+      "display": "stop gained"
+    },
+    {
+      "id": "SO:0001589",
+      "type": "Coding",
+      "code": "0001589",
+      "system": "http://sequenceontology.org/",
+      "display": "frameshift variant"
+    },
+    {
+      "id": "SO:0001629",
+      "type": "Coding",
+      "code": "0001629",
+      "system": "http://sequenceontology.org/",
+      "display": "splice-site variant"
+    },
+    {
+      "id": "SO:0001819",
+      "type": "Coding",
+      "code": "0001819",
+      "system": "http://sequenceontology.org/",
+      "display": "synonymous variant"
+    },
+    {
+      "id": "SO:0001823",
+      "type": "Coding",
+      "code": "0001823",
+      "system": "http://sequenceontology.org/",
+      "display": "conservative Inframe Insertion"
+    },
+    {
+      "id": "SO:0001824",
+      "type": "Coding",
+      "code": "0001824",
+      "system": "http://sequenceontology.org/",
+      "display": "disruptive inframe insertion"
+    },
+    {
+      "id": "SO:0001825",
+      "type": "Coding",
+      "code": "0001825",
+      "system": "http://sequenceontology.org/",
+      "display": "conservative Inframe Deletion"
+    },
+    {
+      "id": "SO:0001826",
+      "type": "Coding",
+      "code": "0001826",
+      "system": "http://sequenceontology.org/",
+      "display": "disruptive inframe deletion"
+    },
+    {
+      "id": "SO:0001909",
+      "type": "Coding",
+      "code": "0001909",
+      "system": "http://sequenceontology.org/",
+      "display": "frameshift elongation"
+    },
+    {
+      "id": "SO:0002007",
+      "type": "Coding",
+      "code": "0002007",
+      "system": "http://sequenceontology.org/",
+      "display": "MNV"
+    },
+    {
+      "id": "SO:0002012",
+      "type": "Coding",
+      "code": "0002012",
+      "system": "http://sequenceontology.org/",
+      "display": "start lost"
+    },
+    {
+      "id": "SO:0002054",
+      "type": "Coding",
+      "code": "0002054",
+      "system": "http://sequenceontology.org/",
+      "display": "loss of function variant"
+    },
+    {
+      "id": "SO:0002073",
+      "type": "Coding",
+      "code": "0002073",
+      "system": "http://sequenceontology.org/",
+      "display": "no sequence alteration"
+    },
+    {
+      "id": "SO:1000002",
+      "type": "Coding",
+      "code": "1000002",
+      "system": "http://sequenceontology.org/",
+      "display": "substitution"
+    },
+    {
+      "id": "SO:10000032",
+      "type": "Coding",
+      "code": "10000032",
+      "system": "http://sequenceontology.org/",
+      "display": "indel"
+    },
+    {
+      "id": "SO:1000036",
+      "type": "Coding",
+      "code": "1000036",
+      "system": "http://sequenceontology.org/",
+      "display": "inversion"
+    }
+  ]
+}

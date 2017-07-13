@@ -1,0 +1,43 @@
+{
+  "id": "VS023",
+  "type": "ValueSet",
+  "name": "AscertainmentType",
+  "description": "A coded or free-text term representing how people were chosen to be in the cohort in which the frequency is calculated.\nIt may be either because there are lots of ways that a cohort might be generated and our value set may not provide enough to allow for all cases.",
+  "includesCoding": [
+    {
+      "id": "CG-ascertainment-type:1KG",
+      "type": "Coding",
+      "code": "1KG",
+      "system": "http://clinicalgenome.org/datamodel/ascertainment-type/",
+      "display": "1KG"
+    },
+    {
+      "id": "CG-ascertainment-type:ExAC",
+      "type": "Coding",
+      "code": "ExAC",
+      "system": "http://clinicalgenome.org/datamodel/ascertainment-type/",
+      "display": "ExAC"
+    },
+    {
+      "id": "CG-ascertainment-type:ESP",
+      "type": "Coding",
+      "code": "ESP",
+      "system": "http://clinicalgenome.org/datamodel/ascertainment-type/",
+      "display": "ESP"
+    },
+    {
+      "id": "CG-ascertainment-type:1KG_ESP",
+      "type": "Coding",
+      "code": "1KG_ESP",
+      "system": "http://clinicalgenome.org/datamodel/ascertainment-type/",
+      "display": "1KG_ESP"
+    },
+    {
+      "id": "CG-ascertainment-type:gnomAD",
+      "type": "Coding",
+      "code": "gnomAD",
+      "system": "http://clinicalgenome.org/datamodel/ascertainment-type/",
+      "display": "gnomAD"
+    }
+  ]
+}

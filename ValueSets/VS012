@@ -1,0 +1,70 @@
+{
+  "id": "VS012",
+  "type": "ValueSet",
+  "name": "FunctionalDataType",
+  "includesCoding": [
+    {
+      "id": "CG-func-data-type:activation",
+      "type": "Coding",
+      "code": "activation",
+      "system": "http://clinicalgenome.org/datamodel/functional-data-type/",
+      "display": "Activation Assay"
+    },
+    {
+      "id": "CG-func-data-type:atpase",
+      "type": "Coding",
+      "code": "atpase",
+      "system": "http://clinicalgenome.org/datamodel/functional-data-type/",
+      "display": "ATPase assay"
+    },
+    {
+      "id": "CG-func-data-type:binding",
+      "type": "Coding",
+      "code": "binding",
+      "system": "http://clinicalgenome.org/datamodel/functional-data-type/",
+      "display": "Binding assay"
+    },
+    {
+      "id": "CG-func-data-type:celloc",
+      "type": "Coding",
+      "code": "celloc",
+      "system": "http://clinicalgenome.org/datamodel/functional-data-type/",
+      "display": "cellular localization"
+    },
+    {
+      "id": "CG-func-data-type:elk1phosvialucif",
+      "type": "Coding",
+      "code": "elk1phosvialucif",
+      "system": "http://clinicalgenome.org/datamodel/functional-data-type/",
+      "display": "Elk1 pohsphorylation via luciferase assay"
+    },
+    {
+      "id": "CG-func-data-type:iodeff",
+      "type": "Coding",
+      "code": "iodeff",
+      "system": "http://clinicalgenome.org/datamodel/functional-data-type/",
+      "display": "iodide efflux"
+    },
+    {
+      "id": "CG-func-data-type:motility",
+      "type": "Coding",
+      "code": "motility",
+      "system": "http://clinicalgenome.org/datamodel/functional-data-type/",
+      "display": "motility assay"
+    },
+    {
+      "id": "CG-func-data-type:neuritegrowth",
+      "type": "Coding",
+      "code": "neuritegrowth",
+      "system": "http://clinicalgenome.org/datamodel/functional-data-type/",
+      "display": "neurite outgrowth"
+    },
+    {
+      "id": "CG-func-data-type:yeastcomp",
+      "type": "Coding",
+      "code": "yeastcomp",
+      "system": "http://clinicalgenome.org/datamodel/functional-data-type/",
+      "display": "Yeast complementation assay"
+    }
+  ]
+}

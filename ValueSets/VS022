@@ -1,0 +1,36 @@
+{
+  "id": "VS022",
+  "type": "ValueSet",
+  "name": "AlleleInheritanceType",
+  "description": "TODO",
+  "includesCoding": [
+    {
+      "id": "CG-allele-inheritance:denovo",
+      "type": "Coding",
+      "code": "denovo",
+      "system": "http://clinicalgenome.org/datamodel/allele-inheritance/",
+      "display": "de novo"
+    },
+    {
+      "id": "CG-allele-inheritance:maternal",
+      "type": "Coding",
+      "code": "maternal",
+      "system": "http://clinicalgenome.org/datamodel/allele-inheritance/",
+      "display": "maternally inherited"
+    },
+    {
+      "id": "CG-allele-inheritance:paternal",
+      "type": "Coding",
+      "code": "paternal",
+      "system": "http://clinicalgenome.org/datamodel/allele-inheritance/",
+      "display": "paternally inherited"
+    },
+    {
+      "id": "CG-allele-inheritance:unknown",
+      "type": "Coding",
+      "code": "unknown",
+      "system": "http://clinicalgenome.org/datamodel/allele-inheritance/",
+      "display": "Unknown"
+    }
+  ]
+}

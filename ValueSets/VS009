@@ -1,0 +1,21 @@
+{
+  "id": "VS009",
+  "type": "ValueSet",
+  "name": "Mechanism",
+  "includesCoding": [
+    {
+      "id": "SO:0001583",
+      "type": "Coding",
+      "code": "0001583",
+      "system": "http://sequenceontology.org/",
+      "display": "missense variant"
+    },
+    {
+      "id": "SO:0002054",
+      "type": "Coding",
+      "code": "0002054",
+      "system": "http://sequenceontology.org/",
+      "display": "loss of function variant"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "VS014",
+  "type": "ValueSet",
+  "name": "BenignMissenseVariationRate",
+  "includesCoding": [
+    {
+      "id": "CG-ben-missense-var-rate:high",
+      "type": "Coding",
+      "code": "high",
+      "system": "http://clinicalgenome.org/datamodel/benign-missense-variation-rate/",
+      "display": "High"
+    },
+    {
+      "id": "CG-ben-missense-var-rate:low",
+      "type": "Coding",
+      "code": "low",
+      "system": "http://clinicalgenome.org/datamodel/benign-missense-variation-rate/",
+      "display": "Low"
+    }
+  ]
+}

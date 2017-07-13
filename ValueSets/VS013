@@ -1,0 +1,309 @@
+{
+  "id": "VS013",
+  "type": "ValueSet",
+  "name": "PopulationType",
+  "description": "From Exac http://exac.broadinstitute.org/faq",
+  "includesCoding": [
+    {
+      "id": "BROAD-population-type:afr",
+      "type": "Coding",
+      "code": "afr",
+      "system": "http://broadinstitute.org/populations/",
+      "display": "African/African American"
+    },
+    {
+      "id": "BROAD-population-type:amr",
+      "type": "Coding",
+      "code": "amr",
+      "system": "http://broadinstitute.org/populations/",
+      "display": "Latino"
+    },
+    {
+      "id": "BROAD-population-type:asj",
+      "type": "Coding",
+      "code": "asj",
+      "system": "http://broadinstitute.org/populations/",
+      "display": "Ashkenazi Jewish"
+    },
+    {
+      "id": "BROAD-population-type:eas",
+      "type": "Coding",
+      "code": "eas",
+      "system": "http://broadinstitute.org/populations/",
+      "display": "East Asian"
+    },
+    {
+      "id": "BROAD-population-type:fin",
+      "type": "Coding",
+      "code": "fin",
+      "system": "http://broadinstitute.org/populations/",
+      "display": "Finnish"
+    },
+    {
+      "id": "BROAD-population-type:nfe",
+      "type": "Coding",
+      "code": "nfe",
+      "system": "http://broadinstitute.org/populations/",
+      "display": "Non-Finnish European"
+    },
+    {
+      "id": "BROAD-population-type:oth",
+      "type": "Coding",
+      "code": "oth",
+      "system": "http://broadinstitute.org/populations/",
+      "display": "Other"
+    },
+    {
+      "id": "BROAD-population-type:sas",
+      "type": "Coding",
+      "code": "sas",
+      "system": "http://broadinstitute.org/populations/",
+      "display": "South Asian"
+    },
+    {
+      "id": "CG-population-type:combined",
+      "type": "Coding",
+      "code": "combined",
+      "system": "http://clinicalgenome.org/datamodel/population-type/",
+      "display": "Combined"
+    },
+    {
+      "id": "CG-population-type:overall",
+      "type": "Coding",
+      "code": "overall",
+      "system": "http://clinicalgenome.org/datamodel/population-type/",
+      "display": "Overall"
+    },
+    {
+      "id": "ESP-population-type:EA",
+      "type": "Coding",
+      "code": "EA",
+      "system": "http://evs.gs.washington.edu/EVS/",
+      "display": "European-American"
+    },
+    {
+      "id": "ESP-population-type:AA",
+      "type": "Coding",
+      "code": "AA",
+      "system": "http://evs.gs.washington.edu/EVS/",
+      "display": "African-American"
+    },
+    {
+      "id": "IGSR-population-type:acb",
+      "type": "Coding",
+      "code": "acb",
+      "system": "http://www.internationalgenome.org/category/population/",
+      "display": "African Caribbeans in Barbados"
+    },
+    {
+      "id": "IGSR-population-type:afr",
+      "type": "Coding",
+      "code": "afr",
+      "system": "http://www.internationalgenome.org/category/population/",
+      "display": "African"
+    },
+    {
+      "id": "IGSR-population-type:amr",
+      "type": "Coding",
+      "code": "amr",
+      "system": "http://www.internationalgenome.org/category/population/",
+      "display": "Ad Mixed American"
+    },
+    {
+      "id": "IGSR-population-type:asw",
+      "type": "Coding",
+      "code": "asw",
+      "system": "http://www.internationalgenome.org/category/population/",
+      "display": "Americans of African Ancestry in SW USA"
+    },
+    {
+      "id": "IGSR-population-type:beb",
+      "type": "Coding",
+      "code": "beb",
+      "system": "http://www.internationalgenome.org/category/population/",
+      "display": "Bengali from Bangladesh"
+    },
+    {
+      "id": "IGSR-population-type:cdx",
+      "type": "Coding",
+      "code": "cdx",
+      "system": "http://www.internationalgenome.org/category/population/",
+      "display": "Chinese Dai in Xishuangbanna, China"
+    },
+    {
+      "id": "IGSR-population-type:ceu",
+      "type": "Coding",
+      "code": "ceu",
+      "system": "http://www.internationalgenome.org/category/population/",
+      "display": "Utah Residents (CEPH) with Northern and Western European Ancestry"
+    },
+    {
+      "id": "IGSR-population-type:chb",
+      "type": "Coding",
+      "code": "chb",
+      "system": "http://www.internationalgenome.org/category/population/",
+      "display": "Han Chinese in Bejing, China"
+    },
+    {
+      "id": "IGSR-population-type:chs",
+      "type": "Coding",
+      "code": "chs",
+      "system": "http://www.internationalgenome.org/category/population/",
+      "display": "Southern Han Chinese"
+    },
+    {
+      "id": "IGSR-population-type:clm",
+      "type": "Coding",
+      "code": "clm",
+      "system": "http://www.internationalgenome.org/category/population/",
+      "display": "Colombians from Medellin, Colombia"
+    },
+    {
+      "id": "IGSR-population-type:eas",
+      "type": "Coding",
+      "code": "eas",
+      "system": "http://www.internationalgenome.org/category/population/",
+      "display": "East Asian"
+    },
+    {
+      "id": "IGSR-population-type:esn",
+      "type": "Coding",
+      "code": "esn",
+      "system": "http://www.internationalgenome.org/category/population/",
+      "display": "Esan in Nigeria"
+    },
+    {
+      "id": "IGSR-population-type:eur",
+      "type": "Coding",
+      "code": "eur",
+      "system": "http://www.internationalgenome.org/category/population/",
+      "display": "European"
+    },
+    {
+      "id": "IGSR-population-type:fin",
+      "type": "Coding",
+      "code": "fin",
+      "system": "http://www.internationalgenome.org/category/population/",
+      "display": "Finnish in Finland"
+    },
+    {
+      "id": "IGSR-population-type:gbr",
+      "type": "Coding",
+      "code": "gbr",
+      "system": "http://www.internationalgenome.org/category/population/",
+      "display": "British in England and Scotland"
+    },
+    {
+      "id": "IGSR-population-type:gih",
+      "type": "Coding",
+      "code": "gih",
+      "system": "http://www.internationalgenome.org/category/population/",
+      "display": "Gujarati Indian from Houston, Texas"
+    },
+    {
+      "id": "IGSR-population-type:gwd",
+      "type": "Coding",
+      "code": "gwd",
+      "system": "http://www.internationalgenome.org/category/population/",
+      "display": "Gambian in Western Divisions in the Gambia"
+    },
+    {
+      "id": "IGSR-population-type:ibs",
+      "type": "Coding",
+      "code": "ibs",
+      "system": "http://www.internationalgenome.org/category/population/",
+      "display": "Iberian Population in Spain"
+    },
+    {
+      "id": "IGSR-population-type:itu",
+      "type": "Coding",
+      "code": "itu",
+      "system": "http://www.internationalgenome.org/category/population/",
+      "display": "Indian Telugu from the UK"
+    },
+    {
+      "id": "IGSR-population-type:jpt",
+      "type": "Coding",
+      "code": "jpt",
+      "system": "http://www.internationalgenome.org/category/population/",
+      "display": "Japanese in Tokyo, Japan"
+    },
+    {
+      "id": "IGSR-population-type:khv",
+      "type": "Coding",
+      "code": "khv",
+      "system": "http://www.internationalgenome.org/category/population/",
+      "display": "Kinh in Ho Chi Minh City, Vietnam"
+    },
+    {
+      "id": "IGSR-population-type:lwk",
+      "type": "Coding",
+      "code": "lwk",
+      "system": "http://www.internationalgenome.org/category/population/",
+      "display": "Luhya in Webuye, Kenya"
+    },
+    {
+      "id": "IGSR-population-type:msl",
+      "type": "Coding",
+      "code": "msl",
+      "system": "http://www.internationalgenome.org/category/population/",
+      "display": "Mende in Sierra Leone"
+    },
+    {
+      "id": "IGSR-population-type:mxl",
+      "type": "Coding",
+      "code": "mxl",
+      "system": "http://www.internationalgenome.org/category/population/",
+      "display": "Mexican Ancestry from Los Angeles USA"
+    },
+    {
+      "id": "IGSR-population-type:pel",
+      "type": "Coding",
+      "code": "pel",
+      "system": "http://www.internationalgenome.org/category/population/",
+      "display": "Peruvians from Lima, Peru"
+    },
+    {
+      "id": "IGSR-population-type:pjl",
+      "type": "Coding",
+      "code": "pjl",
+      "system": "http://www.internationalgenome.org/category/population/",
+      "display": "Punjabi from Lahore, Pakistan"
+    },
+    {
+      "id": "IGSR-population-type:pur",
+      "type": "Coding",
+      "code": "pur",
+      "system": "http://www.internationalgenome.org/category/population/",
+      "display": "Puerto Ricans from Puerto Rico"
+    },
+    {
+      "id": "IGSR-population-type:sas",
+      "type": "Coding",
+      "code": "sas",
+      "system": "http://www.internationalgenome.org/category/population/",
+      "display": "South Asian"
+    },
+    {
+      "id": "IGSR-population-type:stu",
+      "type": "Coding",
+      "code": "stu",
+      "system": "http://www.internationalgenome.org/category/population/",
+      "display": "Sri Lankan Tamil from the UK"
+    },
+    {
+      "id": "IGSR-population-type:tsi",
+      "type": "Coding",
+      "code": "tsi",
+      "system": "http://www.internationalgenome.org/category/population/",
+      "display": "Toscani in Italia"
+    },
+    {
+      "id": "IGSR-population-type:yri",
+      "type": "Coding",
+      "code": "yri",
+      "system": "http://www.internationalgenome.org/category/population/",
+      "display": "Yoruba in Ibadan, Nigeria"
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "id": "VS017",
+  "type": "ValueSet",
+  "name": "EvidenceLineStrength",
+  "description": "The set of strengths needed for an evidence line.",
+  "includesCoding": [
+    {
+      "id": "CG-evidence-strength:ba",
+      "type": "Coding",
+      "code": "ba",
+      "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
+      "display": "Benign Stand Alone"
+    },
+    {
+      "id": "CG-evidence-strength:bm",
+      "type": "Coding",
+      "code": "bm",
+      "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
+      "display": "Benign Moderate"
+    },
+    {
+      "id": "CG-evidence-strength:bp",
+      "type": "Coding",
+      "code": "bp",
+      "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
+      "display": "Benign Supporting"
+    },
+    {
+      "id": "CG-evidence-strength:bs",
+      "type": "Coding",
+      "code": "bs",
+      "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
+      "display": "Benign Strong"
+    },
+    {
+      "id": "CG-evidence-strength:na",
+      "type": "Coding",
+      "code": "na",
+      "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
+      "display": "None"
+    },
+    {
+      "id": "CG-evidence-strength:pm",
+      "type": "Coding",
+      "code": "pm",
+      "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
+      "display": "Pathogenic Moderate"
+    },
+    {
+      "id": "CG-evidence-strength:pp",
+      "type": "Coding",
+      "code": "pp",
+      "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
+      "display": "Pathogenic Supporting"
+    },
+    {
+      "id": "CG-evidence-strength:ps",
+      "type": "Coding",
+      "code": "ps",
+      "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
+      "display": "Pathogenic Strong"
+    },
+    {
+      "id": "CG-evidence-strength:pvs",
+      "type": "Coding",
+      "code": "pvs",
+      "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
+      "display": "Pathogenic Very Strong"
+    }
+  ]
+}

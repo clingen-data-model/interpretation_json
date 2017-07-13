@@ -1,0 +1,28 @@
+{
+  "id": "VS015",
+  "type": "ValueSet",
+  "name": "PenetranceType",
+  "includesCoding": [
+    {
+      "id": "CG-penetrance-type:complete",
+      "type": "Coding",
+      "code": "complete",
+      "system": "http://clinicalgenome.org/datamodel/penetrance-type/",
+      "display": "Complete"
+    },
+    {
+      "id": "CG-penetrance-type:high",
+      "type": "Coding",
+      "code": "high",
+      "system": "http://clinicalgenome.org/datamodel/penetrance-type/",
+      "display": "High"
+    },
+    {
+      "id": "HP:0003829",
+      "type": "Coding",
+      "code": "0003829",
+      "system": "http://human-phenotype-ontology.github.io/",
+      "display": "Incomplete"
+    }
+  ]
+}

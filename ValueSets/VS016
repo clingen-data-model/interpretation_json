@@ -1,0 +1,43 @@
+{
+  "id": "VS016",
+  "type": "ValueSet",
+  "name": "ConditionMechanismStrength",
+  "description": "The level of strength for which a class of variants is a known mechanism for a condition",
+  "includesCoding": [
+    {
+      "id": "CG-cond-mech-strength:common",
+      "type": "Coding",
+      "code": "common",
+      "system": "http://clinicalgenome.org/datamodel/condition-mechanism-strength/",
+      "display": "Common"
+    },
+    {
+      "id": "CG-cond-mech-strength:established",
+      "type": "Coding",
+      "code": "established",
+      "system": "http://clinicalgenome.org/datamodel/condition-mechanism-strength/",
+      "display": "Established"
+    },
+    {
+      "id": "CG-cond-mech-strength:primary",
+      "type": "Coding",
+      "code": "primary",
+      "system": "http://clinicalgenome.org/datamodel/condition-mechanism-strength/",
+      "display": "Primary"
+    },
+    {
+      "id": "CG-cond-mech-strength:suggested",
+      "type": "Coding",
+      "code": "suggested",
+      "system": "http://clinicalgenome.org/datamodel/condition-mechanism-strength/",
+      "display": "Suggested"
+    },
+    {
+      "id": "CG-cond-mech-strength:unknown",
+      "type": "Coding",
+      "code": "unknown",
+      "system": "http://clinicalgenome.org/datamodel/condition-mechanism-strength/",
+      "display": "Unknown"
+    }
+  ]
+}

@@ -1,0 +1,175 @@
+{
+  "id": "VS007",
+  "type": "ValueSet",
+  "name": "ModeOfInheritance",
+  "includesCoding": [
+    {
+      "id": "HP:0001423",
+      "type": "Coding",
+      "code": "0001423",
+      "system": "http://human-phenotype-ontology.github.io/",
+      "display": "X-linked dominant inheritance"
+    },
+    {
+      "id": "CG-inheritance-mode:codominant",
+      "type": "Coding",
+      "code": "codominant",
+      "system": "http://clinicalgenome.org/datamodel/inheritance-mode/",
+      "display": "Codominant"
+    },
+    {
+      "id": "CG-inheritance-mode:het-plasmic-mito",
+      "type": "Coding",
+      "code": "het-plasmic-mito",
+      "system": "http://clinicalgenome.org/datamodel/inheritance-mode/",
+      "display": "Heteroplasmic mitochondrial inheritance"
+    },
+    {
+      "id": "CG-inheritance-mode:hom-plasmic-mito",
+      "type": "Coding",
+      "code": "hom-plasmic-mito",
+      "system": "http://clinicalgenome.org/datamodel/inheritance-mode/",
+      "display": "Homoplasmic mitochondrial inheritance"
+    },
+    {
+      "id": "CG-inheritance-mode:other",
+      "type": "Coding",
+      "code": "other",
+      "system": "http://clinicalgenome.org/datamodel/inheritance-mode/",
+      "display": "Other"
+    },
+    {
+      "id": "CG-inheritance-mode:sex-limited-ar",
+      "type": "Coding",
+      "code": "sex-limited-ar",
+      "system": "http://clinicalgenome.org/datamodel/inheritance-mode/",
+      "display": "Sex-limited autosomal recessive"
+    },
+    {
+      "id": "CG-inheritance-mode:unknown",
+      "type": "Coding",
+      "code": "unknown",
+      "system": "http://clinicalgenome.org/datamodel/inheritance-mode/",
+      "display": "Unknown"
+    },
+    {
+      "id": "HP:0000006",
+      "type": "Coding",
+      "code": "0000006",
+      "system": "http://human-phenotype-ontology.github.io/",
+      "display": "Autosomal Dominant"
+    },
+    {
+      "id": "HP:0000007",
+      "type": "Coding",
+      "code": "0000007",
+      "system": "http://human-phenotype-ontology.github.io/",
+      "display": "Autosomal Recessive"
+    },
+    {
+      "id": "HP:0001417",
+      "type": "Coding",
+      "code": "0001417",
+      "system": "http://human-phenotype-ontology.github.io/",
+      "display": "X linked inheritance"
+    },
+    {
+      "id": "HP:0001419",
+      "type": "Coding",
+      "code": "0001419",
+      "system": "http://human-phenotype-ontology.github.io/",
+      "display": "X-linked recessive inheritance"
+    },
+    {
+      "id": "HP:0001419",
+      "type": "Coding",
+      "code": "0001419",
+      "system": "http://human-phenotype-ontology.github.io/",
+      "display": "X-linked recessive inheritance"
+    },
+    {
+      "id": "HP:0001423",
+      "type": "Coding",
+      "code": "0001423",
+      "system": "http://human-phenotype-ontology.github.io/",
+      "display": "X-linked dominant inheritance"
+    },
+    {
+      "id": "HP:0001426",
+      "type": "Coding",
+      "code": "0001426",
+      "system": "http://human-phenotype-ontology.github.io/",
+      "display": "Multifactorial inheritance"
+    },
+    {
+      "id": "HP:0001427",
+      "type": "Coding",
+      "code": "0001427",
+      "system": "http://human-phenotype-ontology.github.io/",
+      "display": "Mitochondrial inheritance"
+    },
+    {
+      "id": "HP:0001428",
+      "type": "Coding",
+      "code": "0001428",
+      "system": "http://human-phenotype-ontology.github.io/",
+      "display": "Somatic mutation"
+    },
+    {
+      "id": "HP:0001450",
+      "type": "Coding",
+      "code": "0001450",
+      "system": "http://human-phenotype-ontology.github.io/",
+      "display": "Y linked inheritance"
+    },
+    {
+      "id": "HP:0001470",
+      "type": "Coding",
+      "code": "0001470",
+      "system": "http://human-phenotype-ontology.github.io/",
+      "display": "Sex-limited autosomal dominant"
+    },
+    {
+      "id": "HP:0003743",
+      "type": "Coding",
+      "code": "0003743",
+      "system": "http://human-phenotype-ontology.github.io/",
+      "display": "genetic anticipation"
+    },
+    {
+      "id": "HP:0003745",
+      "type": "Coding",
+      "code": "0003745",
+      "system": "http://human-phenotype-ontology.github.io/",
+      "display": "Sporadic"
+    },
+    {
+      "id": "HP:0010983",
+      "type": "Coding",
+      "code": "0010983",
+      "system": "http://human-phenotype-ontology.github.io/",
+      "display": "Oligogenic"
+    },
+    {
+      "id": "HP:0012274",
+      "type": "Coding",
+      "code": "0012274",
+      "system": "http://human-phenotype-ontology.github.io/",
+      "display": "Autosomal dominant inheritance with paternal imprinting"
+    },
+    {
+      "id": "HP:0012275",
+      "type": "Coding",
+      "code": "0012275",
+      "system": "http://human-phenotype-ontology.github.io/",
+      "display": "Autosomal dominant inheritance with maternal imprinting"
+    },
+    {
+      "id": "HP:0025352",
+      "type": "Coding",
+      "code": "0025352",
+      "system": "http://human-phenotype-ontology.github.io/",
+      "display": "autosomal dominant germline de novo mutation"
+    }
+  ]
+}
