@@ -2,6 +2,7 @@ from interpretation_generated import *
 from coding_generated import *
 import json
 from coding_factory import the_factory
+import os
 
 #UtilityMethods for wrapping things in Evidence Lines
 def add_criterion_assessment(interpretation, assessment, strength):
@@ -48,7 +49,9 @@ def create_coding(system,display,code):
     return coding
 
 def read_criteria():
-    inf = file('ValueSets/Criterion.json','r')
+    this_dir, this_filename = os.path.split(__file__)
+    crit_path = os.path.join(this_dir, 'ValueSets', 'Criterion.json')
+    inf = file(crit_path,'r')
     jcrit = json.load(inf)
     inf.close()
     criteria = {}

@@ -4,8 +4,11 @@ from functools import wraps
 from coding_generated import Coding, CodeableConcept
 
 class CodingFactory:
-    def __init__(self,vsdir='ValueSets'):
+    def __init__(self,vsdir=''):
         self.vsets = {}
+        if vsdir == '':
+            this_dir, this_filename = os.path.split(__file__)
+            vsdir = os.path.join(this_dir, 'ValueSets')
         files = os.listdir(vsdir)
         for f in files:
             if f.startswith('VS'):
