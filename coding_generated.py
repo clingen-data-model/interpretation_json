@@ -24,16 +24,16 @@ class Coding(Node):
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_CODING_TYPE 
-    def set_display(self,x):
-        self.data[DMWG_CODING_DISPLAY_KEY] = x
-    def get_display(self):
-        return self.data[DMWG_CODING_DISPLAY_KEY]
-    def set_system(self,x):
-        self.data[DMWG_CODING_SYSTEM_KEY] = x
-    def get_system(self):
-        return self.data[DMWG_CODING_SYSTEM_KEY]
     def set_code(self,x):
         self.data[DMWG_CODING_CODE_KEY] = x
     def get_code(self):
         return self.data[DMWG_CODING_CODE_KEY]
+    def set_system(self,x):
+        self.data[DMWG_CODING_SYSTEM_KEY] = x
+    def get_system(self):
+        return self.data[DMWG_CODING_SYSTEM_KEY]
+    def set_display(self,x):
+        self.data[DMWG_CODING_DISPLAY_KEY] = x
+    def get_display(self):
+        return self.data[DMWG_CODING_DISPLAY_KEY]
 
