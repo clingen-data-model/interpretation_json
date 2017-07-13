@@ -1,0 +1,137 @@
+{
+    "id": "http://example.com/interpretation_1",
+    "type": "VariantInterpretation",
+    "variant": {
+        "CanonicalAlleleType": "nucleotide",
+        "complexity": "simple",
+        "id": "http://reg.genome.network/allele/CA010360",
+        "relatedContextualAllele": [
+            {
+                "CanonicalAllele": "http://reg.genome.network/allele/CA010360",
+                "allele": "A",
+                "alleleName": [
+                    {
+                        "name": "NC_000014.9:g.23429279G>A",
+                        "nameType": "hgvs"
+                    },
+                    {
+                        "name": "CM000676.2:g.23429279G>A",
+                        "nameType": "hgvs"
+                    }
+                ],
+                "contextualAlleleType": "genomic",
+                "preferred": true,
+                "referenceCoordinate": {
+                    "end": {
+                        "index": 23429279
+                    },
+                    "refAllele": "G",
+                    "referenceSequence": {
+                        "display": "NC_000014.9",
+                        "reference": "http://reg.genome.network/refseq/RS000062"
+                    },
+                    "start": {
+                        "index": 23429278
+                    }
+                },
+                "type": "ContextualAllele"
+            },
+            {
+                "CanonicalAllele": "http://reg.genome.network/allele/CA010360",
+                "allele": "A",
+                "alleleName": [
+                    {
+                        "name": "NC_000014.7:g.22968328G>A",
+                        "nameType": "hgvs"
+                    }
+                ],
+                "contextualAlleleType": "genomic",
+                "referenceCoordinate": {
+                    "end": {
+                        "index": 22968328
+                    },
+                    "refAllele": "G",
+                    "referenceSequence": {
+                        "display": "NC_000014.7",
+                        "reference": "http://reg.genome.network/refseq/RS000014"
+                    },
+                    "start": {
+                        "index": 22968327
+                    }
+                },
+                "type": "ContextualAllele"
+            },
+            {
+                "CanonicalAllele": "http://reg.genome.network/allele/CA010360",
+                "allele": "A",
+                "alleleName": [
+                    {
+                        "name": "NC_000014.8:g.23898488G>A",
+                        "nameType": "hgvs"
+                    },
+                    {
+                        "name": "CM000676.1:g.23898488G>A",
+                        "nameType": "hgvs"
+                    }
+                ],
+                "contextualAlleleType": "genomic",
+                "referenceCoordinate": {
+                    "end": {
+                        "index": 23898488
+                    },
+                    "refAllele": "G",
+                    "referenceSequence": {
+                        "display": "NC_000014.8",
+                        "reference": "http://reg.genome.network/refseq/RS000038"
+                    },
+                    "start": {
+                        "index": 23898487
+                    }
+                },
+                "type": "ContextualAllele"
+            },
+            {
+                "CanonicalAllele": "http://reg.genome.network/allele/CA010360",
+                "allele": "T",
+                "alleleName": [
+                    {
+                        "name": "NG_007884.1:g.11383C>T",
+                        "nameType": "hgvs"
+                    },
+                    {
+                        "name": "LRG_384:g.11383C>T",
+                        "nameType": "hgvs"
+                    }
+                ],
+                "contextualAlleleType": "genomic",
+                "referenceCoordinate": {
+                    "end": {
+                        "index": 11383
+                    },
+                    "refAllele": "C",
+                    "referenceSequence": {
+                        "display": "",
+                        "reference": "http://reg.genome.network/refseq/RS000691"
+                    },
+                    "start": {
+                        "index": 11382
+                    }
+                },
+                "type": "ContextualAllele"
+            }
+        ],
+        "relatedIdentifier": [
+            {
+                "code": 29141,
+                "system": "http://wwww.ncibi.nlm.nih.gov/clinvar/",
+                "type": "Coding"
+            },
+            {
+                "code": 3218714,
+                "system": "http://www.ncbi.nlm.nih.gov/snp/",
+                "type": "Coding"
+            }
+        ],
+        "type": "CanonicalAllele"
+    }
+}
