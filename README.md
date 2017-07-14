@@ -20,6 +20,8 @@ The fundamental definition of the ClinGen model is a series of JSON files hosted
 A full example of using the library to construct a JSON-LD interpretation is included in examples.py
 The structure of an interpretation is described more fully [here](http://datamodel.clinicalgenome.org/interpretation/master/index.html).
 
+###VariantInterpretation
+
 The root of an interpretation document is a VariantInterpretation, which contains the pathogenicity of a particular variant for a particular disease. A VariantInterpretation requires an identifier; it is up to the user to manage these identifiers.  In this example, we create an intepretation with a fictitious id:
 ```
 def create_example():
@@ -29,6 +31,8 @@ def create_example():
 ```
 
 Now we want to add the necessary attributes to the interpretation.  In particular we want to add an allele, a condition, and a pathogenicity.  Later we will also add the rules and data that were used to derive the interpretation.
+
+###Variants
 
 Alleles in the interpretation model are represented using the ClinGen allele model as described [here](http://datamodel.clinicalgenome.org/allele/master/index.html].   In particular, the allele about which an interpretation is made is a Canonical Allele: a stable identifier for the allele independent of genome reference version.   Given a particular representation, such as an HGVS, we must obtain a canonical allele, and represent it in the correct format.  The best solution for canonicalizing an allele is the [ClinGen Allele Registry](http://reg.genome.network/allele).  At this site, we can look up an allele by one of its HGVS representations, returning a JSON.  This JSON can then be passed to the constructor for a Variant and added to our interpretation.
   
@@ -53,6 +57,8 @@ def create_example():
     interpretation.set_variant(allele)
 ```
 
+###Conditions and Diseases
+
 In the ClinGen interpretation model, variants are associated with conditions. A condition is a flexible structure that can be used to aggregate multiple diseases or phenotypes.  In this example, we will show the most common case: a condition that is a single disease.   Diseases are defined through a combination of an ontology (MONDO, Orphanet), a code (the code for the disease in that ontology), and a human readable name (also from the ontology).
 
 Diseases, along with many other controlled vocabularies, are modeled in ClinGen interpretations using Codings and Codable Concepts, structures that come from the HL7 project [FHIR] (https://www.hl7.org/fhir/).  While these classes provide some nice features, they can be somewhat complicated to work with.  So rather than requiring users of the interpretation model to implement them directly, we provide some utility methods for creating them. One such method is ```create_dmwg_disease```.  Here we use this utility method to create the disease, create the Condition from the disease, and attach the condition to the interpretation:
@@ -74,6 +80,8 @@ def create_example():
     interpretation.add_condition(condition)
 ```
 
+###Significance (Pathogenicity)
+
 We now have an interpretation relating a variant to a condition, and we want to say that this variant was found to be pathogenic.  The pathogenicity is a coding, but you are not required to create your own coding entity.  if you call ```interpretation.set_clinicalSignificance()``` with the id, code, or display value of a valid coding, the library will complete the structure.  The allowed values for the display are "Pathogenic", "Likely Pathogenic", "Uncertain Significance", "Likely Benign", and "Benign".  Here we will use "Pathogenic":
 
 ```
@@ -82,4 +90,21 @@ def create_example():
     interpretation.set_clinicalSignificance('Pathogenic')
 ```
 
-Many elements in the ClinGen interpretation model allow the user to attach information related to the provenance of that element by attaching a Contribution.  A Contribution notes who created the element, when they created it, and their role in creating it.
+###Contributions and Agents
+
+Many elements in the ClinGen interpretation model allow the user to attach information related to the provenance of that element by attaching a Contribution.  A Contribution notes who participated in the creation of the element, when they completed their contribution, and their role in creating it.  The "who" portion of a contribution is an Agent.  An Agent has a user managed ID, as well as a name and description.  Role is defined as a codable concept, meaning that if one of the known codes is passed into the Agent creator, the correct Coding will be found.  If an unknown code is passed in, a free-text style CodableConcept will be created.  In other words, if you want to track a contribution role that we have not created a code for, you may enter that role, and use it without problems.  The pre-existing values of role are 'curator', 'interpreter', and 'assessor', which are represented with the package constants DMWG_CURATOR_ROLE, DMWG_INTERPRETER_ROLE, and DMWG_ASSESSOR_ROLE.   Here, we will create a fictional agent, and a contribution stating that this agent was the interpreter.  The timestamp of a contribution is not interpreted as a datetime by the library, but simply as a string that is passed into the output JSON,  but it is expected that the programmer will use a standard datetime format.
+
+```
+def create_agent():
+    agent_id = 'http://examples.com/agent1'
+    agent = Agent(agent_id)
+    agent.set_name('Gregor Mendel')
+    return agent
+
+def create_example():
+    agent = create_agent()
+    when = '2017-01-24T16:16:59.073653+00:00'
+    contribution = create_contribution(agent, when, DMWG_INTERPRETER_ROLE)
+    interpretation.add_contribution(contribution)
+```
+

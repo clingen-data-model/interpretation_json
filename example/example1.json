@@ -25,6 +25,29 @@
             "type": "MendelianCondition"
         }
     ],
+    "contribution": [
+        {
+            "agent": {
+                "id": "http://examples.com/agent1",
+                "name": "Gregor Mendel",
+                "type": "Agent"
+            },
+            "onDate": "2017-01-24T16:16:59.073653+00:00",
+            "role": {
+                "coding": [
+                    {
+                        "code": "interpreter",
+                        "display": "interpreter",
+                        "id": "http://clinicalgenome.org/datamodel/contributory-role/interpreter",
+                        "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+                        "type": "Coding"
+                    }
+                ],
+                "type": "CodeableConcept"
+            },
+            "type": "Contribution"
+        }
+    ],
     "id": "http://example.com/interpretation_1",
     "type": "VariantInterpretation",
     "variant": {

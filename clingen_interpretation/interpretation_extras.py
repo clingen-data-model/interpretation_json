@@ -25,10 +25,6 @@ def create_contribution(agent, ondate, role):
     contribution = Contribution()
     contribution.set_agent(agent)
     contribution.set_onDate(ondate)
-    #roleconcept = CodeableConcept()
-    # Populate from somewhere?
-    #coding = create_coding('http://clinicalgenome.org/datamodel/contributory-role',role,role)
-    #roleconcept.add_coding(coding)
     contribution.set_role(role)
     return contribution
 
