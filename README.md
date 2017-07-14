@@ -23,7 +23,7 @@ The structure of an interpretation is described more fully [here](http://datamod
 ### VariantInterpretation
 
 
-The root of an interpretation document is a VariantInterpretation, which contains the pathogenicity of a particular variant for a particular disease. A VariantInterpretation requires an identifier; it is up to the user to manage these identifiers.  In this example, we create an intepretation with a fictitious id:
+The root of an interpretation document is a VariantInterpretation, which contains the pathogenicity of a particular variant for a particular disease. A VariantInterpretation requires an identifier; it is up to the user to manage these identifiers.  In this example, we create an interpretation with a fictitious id:
 ```
 def create_example():
     #Create the root interpretation
@@ -45,7 +45,7 @@ def create_allele():
     url = 'http://reg.genome.network/allele?hgvs='
     # convert symbol > to special code %3E
     url += requests.utils.quote(hgvs)
-    #retreive the ClinGen
+    #retrieve the ClinGen
     res = requests.get(url)
     txt = res.text
     cardata = json.loads(txt)
@@ -62,7 +62,7 @@ def create_example():
 
 In the ClinGen interpretation model, variants are associated with conditions. A condition is a flexible structure that can be used to aggregate multiple diseases or phenotypes.  In this example, we will show the most common case: a condition that is a single disease.   Diseases are defined through a combination of an ontology (MONDO, Orphanet), a code (the code for the disease in that ontology), and a human readable name (also from the ontology).
 
-Diseases, along with many other controlled vocabularies, are modeled in ClinGen interpretations using Codings and Codable Concepts, structures that come from the HL7 project [FHIR](https://www.hl7.org/fhir/).  While these classes provide some nice features, they can be somewhat complicated to work with.  So rather than requiring users of the interpretation model to implement them directly, we provide some utility methods for creating them. One such method is ```create_dmwg_disease```.  Here we use this utility method to create the disease, create the Condition from the disease, and attach the condition to the interpretation:
+Diseases, along with many other controlled vocabularies, are modeled in ClinGen interpretations using Codings and Codeable Concepts, structures that come from the HL7 project [FHIR](https://www.hl7.org/fhir/).  While these classes provide some nice features, they can be somewhat complicated to work with.  So rather than requiring users of the interpretation model to implement them directly, we provide some utility methods for creating them. One such method is ```create_dmwg_disease```.  Here we use this utility method to create the disease, create the Condition from the disease, and attach the condition to the interpretation:
 
 
 ```
@@ -93,7 +93,7 @@ def create_example():
 
 ### Contributions and Agents
 
-Many elements in the ClinGen interpretation model allow the user to attach information related to the provenance of that element by attaching a Contribution.  A Contribution notes who participated in the creation of the element, when they completed their contribution, and their role in creating it.  The "who" portion of a contribution is an Agent.  An Agent has a user managed ID, as well as a name and description.  Role is defined as a codable concept, meaning that if one of the known codes is passed into the Agent creator, the correct Coding will be found.  If an unknown code is passed in, a free-text style CodableConcept will be created.  In other words, if you want to track a contribution role that we have not created a code for, you may enter that role, and use it without problems.  The pre-existing values of role are 'curator', 'interpreter', and 'assessor', which are represented with the package constants DMWG_CURATOR_ROLE, DMWG_INTERPRETER_ROLE, and DMWG_ASSESSOR_ROLE.   Here, we will create a fictional agent, and a contribution stating that this agent was the interpreter.  Current, the timestamp of a contribution is not interpreted as a datetime by the library, but simply as a string that is passed into the output JSON.   It is expected, however, that the programmer will use a standard datetime format.
+Many elements in the ClinGen interpretation model allow the user to attach information related to the provenance of that element by attaching a Contribution.  A Contribution notes who participated in the creation of the element, when they completed their contribution, and their role in creating it.  The "who" portion of a contribution is an Agent.  An Agent has a user managed ID, as well as a name and description.  Role is defined as a codeable concept, meaning that if one of the known codes is passed into the Agent creator, the correct Coding will be found.  If an unknown code is passed in, a free-text style CodeableConcept will be created.  In other words, if you want to track a contribution role that we have not created a code for, you may enter that role, and use it without problems.  The pre-existing values of role are 'curator', 'interpreter', and 'assessor', which are represented with the package constants DMWG_CURATOR_ROLE, DMWG_INTERPRETER_ROLE, and DMWG_ASSESSOR_ROLE.   Here, we will create a fictional agent, and a contribution stating that this agent was the interpreter.  Current, the timestamp of a contribution is not interpreted as a datetime by the library, but simply as a string that is passed into the output JSON.   It is expected, however, that the programmer will use a standard datetime format.
 
 ```
 def create_agent():
@@ -113,9 +113,9 @@ def create_example():
 
 At this point, we have a fully specified interpretation.  We have the root node (the VariantInterpretation), which is now stating that a given allele is pathogenic for a given disease.  Further, we know who made that determination and when.  However, we do not yet know the reasoning or data that led the Agent to this interpretation.  This extra information can be provided in assessments.
 
-In the AMCG Guidelines for the interpretation of potentially pathogenic variants, interpretations are based on a series of criteria, which are individually evaluated using various types of data.   These criteria, which are designated by codes such as "PVS1" or "PP3" can be "met" indicating that the avalable data meets the criteria, providing evidence about the pathogenicity of the variant.  In a real interpretation, many of these criteria may be assessed and attached to the interpretation, but in this case, we will show only a single example.
+In the AMCG Guidelines for the interpretation of potentially pathogenic variants, interpretations are based on a series of criteria, which are individually evaluated using various types of data.   These criteria, which are designated by codes such as "PVS1" or "PP3" can be "met" indicating that the available data meets the criteria, providing evidence about the pathogenicity of the variant.  In a real interpretation, many of these criteria may be assessed and attached to the interpretation, but in this case, we will show only a single example.
 
-An assessment has a user-managed ID. Preferably, this would be an IRI that would dereference to a representation of the asssessment, though this is not required.  The assessment also contains the criteria that was assessed, and the outcome of the assessment, as well as other information, such as the allele being assessed, and a text description of the assessment.
+An assessment has a user-managed ID. Preferably, this would be an IRI that would dereference to a representation of the assessment, though this is not required.  The assessment also contains the criteria that was assessed, and the outcome of the assessment, as well as other information, such as the allele being assessed, and a text description of the assessment.
 
 The list of ACMG criteria is available using the ```get_criteria()``` method, which returns a dictionary mapping from the criteria code to the particular criteria structure.   Outcomes are codings, and so can be specified just by their code or display value.  In the example below we encode an assessment of the given variant for PM2 and found that it is met, providing evidence for calling the variant pathogenic.
 
