@@ -18,15 +18,29 @@ def create_allele():
     allele = Variant(cardata)
     return allele
 
+def create_condition():
+    ontology = 'http://www.disease-ontology.org/term/'  
+    code = 'DOID_11984'
+    name = 'hypertrophic cardiomyopathy'
+    disease = create_dmwg_disease(ontology, code, name)
+    condition = MendelianCondition()
+    condition.add_disease(disease)
+    return condition
 
 def create_example():
     #Create the root interpretation
     interpretation_id = 'http://example.com/interpretation_1'
+    #Create and add the allele(variant)
     interpretation = VariantInterpretation(interpretation_id)
     allele = create_allele()
     interpretation.set_variant(allele)
+    #Create and add the condition (disease)
+    condition = create_condition()
+    interpretation.add_condition(condition)
+    #Call the variant pathogenic for this disease
+    interpretation.set_clinicalSignificance( 'Pathogenic' )
 
-    #Write interpretation to file
+    #Write interpretation JSON to file
     outf = file('example1.json','w')
     json.dump(interpretation, outf, sort_keys = True, indent=4, \
             separators=(',',': '), cls = InterpretationEncoder,\

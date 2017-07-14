@@ -1,4 +1,30 @@
 {
+    "clinicalSignificance": {
+        "code": "LA6668-3",
+        "display": "Pathogenic",
+        "id": "http://loinc.org/LA6668-3",
+        "system": "http://loinc.org/",
+        "type": "Coding"
+    },
+    "condition": [
+        {
+            "disease": [
+                {
+                    "coding": [
+                        {
+                            "code": "DOID_11984",
+                            "display": "hypertrophic cardiomyopathy",
+                            "id": "http://www.disease-ontology.org/term/DOID_11984",
+                            "system": "http://www.disease-ontology.org/term/",
+                            "type": "Coding"
+                        }
+                    ],
+                    "type": "CodeableConcept"
+                }
+            ],
+            "type": "MendelianCondition"
+        }
+    ],
     "id": "http://example.com/interpretation_1",
     "type": "VariantInterpretation",
     "variant": {
