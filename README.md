@@ -35,7 +35,7 @@ Now we want to add the necessary attributes to the interpretation.  In particula
 
 ### Variants
 
-Alleles in the interpretation model are represented using the ClinGen allele model as described [here](http://datamodel.clinicalgenome.org/allele/master/index.html].   In particular, the allele about which an interpretation is made is a Canonical Allele: a stable identifier for the allele independent of genome reference version.   Given a particular representation, such as an HGVS, we must obtain a canonical allele, and represent it in the correct format.  The best solution for canonicalizing an allele is the [ClinGen Allele Registry](http://reg.genome.network/allele).  At this site, we can look up an allele by one of its HGVS representations, returning a JSON.  This JSON can then be passed to the constructor for a Variant and added to our interpretation.
+Alleles in the interpretation model are represented using the ClinGen allele model as described [here](http://datamodel.clinicalgenome.org/allele/master/index.html).   In particular, the allele about which an interpretation is made is a Canonical Allele: a stable identifier for the allele independent of genome reference version.   Given a particular representation, such as an HGVS, we must obtain a canonical allele, and represent it in the correct format.  The best solution for canonicalizing an allele is the [ClinGen Allele Registry](http://reg.genome.network/allele).  At this site, we can look up an allele by one of its HGVS representations, returning a JSON.  This JSON can then be passed to the constructor for a Variant and added to our interpretation.
   
 ```
 def create_allele():
@@ -62,7 +62,7 @@ def create_example():
 
 In the ClinGen interpretation model, variants are associated with conditions. A condition is a flexible structure that can be used to aggregate multiple diseases or phenotypes.  In this example, we will show the most common case: a condition that is a single disease.   Diseases are defined through a combination of an ontology (MONDO, Orphanet), a code (the code for the disease in that ontology), and a human readable name (also from the ontology).
 
-Diseases, along with many other controlled vocabularies, are modeled in ClinGen interpretations using Codings and Codable Concepts, structures that come from the HL7 project [FHIR] (https://www.hl7.org/fhir/).  While these classes provide some nice features, they can be somewhat complicated to work with.  So rather than requiring users of the interpretation model to implement them directly, we provide some utility methods for creating them. One such method is ```create_dmwg_disease```.  Here we use this utility method to create the disease, create the Condition from the disease, and attach the condition to the interpretation:
+Diseases, along with many other controlled vocabularies, are modeled in ClinGen interpretations using Codings and Codable Concepts, structures that come from the HL7 project [FHIR](https://www.hl7.org/fhir/).  While these classes provide some nice features, they can be somewhat complicated to work with.  So rather than requiring users of the interpretation model to implement them directly, we provide some utility methods for creating them. One such method is ```create_dmwg_disease```.  Here we use this utility method to create the disease, create the Condition from the disease, and attach the condition to the interpretation:
 
 
 ```
