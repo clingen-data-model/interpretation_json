@@ -220,8 +220,9 @@
                                         ],
                                         "relatedIdentifier": [
                                             {
-                                                "code": 29141,
-                                                "system": "http://wwww.ncibi.nlm.nih.gov/clinvar/",
+                                                "code": 14102,
+                                                "display": "NM_000257.3(MYH7):c.1207C>T (p.Arg403Trp)",
+                                                "system": "http://www.ncbi.nlm.nih.gov/clinvar/variation/",
                                                 "type": "Coding"
                                             },
                                             {

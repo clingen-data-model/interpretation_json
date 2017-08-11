@@ -17,25 +17,32 @@ class Variant(Node):
         self.data['complexity'] = 'simple'  
         if 'externalRecords' in ar_rep:
             er = ar_rep['externalRecords']
-            if 'ClinVarAlleles' in er:
-                for cva in er['ClinVarAlleles']:
-                    self.add_external_identifier('ClinVar', cva['alleleId'])
+            if 'ClinVarVariations' in er:
+                label = None
+                if (len(er['ClinVarVariations']) == 1) and \
+                    ('ClinVarAlleles' in er) and \
+                    ( len(er['ClinVarAlleles']) == 1) :
+                    label=er['ClinVarAlleles'][0]['preferredName']
+                for cva in er['ClinVarVariations']:
+                    self.add_external_identifier('ClinVar', cva['variationId'], label)
             if 'dbSNP' in er:
                 for rsid in er['dbSNP']:
                     self.add_external_identifier('dbSNP', rsid['rs'])
         self.data['relatedContextualAllele'] = []
         for ca in ar_rep['genomicAlleles']:
             self.data['relatedContextualAllele'].append( ContextualAllele( ca, ar_rep[ALLELE_REGISTRY_ID_KEY], 'genomic') )
-    def add_external_identifier(self,source,value):
+    def add_external_identifier(self,source,value,display=None):
         if 'relatedIdentifier' not in self.data:
             self.data['relatedIdentifier'] = []
         if source == 'ClinVar':
-            system = 'http://wwww.ncibi.nlm.nih.gov/clinvar/'
+            system = 'http://www.ncbi.nlm.nih.gov/clinvar/variation/'
         elif source == 'dbSNP':
             system = 'http://www.ncbi.nlm.nih.gov/snp/'
         coding = Coding()
         coding.set_system(system)
         coding.set_code(value)
+        if display is not None:
+            coding.set_display(display)
         self.data['relatedIdentifier'].append(coding)
     def get_allele(self,ref_genome):
         for cxa in self.data['relatedContextualAllele']:
