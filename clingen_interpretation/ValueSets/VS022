@@ -5,32 +5,39 @@
   "description": "TODO",
   "includesCoding": [
     {
-      "id": "CG-allele-inheritance:denovo",
+      "id": "GENO-allele-inheritance-type:0000880",
       "type": "Coding",
-      "code": "denovo",
-      "system": "http://clinicalgenome.org/datamodel/allele-inheritance/",
+      "code": "0000880",
+      "system": "http://obofoundry.org/geno/",
       "display": "de novo"
     },
     {
-      "id": "CG-allele-inheritance:maternal",
+      "id": "GENO-allele-inheritance-type:0000878",
       "type": "Coding",
-      "code": "maternal",
-      "system": "http://clinicalgenome.org/datamodel/allele-inheritance/",
+      "code": "0000878",
+      "system": "http://obofoundry.org/geno/",
       "display": "maternally inherited"
     },
     {
-      "id": "CG-allele-inheritance:paternal",
+      "id": "GENO-allele-inheritance-type:0000879",
       "type": "Coding",
-      "code": "paternal",
-      "system": "http://clinicalgenome.org/datamodel/allele-inheritance/",
+      "code": "0000879",
+      "system": "http://obofoundry.org/geno/",
       "display": "paternally inherited"
     },
     {
-      "id": "CG-allele-inheritance:unknown",
+      "id": "GENO-allele-inheritance-type:0000881",
       "type": "Coding",
-      "code": "unknown",
-      "system": "http://clinicalgenome.org/datamodel/allele-inheritance/",
+      "code": "0000881",
+      "system": "http://obofoundry.org/geno/",
       "display": "Unknown"
+    },
+    {
+      "id": "GENO-allele-inheritance-type:0000888",
+      "type": "Coding",
+      "code": "0000888",
+      "system": "http://obofoundry.org/geno/",
+      "display": "parentally inherited"
     }
   ]
 }

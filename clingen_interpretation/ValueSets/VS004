@@ -1,27 +1,27 @@
 {
   "id": "VS004",
   "type": "ValueSet",
-  "name": "RegionAnnotationType",
+  "name": "RegionType",
   "includesCoding": [
     {
-      "id": "CG-reg-anno-type:functional",
+      "id": "CG-reg-type:functional",
       "type": "Coding",
       "code": "functional",
-      "system": "http://clinicalgenome.org/datamodel/region-annotation-type/",
+      "system": "http://clinicalgenome.org/datamodel/region-type/",
       "display": "Functional"
     },
     {
-      "id": "CG-reg-anno-type:hotspot",
+      "id": "CG-reg-type:hotspot",
       "type": "Coding",
       "code": "hotspot",
-      "system": "http://clinicalgenome.org/datamodel/region-annotation-type/",
+      "system": "http://clinicalgenome.org/datamodel/region-type/",
       "display": "Mutational Hotspot"
     },
     {
-      "id": "CG-reg-anno-type:repeat",
+      "id": "CG-reg-type:repeat",
       "type": "Coding",
       "code": "repeat",
-      "system": "http://clinicalgenome.org/datamodel/region-annotation-type/",
+      "system": "http://clinicalgenome.org/datamodel/region-type/",
       "display": "Repeat"
     }
   ]

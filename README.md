@@ -71,7 +71,7 @@ def create_condition():
     code = 'DOID_11984'
     name = 'hypertrophic cardiomyopathy'
     disease = create_dmwg_disease(ontology, code, name)
-    condition = MendelianCondition()
+    condition = GeneticCondition()
     condition.add_disease(disease)
     return condition
 
@@ -174,7 +174,7 @@ def create_frequency_data(allele,agent):
 def create_example():
     ...
     frequency = create_frequency_data(allele,create_computational_agent())
-    add_informations( assessment, [frequency] )
+    add_evidenceItems( assessment, [frequency] )
 ```
 
 ### Serialization

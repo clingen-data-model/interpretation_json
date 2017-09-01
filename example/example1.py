@@ -23,7 +23,7 @@ def create_condition():
     code = 'DOID_11984'
     name = 'hypertrophic cardiomyopathy'
     disease = create_dmwg_disease(ontology, code, name)
-    condition = MendelianCondition()
+    condition = GeneticCondition()
     condition.add_disease(disease)
     return condition
 
@@ -93,7 +93,7 @@ def create_example():
     add_criterion_assessment(interpretation,assessment,strength)
     #Create evidence
     frequency = create_frequency_data(allele,create_computational_agent())
-    add_informations( assessment, [frequency] )
+    add_evidenceItems( assessment, [frequency] )
 
     #Write interpretation JSON to file
     outf = file('example1.json','w')

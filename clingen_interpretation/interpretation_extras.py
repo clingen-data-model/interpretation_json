@@ -7,15 +7,15 @@ import os
 #UtilityMethods for wrapping things in Evidence Lines
 def add_criterion_assessment(interpretation, assessment, strength):
     evidence_line = EvidenceLine()
-    evidence_line.add_information( assessment )
+    evidence_line.add_evidenceItem( assessment )
     evidence_line.set_evidenceStrength( strength )
-    interpretation.add_evidence( evidence_line )
+    interpretation.add_evidenceLine( evidence_line )
 
-def add_informations( assessment, information_list):
-    for information in information_list:
+def add_evidenceItems( assessment, evidenceItems):
+    for item in evidenceItems:
         evidence_line = EvidenceLine()
-        evidence_line.add_information( information )
-        assessment.add_evidence( evidence_line )
+        evidence_line.add_evidenceItem( item )
+        assessment.add_evidenceLine( evidence_line )
 
 DMWG_CURATOR_ROLE = 'curator'
 DMWG_INTERPRETER_ROLE = 'interpreter'
@@ -71,10 +71,17 @@ class InterpretationEncoder(json.JSONEncoder):
             del kwargs['out_style']
         else:
             self.ostyle='first'
+        if 'context' in kwargs:
+            self.context = kwargs['context']
+        else:
+            self.context = 'http://datamodel.clinicalgenome.org/interpretation/json/context'
         super(InterpretationEncoder, self).__init__(*args, **kwargs)
         self.written_nodes = set()
     def default(self,obj):
         if isinstance(obj,Node):
+            #is this right?  Probably should do it by depth?
+            if isinstance(obj,VariantInterpretation):
+                obj.data['context'] = self.context
             if self.ostyle == 'full':
                 return obj.data
             if obj not in self.written_nodes:

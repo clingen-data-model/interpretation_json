@@ -156,12 +156,12 @@ class EvidenceLine(Node):
         self.data[DMWG_EVIDENCELINE_EVIDENCESTRENGTH_KEY] = x
     def get_evidenceStrength(self):
         return self.data[DMWG_EVIDENCELINE_EVIDENCESTRENGTH_KEY]
-    def add_information(self,x):
-        if not DMWG_EVIDENCELINE_INFORMATION_KEY in self.data:
-            self.data[DMWG_EVIDENCELINE_INFORMATION_KEY] = []
-        self.data[DMWG_EVIDENCELINE_INFORMATION_KEY].append( x ) 
-    def get_information(self):
-        return self.data[DMWG_EVIDENCELINE_INFORMATION_KEY]
+    def add_evidenceItem(self,x):
+        if not DMWG_EVIDENCELINE_EVIDENCEITEM_KEY in self.data:
+            self.data[DMWG_EVIDENCELINE_EVIDENCEITEM_KEY] = []
+        self.data[DMWG_EVIDENCELINE_EVIDENCEITEM_KEY].append( x ) 
+    def get_evidenceItem(self):
+        return self.data[DMWG_EVIDENCELINE_EVIDENCEITEM_KEY]
     def add_contribution(self,x):
         if not DMWG_EVIDENCELINE_CONTRIBUTION_KEY in self.data:
             self.data[DMWG_EVIDENCELINE_CONTRIBUTION_KEY] = []
@@ -255,81 +255,81 @@ class CanonicalAllele(Node):
     def get_identifier(self):
         return self.data[DMWG_CANONICALALLELE_IDENTIFIER_KEY]
 
-class Information(Node):
+class Statement(Node):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_INFORMATION_TYPE 
+        self.data[DMWG_TYPE_KEY] = DMWG_STATEMENT_TYPE 
     def add_source(self,x):
-        if not DMWG_INFORMATION_SOURCE_KEY in self.data:
-            self.data[DMWG_INFORMATION_SOURCE_KEY] = []
-        self.data[DMWG_INFORMATION_SOURCE_KEY].append( x ) 
+        if not DMWG_STATEMENT_SOURCE_KEY in self.data:
+            self.data[DMWG_STATEMENT_SOURCE_KEY] = []
+        self.data[DMWG_STATEMENT_SOURCE_KEY].append( x ) 
     def get_source(self):
-        return self.data[DMWG_INFORMATION_SOURCE_KEY]
+        return self.data[DMWG_STATEMENT_SOURCE_KEY]
     def set_explanation(self,x):
-        self.data[DMWG_INFORMATION_EXPLANATION_KEY] = x
+        self.data[DMWG_STATEMENT_EXPLANATION_KEY] = x
     def get_explanation(self):
-        return self.data[DMWG_INFORMATION_EXPLANATION_KEY]
+        return self.data[DMWG_STATEMENT_EXPLANATION_KEY]
     def add_contribution(self,x):
-        if not DMWG_INFORMATION_CONTRIBUTION_KEY in self.data:
-            self.data[DMWG_INFORMATION_CONTRIBUTION_KEY] = []
-        self.data[DMWG_INFORMATION_CONTRIBUTION_KEY].append( x ) 
+        if not DMWG_STATEMENT_CONTRIBUTION_KEY in self.data:
+            self.data[DMWG_STATEMENT_CONTRIBUTION_KEY] = []
+        self.data[DMWG_STATEMENT_CONTRIBUTION_KEY].append( x ) 
     def get_contribution(self):
-        return self.data[DMWG_INFORMATION_CONTRIBUTION_KEY]
+        return self.data[DMWG_STATEMENT_CONTRIBUTION_KEY]
 
-class DeNovoAllele(Information):
+class IndividualAlleleInheritance(Statement):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_DENOVOALLELE_TYPE 
+        self.data[DMWG_TYPE_KEY] = DMWG_INDIVIDUALALLELEINHERITANCE_TYPE 
     @get_factory_coding('VS022')
     def add_alleleInheritance(self,x):
-        if not DMWG_DENOVOALLELE_ALLELEINHERITANCE_KEY in self.data:
-            self.data[DMWG_DENOVOALLELE_ALLELEINHERITANCE_KEY] = []
-        self.data[DMWG_DENOVOALLELE_ALLELEINHERITANCE_KEY].append( x ) 
+        if not DMWG_INDIVIDUALALLELEINHERITANCE_ALLELEINHERITANCE_KEY in self.data:
+            self.data[DMWG_INDIVIDUALALLELEINHERITANCE_ALLELEINHERITANCE_KEY] = []
+        self.data[DMWG_INDIVIDUALALLELEINHERITANCE_ALLELEINHERITANCE_KEY].append( x ) 
     def get_alleleInheritance(self):
-        return self.data[DMWG_DENOVOALLELE_ALLELEINHERITANCE_KEY]
+        return self.data[DMWG_INDIVIDUALALLELEINHERITANCE_ALLELEINHERITANCE_KEY]
     def set_canonicalAllele(self,x):
-        self.data[DMWG_DENOVOALLELE_CANONICALALLELE_KEY] = x
+        self.data[DMWG_INDIVIDUALALLELEINHERITANCE_CANONICALALLELE_KEY] = x
     def get_canonicalAllele(self):
-        return self.data[DMWG_DENOVOALLELE_CANONICALALLELE_KEY]
+        return self.data[DMWG_INDIVIDUALALLELEINHERITANCE_CANONICALALLELE_KEY]
     def set_individual(self,x):
-        self.data[DMWG_DENOVOALLELE_INDIVIDUAL_KEY] = x
+        self.data[DMWG_INDIVIDUALALLELEINHERITANCE_INDIVIDUAL_KEY] = x
     def get_individual(self):
-        return self.data[DMWG_DENOVOALLELE_INDIVIDUAL_KEY]
+        return self.data[DMWG_INDIVIDUALALLELEINHERITANCE_INDIVIDUAL_KEY]
     def set_maternityConfirmed(self,x):
-        self.data[DMWG_DENOVOALLELE_MATERNITYCONFIRMED_KEY] = x
+        self.data[DMWG_INDIVIDUALALLELEINHERITANCE_MATERNITYCONFIRMED_KEY] = x
     def get_maternityConfirmed(self):
-        return self.data[DMWG_DENOVOALLELE_MATERNITYCONFIRMED_KEY]
+        return self.data[DMWG_INDIVIDUALALLELEINHERITANCE_MATERNITYCONFIRMED_KEY]
     def set_paternityConfirmed(self,x):
-        self.data[DMWG_DENOVOALLELE_PATERNITYCONFIRMED_KEY] = x
+        self.data[DMWG_INDIVIDUALALLELEINHERITANCE_PATERNITYCONFIRMED_KEY] = x
     def get_paternityConfirmed(self):
-        return self.data[DMWG_DENOVOALLELE_PATERNITYCONFIRMED_KEY]
+        return self.data[DMWG_INDIVIDUALALLELEINHERITANCE_PATERNITYCONFIRMED_KEY]
 
-class FamilyHistory(Information):
+class FamilyCondition(Statement):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_FAMILYHISTORY_TYPE 
+        self.data[DMWG_TYPE_KEY] = DMWG_FAMILYCONDITION_TYPE 
     def set_proband(self,x):
-        self.data[DMWG_FAMILYHISTORY_PROBAND_KEY] = x
+        self.data[DMWG_FAMILYCONDITION_PROBAND_KEY] = x
     def get_proband(self):
-        return self.data[DMWG_FAMILYHISTORY_PROBAND_KEY]
+        return self.data[DMWG_FAMILYCONDITION_PROBAND_KEY]
     def add_condition(self,x):
-        if not DMWG_FAMILYHISTORY_CONDITION_KEY in self.data:
-            self.data[DMWG_FAMILYHISTORY_CONDITION_KEY] = []
-        self.data[DMWG_FAMILYHISTORY_CONDITION_KEY].append( x ) 
+        if not DMWG_FAMILYCONDITION_CONDITION_KEY in self.data:
+            self.data[DMWG_FAMILYCONDITION_CONDITION_KEY] = []
+        self.data[DMWG_FAMILYCONDITION_CONDITION_KEY].append( x ) 
     def get_condition(self):
-        return self.data[DMWG_FAMILYHISTORY_CONDITION_KEY]
+        return self.data[DMWG_FAMILYCONDITION_CONDITION_KEY]
     def set_familyHasCondition(self,x):
-        self.data[DMWG_FAMILYHISTORY_FAMILYHASCONDITION_KEY] = x
+        self.data[DMWG_FAMILYCONDITION_FAMILYHASCONDITION_KEY] = x
     def get_familyHasCondition(self):
-        return self.data[DMWG_FAMILYHISTORY_FAMILYHASCONDITION_KEY]
+        return self.data[DMWG_FAMILYCONDITION_FAMILYHASCONDITION_KEY]
 
-class VariantInterpretation(Information):
+class VariantInterpretation(Statement):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
@@ -354,14 +354,14 @@ class VariantInterpretation(Information):
         self.data[DMWG_VARIANTINTERPRETATION_ASSERTIONMETHOD_KEY] = x
     def get_assertionMethod(self):
         return self.data[DMWG_VARIANTINTERPRETATION_ASSERTIONMETHOD_KEY]
-    def add_evidence(self,x):
-        if not DMWG_VARIANTINTERPRETATION_EVIDENCE_KEY in self.data:
-            self.data[DMWG_VARIANTINTERPRETATION_EVIDENCE_KEY] = []
-        self.data[DMWG_VARIANTINTERPRETATION_EVIDENCE_KEY].append( x ) 
-    def get_evidence(self):
-        return self.data[DMWG_VARIANTINTERPRETATION_EVIDENCE_KEY]
+    def add_evidenceLine(self,x):
+        if not DMWG_VARIANTINTERPRETATION_EVIDENCELINE_KEY in self.data:
+            self.data[DMWG_VARIANTINTERPRETATION_EVIDENCELINE_KEY] = []
+        self.data[DMWG_VARIANTINTERPRETATION_EVIDENCELINE_KEY].append( x ) 
+    def get_evidenceLine(self):
+        return self.data[DMWG_VARIANTINTERPRETATION_EVIDENCELINE_KEY]
 
-class BenignMissenseVariationRate(Information):
+class BenignMissenseVariationRate(Statement):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
@@ -381,41 +381,41 @@ class BenignMissenseVariationRate(Information):
     def get_value(self):
         return self.data[DMWG_BENIGNMISSENSEVARIATIONRATE_VALUE_KEY]
 
-class MendelianCondition(Information):
+class GeneticCondition(Statement):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_MENDELIANCONDITION_TYPE 
+        self.data[DMWG_TYPE_KEY] = DMWG_GENETICCONDITION_TYPE 
     def set_name(self,x):
-        self.data[DMWG_MENDELIANCONDITION_NAME_KEY] = x
+        self.data[DMWG_GENETICCONDITION_NAME_KEY] = x
     def get_name(self):
-        return self.data[DMWG_MENDELIANCONDITION_NAME_KEY]
+        return self.data[DMWG_GENETICCONDITION_NAME_KEY]
     @get_factory_concept('VS018')
     def add_disease(self,x):
-        if not DMWG_MENDELIANCONDITION_DISEASE_KEY in self.data:
-            self.data[DMWG_MENDELIANCONDITION_DISEASE_KEY] = []
-        self.data[DMWG_MENDELIANCONDITION_DISEASE_KEY].append( x ) 
+        if not DMWG_GENETICCONDITION_DISEASE_KEY in self.data:
+            self.data[DMWG_GENETICCONDITION_DISEASE_KEY] = []
+        self.data[DMWG_GENETICCONDITION_DISEASE_KEY].append( x ) 
     def get_disease(self):
-        return self.data[DMWG_MENDELIANCONDITION_DISEASE_KEY]
+        return self.data[DMWG_GENETICCONDITION_DISEASE_KEY]
     @get_factory_concept('VS019')
     def add_phenotype(self,x):
-        if not DMWG_MENDELIANCONDITION_PHENOTYPE_KEY in self.data:
-            self.data[DMWG_MENDELIANCONDITION_PHENOTYPE_KEY] = []
-        self.data[DMWG_MENDELIANCONDITION_PHENOTYPE_KEY].append( x ) 
+        if not DMWG_GENETICCONDITION_PHENOTYPE_KEY in self.data:
+            self.data[DMWG_GENETICCONDITION_PHENOTYPE_KEY] = []
+        self.data[DMWG_GENETICCONDITION_PHENOTYPE_KEY].append( x ) 
     def get_phenotype(self):
-        return self.data[DMWG_MENDELIANCONDITION_PHENOTYPE_KEY]
+        return self.data[DMWG_GENETICCONDITION_PHENOTYPE_KEY]
     @get_factory_coding('VS007')
     def set_modeOfInheritance(self,x):
-        self.data[DMWG_MENDELIANCONDITION_MODEOFINHERITANCE_KEY] = x
+        self.data[DMWG_GENETICCONDITION_MODEOFINHERITANCE_KEY] = x
     def get_modeOfInheritance(self):
-        return self.data[DMWG_MENDELIANCONDITION_MODEOFINHERITANCE_KEY]
+        return self.data[DMWG_GENETICCONDITION_MODEOFINHERITANCE_KEY]
     def set_gene(self,x):
-        self.data[DMWG_MENDELIANCONDITION_GENE_KEY] = x
+        self.data[DMWG_GENETICCONDITION_GENE_KEY] = x
     def get_gene(self):
-        return self.data[DMWG_MENDELIANCONDITION_GENE_KEY]
+        return self.data[DMWG_GENETICCONDITION_GENE_KEY]
 
-class IndividualCondition(Information):
+class IndividualCondition(Statement):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
@@ -436,88 +436,88 @@ class IndividualCondition(Information):
     def get_hasCondition(self):
         return self.data[DMWG_INDIVIDUALCONDITION_HASCONDITION_KEY]
 
-class AggregateSegregationData(Information):
+class AggregateSegregation(Statement):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_AGGREGATESEGREGATIONDATA_TYPE 
+        self.data[DMWG_TYPE_KEY] = DMWG_AGGREGATESEGREGATION_TYPE 
     def set_canonicalAllele(self,x):
-        self.data[DMWG_AGGREGATESEGREGATIONDATA_CANONICALALLELE_KEY] = x
+        self.data[DMWG_AGGREGATESEGREGATION_CANONICALALLELE_KEY] = x
     def get_canonicalAllele(self):
-        return self.data[DMWG_AGGREGATESEGREGATIONDATA_CANONICALALLELE_KEY]
+        return self.data[DMWG_AGGREGATESEGREGATION_CANONICALALLELE_KEY]
     def set_condition(self,x):
-        self.data[DMWG_AGGREGATESEGREGATIONDATA_CONDITION_KEY] = x
+        self.data[DMWG_AGGREGATESEGREGATION_CONDITION_KEY] = x
     def get_condition(self):
-        return self.data[DMWG_AGGREGATESEGREGATIONDATA_CONDITION_KEY]
+        return self.data[DMWG_AGGREGATESEGREGATION_CONDITION_KEY]
     def set_totalNumberOfSegregations(self,x):
-        self.data[DMWG_AGGREGATESEGREGATIONDATA_TOTALNUMBEROFSEGREGATIONS_KEY] = x
+        self.data[DMWG_AGGREGATESEGREGATION_TOTALNUMBEROFSEGREGATIONS_KEY] = x
     def get_totalNumberOfSegregations(self):
-        return self.data[DMWG_AGGREGATESEGREGATIONDATA_TOTALNUMBEROFSEGREGATIONS_KEY]
-    def add_familySegregationData(self,x):
-        if not DMWG_AGGREGATESEGREGATIONDATA_FAMILYSEGREGATIONDATA_KEY in self.data:
-            self.data[DMWG_AGGREGATESEGREGATIONDATA_FAMILYSEGREGATIONDATA_KEY] = []
-        self.data[DMWG_AGGREGATESEGREGATIONDATA_FAMILYSEGREGATIONDATA_KEY].append( x ) 
-    def get_familySegregationData(self):
-        return self.data[DMWG_AGGREGATESEGREGATIONDATA_FAMILYSEGREGATIONDATA_KEY]
+        return self.data[DMWG_AGGREGATESEGREGATION_TOTALNUMBEROFSEGREGATIONS_KEY]
+    def add_familySegregation(self,x):
+        if not DMWG_AGGREGATESEGREGATION_FAMILYSEGREGATION_KEY in self.data:
+            self.data[DMWG_AGGREGATESEGREGATION_FAMILYSEGREGATION_KEY] = []
+        self.data[DMWG_AGGREGATESEGREGATION_FAMILYSEGREGATION_KEY].append( x ) 
+    def get_familySegregation(self):
+        return self.data[DMWG_AGGREGATESEGREGATION_FAMILYSEGREGATION_KEY]
     @get_factory_concept('VS007')
     def set_modeOfInheritance(self,x):
-        self.data[DMWG_AGGREGATESEGREGATIONDATA_MODEOFINHERITANCE_KEY] = x
+        self.data[DMWG_AGGREGATESEGREGATION_MODEOFINHERITANCE_KEY] = x
     def get_modeOfInheritance(self):
-        return self.data[DMWG_AGGREGATESEGREGATIONDATA_MODEOFINHERITANCE_KEY]
+        return self.data[DMWG_AGGREGATESEGREGATION_MODEOFINHERITANCE_KEY]
     def set_totalOfAllelePosConditionPosIndividuals(self,x):
-        self.data[DMWG_AGGREGATESEGREGATIONDATA_TOTALOFALLELEPOSCONDITIONPOSINDIVIDUALS_KEY] = x
+        self.data[DMWG_AGGREGATESEGREGATION_TOTALOFALLELEPOSCONDITIONPOSINDIVIDUALS_KEY] = x
     def get_totalOfAllelePosConditionPosIndividuals(self):
-        return self.data[DMWG_AGGREGATESEGREGATIONDATA_TOTALOFALLELEPOSCONDITIONPOSINDIVIDUALS_KEY]
+        return self.data[DMWG_AGGREGATESEGREGATION_TOTALOFALLELEPOSCONDITIONPOSINDIVIDUALS_KEY]
     def set_totalOfAlleleNegConditionNegIndividuals(self,x):
-        self.data[DMWG_AGGREGATESEGREGATIONDATA_TOTALOFALLELENEGCONDITIONNEGINDIVIDUALS_KEY] = x
+        self.data[DMWG_AGGREGATESEGREGATION_TOTALOFALLELENEGCONDITIONNEGINDIVIDUALS_KEY] = x
     def get_totalOfAlleleNegConditionNegIndividuals(self):
-        return self.data[DMWG_AGGREGATESEGREGATIONDATA_TOTALOFALLELENEGCONDITIONNEGINDIVIDUALS_KEY]
+        return self.data[DMWG_AGGREGATESEGREGATION_TOTALOFALLELENEGCONDITIONNEGINDIVIDUALS_KEY]
     def set_totalOfAllelePosConditionNegIndividuals(self,x):
-        self.data[DMWG_AGGREGATESEGREGATIONDATA_TOTALOFALLELEPOSCONDITIONNEGINDIVIDUALS_KEY] = x
+        self.data[DMWG_AGGREGATESEGREGATION_TOTALOFALLELEPOSCONDITIONNEGINDIVIDUALS_KEY] = x
     def get_totalOfAllelePosConditionNegIndividuals(self):
-        return self.data[DMWG_AGGREGATESEGREGATIONDATA_TOTALOFALLELEPOSCONDITIONNEGINDIVIDUALS_KEY]
+        return self.data[DMWG_AGGREGATESEGREGATION_TOTALOFALLELEPOSCONDITIONNEGINDIVIDUALS_KEY]
     def set_totalOfAlleleNegConditionPosIndividuals(self,x):
-        self.data[DMWG_AGGREGATESEGREGATIONDATA_TOTALOFALLELENEGCONDITIONPOSINDIVIDUALS_KEY] = x
+        self.data[DMWG_AGGREGATESEGREGATION_TOTALOFALLELENEGCONDITIONPOSINDIVIDUALS_KEY] = x
     def get_totalOfAlleleNegConditionPosIndividuals(self):
-        return self.data[DMWG_AGGREGATESEGREGATIONDATA_TOTALOFALLELENEGCONDITIONPOSINDIVIDUALS_KEY]
+        return self.data[DMWG_AGGREGATESEGREGATION_TOTALOFALLELENEGCONDITIONPOSINDIVIDUALS_KEY]
     def set_totalOfUntestedConditionPosIndividuals(self,x):
-        self.data[DMWG_AGGREGATESEGREGATIONDATA_TOTALOFUNTESTEDCONDITIONPOSINDIVIDUALS_KEY] = x
+        self.data[DMWG_AGGREGATESEGREGATION_TOTALOFUNTESTEDCONDITIONPOSINDIVIDUALS_KEY] = x
     def get_totalOfUntestedConditionPosIndividuals(self):
-        return self.data[DMWG_AGGREGATESEGREGATIONDATA_TOTALOFUNTESTEDCONDITIONPOSINDIVIDUALS_KEY]
+        return self.data[DMWG_AGGREGATESEGREGATION_TOTALOFUNTESTEDCONDITIONPOSINDIVIDUALS_KEY]
     def set_totalOfUntestedConditionNegIndividuals(self,x):
-        self.data[DMWG_AGGREGATESEGREGATIONDATA_TOTALOFUNTESTEDCONDITIONNEGINDIVIDUALS_KEY] = x
+        self.data[DMWG_AGGREGATESEGREGATION_TOTALOFUNTESTEDCONDITIONNEGINDIVIDUALS_KEY] = x
     def get_totalOfUntestedConditionNegIndividuals(self):
-        return self.data[DMWG_AGGREGATESEGREGATIONDATA_TOTALOFUNTESTEDCONDITIONNEGINDIVIDUALS_KEY]
+        return self.data[DMWG_AGGREGATESEGREGATION_TOTALOFUNTESTEDCONDITIONNEGINDIVIDUALS_KEY]
     def set_totalOfFamiliesWithInconsistentSegregations(self,x):
-        self.data[DMWG_AGGREGATESEGREGATIONDATA_TOTALOFFAMILIESWITHINCONSISTENTSEGREGATIONS_KEY] = x
+        self.data[DMWG_AGGREGATESEGREGATION_TOTALOFFAMILIESWITHINCONSISTENTSEGREGATIONS_KEY] = x
     def get_totalOfFamiliesWithInconsistentSegregations(self):
-        return self.data[DMWG_AGGREGATESEGREGATIONDATA_TOTALOFFAMILIESWITHINCONSISTENTSEGREGATIONS_KEY]
+        return self.data[DMWG_AGGREGATESEGREGATION_TOTALOFFAMILIESWITHINCONSISTENTSEGREGATIONS_KEY]
 
-class Conservation(Information):
+class AlleleConservation(Statement):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_CONSERVATION_TYPE 
+        self.data[DMWG_TYPE_KEY] = DMWG_ALLELECONSERVATION_TYPE 
     def set_allele(self,x):
-        self.data[DMWG_CONSERVATION_ALLELE_KEY] = x
+        self.data[DMWG_ALLELECONSERVATION_ALLELE_KEY] = x
     def get_allele(self):
-        return self.data[DMWG_CONSERVATION_ALLELE_KEY]
+        return self.data[DMWG_ALLELECONSERVATION_ALLELE_KEY]
     def set_algorithm(self,x):
-        self.data[DMWG_CONSERVATION_ALGORITHM_KEY] = x
+        self.data[DMWG_ALLELECONSERVATION_ALGORITHM_KEY] = x
     def get_algorithm(self):
-        return self.data[DMWG_CONSERVATION_ALGORITHM_KEY]
+        return self.data[DMWG_ALLELECONSERVATION_ALGORITHM_KEY]
     def set_score(self,x):
-        self.data[DMWG_CONSERVATION_SCORE_KEY] = x
+        self.data[DMWG_ALLELECONSERVATION_SCORE_KEY] = x
     def get_score(self):
-        return self.data[DMWG_CONSERVATION_SCORE_KEY]
+        return self.data[DMWG_ALLELECONSERVATION_SCORE_KEY]
     def set_conserved(self,x):
-        self.data[DMWG_CONSERVATION_CONSERVED_KEY] = x
+        self.data[DMWG_ALLELECONSERVATION_CONSERVED_KEY] = x
     def get_conserved(self):
-        return self.data[DMWG_CONSERVATION_CONSERVED_KEY]
+        return self.data[DMWG_ALLELECONSERVATION_CONSERVED_KEY]
 
-class ConditionPenetrance(Information):
+class ConditionPenetrance(Statement):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
@@ -535,7 +535,7 @@ class ConditionPenetrance(Information):
     def get_penetrance(self):
         return self.data[DMWG_CONDITIONPENETRANCE_PENETRANCE_KEY]
 
-class InSilicoPrediction(Information):
+class InSilicoPrediction(Statement):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
@@ -567,7 +567,7 @@ class InSilicoPrediction(Information):
     def get_categoricalPrediction(self):
         return self.data[DMWG_INSILICOPREDICTION_CATEGORICALPREDICTION_KEY]
 
-class Family(Information):
+class Family(Statement):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
@@ -582,18 +582,18 @@ class Family(Information):
     def get_description(self):
         return self.data[DMWG_FAMILY_DESCRIPTION_KEY]
 
-class CriterionAssessment(Information):
+class CriterionAssessment(Statement):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_CRITERIONASSESSMENT_TYPE 
-    def add_evidence(self,x):
-        if not DMWG_CRITERIONASSESSMENT_EVIDENCE_KEY in self.data:
-            self.data[DMWG_CRITERIONASSESSMENT_EVIDENCE_KEY] = []
-        self.data[DMWG_CRITERIONASSESSMENT_EVIDENCE_KEY].append( x ) 
-    def get_evidence(self):
-        return self.data[DMWG_CRITERIONASSESSMENT_EVIDENCE_KEY]
+    def add_evidenceLine(self,x):
+        if not DMWG_CRITERIONASSESSMENT_EVIDENCELINE_KEY in self.data:
+            self.data[DMWG_CRITERIONASSESSMENT_EVIDENCELINE_KEY] = []
+        self.data[DMWG_CRITERIONASSESSMENT_EVIDENCELINE_KEY].append( x ) 
+    def get_evidenceLine(self):
+        return self.data[DMWG_CRITERIONASSESSMENT_EVIDENCELINE_KEY]
     def set_criterion(self,x):
         self.data[DMWG_CRITERIONASSESSMENT_CRITERION_KEY] = x
     def get_criterion(self):
@@ -614,7 +614,7 @@ class CriterionAssessment(Information):
     def get_outcome(self):
         return self.data[DMWG_CRITERIONASSESSMENT_OUTCOME_KEY]
 
-class ConditionPrevelance(Information):
+class ConditionPrevelance(Statement):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
@@ -644,114 +644,114 @@ class ConditionPrevelance(Information):
     def get_prevelance(self):
         return self.data[DMWG_CONDITIONPREVELANCE_PREVELANCE_KEY]
 
-class ConditionEtiology(Information):
+class LocusHeterogeneity(Statement):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_CONDITIONETIOLOGY_TYPE 
+        self.data[DMWG_TYPE_KEY] = DMWG_LOCUSHETEROGENEITY_TYPE 
     def set_condition(self,x):
-        self.data[DMWG_CONDITIONETIOLOGY_CONDITION_KEY] = x
+        self.data[DMWG_LOCUSHETEROGENEITY_CONDITION_KEY] = x
     def get_condition(self):
-        return self.data[DMWG_CONDITIONETIOLOGY_CONDITION_KEY]
+        return self.data[DMWG_LOCUSHETEROGENEITY_CONDITION_KEY]
     def set_gene(self,x):
-        self.data[DMWG_CONDITIONETIOLOGY_GENE_KEY] = x
+        self.data[DMWG_LOCUSHETEROGENEITY_GENE_KEY] = x
     def get_gene(self):
-        return self.data[DMWG_CONDITIONETIOLOGY_GENE_KEY]
+        return self.data[DMWG_LOCUSHETEROGENEITY_GENE_KEY]
     def set_specificity(self,x):
-        self.data[DMWG_CONDITIONETIOLOGY_SPECIFICITY_KEY] = x
+        self.data[DMWG_LOCUSHETEROGENEITY_SPECIFICITY_KEY] = x
     def get_specificity(self):
-        return self.data[DMWG_CONDITIONETIOLOGY_SPECIFICITY_KEY]
+        return self.data[DMWG_LOCUSHETEROGENEITY_SPECIFICITY_KEY]
 
-class FamilySegregationData(Information):
+class FamilySegregation(Statement):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_FAMILYSEGREGATIONDATA_TYPE 
+        self.data[DMWG_TYPE_KEY] = DMWG_FAMILYSEGREGATION_TYPE 
     def set_canonicalAllele(self,x):
-        self.data[DMWG_FAMILYSEGREGATIONDATA_CANONICALALLELE_KEY] = x
+        self.data[DMWG_FAMILYSEGREGATION_CANONICALALLELE_KEY] = x
     def get_canonicalAllele(self):
-        return self.data[DMWG_FAMILYSEGREGATIONDATA_CANONICALALLELE_KEY]
+        return self.data[DMWG_FAMILYSEGREGATION_CANONICALALLELE_KEY]
     def set_condition(self,x):
-        self.data[DMWG_FAMILYSEGREGATIONDATA_CONDITION_KEY] = x
+        self.data[DMWG_FAMILYSEGREGATION_CONDITION_KEY] = x
     def get_condition(self):
-        return self.data[DMWG_FAMILYSEGREGATIONDATA_CONDITION_KEY]
+        return self.data[DMWG_FAMILYSEGREGATION_CONDITION_KEY]
     def set_family(self,x):
-        self.data[DMWG_FAMILYSEGREGATIONDATA_FAMILY_KEY] = x
+        self.data[DMWG_FAMILYSEGREGATION_FAMILY_KEY] = x
     def get_family(self):
-        return self.data[DMWG_FAMILYSEGREGATIONDATA_FAMILY_KEY]
+        return self.data[DMWG_FAMILYSEGREGATION_FAMILY_KEY]
     def set_phenotypePositiveAllelePositive(self,x):
-        self.data[DMWG_FAMILYSEGREGATIONDATA_PHENOTYPEPOSITIVEALLELEPOSITIVE_KEY] = x
+        self.data[DMWG_FAMILYSEGREGATION_PHENOTYPEPOSITIVEALLELEPOSITIVE_KEY] = x
     def get_phenotypePositiveAllelePositive(self):
-        return self.data[DMWG_FAMILYSEGREGATIONDATA_PHENOTYPEPOSITIVEALLELEPOSITIVE_KEY]
+        return self.data[DMWG_FAMILYSEGREGATION_PHENOTYPEPOSITIVEALLELEPOSITIVE_KEY]
     def set_phenotypePositiveAlleleNegative(self,x):
-        self.data[DMWG_FAMILYSEGREGATIONDATA_PHENOTYPEPOSITIVEALLELENEGATIVE_KEY] = x
+        self.data[DMWG_FAMILYSEGREGATION_PHENOTYPEPOSITIVEALLELENEGATIVE_KEY] = x
     def get_phenotypePositiveAlleleNegative(self):
-        return self.data[DMWG_FAMILYSEGREGATIONDATA_PHENOTYPEPOSITIVEALLELENEGATIVE_KEY]
+        return self.data[DMWG_FAMILYSEGREGATION_PHENOTYPEPOSITIVEALLELENEGATIVE_KEY]
     def set_phenotypeNegativeAllelePositive(self,x):
-        self.data[DMWG_FAMILYSEGREGATIONDATA_PHENOTYPENEGATIVEALLELEPOSITIVE_KEY] = x
+        self.data[DMWG_FAMILYSEGREGATION_PHENOTYPENEGATIVEALLELEPOSITIVE_KEY] = x
     def get_phenotypeNegativeAllelePositive(self):
-        return self.data[DMWG_FAMILYSEGREGATIONDATA_PHENOTYPENEGATIVEALLELEPOSITIVE_KEY]
+        return self.data[DMWG_FAMILYSEGREGATION_PHENOTYPENEGATIVEALLELEPOSITIVE_KEY]
     def set_phenotypeNegativeAlleleNegative(self,x):
-        self.data[DMWG_FAMILYSEGREGATIONDATA_PHENOTYPENEGATIVEALLELENEGATIVE_KEY] = x
+        self.data[DMWG_FAMILYSEGREGATION_PHENOTYPENEGATIVEALLELENEGATIVE_KEY] = x
     def get_phenotypeNegativeAlleleNegative(self):
-        return self.data[DMWG_FAMILYSEGREGATIONDATA_PHENOTYPENEGATIVEALLELENEGATIVE_KEY]
+        return self.data[DMWG_FAMILYSEGREGATION_PHENOTYPENEGATIVEALLELENEGATIVE_KEY]
     def add_pedigree(self,x):
-        if not DMWG_FAMILYSEGREGATIONDATA_PEDIGREE_KEY in self.data:
-            self.data[DMWG_FAMILYSEGREGATIONDATA_PEDIGREE_KEY] = []
-        self.data[DMWG_FAMILYSEGREGATIONDATA_PEDIGREE_KEY].append( x ) 
+        if not DMWG_FAMILYSEGREGATION_PEDIGREE_KEY in self.data:
+            self.data[DMWG_FAMILYSEGREGATION_PEDIGREE_KEY] = []
+        self.data[DMWG_FAMILYSEGREGATION_PEDIGREE_KEY].append( x ) 
     def get_pedigree(self):
-        return self.data[DMWG_FAMILYSEGREGATIONDATA_PEDIGREE_KEY]
+        return self.data[DMWG_FAMILYSEGREGATION_PEDIGREE_KEY]
     def add_columns(self,x):
-        if not DMWG_FAMILYSEGREGATIONDATA_COLUMNS_KEY in self.data:
-            self.data[DMWG_FAMILYSEGREGATIONDATA_COLUMNS_KEY] = []
-        self.data[DMWG_FAMILYSEGREGATIONDATA_COLUMNS_KEY].append( x ) 
+        if not DMWG_FAMILYSEGREGATION_COLUMNS_KEY in self.data:
+            self.data[DMWG_FAMILYSEGREGATION_COLUMNS_KEY] = []
+        self.data[DMWG_FAMILYSEGREGATION_COLUMNS_KEY].append( x ) 
     def get_columns(self):
-        return self.data[DMWG_FAMILYSEGREGATIONDATA_COLUMNS_KEY]
+        return self.data[DMWG_FAMILYSEGREGATION_COLUMNS_KEY]
     def add_genotypeValues(self,x):
-        if not DMWG_FAMILYSEGREGATIONDATA_GENOTYPEVALUES_KEY in self.data:
-            self.data[DMWG_FAMILYSEGREGATIONDATA_GENOTYPEVALUES_KEY] = []
-        self.data[DMWG_FAMILYSEGREGATIONDATA_GENOTYPEVALUES_KEY].append( x ) 
+        if not DMWG_FAMILYSEGREGATION_GENOTYPEVALUES_KEY in self.data:
+            self.data[DMWG_FAMILYSEGREGATION_GENOTYPEVALUES_KEY] = []
+        self.data[DMWG_FAMILYSEGREGATION_GENOTYPEVALUES_KEY].append( x ) 
     def get_genotypeValues(self):
-        return self.data[DMWG_FAMILYSEGREGATIONDATA_GENOTYPEVALUES_KEY]
+        return self.data[DMWG_FAMILYSEGREGATION_GENOTYPEVALUES_KEY]
     def add_affectedValues(self,x):
-        if not DMWG_FAMILYSEGREGATIONDATA_AFFECTEDVALUES_KEY in self.data:
-            self.data[DMWG_FAMILYSEGREGATIONDATA_AFFECTEDVALUES_KEY] = []
-        self.data[DMWG_FAMILYSEGREGATIONDATA_AFFECTEDVALUES_KEY].append( x ) 
+        if not DMWG_FAMILYSEGREGATION_AFFECTEDVALUES_KEY in self.data:
+            self.data[DMWG_FAMILYSEGREGATION_AFFECTEDVALUES_KEY] = []
+        self.data[DMWG_FAMILYSEGREGATION_AFFECTEDVALUES_KEY].append( x ) 
     def get_affectedValues(self):
-        return self.data[DMWG_FAMILYSEGREGATIONDATA_AFFECTEDVALUES_KEY]
+        return self.data[DMWG_FAMILYSEGREGATION_AFFECTEDVALUES_KEY]
     def set_anyInconsistentSegregations(self,x):
-        self.data[DMWG_FAMILYSEGREGATIONDATA_ANYINCONSISTENTSEGREGATIONS_KEY] = x
+        self.data[DMWG_FAMILYSEGREGATION_ANYINCONSISTENTSEGREGATIONS_KEY] = x
     def get_anyInconsistentSegregations(self):
-        return self.data[DMWG_FAMILYSEGREGATIONDATA_ANYINCONSISTENTSEGREGATIONS_KEY]
+        return self.data[DMWG_FAMILYSEGREGATION_ANYINCONSISTENTSEGREGATIONS_KEY]
 
-class RegionAnnotation(Information):
+class RegionType(Statement):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_REGIONANNOTATION_TYPE 
+        self.data[DMWG_TYPE_KEY] = DMWG_REGIONTYPE_TYPE 
     def set_region(self,x):
-        self.data[DMWG_REGIONANNOTATION_REGION_KEY] = x
+        self.data[DMWG_REGIONTYPE_REGION_KEY] = x
     def get_region(self):
-        return self.data[DMWG_REGIONANNOTATION_REGION_KEY]
+        return self.data[DMWG_REGIONTYPE_REGION_KEY]
     @get_factory_coding('VS004')
     def add_includedTypes(self,x):
-        if not DMWG_REGIONANNOTATION_INCLUDEDTYPES_KEY in self.data:
-            self.data[DMWG_REGIONANNOTATION_INCLUDEDTYPES_KEY] = []
-        self.data[DMWG_REGIONANNOTATION_INCLUDEDTYPES_KEY].append( x ) 
+        if not DMWG_REGIONTYPE_INCLUDEDTYPES_KEY in self.data:
+            self.data[DMWG_REGIONTYPE_INCLUDEDTYPES_KEY] = []
+        self.data[DMWG_REGIONTYPE_INCLUDEDTYPES_KEY].append( x ) 
     def get_includedTypes(self):
-        return self.data[DMWG_REGIONANNOTATION_INCLUDEDTYPES_KEY]
+        return self.data[DMWG_REGIONTYPE_INCLUDEDTYPES_KEY]
     @get_factory_coding('VS004')
     def add_excludedTypes(self,x):
-        if not DMWG_REGIONANNOTATION_EXCLUDEDTYPES_KEY in self.data:
-            self.data[DMWG_REGIONANNOTATION_EXCLUDEDTYPES_KEY] = []
-        self.data[DMWG_REGIONANNOTATION_EXCLUDEDTYPES_KEY].append( x ) 
+        if not DMWG_REGIONTYPE_EXCLUDEDTYPES_KEY in self.data:
+            self.data[DMWG_REGIONTYPE_EXCLUDEDTYPES_KEY] = []
+        self.data[DMWG_REGIONTYPE_EXCLUDEDTYPES_KEY].append( x ) 
     def get_excludedTypes(self):
-        return self.data[DMWG_REGIONANNOTATION_EXCLUDEDTYPES_KEY]
+        return self.data[DMWG_REGIONTYPE_EXCLUDEDTYPES_KEY]
 
-class RegionAlleles(Information):
+class RegionAlleles(Statement):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
@@ -774,31 +774,31 @@ class RegionAlleles(Information):
     def get_excludedAlleles(self):
         return self.data[DMWG_REGIONALLELES_EXCLUDEDALLELES_KEY]
 
-class FunctionalData(Information):
+class AlleleFunctionalImpact(Statement):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_FUNCTIONALDATA_TYPE 
+        self.data[DMWG_TYPE_KEY] = DMWG_ALLELEFUNCTIONALIMPACT_TYPE 
     def set_contextualAllele(self,x):
-        self.data[DMWG_FUNCTIONALDATA_CONTEXTUALALLELE_KEY] = x
+        self.data[DMWG_ALLELEFUNCTIONALIMPACT_CONTEXTUALALLELE_KEY] = x
     def get_contextualAllele(self):
-        return self.data[DMWG_FUNCTIONALDATA_CONTEXTUALALLELE_KEY]
+        return self.data[DMWG_ALLELEFUNCTIONALIMPACT_CONTEXTUALALLELE_KEY]
     def set_gene(self,x):
-        self.data[DMWG_FUNCTIONALDATA_GENE_KEY] = x
+        self.data[DMWG_ALLELEFUNCTIONALIMPACT_GENE_KEY] = x
     def get_gene(self):
-        return self.data[DMWG_FUNCTIONALDATA_GENE_KEY]
+        return self.data[DMWG_ALLELEFUNCTIONALIMPACT_GENE_KEY]
     def set_result(self,x):
-        self.data[DMWG_FUNCTIONALDATA_RESULT_KEY] = x
+        self.data[DMWG_ALLELEFUNCTIONALIMPACT_RESULT_KEY] = x
     def get_result(self):
-        return self.data[DMWG_FUNCTIONALDATA_RESULT_KEY]
+        return self.data[DMWG_ALLELEFUNCTIONALIMPACT_RESULT_KEY]
     @get_factory_concept('VS012')
     def set_dataType(self,x):
-        self.data[DMWG_FUNCTIONALDATA_DATATYPE_KEY] = x
+        self.data[DMWG_ALLELEFUNCTIONALIMPACT_DATATYPE_KEY] = x
     def get_dataType(self):
-        return self.data[DMWG_FUNCTIONALDATA_DATATYPE_KEY]
+        return self.data[DMWG_ALLELEFUNCTIONALIMPACT_DATATYPE_KEY]
 
-class CaseControl(Information):
+class CaseControl(Statement):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
@@ -837,26 +837,26 @@ class CaseControl(Information):
     def get_confidenceIntervalUpper(self):
         return self.data[DMWG_CASECONTROL_CONFIDENCEINTERVALUPPER_KEY]
 
-class Locus(Information):
+class SequenceLocation(Statement):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_LOCUS_TYPE 
+        self.data[DMWG_TYPE_KEY] = DMWG_SEQUENCELOCATION_TYPE 
     def set_referenceSequence(self,x):
-        self.data[DMWG_LOCUS_REFERENCESEQUENCE_KEY] = x
+        self.data[DMWG_SEQUENCELOCATION_REFERENCESEQUENCE_KEY] = x
     def get_referenceSequence(self):
-        return self.data[DMWG_LOCUS_REFERENCESEQUENCE_KEY]
+        return self.data[DMWG_SEQUENCELOCATION_REFERENCESEQUENCE_KEY]
     def set_start(self,x):
-        self.data[DMWG_LOCUS_START_KEY] = x
+        self.data[DMWG_SEQUENCELOCATION_START_KEY] = x
     def get_start(self):
-        return self.data[DMWG_LOCUS_START_KEY]
+        return self.data[DMWG_SEQUENCELOCATION_START_KEY]
     def set_stop(self,x):
-        self.data[DMWG_LOCUS_STOP_KEY] = x
+        self.data[DMWG_SEQUENCELOCATION_STOP_KEY] = x
     def get_stop(self):
-        return self.data[DMWG_LOCUS_STOP_KEY]
+        return self.data[DMWG_SEQUENCELOCATION_STOP_KEY]
 
-class AlleleFrequency(Information):
+class AlleleFrequency(Statement):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
@@ -909,7 +909,7 @@ class AlleleFrequency(Information):
     def get_medianCoverage(self):
         return self.data[DMWG_ALLELEFREQUENCY_MEDIANCOVERAGE_KEY]
 
-class MolecularConsequence(Information):
+class MolecularConsequence(Statement):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
@@ -929,7 +929,7 @@ class MolecularConsequence(Information):
     def get_consequence(self):
         return self.data[DMWG_MOLECULARCONSEQUENCE_CONSEQUENCE_KEY]
 
-class ConditionMechanism(Information):
+class ConditionMechanism(Statement):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
@@ -954,7 +954,7 @@ class ConditionMechanism(Information):
     def get_mechanismConfidence(self):
         return self.data[DMWG_CONDITIONMECHANISM_MECHANISMCONFIDENCE_KEY]
 
-class IndividualAllele(Information):
+class IndividualAllele(Statement):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:

@@ -22,9 +22,10 @@
                     "type": "CodeableConcept"
                 }
             ],
-            "type": "MendelianCondition"
+            "type": "GeneticCondition"
         }
     ],
+    "context": "http://datamodel.clinicalgenome.org/interpretation/json/context",
     "contribution": [
         {
             "agent": {
@@ -48,21 +49,9 @@
             "type": "Contribution"
         }
     ],
-    "evidence": [
+    "evidenceLine": [
         {
-            "evidenceStrength": {
-                "coding": [
-                    {
-                        "code": "pm",
-                        "display": "Pathogenic Moderate",
-                        "id": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/pm",
-                        "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
-                        "type": "Coding"
-                    }
-                ],
-                "type": "CodeableConcept"
-            },
-            "information": [
+            "evidenceItem": [
                 {
                     "contribution": [
                         {
@@ -86,7 +75,13 @@
                     "criterion": {
                         "defaultStrength": {
                             "coding": [
-                                "http://clinicalgenome.org/datamodel/criterion-evidence-strength/pm"
+                                {
+                                    "code": "pm",
+                                    "display": "Pathogenic Moderate",
+                                    "id": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/pm",
+                                    "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
+                                    "type": "Coding"
+                                }
                             ],
                             "type": "CodeableConcept"
                         },
@@ -95,9 +90,9 @@
                         "shortDescription": "Absent from controls",
                         "type": "Criterion"
                     },
-                    "evidence": [
+                    "evidenceLine": [
                         {
-                            "information": [
+                            "evidenceItem": [
                                 {
                                     "allele": {
                                         "CanonicalAlleleType": "nucleotide",
@@ -301,6 +296,12 @@
                     "variant": "http://reg.genome.network/allele/CA010360"
                 }
             ],
+            "evidenceStrength": {
+                "coding": [
+                    "http://clinicalgenome.org/datamodel/criterion-evidence-strength/pm"
+                ],
+                "type": "CodeableConcept"
+            },
             "type": "EvidenceLine"
         }
     ],
