@@ -81,7 +81,7 @@ class InterpretationEncoder(json.JSONEncoder):
         if isinstance(obj,Node):
             #is this right?  Probably should do it by depth?
             if isinstance(obj,VariantInterpretation):
-                obj.data['context'] = self.context
+                obj.data['@context'] = self.context
             if self.ostyle == 'full':
                 return obj.data
             if obj not in self.written_nodes:

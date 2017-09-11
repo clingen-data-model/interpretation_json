@@ -1,4 +1,5 @@
 {
+    "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context",
     "clinicalSignificance": {
         "code": "LA6668-3",
         "display": "Pathogenic",
@@ -25,7 +26,6 @@
             "type": "GeneticCondition"
         }
     ],
-    "context": "http://datamodel.clinicalgenome.org/interpretation/json/context",
     "contribution": [
         {
             "agent": {
