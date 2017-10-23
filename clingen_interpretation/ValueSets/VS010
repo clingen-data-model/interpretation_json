@@ -2,19 +2,19 @@
   "id": "VS010",
   "type": "ValueSet",
   "name": "PredictionType",
-  "includesCoding": [
+  "includesConcept": [
     {
-      "id": "CG-prediction-type:me",
-      "type": "Coding",
-      "code": "me",
-      "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+      "id": "SEPIO:0000322",
+      "type": "IdentifierSystemConcept",
+      "code": "0000322",
+      "system": "http://obofoundry.org/sepio/",
       "display": "missense effect"
     },
     {
-      "id": "CG-prediction-type:sp",
-      "type": "Coding",
-      "code": "sp",
-      "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+      "id": "SEPIO:0000323",
+      "type": "IdentifierSystemConcept",
+      "code": "0000323",
+      "system": "http://obofoundry.org/sepio/",
       "display": "splicing prediction"
     }
   ]

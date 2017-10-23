@@ -3,38 +3,38 @@
   "type": "ValueSet",
   "name": "AlleleInheritanceType",
   "description": "TODO",
-  "includesCoding": [
+  "includesConcept": [
     {
-      "id": "GENO-allele-inheritance-type:0000880",
-      "type": "Coding",
+      "id": "GENO:0000880",
+      "type": "IdentifierSystemConcept",
       "code": "0000880",
       "system": "http://obofoundry.org/geno/",
       "display": "de novo"
     },
     {
-      "id": "GENO-allele-inheritance-type:0000878",
-      "type": "Coding",
+      "id": "GENO:0000878",
+      "type": "IdentifierSystemConcept",
       "code": "0000878",
       "system": "http://obofoundry.org/geno/",
       "display": "maternally inherited"
     },
     {
-      "id": "GENO-allele-inheritance-type:0000879",
-      "type": "Coding",
+      "id": "GENO:0000879",
+      "type": "IdentifierSystemConcept",
       "code": "0000879",
       "system": "http://obofoundry.org/geno/",
       "display": "paternally inherited"
     },
     {
-      "id": "GENO-allele-inheritance-type:0000881",
-      "type": "Coding",
+      "id": "GENO:0000881",
+      "type": "IdentifierSystemConcept",
       "code": "0000881",
       "system": "http://obofoundry.org/geno/",
       "display": "Unknown"
     },
     {
-      "id": "GENO-allele-inheritance-type:0000888",
-      "type": "Coding",
+      "id": "GENO:0000888",
+      "type": "IdentifierSystemConcept",
       "code": "0000888",
       "system": "http://obofoundry.org/geno/",
       "display": "parentally inherited"

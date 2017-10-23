@@ -1,0 +1,10 @@
+{
+  "id": "VS037",
+  "type": "ValueSet",
+  "name": "AssertionMethodScoringAlgorithm",
+  "includesConcept": [
+    {
+      "id": "SEPIO-CG:99300"
+    }
+  ]
+}

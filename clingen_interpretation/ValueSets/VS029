@@ -1,21 +1,21 @@
 {
-  "id": "VS009",
+  "id": "VS029",
   "type": "ValueSet",
-  "name": "MechanismType",
+  "name": "NullAllele",
   "includesConcept": [
-    {
-      "id": "SO:0001583",
-      "type": "IdentifierSystemConcept",
-      "code": "0001583",
-      "system": "http://sequenceontology.org/",
-      "display": "missense variant"
-    },
     {
       "id": "SO:0002054",
       "type": "IdentifierSystemConcept",
       "code": "0002054",
       "system": "http://sequenceontology.org/",
       "display": "loss of function variant"
+    },
+    {
+      "id": "SEPIO-CG:99015",
+      "type": "IdentifierSystemConcept",
+      "code": "99015",
+      "system": "http://obofoundry.org/sepio/clingen",
+      "display": "No"
     }
   ]
 }

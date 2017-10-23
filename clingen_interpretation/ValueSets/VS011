@@ -2,19 +2,19 @@
   "id": "VS011",
   "type": "ValueSet",
   "name": "CriterionEvaluation",
-  "includesCoding": [
+  "includesConcept": [
     {
-      "id": "CG-criterion-outcome:met",
-      "type": "Coding",
-      "code": "met",
-      "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+      "id": "SEPIO:0000223",
+      "type": "IdentifierSystemConcept",
+      "code": "0000223",
+      "system": "http://obofoundry.org/sepio/",
       "display": "Met"
     },
     {
-      "id": "CG-criterion-outcome:not-met",
-      "type": "Coding",
-      "code": "not-met",
-      "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+      "id": "SEPIO:0000224",
+      "type": "IdentifierSystemConcept",
+      "code": "0000224",
+      "system": "http://obofoundry.org/sepio/",
       "display": "Not Met"
     }
   ]

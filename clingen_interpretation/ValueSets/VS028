@@ -1,0 +1,28 @@
+{
+  "id": "VS028",
+  "type": "ValueSet",
+  "name": "InconsistentSegregationObserved",
+  "includesConcept": [
+    {
+      "id": "SEPIO-CG:99011",
+      "type": "IdentifierSystemConcept",
+      "code": "99011",
+      "system": "http://obofoundry.org/sepio/clingen",
+      "display": "present"
+    },
+    {
+      "id": "SEPIO-CG:99012",
+      "type": "IdentifierSystemConcept",
+      "code": "99012",
+      "system": "http://obofoundry.org/sepio/clingen",
+      "display": "absent"
+    },
+    {
+      "id": "SEPIO-CG:99013",
+      "type": "IdentifierSystemConcept",
+      "code": "99013",
+      "system": "http://obofoundry.org/sepio/clingen",
+      "display": "unknown"
+    }
+  ]
+}

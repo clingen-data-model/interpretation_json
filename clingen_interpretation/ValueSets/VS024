@@ -1,0 +1,28 @@
+{
+  "id": "VS024",
+  "type": "ValueSet",
+  "name": "LocusSpecificityType",
+  "includesConcept": [
+    {
+      "id": "SEPIO:0000273",
+      "type": "IdentifierSystemConcept",
+      "code": "0000273",
+      "system": "http://obofoundry.org/sepio/",
+      "display": "low"
+    },
+    {
+      "id": "SEPIO-CG:99001",
+      "type": "IdentifierSystemConcept",
+      "code": "99001",
+      "system": "http://obofoundry.org/sepio/clingen",
+      "display": "high"
+    },
+    {
+      "id": "SEPIO-CG:99002",
+      "type": "IdentifierSystemConcept",
+      "code": "99002",
+      "system": "http://obofoundry.org/sepio/clingen",
+      "display": "complete"
+    }
+  ]
+}

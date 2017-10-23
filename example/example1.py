@@ -30,7 +30,7 @@ def create_condition():
 def create_agent():
     agent_id = 'http://examples.com/agent1'
     agent = Agent(agent_id)
-    agent.set_name('Gregor Mendel')
+    agent.set_label('Gregor Mendel')
     return agent
 
 def create_computational_agent():
@@ -81,7 +81,7 @@ def create_example():
     condition = create_condition()
     interpretation.add_condition(condition)
     #Call the variant pathogenic for this disease
-    interpretation.set_clinicalSignificance( 'Pathogenic' )
+    interpretation.set_outcome( 'Pathogenic' )
     #Create Agent/contribution
     agent = create_agent()
     when = '2017-01-24T16:16:59.073653+00:00'

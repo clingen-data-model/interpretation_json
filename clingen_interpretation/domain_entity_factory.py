@@ -1,73 +1,72 @@
 import os
 import json
 from functools import wraps
-from coding_generated import Coding, CodeableConcept
 
-class CodingFactory:
+class DomainEntityFactory:
+    """Enables creation of Domain Entities from codes or display names.
+
+    This factory reads the ValueSets from disk, and associates them
+    with particular subclassess of domain enitities. It can then be
+    searched to find values that match a string either by id, code, or
+    display name, then creates the right kind of DomainEntity, sets the
+    values correctly and returns it."""
     def __init__(self,vsdir=''):
+        """Read value sets from disk.  Create maps of the value set entries
+           and relationship with particular domain entities"""
         self.vsets = {}
+        self.entity_types = {}
         if vsdir == '':
             this_dir, this_filename = os.path.split(__file__)
             vsdir = os.path.join(this_dir, 'ValueSets')
         files = os.listdir(vsdir)
         for f in files:
             if f.startswith('VS'):
+                print vsdir, f
                 inf = file('%s/%s'% (vsdir,f),'r')
                 valueset = json.load(inf)
                 vsid = valueset['id']
-                codings = valueset['includesCoding']
-                self.vsets[vsid] = codings
-                # our current value sets use a prefix in id.  Put in a fully qualified id
-                for c in codings:
-                    c['fqid'] = c['system'] + c['code']
-    def lookup_coding(self,valueset_id,lookup):
+                try:
+                    concepts = valueset['includesConcept']
+                except KeyError:
+                    concepts = {}
+                self.vsets[vsid] = concepts
+                self.entity_types[valueset['name']] = vsid
+    def lookup_entity(self,entity_type_name,lookup):
+        """Given a lookup value, return a well-formed Domain Entity.
+
+        Given the lookup value, and a value set id, look in the value set
+        for a value that matches either the id, the code or the display.
+        Create the correct type of DomainEntity, set its values and return 
+        it"""
+        valueset_id = self.entity_types[entity_type_name]
         vset = self.vsets[valueset_id]
-        for key in ['fqid','id','code','display']:
+        import entities_generated
+        entity_class = getattr(entities_generated, entity_type_name)
+        for key in ['id','code','display']:
             for coding in vset:
                 if coding[key] == lookup:
-                    c = Coding(coding['fqid'])
-                    c.set_display(coding['display'])
-                    c.set_system(coding['system'])
-                    c.set_code(coding['code'])
-                    return c
-        #For a coding, if we can't resolve, we should fail
-        raise Exception("Cannot translate code %s in ValueSet %s" % (lookup, valueset_id))
-    #For a codeable concept, if we can't translate into one of our codings, we want to construct
-    # a freetext codeable concept.
-    def lookup_concept(self, valueset_id,lookup):
-        concept = CodeableConcept()
-        try:
-            coding = self.lookup_coding(valueset_id, lookup)
-            concept.add_coding(coding)
-        except:
-            # value didn't translate to a coding
-            concept.set_text(lookup)
-        return concept
+                    e = entity_class(coding['id'])
+                    e.set_label(coding['display'])
+                    #e.set_description(coding['description'])
+                    return e
+        #If we didn't find the value, we create without the IRI, and set label
+        e = entity_class()
+        e.set_label(lookup)
+        return e
 
-the_factory = CodingFactory()
+the_factory = DomainEntityFactory()
 
-def get_factory_coding(setid):
+def get_factory_entity(domain_entity_typename):
     def decorate(func):
         @wraps(func)
         def wrapper(*args, **kwargs):
-            if isinstance(args[1], Coding):
+            from entities_generated import DomainEntity
+            if isinstance(args[1], DomainEntity):
                 return func(*args,**kwargs)
-            coding = the_factory.lookup_coding(setid,args[1])
+            coding = the_factory.lookup_entity(domain_entity_typename,args[1])
             alist = list(args)
             alist[1] = coding
             return func(*alist,**kwargs)
         return wrapper
     return decorate
-
-def get_factory_concept(setid):
-    def decorate(func):
-        @wraps(func)
-        def wrapper(*args, **kwargs):
-            if isinstance(args[1], CodeableConcept):
-                return func(*args,**kwargs)
-            concept = the_factory.lookup_concept(setid,args[1])
-            alist = list(args)
-            alist[1] = concept
-            return func(*alist,**kwargs)
-        return wrapper
-    return decorate
+        

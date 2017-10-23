@@ -3,61 +3,54 @@
   "type": "ValueSet",
   "name": "AllelicState",
   "description": "The level of occurance of a single DNA marker within a set of chromosomes. Informed by LOINC 53034-5 but with additional codes for somatic mosaicism and asserted absence.",
-  "includesCoding": [
+  "includesConcept": [
     {
-      "id": "CG-allelic-state:absent",
-      "type": "Coding",
-      "code": "absent",
-      "system": "http://clinicalgenome.org/datamodel/allelic-state/",
-      "display": "absent"
+      "id": "GENO:0000137",
+      "type": "IdentifierSystemConcept",
+      "code": "0000137",
+      "system": "http://obofoundry.org/geno/",
+      "display": "unspecified zygosity"
     },
     {
-      "id": "CG-allelic-state:hemizygous",
-      "type": "Coding",
-      "code": "hemizygous",
-      "system": "http://clinicalgenome.org/datamodel/allelic-state/",
+      "id": "GENO:0000134",
+      "type": "IdentifierSystemConcept",
+      "code": "0000134",
+      "system": "http://obofoundry.org/geno/",
       "display": "hemizygous"
     },
     {
-      "id": "CG-allelic-state:heteroplasmic",
-      "type": "Coding",
-      "code": "heteroplasmic",
-      "system": "http://clinicalgenome.org/datamodel/allelic-state/",
+      "id": "GENO:0000603",
+      "type": "IdentifierSystemConcept",
+      "code": "0000603",
+      "system": "http://obofoundry.org/geno/",
       "display": "heteroplasmic"
     },
     {
-      "id": "CG-allelic-state:heterozygous",
-      "type": "Coding",
-      "code": "heterozygous",
-      "system": "http://clinicalgenome.org/datamodel/allelic-state/",
+      "id": "GENO:0000135",
+      "type": "IdentifierSystemConcept",
+      "code": "0000135",
+      "system": "http://obofoundry.org/geno/",
       "display": "heterozygous"
     },
     {
-      "id": "CG-allelic-state:homoplasmic",
-      "type": "Coding",
-      "code": "homoplasmic",
-      "system": "http://clinicalgenome.org/datamodel/allelic-state/",
+      "id": "GENO:0000602",
+      "type": "IdentifierSystemConcept",
+      "code": "0000602",
+      "system": "http://obofoundry.org/geno/",
       "display": "homoplasmic"
     },
     {
-      "id": "CG-allelic-state:homozygous",
-      "type": "Coding",
-      "code": "homozygous",
-      "system": "http://clinicalgenome.org/datamodel/allelic-state/",
+      "id": "GENO:0000136",
+      "type": "IdentifierSystemConcept",
+      "code": "0000136",
+      "system": "http://obofoundry.org/geno/",
       "display": "homozygous"
     },
     {
-      "id": "CG-allelic-state:other",
-      "type": "Coding",
-      "code": "other",
-      "system": "http://clinicalgenome.org/datamodel/allelic-state/",
-      "display": "other"
-    },
-    {
-      "id": "CG-allelic-state:somatic",
-      "type": "Coding",
-      "code": "somatic",
-      "system": "http://clinicalgenome.org/datamodel/allelic-state/",
+      "id": "GENO:0000882",
+      "type": "IdentifierSystemConcept",
+      "code": "0000882",
+      "system": "http://obofoundry.org/geno/",
       "display": "somatic"
     }
   ]

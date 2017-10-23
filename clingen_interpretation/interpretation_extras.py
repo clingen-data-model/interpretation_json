@@ -1,7 +1,7 @@
 from interpretation_generated import *
-from coding_generated import *
+from entities_generated import *
 import json
-from coding_factory import the_factory
+from domain_entity_factory import the_factory
 import os
 
 #UtilityMethods for wrapping things in Evidence Lines
@@ -24,25 +24,25 @@ DMWG_ASSESSOR_ROLE = 'assessor'
 def create_contribution(agent, ondate, role):
     contribution = Contribution()
     contribution.set_agent(agent)
-    contribution.set_onDate(ondate)
-    contribution.set_role(role)
+    contribution.set_contributionDate(ondate)
+    contribution.set_contributionRole(role)
     return contribution
 
 #Utility method for creating diseases
 def create_dmwg_disease(system, code, name):
-    cc = CodeableConcept()
-    coding = create_coding(system, name, code )
-    cc.add_coding(coding)
-    return cc
+    iri = system+code
+    disease = Disease(iri)
+    disease.add_synonym(name)
+    return disease
 
 #Utility method to make sure that coding gets the ID set correctly
-def create_coding(system,display,code):
-    iri = system+code
-    coding = Coding(iri)
-    coding.set_display(display)
-    coding.set_code(code)
-    coding.set_system(system)
-    return coding
+#def create_entity(system,display,code):
+#    iri = system+code
+#    coding = Coding(iri)
+#    coding.set_display(display)
+#    coding.set_code(code)
+#    coding.set_system(system)
+#    return coding
 
 def read_criteria():
     this_dir, this_filename = os.path.split(__file__)
