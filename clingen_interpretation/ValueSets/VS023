@@ -3,41 +3,34 @@
   "type": "ValueSet",
   "name": "AscertainmentType",
   "description": "A coded or free-text term representing how people were chosen to be in the cohort in which the frequency is calculated.\nIt may be either because there are lots of ways that a cohort might be generated and our value set may not provide enough to allow for all cases.",
-  "includesCoding": [
+  "includesConcept": [
     {
-      "id": "CG-ascertainment-type:1KG",
-      "type": "Coding",
-      "code": "1KG",
-      "system": "http://clinicalgenome.org/datamodel/ascertainment-type/",
-      "display": "1KG"
+      "id": "SEPIO:0000262",
+      "type": "IdentifierSystemConcept",
+      "code": "0000262",
+      "system": "http://obofoundry.org/sepio/",
+      "display": "1000 Genomes ascertainment method"
     },
     {
-      "id": "CG-ascertainment-type:ExAC",
-      "type": "Coding",
-      "code": "ExAC",
-      "system": "http://clinicalgenome.org/datamodel/ascertainment-type/",
-      "display": "ExAC"
+      "id": "SEPIO:0000332",
+      "type": "IdentifierSystemConcept",
+      "code": "0000332",
+      "system": "http://obofoundry.org/sepio/",
+      "display": "ExAc ascertainment method"
     },
     {
-      "id": "CG-ascertainment-type:ESP",
-      "type": "Coding",
-      "code": "ESP",
-      "system": "http://clinicalgenome.org/datamodel/ascertainment-type/",
-      "display": "ESP"
+      "id": "SEPIO:0000333",
+      "type": "IdentifierSystemConcept",
+      "code": "0000333",
+      "system": "http://obofoundry.org/sepio/",
+      "display": "ESP ascertainment method"
     },
     {
-      "id": "CG-ascertainment-type:1KG_ESP",
-      "type": "Coding",
-      "code": "1KG_ESP",
-      "system": "http://clinicalgenome.org/datamodel/ascertainment-type/",
-      "display": "1KG_ESP"
-    },
-    {
-      "id": "CG-ascertainment-type:gnomAD",
-      "type": "Coding",
-      "code": "gnomAD",
-      "system": "http://clinicalgenome.org/datamodel/ascertainment-type/",
-      "display": "gnomAD"
+      "id": "SEPIO:0000334",
+      "type": "IdentifierSystemConcept",
+      "code": "0000334",
+      "system": "http://obofoundry.org/sepio/",
+      "display": "gnomAD ascertainment method"
     }
   ]
 }

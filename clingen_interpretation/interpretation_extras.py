@@ -1,7 +1,7 @@
 from interpretation_generated import *
-from coding_generated import *
+from entities_generated import *
 import json
-from coding_factory import the_factory
+from domain_entity_factory import the_factory
 import os
 
 #UtilityMethods for wrapping things in Evidence Lines
@@ -24,40 +24,55 @@ DMWG_ASSESSOR_ROLE = 'assessor'
 def create_contribution(agent, ondate, role):
     contribution = Contribution()
     contribution.set_agent(agent)
-    contribution.set_onDate(ondate)
-    contribution.set_role(role)
+    contribution.set_contributionDate(ondate)
+    contribution.set_contributionRole(role)
     return contribution
 
 #Utility method for creating diseases
 def create_dmwg_disease(system, code, name):
-    cc = CodeableConcept()
-    coding = create_coding(system, name, code )
-    cc.add_coding(coding)
-    return cc
+    iri = system+code
+    disease = Disease(iri)
+    disease.add_synonym(name)
+    return disease
 
 #Utility method to make sure that coding gets the ID set correctly
-def create_coding(system,display,code):
-    iri = system+code
-    coding = Coding(iri)
-    coding.set_display(display)
-    coding.set_code(code)
-    coding.set_system(system)
-    return coding
+#def create_entity(system,display,code):
+#    iri = system+code
+#    coding = Coding(iri)
+#    coding.set_display(display)
+#    coding.set_code(code)
+#    coding.set_system(system)
+#    return coding
 
 def read_criteria():
     this_dir, this_filename = os.path.split(__file__)
-    crit_path = os.path.join(this_dir, 'ValueSets', 'Criterion.json')
+    crit_path = os.path.join(this_dir, 'ValueSets', 'VS035')
     inf = file(crit_path,'r')
     jcrit = json.load(inf)
     inf.close()
     criteria = {}
-    for rulenum in jcrit:
-        crit = jcrit[rulenum]
+    for crit in jcrit['includesConcept']:
         criterion = Criterion(crit['id'])
-        criterion.set_description (crit['description'] )
-        criterion.set_shortDescription ( crit['shortDescription'] )
-        criterion.set_defaultStrength( crit['defaultStrength'] )
-        criteria[rulenum] = criterion
+        label = crit['display']
+        criterion.set_label ( label )
+        if label.startswith('PVS'):
+            defStrength = 'Pathogenic Very Strong'
+        elif label.startswith('PS'):
+            defStrength = 'Pathogenic Strong'
+        elif label.startswith('PP'):
+            defStrength = 'Pathogenic Supporting'
+        elif label.startswith('PM'):
+            defStrength = 'Pathogenic Moderate'
+        elif label.startswith('BS'):
+            defStrength = 'Benign Strong'
+        elif label.startswith('BP'):
+            defStrength = 'Benign Supporting'
+        elif label.startswith('BM'):
+            defStrength = 'Benign Moderate'
+        elif label.startswith('BA'):
+            defStrength = 'Benign Stand Alone'
+        criterion.set_defaultStrength( defStrength )
+        criteria[label] = criterion
     return criteria
 
 

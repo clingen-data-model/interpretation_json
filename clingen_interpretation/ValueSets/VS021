@@ -2,27 +2,34 @@
   "id": "VS021",
   "type": "ValueSet",
   "name": "ContributoryRole",
-  "includesCoding": [
+  "includesConcept": [
     {
-      "id": "CG-contributory-role:assessor",
-      "type": "Coding",
-      "code": "assessor",
-      "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-      "display": "assessor"
+      "id": "SEPIO:0000154",
+      "type": "IdentifierSystemConcept",
+      "code": "0000154",
+      "system": "http://obofoundry.org/sepio/",
+      "display": "assessor role"
     },
     {
-      "id": "CG-contributory-role:curator",
-      "type": "Coding",
-      "code": "curator",
-      "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-      "display": "curator"
+      "id": "SEPIO:0000156",
+      "type": "IdentifierSystemConcept",
+      "code": "0000156",
+      "system": "http://obofoundry.org/sepio/",
+      "display": "curator role"
     },
     {
-      "id": "CG-contributory-role:interpreter",
-      "type": "Coding",
-      "code": "interpreter",
-      "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-      "display": "interpreter"
+      "id": "SEPIO:0000155",
+      "type": "IdentifierSystemConcept",
+      "code": "0000155",
+      "system": "http://obofoundry.org/sepio/",
+      "display": "approver role"
+    },
+    {
+      "id": "SEPIO:0000331",
+      "type": "IdentifierSystemConcept",
+      "code": "0000331",
+      "system": "http://obofoundry.org/sepio/",
+      "display": "interpreter role"
     }
   ]
 }

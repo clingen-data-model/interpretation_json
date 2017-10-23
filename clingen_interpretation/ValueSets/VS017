@@ -3,68 +3,68 @@
   "type": "ValueSet",
   "name": "EvidenceLineStrength",
   "description": "The set of strengths needed for an evidence line.",
-  "includesCoding": [
+  "includesConcept": [
     {
-      "id": "CG-evidence-strength:ba",
-      "type": "Coding",
-      "code": "ba",
-      "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
+      "id": "SEPIO:0000325",
+      "type": "IdentifierSystemConcept",
+      "code": "0000325",
+      "system": "http://obofoundry.org/sepio/",
       "display": "Benign Stand Alone"
     },
     {
-      "id": "CG-evidence-strength:bm",
-      "type": "Coding",
-      "code": "bm",
-      "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
+      "id": "SEPIO:0000326",
+      "type": "IdentifierSystemConcept",
+      "code": "0000326",
+      "system": "http://obofoundry.org/sepio/",
       "display": "Benign Moderate"
     },
     {
-      "id": "CG-evidence-strength:bp",
-      "type": "Coding",
-      "code": "bp",
-      "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
+      "id": "SEPIO:0000327",
+      "type": "IdentifierSystemConcept",
+      "code": "0000327",
+      "system": "http://obofoundry.org/sepio/",
       "display": "Benign Supporting"
     },
     {
-      "id": "CG-evidence-strength:bs",
-      "type": "Coding",
-      "code": "bs",
-      "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
+      "id": "SEPIO:0000328",
+      "type": "IdentifierSystemConcept",
+      "code": "0000328",
+      "system": "http://obofoundry.org/sepio/",
       "display": "Benign Strong"
     },
     {
-      "id": "CG-evidence-strength:na",
-      "type": "Coding",
-      "code": "na",
-      "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
+      "id": "SEPIO:0000218",
+      "type": "IdentifierSystemConcept",
+      "code": "0000218",
+      "system": "http://obofoundry.org/sepio/",
       "display": "None"
     },
     {
-      "id": "CG-evidence-strength:pm",
-      "type": "Coding",
-      "code": "pm",
-      "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
+      "id": "SEPIO:0000216",
+      "type": "IdentifierSystemConcept",
+      "code": "0000216",
+      "system": "http://obofoundry.org/sepio/",
       "display": "Pathogenic Moderate"
     },
     {
-      "id": "CG-evidence-strength:pp",
-      "type": "Coding",
-      "code": "pp",
-      "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
+      "id": "SEPIO:0000329",
+      "type": "IdentifierSystemConcept",
+      "code": "0000329",
+      "system": "http://obofoundry.org/sepio/",
       "display": "Pathogenic Supporting"
     },
     {
-      "id": "CG-evidence-strength:ps",
-      "type": "Coding",
-      "code": "ps",
-      "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
+      "id": "SEPIO:0000330",
+      "type": "IdentifierSystemConcept",
+      "code": "0000330",
+      "system": "http://obofoundry.org/sepio/",
       "display": "Pathogenic Strong"
     },
     {
-      "id": "CG-evidence-strength:pvs",
-      "type": "Coding",
-      "code": "pvs",
-      "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
+      "id": "SEPIO:0000220",
+      "type": "IdentifierSystemConcept",
+      "code": "0000220",
+      "system": "http://obofoundry.org/sepio/",
       "display": "Pathogenic Very Strong"
     }
   ]

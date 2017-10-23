@@ -1,28 +1,28 @@
 {
   "id": "VS004",
   "type": "ValueSet",
-  "name": "RegionType",
-  "includesCoding": [
+  "name": "RegionAnnotationType",
+  "includesConcept": [
     {
-      "id": "CG-reg-type:functional",
-      "type": "Coding",
-      "code": "functional",
-      "system": "http://clinicalgenome.org/datamodel/region-type/",
-      "display": "Functional"
+      "id": "SEPIO:0000320",
+      "type": "IdentifierSystemConcept",
+      "code": "0000320",
+      "system": "http://obofoundry.org/sepio/",
+      "display": "functional region"
     },
     {
-      "id": "CG-reg-type:hotspot",
-      "type": "Coding",
-      "code": "hotspot",
-      "system": "http://clinicalgenome.org/datamodel/region-type/",
-      "display": "Mutational Hotspot"
+      "id": "SEPIO:0000321",
+      "type": "IdentifierSystemConcept",
+      "code": "0000321",
+      "system": "http://obofoundry.org/sepio/",
+      "display": "mutational hotspot"
     },
     {
-      "id": "CG-reg-type:repeat",
-      "type": "Coding",
-      "code": "repeat",
-      "system": "http://clinicalgenome.org/datamodel/region-type/",
-      "display": "Repeat"
+      "id": "SO:0000657",
+      "type": "IdentifierSystemConcept",
+      "code": "0000657",
+      "system": "http://sequenceontology.org/",
+      "display": "repeat region "
     }
   ]
 }

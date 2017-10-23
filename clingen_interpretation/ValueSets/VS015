@@ -2,24 +2,24 @@
   "id": "VS015",
   "type": "ValueSet",
   "name": "PenetranceType",
-  "includesCoding": [
+  "includesConcept": [
     {
-      "id": "CG-penetrance-type:complete",
-      "type": "Coding",
-      "code": "complete",
-      "system": "http://clinicalgenome.org/datamodel/penetrance-type/",
+      "id": "HP:000XXX1",
+      "type": "IdentifierSystemConcept",
+      "code": "000XXX1",
+      "system": "http://human-phenotype-ontology.github.io/",
       "display": "Complete"
     },
     {
-      "id": "CG-penetrance-type:high",
-      "type": "Coding",
-      "code": "high",
-      "system": "http://clinicalgenome.org/datamodel/penetrance-type/",
+      "id": "HP:000XXX2",
+      "type": "IdentifierSystemConcept",
+      "code": "000XXX2",
+      "system": "http://human-phenotype-ontology.github.io/",
       "display": "High"
     },
     {
       "id": "HP:0003829",
-      "type": "Coding",
+      "type": "IdentifierSystemConcept",
       "code": "0003829",
       "system": "http://human-phenotype-ontology.github.io/",
       "display": "Incomplete"

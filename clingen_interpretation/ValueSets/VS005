@@ -2,19 +2,19 @@
   "id": "VS005",
   "type": "ValueSet",
   "name": "Phase",
-  "includesCoding": [
+  "includesConcept": [
     {
-      "id": "CG-phase:cis",
-      "type": "Coding",
-      "code": "cis",
-      "system": "http://clinicalgenome.org/datamodel/phase/",
+      "id": "GENO:0000131",
+      "type": "IdentifierSystemConcept",
+      "code": "0000131",
+      "system": "http://obofoundry.org/geno/",
       "display": "in cis"
     },
     {
-      "id": "CG-phase:trans",
-      "type": "Coding",
-      "code": "trans",
-      "system": "http://clinicalgenome.org/datamodel/phase/",
+      "id": "GENO:0000132",
+      "type": "IdentifierSystemConcept",
+      "code": "0000132",
+      "system": "http://obofoundry.org/geno/",
       "display": "in trans"
     }
   ]

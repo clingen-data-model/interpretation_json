@@ -1,0 +1,203 @@
+{
+  "id": "VS035",
+  "type": "ValueSet",
+  "name": "ACMGCriterion",
+  "includesConcept": [
+    {
+      "id": "SEPIO-CG:99022",
+      "type": "IdentifierSystemConcept",
+      "code": "99022",
+      "system": "http://obofoundry.org/sepio/clingen",
+      "display": "PVS1"
+    },
+    {
+      "id": "SEPIO-CG:99023",
+      "type": "IdentifierSystemConcept",
+      "code": "99023",
+      "system": "http://obofoundry.org/sepio/clingen",
+      "display": "PS1"
+    },
+    {
+      "id": "SEPIO-CG:99024",
+      "type": "IdentifierSystemConcept",
+      "code": "99024",
+      "system": "http://obofoundry.org/sepio/clingen",
+      "display": "PS2"
+    },
+    {
+      "id": "SEPIO-CG:99025",
+      "type": "IdentifierSystemConcept",
+      "code": "99025",
+      "system": "http://obofoundry.org/sepio/clingen",
+      "display": "PS3"
+    },
+    {
+      "id": "SEPIO-CG:99026",
+      "type": "IdentifierSystemConcept",
+      "code": "99026",
+      "system": "http://obofoundry.org/sepio/clingen",
+      "display": "PS4"
+    },
+    {
+      "id": "SEPIO-CG:99027",
+      "type": "IdentifierSystemConcept",
+      "code": "99027",
+      "system": "http://obofoundry.org/sepio/clingen",
+      "display": "PM1"
+    },
+    {
+      "id": "SEPIO-CG:99028",
+      "type": "IdentifierSystemConcept",
+      "code": "99028",
+      "system": "http://obofoundry.org/sepio/clingen",
+      "display": "PM2"
+    },
+    {
+      "id": "SEPIO-CG:99029",
+      "type": "IdentifierSystemConcept",
+      "code": "99029",
+      "system": "http://obofoundry.org/sepio/clingen",
+      "display": "PM3"
+    },
+    {
+      "id": "SEPIO-CG:99030",
+      "type": "IdentifierSystemConcept",
+      "code": "99030",
+      "system": "http://obofoundry.org/sepio/clingen",
+      "display": "PM4"
+    },
+    {
+      "id": "SEPIO-CG:99031",
+      "type": "IdentifierSystemConcept",
+      "code": "99031",
+      "system": "http://obofoundry.org/sepio/clingen",
+      "display": "PM5"
+    },
+    {
+      "id": "SEPIO-CG:99032",
+      "type": "IdentifierSystemConcept",
+      "code": "99032",
+      "system": "http://obofoundry.org/sepio/clingen",
+      "display": "PM6"
+    },
+    {
+      "id": "SEPIO-CG:99033",
+      "type": "IdentifierSystemConcept",
+      "code": "99033",
+      "system": "http://obofoundry.org/sepio/clingen",
+      "display": "PP1"
+    },
+    {
+      "id": "SEPIO-CG:99034",
+      "type": "IdentifierSystemConcept",
+      "code": "99034",
+      "system": "http://obofoundry.org/sepio/clingen",
+      "display": "PP2"
+    },
+    {
+      "id": "SEPIO-CG:99035",
+      "type": "IdentifierSystemConcept",
+      "code": "99035",
+      "system": "http://obofoundry.org/sepio/clingen",
+      "display": "PP3"
+    },
+    {
+      "id": "SEPIO-CG:99036",
+      "type": "IdentifierSystemConcept",
+      "code": "99036",
+      "system": "http://obofoundry.org/sepio/clingen",
+      "display": "PP4"
+    },
+    {
+      "id": "SEPIO-CG:99037",
+      "type": "IdentifierSystemConcept",
+      "code": "99037",
+      "system": "http://obofoundry.org/sepio/clingen",
+      "display": "PP5"
+    },
+    {
+      "id": "SEPIO-CG:99038",
+      "type": "IdentifierSystemConcept",
+      "code": "99038",
+      "system": "http://obofoundry.org/sepio/clingen",
+      "display": "BA1"
+    },
+    {
+      "id": "SEPIO-CG:99039",
+      "type": "IdentifierSystemConcept",
+      "code": "99039",
+      "system": "http://obofoundry.org/sepio/clingen",
+      "display": "BS1"
+    },
+    {
+      "id": "SEPIO-CG:99040",
+      "type": "IdentifierSystemConcept",
+      "code": "99040",
+      "system": "http://obofoundry.org/sepio/clingen",
+      "display": "BS2"
+    },
+    {
+      "id": "SEPIO-CG:99041",
+      "type": "IdentifierSystemConcept",
+      "code": "99041",
+      "system": "http://obofoundry.org/sepio/clingen",
+      "display": "BS3"
+    },
+    {
+      "id": "SEPIO-CG:99042",
+      "type": "IdentifierSystemConcept",
+      "code": "99042",
+      "system": "http://obofoundry.org/sepio/clingen",
+      "display": "BS4"
+    },
+    {
+      "id": "SEPIO-CG:99043",
+      "type": "IdentifierSystemConcept",
+      "code": "99043",
+      "system": "http://obofoundry.org/sepio/clingen",
+      "display": "BP1"
+    },
+    {
+      "id": "SEPIO-CG:99044",
+      "type": "IdentifierSystemConcept",
+      "code": "99044",
+      "system": "http://obofoundry.org/sepio/clingen",
+      "display": "BP2"
+    },
+    {
+      "id": "SEPIO-CG:99045",
+      "type": "IdentifierSystemConcept",
+      "code": "99045",
+      "system": "http://obofoundry.org/sepio/clingen",
+      "display": "BP3"
+    },
+    {
+      "id": "SEPIO-CG:99046",
+      "type": "IdentifierSystemConcept",
+      "code": "99046",
+      "system": "http://obofoundry.org/sepio/clingen",
+      "display": "BP4"
+    },
+    {
+      "id": "SEPIO-CG:99047",
+      "type": "IdentifierSystemConcept",
+      "code": "99047",
+      "system": "http://obofoundry.org/sepio/clingen",
+      "display": "BP5"
+    },
+    {
+      "id": "SEPIO-CG:99048",
+      "type": "IdentifierSystemConcept",
+      "code": "99048",
+      "system": "http://obofoundry.org/sepio/clingen",
+      "display": "BP6"
+    },
+    {
+      "id": "SEPIO-CG:99049",
+      "type": "IdentifierSystemConcept",
+      "code": "99049",
+      "system": "http://obofoundry.org/sepio/clingen",
+      "display": "BP7"
+    }
+  ]
+}

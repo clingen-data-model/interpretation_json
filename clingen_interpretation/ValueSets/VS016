@@ -3,41 +3,41 @@
   "type": "ValueSet",
   "name": "ConditionMechanismStrength",
   "description": "The level of strength for which a class of variants is a known mechanism for a condition",
-  "includesCoding": [
+  "includesConcept": [
     {
-      "id": "CG-cond-mech-strength:common",
-      "type": "Coding",
-      "code": "common",
-      "system": "http://clinicalgenome.org/datamodel/condition-mechanism-strength/",
-      "display": "Common"
+      "id": "SEPIO:0000268",
+      "type": "IdentifierSystemConcept",
+      "code": "0000268",
+      "system": "http://obofoundry.org/sepio/",
+      "display": "common"
     },
     {
-      "id": "CG-cond-mech-strength:established",
-      "type": "Coding",
-      "code": "established",
-      "system": "http://clinicalgenome.org/datamodel/condition-mechanism-strength/",
-      "display": "Established"
+      "id": "SEPIO:0000269",
+      "type": "IdentifierSystemConcept",
+      "code": "0000269",
+      "system": "http://obofoundry.org/sepio/",
+      "display": "established"
     },
     {
-      "id": "CG-cond-mech-strength:primary",
-      "type": "Coding",
-      "code": "primary",
-      "system": "http://clinicalgenome.org/datamodel/condition-mechanism-strength/",
-      "display": "Primary"
+      "id": "SEPIO:0000270",
+      "type": "IdentifierSystemConcept",
+      "code": "0000270",
+      "system": "http://obofoundry.org/sepio/",
+      "display": "primary"
     },
     {
-      "id": "CG-cond-mech-strength:suggested",
-      "type": "Coding",
-      "code": "suggested",
-      "system": "http://clinicalgenome.org/datamodel/condition-mechanism-strength/",
-      "display": "Suggested"
+      "id": "SEPIO:0000271",
+      "type": "IdentifierSystemConcept",
+      "code": "0000271",
+      "system": "http://obofoundry.org/sepio/",
+      "display": "suggested"
     },
     {
-      "id": "CG-cond-mech-strength:unknown",
-      "type": "Coding",
-      "code": "unknown",
-      "system": "http://clinicalgenome.org/datamodel/condition-mechanism-strength/",
-      "display": "Unknown"
+      "id": "SEPIO:0000272",
+      "type": "IdentifierSystemConcept",
+      "code": "0000272",
+      "system": "http://obofoundry.org/sepio/",
+      "display": "unknown"
     }
   ]
 }

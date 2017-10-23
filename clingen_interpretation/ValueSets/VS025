@@ -1,0 +1,21 @@
+{
+  "id": "VS025",
+  "type": "ValueSet",
+  "name": "Conservation",
+  "includesConcept": [
+    {
+      "id": "SEPIO-CG:99003",
+      "type": "IdentifierSystemConcept",
+      "code": "99003",
+      "system": "http://obofoundry.org/sepio/clingen",
+      "display": "conserved"
+    },
+    {
+      "id": "SEPIO-CG:99004",
+      "type": "IdentifierSystemConcept",
+      "code": "99004",
+      "system": "http://obofoundry.org/sepio/clingen",
+      "display": "not conserved"
+    }
+  ]
+}

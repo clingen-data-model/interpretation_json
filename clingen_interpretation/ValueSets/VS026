@@ -1,0 +1,35 @@
+{
+  "id": "VS026",
+  "type": "ValueSet",
+  "name": "ParentalConfirmation",
+  "includesConcept": [
+    {
+      "id": "SEPIO-CG:99005",
+      "type": "IdentifierSystemConcept",
+      "code": "99005",
+      "system": "http://obofoundry.org/sepio/clingen",
+      "display": "maternal confirmation"
+    },
+    {
+      "id": "SEPIO-CG:99006",
+      "type": "IdentifierSystemConcept",
+      "code": "99006",
+      "system": "http://obofoundry.org/sepio/clingen",
+      "display": "paternal confirmation"
+    },
+    {
+      "id": "SEPIO-CG:99007",
+      "type": "IdentifierSystemConcept",
+      "code": "99007",
+      "system": "http://obofoundry.org/sepio/clingen",
+      "display": "maternal and paternal confirmation"
+    },
+    {
+      "id": "SEPIO-CG:99008",
+      "type": "IdentifierSystemConcept",
+      "code": "99008",
+      "system": "http://obofoundry.org/sepio/clingen",
+      "display": "no parental confirmation"
+    }
+  ]
+}

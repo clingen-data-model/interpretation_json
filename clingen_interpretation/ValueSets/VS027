@@ -1,0 +1,21 @@
+{
+  "id": "VS027",
+  "type": "ValueSet",
+  "name": "ConditionStatus",
+  "includesConcept": [
+    {
+      "id": "SEPIO-CG:99009",
+      "type": "IdentifierSystemConcept",
+      "code": "99009",
+      "system": "http://obofoundry.org/sepio/clingen",
+      "display": "affected"
+    },
+    {
+      "id": "SEPIO-CG:99010",
+      "type": "IdentifierSystemConcept",
+      "code": "99010",
+      "system": "http://obofoundry.org/sepio/clingen",
+      "display": "unaffected"
+    }
+  ]
+}

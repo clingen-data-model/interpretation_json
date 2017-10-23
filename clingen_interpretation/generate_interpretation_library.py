@@ -42,7 +42,29 @@ GETTER = '''
     def get_%s(self):
         return self.data[%s]'''
 
+def type_is_entity(dtype, types_and_atts):
+    """Determine whether a particular type is a DomainEntity"""
+    DOMAINENTITY='DomainEntity'
+    if dtype[NAME] == DOMAINENTITY:
+        return True
+    pname = get_parent_name(dtype, types_and_atts)
+    if pname == DOMAINENTITY:
+        return True
+    return False
+
+def attribute_is_entity(attribute, types_and_atts):
+    """Determine whether a particular attribute points to a DomainEntity"""
+    att_typename = attribute[TYPE] 
+    #The type is a string name of the type, not the id, so we have to 
+    # search our type map for it
+    for dtype in types_and_atts.values():
+        if dtype[NAME] == att_typename:
+            return type_is_entity(dtype, types_and_atts)
+    #It's not one of our types.  It's "string" or something like that.
+    return False
+
 def write_data_type(types_and_atts,type_id,lib,t_const,a_const):
+    """Write a python class representing a particular type_id."""
     dtype = types_and_atts[type_id]
     name = dtype[NAME]
     pname=get_parent_name(dtype,types_and_atts)
@@ -54,19 +76,9 @@ def write_data_type(types_and_atts,type_id,lib,t_const,a_const):
         if eid == type_id:
             attconst = a_const[attkey]
             attname = att[NAME]
-            if att[TYPE] == 'Coding':
-                #ValueSet has an includesCoding attribute that doesn't take a particular VS
+            if attribute_is_entity(att, types_and_atts):
                 try:
-                    print attname, 'Coding', att[VSID]
-                    vset = att[VSID]
-                    lib.write("\n    @get_factory_coding('%s')" % (vset))
-                except:
-                    pass
-            elif att[TYPE] == 'CodeableConcept':
-                try:
-                    print attname, 'CodeableConcept', att[VSID]
-                    vset = att[VSID]
-                    lib.write("\n    @get_factory_concept('%s')" % (vset))
+                    lib.write("\n    @get_factory_entity('%s')" % att[TYPE] )
                 except:
                     pass
             try:
@@ -99,24 +111,31 @@ def sort_types(types):
     flatten(children,typeids,'ROOT')
     return typeids
 
-def write_library(types_and_atts,libname,codename, enumname):
+def write_library(types_and_atts,libname,entname, enumname):
+    """Create a set of python classes representing data model classes.
+
+    Arguments: types_and_atts: a structure parsed from a JSON definition of
+                               model types.
+               libname: output file name for the generated library
+               enumname: output file name for enumerations """
     t_const, a_const = write_constants( types_and_atts, enumname )
     lib = file(libname,'w')
     lib.write('from interpretation_constants import *\n')
-    lib.write('from coding_factory import get_factory_coding, get_factory_concept\n')
+    lib.write('from domain_entity_factory import get_factory_entity\n')
     lib.write('from node import Node\n\n')
-    codef = file(codename,'w')
-    codef.write('from interpretation_constants import *\n')
-    codef.write('from node import Node\n\n')
+    entf = file(entname,'w')
+    entf.write('from interpretation_constants import *\n')
+    lib.write('from domain_entity_factory import get_factory_entity\n')
+    entf.write('from node import Node\n\n')
     type_ids = sort_types(types_and_atts)
     for type_id in type_ids:
-        if types_and_atts[type_id][NAME] in ['Coding','CodeableConcept']:
-            outf = codef
+        if type_is_entity(types_and_atts[type_id], types_and_atts):
+            outf = entf
         else:
             outf = lib
         write_data_type(types_and_atts,type_id,outf,t_const,a_const)
     lib.close()
-    codef.close()
+    entf.close()
     
 
 def write_constants(types_and_atts,enumname):
@@ -139,8 +158,12 @@ def write_constants(types_and_atts,enumname):
         attributes = dtype[ ATTRIBUTES ]
         for att in attributes:
             attkey = att[ID]
-            attfqname = att[FQNAME]
             attname = att[NAME]
+            try:
+                attfqname = att[FQNAME]
+            except:
+                print 'Missing fqname for %s' % attkey
+                attfqname = '%s.%s' % (attkey, attname)
             att_constant = 'DMWG_%s_KEY' % ('_'.join(attfqname.upper().split('.')))
             att_constants[attkey] = att_constant
             if att_constant not in attconsts:
@@ -149,23 +172,17 @@ def write_constants(types_and_atts,enumname):
     enum.close()
     return type_constants, att_constants
 
-
-#def go(libdir = '/home/bizon/Projects/ClinGen/NewDataModel/interpretation/data/flattened'):
-def go():
-    #attributes = json.load(attributefile)
-    type_url = 'http://datamodel.clinicalgenome.org/interpretation/master/json/Types'
-    t_res = requests.get(type_url)
-    json_string = t_res.text
-    types_and_atts = json.loads(json_string)
-    vsdir = 'ValueSets'
+def pull_value_sets(vsdir):
+    """Pull the value set definitions from datamodel.clinicalgenome.org.
+    We hard code some values here for which ones we actually want to pull."""
     try:
         os.mkdir(vsdir)
     except:
         pass
-    #TODO: FIX UP
-    #copy('%s/Criterion.json' % libdir, '%s/Criterion.json' % vsdir)
-    for i in range(1,24):
-        if i in [1,18,19,20]:
+    for i in range(2,38):
+        #We don't really need to pull gene, disease, etc.
+        #Plus we have a few empty ids.
+        if i in [1, 8, 18,19,20,31,32,33]:
             continue
         VS = 'VS%03d' % i
         url = 'http://datamodel.clinicalgenome.org/interpretation/master/json/%s' % VS
@@ -174,7 +191,20 @@ def go():
         text = res.text
         outf.write(text)
         outf.close()
-    write_library(types_and_atts, 'interpretation_generated.py', 'coding_generated.py', 'interpretation_constants.py')
+
+
+def go():
+    """Main function for creating library.
+
+    In order to create JSON objects, we want to pull Type/Attribute/Value
+    definitions from the web and use those definitions to create python 
+    classes and constants"""
+    type_url = 'http://datamodel.clinicalgenome.org/interpretation/master/json/Types'
+    t_res = requests.get(type_url)
+    json_string = t_res.text
+    types_and_atts = json.loads(json_string)
+    pull_value_sets('ValueSets')
+    write_library(types_and_atts, 'interpretation_generated.py', 'entities_generated.py', 'interpretation_constants.py')
 
 if __name__ == '__main__':
     go()

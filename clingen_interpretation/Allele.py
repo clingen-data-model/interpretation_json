@@ -1,6 +1,27 @@
 from node import Node
-from coding_generated import *
+from entities_generated import *
 from interpretation_constants import *
+
+
+class Coding(Node):
+    """We need Coding because Allele is defined in terms of it"""
+    def __init__(self,iri=None):
+        self.data = {}
+        if iri is not None:
+            self.data[DMWG_ID_KEY] = iri
+        self.data[DMWG_TYPE_KEY] = 'Coding'
+    def set_code(self,x):
+        self.data['code'] = x
+    def get_code(self):
+        return self.data['code']
+    def set_system(self,x):
+        self.data['system'] = x
+    def get_system(self):
+        return self.data['system']
+    def set_display(self,x):
+        self.data['display'] = x
+    def get_display(self):
+        return self.data['display']
 
 #This is not necessarily useful outside of the DMWG Interpretation Library because we are keeping the 
 # data in the format expected for the InterpretationEncoder. In particular, rather than having 
