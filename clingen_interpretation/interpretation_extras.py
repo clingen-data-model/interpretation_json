@@ -46,18 +46,33 @@ def create_dmwg_disease(system, code, name):
 
 def read_criteria():
     this_dir, this_filename = os.path.split(__file__)
-    crit_path = os.path.join(this_dir, 'ValueSets', 'Criterion.json')
+    crit_path = os.path.join(this_dir, 'ValueSets', 'VS035')
     inf = file(crit_path,'r')
     jcrit = json.load(inf)
     inf.close()
     criteria = {}
-    for rulenum in jcrit:
-        crit = jcrit[rulenum]
+    for crit in jcrit['includesConcept']:
         criterion = Criterion(crit['id'])
-        criterion.set_description (crit['description'] )
-        criterion.set_shortDescription ( crit['shortDescription'] )
-        criterion.set_defaultStrength( crit['defaultStrength'] )
-        criteria[rulenum] = criterion
+        label = crit['display']
+        criterion.set_label ( label )
+        if label.startswith('PVS'):
+            defStrength = 'Pathogenic Very Strong'
+        elif label.startswith('PS'):
+            defStrength = 'Pathogenic Strong'
+        elif label.startswith('PP'):
+            defStrength = 'Pathogenic Supporting'
+        elif label.startswith('PM'):
+            defStrength = 'Pathogenic Moderate'
+        elif label.startswith('BS'):
+            defStrength = 'Benign Strong'
+        elif label.startswith('BP'):
+            defStrength = 'Benign Supporting'
+        elif label.startswith('BM'):
+            defStrength = 'Benign Moderate'
+        elif label.startswith('BA'):
+            defStrength = 'Benign Stand Alone'
+        criterion.set_defaultStrength( defStrength )
+        criteria[label] = criterion
     return criteria
 
 
