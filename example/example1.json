@@ -1,26 +1,14 @@
 {
     "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context",
-    "clinicalSignificance": {
-        "code": "LA6668-3",
-        "display": "Pathogenic",
-        "id": "http://loinc.org/LA6668-3",
-        "system": "http://loinc.org/",
-        "type": "Coding"
-    },
     "condition": [
         {
             "disease": [
                 {
-                    "coding": [
-                        {
-                            "code": "DOID_11984",
-                            "display": "hypertrophic cardiomyopathy",
-                            "id": "http://www.disease-ontology.org/term/DOID_11984",
-                            "system": "http://www.disease-ontology.org/term/",
-                            "type": "Coding"
-                        }
+                    "id": "http://www.disease-ontology.org/term/DOID_11984",
+                    "synonym": [
+                        "hypertrophic cardiomyopathy"
                     ],
-                    "type": "CodeableConcept"
+                    "type": "Disease"
                 }
             ],
             "type": "GeneticCondition"
@@ -30,21 +18,13 @@
         {
             "agent": {
                 "id": "http://examples.com/agent1",
-                "name": "Gregor Mendel",
+                "label": "Gregor Mendel",
                 "type": "Agent"
             },
-            "onDate": "2017-01-24T16:16:59.073653+00:00",
-            "role": {
-                "coding": [
-                    {
-                        "code": "interpreter",
-                        "display": "interpreter",
-                        "id": "http://clinicalgenome.org/datamodel/contributory-role/interpreter",
-                        "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-                        "type": "Coding"
-                    }
-                ],
-                "type": "CodeableConcept"
+            "contributionDate": "2017-01-24T16:16:59.073653+00:00",
+            "contributionRole": {
+                "label": "interpreter",
+                "type": "ContributoryRole"
             },
             "type": "Contribution"
         }
@@ -56,38 +36,22 @@
                     "contribution": [
                         {
                             "agent": "http://examples.com/agent1",
-                            "onDate": "2017-01-24T16:07:57.082704+00:00",
-                            "role": {
-                                "coding": [
-                                    {
-                                        "code": "assessor",
-                                        "display": "assessor",
-                                        "id": "http://clinicalgenome.org/datamodel/contributory-role/assessor",
-                                        "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-                                        "type": "Coding"
-                                    }
-                                ],
-                                "type": "CodeableConcept"
+                            "contributionDate": "2017-01-24T16:07:57.082704+00:00",
+                            "contributionRole": {
+                                "label": "assessor",
+                                "type": "ContributoryRole"
                             },
                             "type": "Contribution"
                         }
                     ],
                     "criterion": {
                         "defaultStrength": {
-                            "coding": [
-                                {
-                                    "code": "pm",
-                                    "display": "Pathogenic Moderate",
-                                    "id": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/pm",
-                                    "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
-                                    "type": "Coding"
-                                }
-                            ],
-                            "type": "CodeableConcept"
+                            "id": "SEPIO:0000216",
+                            "label": "Pathogenic Moderate",
+                            "type": "EvidenceLineStrength"
                         },
-                        "description": "Absent from controls (or at extremely low frequency if recessive) (Table 6) in Exome Sequencing Project, 1000 Genomes Project, or Exome Aggregation Consortium",
-                        "id": "PM2",
-                        "shortDescription": "Absent from controls",
+                        "id": "SEPIO-CG:99028",
+                        "label": "PM2",
                         "type": "Criterion"
                     },
                     "evidenceLine": [
@@ -232,51 +196,28 @@
                                     "alleleFrequency": 0,
                                     "alleleNumber": 1000,
                                     "ascertainment": {
-                                        "coding": [
-                                            {
-                                                "code": "ExAC",
-                                                "display": "ExAC",
-                                                "id": "http://clinicalgenome.org/datamodel/ascertainment-type/ExAC",
-                                                "system": "http://clinicalgenome.org/datamodel/ascertainment-type/",
-                                                "type": "Coding"
-                                            }
-                                        ],
-                                        "type": "CodeableConcept"
+                                        "label": "ExAC",
+                                        "type": "AscertainmentType"
                                     },
                                     "contribution": [
                                         {
                                             "agent": {
                                                 "id": "http://examples.com/agent2",
-                                                "name": "ExAC Data Loader v1",
+                                                "label": "ExAC Data Loader v1",
                                                 "type": "Agent"
                                             },
-                                            "onDate": "2016-01-24T16:07:57.082704+00:00",
-                                            "role": {
-                                                "coding": [
-                                                    {
-                                                        "code": "curator",
-                                                        "display": "curator",
-                                                        "id": "http://clinicalgenome.org/datamodel/contributory-role/curator",
-                                                        "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-                                                        "type": "Coding"
-                                                    }
-                                                ],
-                                                "type": "CodeableConcept"
+                                            "contributionDate": "2016-01-24T16:07:57.082704+00:00",
+                                            "contributionRole": {
+                                                "label": "curator",
+                                                "type": "ContributoryRole"
                                             },
                                             "type": "Contribution"
                                         }
                                     ],
                                     "population": {
-                                        "coding": [
-                                            {
-                                                "code": "nfe",
-                                                "display": "Non-Finnish European",
-                                                "id": "http://broadinstitute.org/populations/nfe",
-                                                "system": "http://broadinstitute.org/populations/",
-                                                "type": "Coding"
-                                            }
-                                        ],
-                                        "type": "CodeableConcept"
+                                        "id": "BROAD-population-type:nfe",
+                                        "label": "Non-Finnish European",
+                                        "type": "PopulationType"
                                     },
                                     "type": "AlleleFrequency"
                                 }
@@ -286,26 +227,23 @@
                     ],
                     "id": "http://examples.com/assessment1",
                     "outcome": {
-                        "code": "met",
-                        "display": "Met",
-                        "id": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/met",
-                        "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
-                        "type": "Coding"
+                        "label": "met",
+                        "type": "CriterionEvaluation"
                     },
                     "type": "CriterionAssessment",
                     "variant": "http://reg.genome.network/allele/CA010360"
                 }
             ],
-            "evidenceStrength": {
-                "coding": [
-                    "http://clinicalgenome.org/datamodel/criterion-evidence-strength/pm"
-                ],
-                "type": "CodeableConcept"
-            },
+            "evidenceStrength": "SEPIO:0000216",
             "type": "EvidenceLine"
         }
     ],
     "id": "http://example.com/interpretation_1",
+    "outcome": {
+        "id": "LN:LA6668-3",
+        "label": "Pathogenic",
+        "type": "Significance"
+    },
     "type": "VariantInterpretation",
     "variant": "http://reg.genome.network/allele/CA010360"
 }

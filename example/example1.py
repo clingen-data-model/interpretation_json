@@ -36,7 +36,7 @@ def create_agent():
 def create_computational_agent():
     agent_id = 'http://examples.com/agent2'
     agent = Agent(agent_id)
-    agent.set_name('ExAC Data Loader v1')
+    agent.set_label('ExAC Data Loader v1')
     return agent
 
 def create_assessment(allele,agent):
