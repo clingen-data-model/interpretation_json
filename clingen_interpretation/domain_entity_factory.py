@@ -21,7 +21,6 @@ class DomainEntityFactory:
         files = os.listdir(vsdir)
         for f in files:
             if f.startswith('VS'):
-                print vsdir, f
                 inf = file('%s/%s'% (vsdir,f),'r')
                 valueset = json.load(inf)
                 vsid = valueset['id']
