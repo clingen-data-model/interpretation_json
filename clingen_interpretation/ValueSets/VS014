@@ -1,21 +1,34 @@
 {
   "id": "VS014",
   "type": "ValueSet",
-  "name": "BenignMissenseVariationRate",
-  "includesConcept": [
+  "label": "Penetrance",
+  "description": "TODO",
+  "conceptListExtensibility": {
+    "id": "VSCLExtnsID375",
+    "type": "ValueSetConceptListExtensibility",
+    "label": "extensible"
+  },
+  "sourceIdentifierSystems": [
     {
-      "id": "SEPIO:0000265",
-      "type": "IdentifierSystemConcept",
-      "code": "0000265",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "High"
+      "id": "IdSys016",
+      "type": "IdentifierSystem"
+    }
+  ],
+  "concept": [
+    {
+      "id": "PenetID130",
+      "type": "Penetrance",
+      "label": "Complete"
     },
     {
-      "id": "SEPIO:0000266",
-      "type": "IdentifierSystemConcept",
-      "code": "0000266",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "Low"
+      "id": "PenetID131",
+      "type": "Penetrance",
+      "label": "High"
+    },
+    {
+      "id": "PenetID132",
+      "type": "Penetrance",
+      "label": "Incomplete"
     }
   ]
 }

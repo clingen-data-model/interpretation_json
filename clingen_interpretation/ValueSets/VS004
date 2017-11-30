@@ -1,28 +1,38 @@
 {
   "id": "VS004",
   "type": "ValueSet",
-  "name": "RegionAnnotationType",
-  "includesConcept": [
+  "label": "Region Annotation",
+  "description": "TODO",
+  "conceptListExtensibility": {
+    "id": "VSCLExtnsID375",
+    "type": "ValueSetConceptListExtensibility",
+    "label": "extensible"
+  },
+  "sourceIdentifierSystems": [
     {
-      "id": "SEPIO:0000320",
-      "type": "IdentifierSystemConcept",
-      "code": "0000320",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "functional region"
+      "id": "IdSys007",
+      "type": "IdentifierSystem"
     },
     {
-      "id": "SEPIO:0000321",
-      "type": "IdentifierSystemConcept",
-      "code": "0000321",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "mutational hotspot"
+      "id": "IdSys023",
+      "type": "IdentifierSystem"
+    }
+  ],
+  "concept": [
+    {
+      "id": "RegAnnID033",
+      "type": "RegionAnnotation",
+      "label": "functional region"
     },
     {
-      "id": "SO:0000657",
-      "type": "IdentifierSystemConcept",
-      "code": "0000657",
-      "system": "http://sequenceontology.org/",
-      "display": "repeat region "
+      "id": "RegAnnID034",
+      "type": "RegionAnnotation",
+      "label": "mutational hotspot"
+    },
+    {
+      "id": "RegAnnID035",
+      "type": "RegionAnnotation",
+      "label": "repeat region "
     }
   ]
 }

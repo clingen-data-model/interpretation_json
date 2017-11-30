@@ -1,28 +1,24 @@
 {
   "id": "VS028",
   "type": "ValueSet",
-  "name": "InconsistentSegregationObserved",
-  "includesConcept": [
+  "label": "Null Allele Outcome",
+  "description": "TODO",
+  "conceptListExtensibility": {
+    "id": "VSCLExtnsID375",
+    "type": "ValueSetConceptListExtensibility",
+    "label": "extensible"
+  },
+  "sourceIdentifierSystems": [
     {
-      "id": "SEPIO-CG:99011",
-      "type": "IdentifierSystemConcept",
-      "code": "99011",
-      "system": "http://obofoundry.org/sepio/clingen",
-      "display": "present"
-    },
+      "id": "IdSys007",
+      "type": "IdentifierSystem"
+    }
+  ],
+  "concept": [
     {
-      "id": "SEPIO-CG:99012",
-      "type": "IdentifierSystemConcept",
-      "code": "99012",
-      "system": "http://obofoundry.org/sepio/clingen",
-      "display": "absent"
-    },
-    {
-      "id": "SEPIO-CG:99013",
-      "type": "IdentifierSystemConcept",
-      "code": "99013",
-      "system": "http://obofoundry.org/sepio/clingen",
-      "display": "unknown"
+      "id": "NullAllOutID223",
+      "type": "NullAlleleOutcome",
+      "label": "null mutation"
     }
   ]
 }

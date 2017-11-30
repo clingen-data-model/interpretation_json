@@ -1,21 +1,29 @@
 {
   "id": "VS005",
   "type": "ValueSet",
-  "name": "Phase",
-  "includesConcept": [
+  "label": "Phase",
+  "description": "TODO",
+  "conceptListExtensibility": {
+    "id": "VSCLExtnsID375",
+    "type": "ValueSetConceptListExtensibility",
+    "label": "extensible"
+  },
+  "sourceIdentifierSystems": [
     {
-      "id": "GENO:0000131",
-      "type": "IdentifierSystemConcept",
-      "code": "0000131",
-      "system": "http://obofoundry.org/geno/",
-      "display": "in cis"
+      "id": "IdSys022",
+      "type": "IdentifierSystem"
+    }
+  ],
+  "concept": [
+    {
+      "id": "PhaseID036",
+      "type": "Phase",
+      "label": "in cis"
     },
     {
-      "id": "GENO:0000132",
-      "type": "IdentifierSystemConcept",
-      "code": "0000132",
-      "system": "http://obofoundry.org/geno/",
-      "display": "in trans"
+      "id": "PhaseID037",
+      "type": "Phase",
+      "label": "in trans"
     }
   ]
 }

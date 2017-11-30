@@ -110,27 +110,32 @@ class ValueSet(Node):
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_VALUESET_TYPE 
-    def add_includesConcept(self,x):
-        if not DMWG_VALUESET_INCLUDESCONCEPT_KEY in self.data:
-            self.data[DMWG_VALUESET_INCLUDESCONCEPT_KEY] = []
-        self.data[DMWG_VALUESET_INCLUDESCONCEPT_KEY].append( x ) 
-    def get_includesConcept(self):
-        return self.data[DMWG_VALUESET_INCLUDESCONCEPT_KEY]
-    def set_name(self,x):
-        self.data[DMWG_VALUESET_NAME_KEY] = x
-    def get_name(self):
-        return self.data[DMWG_VALUESET_NAME_KEY]
+    def set_label(self,x):
+        self.data[DMWG_VALUESET_LABEL_KEY] = x
+    def get_label(self):
+        return self.data[DMWG_VALUESET_LABEL_KEY]
     def set_description(self,x):
         self.data[DMWG_VALUESET_DESCRIPTION_KEY] = x
     def get_description(self):
         return self.data[DMWG_VALUESET_DESCRIPTION_KEY]
-
-class ValueSetConcept(Node):
-    def __init__(self,iri=None):
-        self.data = {}
-        if iri is not None:
-            self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_VALUESETCONCEPT_TYPE 
+    def set_conceptListExtensibility(self,x):
+        self.data[DMWG_VALUESET_CONCEPTLISTEXTENSIBILITY_KEY] = x
+    def get_conceptListExtensibility(self):
+        return self.data[DMWG_VALUESET_CONCEPTLISTEXTENSIBILITY_KEY]
+    @get_factory_entity('IdentifierSystem')
+    def add_sourceIdentifierSystems(self,x):
+        if not DMWG_VALUESET_SOURCEIDENTIFIERSYSTEMS_KEY in self.data:
+            self.data[DMWG_VALUESET_SOURCEIDENTIFIERSYSTEMS_KEY] = []
+        self.data[DMWG_VALUESET_SOURCEIDENTIFIERSYSTEMS_KEY].append( x ) 
+    def get_sourceIdentifierSystems(self):
+        return self.data[DMWG_VALUESET_SOURCEIDENTIFIERSYSTEMS_KEY]
+    @get_factory_entity('DomainEntity')
+    def add_concept(self,x):
+        if not DMWG_VALUESET_CONCEPT_KEY in self.data:
+            self.data[DMWG_VALUESET_CONCEPT_KEY] = []
+        self.data[DMWG_VALUESET_CONCEPT_KEY].append( x ) 
+    def get_concept(self):
+        return self.data[DMWG_VALUESET_CONCEPT_KEY]
 
 class EvidenceLine(Node):
     def __init__(self,iri=None):
@@ -159,13 +164,6 @@ class EvidenceLine(Node):
         self.data[DMWG_EVIDENCELINE_CONTRIBUTION_KEY].append( x ) 
     def get_contribution(self):
         return self.data[DMWG_EVIDENCELINE_CONTRIBUTION_KEY]
-
-class IdentifierSystem(Node):
-    def __init__(self,iri=None):
-        self.data = {}
-        if iri is not None:
-            self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_IDENTIFIERSYSTEM_TYPE 
 
 class ContextualAllele(Node):
     def __init__(self,iri=None):
@@ -217,6 +215,16 @@ class Statement(Node):
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_STATEMENT_TYPE 
+    def set_qualifier(self,x):
+        self.data[DMWG_A004_QUALIFIER_KEY] = x
+    def get_qualifier(self):
+        return self.data[DMWG_A004_QUALIFIER_KEY]
+    def add_evidenceLine(self,x):
+        if not DMWG_STATEMENT_EVIDENCELINE_KEY in self.data:
+            self.data[DMWG_STATEMENT_EVIDENCELINE_KEY] = []
+        self.data[DMWG_STATEMENT_EVIDENCELINE_KEY].append( x ) 
+    def get_evidenceLine(self):
+        return self.data[DMWG_STATEMENT_EVIDENCELINE_KEY]
     def set_description(self,x):
         self.data[DMWG_STATEMENT_DESCRIPTION_KEY] = x
     def get_description(self):
@@ -249,7 +257,7 @@ class IndividualAlleleInheritance(Statement):
         self.data[DMWG_INDIVIDUALALLELEINHERITANCE_INDIVIDUAL_KEY] = x
     def get_individual(self):
         return self.data[DMWG_INDIVIDUALALLELEINHERITANCE_INDIVIDUAL_KEY]
-    @get_factory_entity('AlleleInheritanceType')
+    @get_factory_entity('AlleleInheritance')
     def add_alleleInheritance(self,x):
         if not DMWG_INDIVIDUALALLELEINHERITANCE_ALLELEINHERITANCE_KEY in self.data:
             self.data[DMWG_INDIVIDUALALLELEINHERITANCE_ALLELEINHERITANCE_KEY] = []
@@ -311,32 +319,6 @@ class VariantInterpretation(Statement):
         self.data[DMWG_VARIANTINTERPRETATION_ASSERTIONMETHOD_KEY] = x
     def get_assertionMethod(self):
         return self.data[DMWG_VARIANTINTERPRETATION_ASSERTIONMETHOD_KEY]
-    def add_evidenceLine(self,x):
-        if not DMWG_VARIANTINTERPRETATION_EVIDENCELINE_KEY in self.data:
-            self.data[DMWG_VARIANTINTERPRETATION_EVIDENCELINE_KEY] = []
-        self.data[DMWG_VARIANTINTERPRETATION_EVIDENCELINE_KEY].append( x ) 
-    def get_evidenceLine(self):
-        return self.data[DMWG_VARIANTINTERPRETATION_EVIDENCELINE_KEY]
-
-class BenignMissenseVariationRate(Statement):
-    def __init__(self,iri=None):
-        self.data = {}
-        if iri is not None:
-            self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_BENIGNMISSENSEVARIATIONRATE_TYPE 
-    def set_region(self,x):
-        self.data[DMWG_BENIGNMISSENSEVARIATIONRATE_REGION_KEY] = x
-    def get_region(self):
-        return self.data[DMWG_BENIGNMISSENSEVARIATIONRATE_REGION_KEY]
-    @get_factory_entity('Gene')
-    def set_gene(self,x):
-        self.data[DMWG_BENIGNMISSENSEVARIATIONRATE_GENE_KEY] = x
-    def get_gene(self):
-        return self.data[DMWG_BENIGNMISSENSEVARIATIONRATE_GENE_KEY]
-    def set_value(self,x):
-        self.data[DMWG_BENIGNMISSENSEVARIATIONRATE_VALUE_KEY] = x
-    def get_value(self):
-        return self.data[DMWG_BENIGNMISSENSEVARIATIONRATE_VALUE_KEY]
 
 class IndividualCondition(Statement):
     def __init__(self,iri=None):
@@ -361,23 +343,26 @@ class IndividualCondition(Statement):
     def get_individualHasCondition(self):
         return self.data[DMWG_INDIVIDUALCONDITION_INDIVIDUALHASCONDITION_KEY]
 
-class ExcludedRegionType(Statement):
+class LocusHeterogeneity(Statement):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_EXCLUDEDREGIONTYPE_TYPE 
-    def set_region(self,x):
-        self.data[DMWG_EXCLUDEDREGIONTYPE_REGION_KEY] = x
-    def get_region(self):
-        return self.data[DMWG_EXCLUDEDREGIONTYPE_REGION_KEY]
-    @get_factory_entity('RegionAnnotationType')
-    def add_annotation(self,x):
-        if not DMWG_EXCLUDEDREGIONTYPE_ANNOTATION_KEY in self.data:
-            self.data[DMWG_EXCLUDEDREGIONTYPE_ANNOTATION_KEY] = []
-        self.data[DMWG_EXCLUDEDREGIONTYPE_ANNOTATION_KEY].append( x ) 
-    def get_annotation(self):
-        return self.data[DMWG_EXCLUDEDREGIONTYPE_ANNOTATION_KEY]
+        self.data[DMWG_TYPE_KEY] = DMWG_LOCUSHETEROGENEITY_TYPE 
+    def set_condition(self,x):
+        self.data[DMWG_LOCUSHETEROGENEITY_CONDITION_KEY] = x
+    def get_condition(self):
+        return self.data[DMWG_LOCUSHETEROGENEITY_CONDITION_KEY]
+    @get_factory_entity('Gene')
+    def set_gene(self,x):
+        self.data[DMWG_LOCUSHETEROGENEITY_GENE_KEY] = x
+    def get_gene(self):
+        return self.data[DMWG_LOCUSHETEROGENEITY_GENE_KEY]
+    @get_factory_entity('LocusSpecificity')
+    def set_specificity(self,x):
+        self.data[DMWG_LOCUSHETEROGENEITY_SPECIFICITY_KEY] = x
+    def get_specificity(self):
+        return self.data[DMWG_LOCUSHETEROGENEITY_SPECIFICITY_KEY]
 
 class AggregateSegregation(Statement):
     def __init__(self,iri=None):
@@ -447,19 +432,15 @@ class AlleleConservation(Statement):
         self.data[DMWG_ALLELECONSERVATION_ALLELE_KEY] = x
     def get_allele(self):
         return self.data[DMWG_ALLELECONSERVATION_ALLELE_KEY]
+    @get_factory_entity('Conservation')
+    def set_conservationType(self,x):
+        self.data[DMWG_ALLELECONSERVATION_CONSERVATIONTYPE_KEY] = x
+    def get_conservationType(self):
+        return self.data[DMWG_ALLELECONSERVATION_CONSERVATIONTYPE_KEY]
     def set_algorithm(self,x):
         self.data[DMWG_ALLELECONSERVATION_ALGORITHM_KEY] = x
     def get_algorithm(self):
         return self.data[DMWG_ALLELECONSERVATION_ALGORITHM_KEY]
-    def set_score(self,x):
-        self.data[DMWG_ALLELECONSERVATION_SCORE_KEY] = x
-    def get_score(self):
-        return self.data[DMWG_ALLELECONSERVATION_SCORE_KEY]
-    @get_factory_entity('Conservation')
-    def set_outcome(self,x):
-        self.data[DMWG_ALLELECONSERVATION_OUTCOME_KEY] = x
-    def get_outcome(self):
-        return self.data[DMWG_ALLELECONSERVATION_OUTCOME_KEY]
 
 class ConditionPenetrance(Statement):
     def __init__(self,iri=None):
@@ -473,11 +454,35 @@ class ConditionPenetrance(Statement):
         self.data[DMWG_CONDITIONPENETRANCE_CONDITION_KEY].append( x ) 
     def get_condition(self):
         return self.data[DMWG_CONDITIONPENETRANCE_CONDITION_KEY]
-    @get_factory_entity('PenetranceType')
+    @get_factory_entity('Penetrance')
     def set_penetrance(self,x):
         self.data[DMWG_CONDITIONPENETRANCE_PENETRANCE_KEY] = x
     def get_penetrance(self):
         return self.data[DMWG_CONDITIONPENETRANCE_PENETRANCE_KEY]
+
+class AlleleConservationScore(Statement):
+    def __init__(self,iri=None):
+        self.data = {}
+        if iri is not None:
+            self.data[DMWG_ID_KEY] = iri
+        self.data[DMWG_TYPE_KEY] = DMWG_ALLELECONSERVATIONSCORE_TYPE 
+    def set_allele(self,x):
+        self.data[DMWG_ALLELECONSERVATIONSCORE_ALLELE_KEY] = x
+    def get_allele(self):
+        return self.data[DMWG_ALLELECONSERVATIONSCORE_ALLELE_KEY]
+    @get_factory_entity('Conservation')
+    def set_conservationType(self,x):
+        self.data[DMWG_ALLELECONSERVATIONSCORE_CONSERVATIONTYPE_KEY] = x
+    def get_conservationType(self):
+        return self.data[DMWG_ALLELECONSERVATIONSCORE_CONSERVATIONTYPE_KEY]
+    def set_algorithm(self,x):
+        self.data[DMWG_ALLELECONSERVATIONSCORE_ALGORITHM_KEY] = x
+    def get_algorithm(self):
+        return self.data[DMWG_ALLELECONSERVATIONSCORE_ALGORITHM_KEY]
+    def set_score(self,x):
+        self.data[DMWG_ALLELECONSERVATIONSCORE_SCORE_KEY] = x
+    def get_score(self):
+        return self.data[DMWG_ALLELECONSERVATIONSCORE_SCORE_KEY]
 
 class InSilicoPrediction(Statement):
     def __init__(self,iri=None):
@@ -494,19 +499,15 @@ class InSilicoPrediction(Statement):
         self.data[DMWG_INSILICOPREDICTION_TRANSCRIPT_KEY] = x
     def get_transcript(self):
         return self.data[DMWG_INSILICOPREDICTION_TRANSCRIPT_KEY]
-    @get_factory_entity('PredictionType')
+    @get_factory_entity('Prediction')
     def set_predictionType(self,x):
         self.data[DMWG_INSILICOPREDICTION_PREDICTIONTYPE_KEY] = x
     def get_predictionType(self):
         return self.data[DMWG_INSILICOPREDICTION_PREDICTIONTYPE_KEY]
-    def set_score(self,x):
-        self.data[DMWG_INSILICOPREDICTION_SCORE_KEY] = x
-    def get_score(self):
-        return self.data[DMWG_INSILICOPREDICTION_SCORE_KEY]
-    def set_categoricalPrediction(self,x):
-        self.data[DMWG_INSILICOPREDICTION_CATEGORICALPREDICTION_KEY] = x
-    def get_categoricalPrediction(self):
-        return self.data[DMWG_INSILICOPREDICTION_CATEGORICALPREDICTION_KEY]
+    def set_prediction(self,x):
+        self.data[DMWG_INSILICOPREDICTION_PREDICTION_KEY] = x
+    def get_prediction(self):
+        return self.data[DMWG_INSILICOPREDICTION_PREDICTION_KEY]
     def set_algorithm(self,x):
         self.data[DMWG_INSILICOPREDICTION_ALGORITHM_KEY] = x
     def get_algorithm(self):
@@ -558,12 +559,6 @@ class CriterionAssessment(Statement):
         self.data[DMWG_CRITERIONASSESSMENT_OUTCOME_KEY] = x
     def get_outcome(self):
         return self.data[DMWG_CRITERIONASSESSMENT_OUTCOME_KEY]
-    def add_evidenceLine(self,x):
-        if not DMWG_CRITERIONASSESSMENT_EVIDENCELINE_KEY in self.data:
-            self.data[DMWG_CRITERIONASSESSMENT_EVIDENCELINE_KEY] = []
-        self.data[DMWG_CRITERIONASSESSMENT_EVIDENCELINE_KEY].append( x ) 
-    def get_evidenceLine(self):
-        return self.data[DMWG_CRITERIONASSESSMENT_EVIDENCELINE_KEY]
 
 class ConditionPrevelance(Statement):
     def __init__(self,iri=None):
@@ -577,7 +572,7 @@ class ConditionPrevelance(Statement):
         self.data[DMWG_CONDITIONPREVELANCE_CONDITION_KEY].append( x ) 
     def get_condition(self):
         return self.data[DMWG_CONDITIONPREVELANCE_CONDITION_KEY]
-    @get_factory_entity('PopulationType')
+    @get_factory_entity('Population')
     def set_population(self,x):
         self.data[DMWG_CONDITIONPREVELANCE_POPULATION_KEY] = x
     def get_population(self):
@@ -595,26 +590,55 @@ class ConditionPrevelance(Statement):
     def get_prevelance(self):
         return self.data[DMWG_CONDITIONPREVELANCE_PREVELANCE_KEY]
 
-class LocusHeterogeneity(Statement):
+class InSilicoPredictionScore(Statement):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_LOCUSHETEROGENEITY_TYPE 
-    def set_condition(self,x):
-        self.data[DMWG_LOCUSHETEROGENEITY_CONDITION_KEY] = x
-    def get_condition(self):
-        return self.data[DMWG_LOCUSHETEROGENEITY_CONDITION_KEY]
+        self.data[DMWG_TYPE_KEY] = DMWG_INSILICOPREDICTIONSCORE_TYPE 
+    def set_canonicalAllele(self,x):
+        self.data[DMWG_INSILICOPREDICTIONSCORE_CANONICALALLELE_KEY] = x
+    def get_canonicalAllele(self):
+        return self.data[DMWG_INSILICOPREDICTIONSCORE_CANONICALALLELE_KEY]
+    @get_factory_entity('ReferenceSequence')
+    def set_transcript(self,x):
+        self.data[DMWG_INSILICOPREDICTIONSCORE_TRANSCRIPT_KEY] = x
+    def get_transcript(self):
+        return self.data[DMWG_INSILICOPREDICTIONSCORE_TRANSCRIPT_KEY]
+    @get_factory_entity('Prediction')
+    def set_predictionType(self,x):
+        self.data[DMWG_INSILICOPREDICTIONSCORE_PREDICTIONTYPE_KEY] = x
+    def get_predictionType(self):
+        return self.data[DMWG_INSILICOPREDICTIONSCORE_PREDICTIONTYPE_KEY]
+    def set_prediction(self,x):
+        self.data[DMWG_INSILICOPREDICTIONSCORE_PREDICTION_KEY] = x
+    def get_prediction(self):
+        return self.data[DMWG_INSILICOPREDICTIONSCORE_PREDICTION_KEY]
+    def set_algorithm(self,x):
+        self.data[DMWG_INSILICOPREDICTIONSCORE_ALGORITHM_KEY] = x
+    def get_algorithm(self):
+        return self.data[DMWG_INSILICOPREDICTIONSCORE_ALGORITHM_KEY]
+
+class BenignMissenseVariationRate(Statement):
+    def __init__(self,iri=None):
+        self.data = {}
+        if iri is not None:
+            self.data[DMWG_ID_KEY] = iri
+        self.data[DMWG_TYPE_KEY] = DMWG_BENIGNMISSENSEVARIATIONRATE_TYPE 
+    def set_region(self,x):
+        self.data[DMWG_BENIGNMISSENSEVARIATIONRATE_REGION_KEY] = x
+    def get_region(self):
+        return self.data[DMWG_BENIGNMISSENSEVARIATIONRATE_REGION_KEY]
     @get_factory_entity('Gene')
     def set_gene(self,x):
-        self.data[DMWG_LOCUSHETEROGENEITY_GENE_KEY] = x
+        self.data[DMWG_BENIGNMISSENSEVARIATIONRATE_GENE_KEY] = x
     def get_gene(self):
-        return self.data[DMWG_LOCUSHETEROGENEITY_GENE_KEY]
-    @get_factory_entity('LocusSpecificityType')
-    def set_specificity(self,x):
-        self.data[DMWG_LOCUSHETEROGENEITY_SPECIFICITY_KEY] = x
-    def get_specificity(self):
-        return self.data[DMWG_LOCUSHETEROGENEITY_SPECIFICITY_KEY]
+        return self.data[DMWG_BENIGNMISSENSEVARIATIONRATE_GENE_KEY]
+    @get_factory_entity('BenignMissenseVariationRateOutcome')
+    def set_value(self,x):
+        self.data[DMWG_BENIGNMISSENSEVARIATIONRATE_VALUE_KEY] = x
+    def get_value(self):
+        return self.data[DMWG_BENIGNMISSENSEVARIATIONRATE_VALUE_KEY]
 
 class FamilySegregation(Statement):
     def __init__(self,iri=None):
@@ -695,7 +719,7 @@ class RegionType(Statement):
         self.data[DMWG_REGIONTYPE_REGION_KEY] = x
     def get_region(self):
         return self.data[DMWG_REGIONTYPE_REGION_KEY]
-    @get_factory_entity('RegionAnnotationType')
+    @get_factory_entity('RegionAnnotation')
     def add_annotation(self,x):
         if not DMWG_REGIONTYPE_ANNOTATION_KEY in self.data:
             self.data[DMWG_REGIONTYPE_ANNOTATION_KEY] = []
@@ -744,7 +768,7 @@ class AlleleFunctionalImpact(Statement):
         self.data[DMWG_ALLELEFUNCTIONALIMPACT_RESULTDESCRIPTION_KEY] = x
     def get_resultDescription(self):
         return self.data[DMWG_ALLELEFUNCTIONALIMPACT_RESULTDESCRIPTION_KEY]
-    @get_factory_entity('AlleleFunctionalImpactType')
+    @get_factory_entity('AlleleFunctionalAssayMethod')
     def set_assayType(self,x):
         self.data[DMWG_ALLELEFUNCTIONALIMPACT_ASSAYTYPE_KEY] = x
     def get_assayType(self):
@@ -799,6 +823,7 @@ class NullAllele(Statement):
         self.data[DMWG_NULLALLELE_CONTEXTUALALLELE_KEY] = x
     def get_contextualAllele(self):
         return self.data[DMWG_NULLALLELE_CONTEXTUALALLELE_KEY]
+    @get_factory_entity('NullAlleleOutcome')
     def set_annotation(self,x):
         self.data[DMWG_NULLALLELE_ANNOTATION_KEY] = x
     def get_annotation(self):
@@ -814,12 +839,12 @@ class AlleleFrequency(Statement):
         self.data[DMWG_ALLELEFREQUENCY_ALLELE_KEY] = x
     def get_allele(self):
         return self.data[DMWG_ALLELEFREQUENCY_ALLELE_KEY]
-    @get_factory_entity('PopulationType')
+    @get_factory_entity('Population')
     def set_population(self,x):
         self.data[DMWG_ALLELEFREQUENCY_POPULATION_KEY] = x
     def get_population(self):
         return self.data[DMWG_ALLELEFREQUENCY_POPULATION_KEY]
-    @get_factory_entity('AscertainmentType')
+    @get_factory_entity('Ascertainment')
     def set_ascertainment(self,x):
         self.data[DMWG_ALLELEFREQUENCY_ASCERTAINMENT_KEY] = x
     def get_ascertainment(self):
@@ -857,21 +882,21 @@ class AlleleFrequency(Statement):
     def get_medianCoverage(self):
         return self.data[DMWG_ALLELEFREQUENCY_MEDIANCOVERAGE_KEY]
 
-class MolecularConsequence(Statement):
+class AlleleMolecularConsequence(Statement):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_MOLECULARCONSEQUENCE_TYPE 
+        self.data[DMWG_TYPE_KEY] = DMWG_ALLELEMOLECULARCONSEQUENCE_TYPE 
     def set_contextualAllele(self,x):
-        self.data[DMWG_MOLECULARCONSEQUENCE_CONTEXTUALALLELE_KEY] = x
+        self.data[DMWG_ALLELEMOLECULARCONSEQUENCE_CONTEXTUALALLELE_KEY] = x
     def get_contextualAllele(self):
-        return self.data[DMWG_MOLECULARCONSEQUENCE_CONTEXTUALALLELE_KEY]
-    @get_factory_entity('MolecularConsequenceType')
+        return self.data[DMWG_ALLELEMOLECULARCONSEQUENCE_CONTEXTUALALLELE_KEY]
+    @get_factory_entity('MolecularConsequence')
     def set_consequence(self,x):
-        self.data[DMWG_MOLECULARCONSEQUENCE_CONSEQUENCE_KEY] = x
+        self.data[DMWG_ALLELEMOLECULARCONSEQUENCE_CONSEQUENCE_KEY] = x
     def get_consequence(self):
-        return self.data[DMWG_MOLECULARCONSEQUENCE_CONSEQUENCE_KEY]
+        return self.data[DMWG_ALLELEMOLECULARCONSEQUENCE_CONSEQUENCE_KEY]
 
 class ConditionMechanism(Statement):
     def __init__(self,iri=None):
@@ -888,7 +913,7 @@ class ConditionMechanism(Statement):
         self.data[DMWG_CONDITIONMECHANISM_GENE_KEY] = x
     def get_gene(self):
         return self.data[DMWG_CONDITIONMECHANISM_GENE_KEY]
-    @get_factory_entity('MechanismType')
+    @get_factory_entity('Mechanism')
     def set_mechanism(self,x):
         self.data[DMWG_CONDITIONMECHANISM_MECHANISM_KEY] = x
     def get_mechanism(self):
@@ -899,40 +924,24 @@ class ConditionMechanism(Statement):
     def get_mechanismConfidence(self):
         return self.data[DMWG_CONDITIONMECHANISM_MECHANISMCONFIDENCE_KEY]
 
-class IndividualAllele(Statement):
+class IndividualGenotype(Statement):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_INDIVIDUALALLELE_TYPE 
+        self.data[DMWG_TYPE_KEY] = DMWG_INDIVIDUALGENOTYPE_TYPE 
     @get_factory_entity('Individual')
     def set_individual(self,x):
-        self.data[DMWG_INDIVIDUALALLELE_INDIVIDUAL_KEY] = x
+        self.data[DMWG_INDIVIDUALGENOTYPE_INDIVIDUAL_KEY] = x
     def get_individual(self):
-        return self.data[DMWG_INDIVIDUALALLELE_INDIVIDUAL_KEY]
-    def set_primaryAllele(self,x):
-        self.data[DMWG_INDIVIDUALALLELE_PRIMARYALLELE_KEY] = x
-    def get_primaryAllele(self):
-        return self.data[DMWG_INDIVIDUALALLELE_PRIMARYALLELE_KEY]
-    @get_factory_entity('AllelicState')
-    def set_primaryZygosity(self,x):
-        self.data[DMWG_INDIVIDUALALLELE_PRIMARYZYGOSITY_KEY] = x
-    def get_primaryZygosity(self):
-        return self.data[DMWG_INDIVIDUALALLELE_PRIMARYZYGOSITY_KEY]
-    def set_secondaryAllele(self,x):
-        self.data[DMWG_INDIVIDUALALLELE_SECONDARYALLELE_KEY] = x
-    def get_secondaryAllele(self):
-        return self.data[DMWG_INDIVIDUALALLELE_SECONDARYALLELE_KEY]
-    @get_factory_entity('AllelicState')
-    def set_secondaryZygosity(self,x):
-        self.data[DMWG_INDIVIDUALALLELE_SECONDARYZYGOSITY_KEY] = x
-    def get_secondaryZygosity(self):
-        return self.data[DMWG_INDIVIDUALALLELE_SECONDARYZYGOSITY_KEY]
-    @get_factory_entity('Phase')
-    def set_phase(self,x):
-        self.data[DMWG_INDIVIDUALALLELE_PHASE_KEY] = x
-    def get_phase(self):
-        return self.data[DMWG_INDIVIDUALALLELE_PHASE_KEY]
+        return self.data[DMWG_INDIVIDUALGENOTYPE_INDIVIDUAL_KEY]
+    @get_factory_entity('Genotype')
+    def add_genotype(self,x):
+        if not DMWG_INDIVIDUALGENOTYPE_GENOTYPE_KEY in self.data:
+            self.data[DMWG_INDIVIDUALGENOTYPE_GENOTYPE_KEY] = []
+        self.data[DMWG_INDIVIDUALGENOTYPE_GENOTYPE_KEY].append( x ) 
+    def get_genotype(self):
+        return self.data[DMWG_INDIVIDUALGENOTYPE_GENOTYPE_KEY]
 
 class UserLabel(Node):
     def __init__(self,iri=None):
@@ -958,23 +967,4 @@ class UserLabel(Node):
         self.data[DMWG_USERLABEL_COMMENTS_KEY] = x
     def get_comments(self):
         return self.data[DMWG_USERLABEL_COMMENTS_KEY]
-
-class IdentifierSystemConcept(Node):
-    def __init__(self,iri=None):
-        self.data = {}
-        if iri is not None:
-            self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_IDENTIFIERSYSTEMCONCEPT_TYPE 
-    def set_code(self,x):
-        self.data[DMWG_IDENTIFIERSYSTEMCONCEPT_CODE_KEY] = x
-    def get_code(self):
-        return self.data[DMWG_IDENTIFIERSYSTEMCONCEPT_CODE_KEY]
-    def set_system(self,x):
-        self.data[DMWG_IDENTIFIERSYSTEMCONCEPT_SYSTEM_KEY] = x
-    def get_system(self):
-        return self.data[DMWG_IDENTIFIERSYSTEMCONCEPT_SYSTEM_KEY]
-    def set_display(self,x):
-        self.data[DMWG_IDENTIFIERSYSTEMCONCEPT_DISPLAY_KEY] = x
-    def get_display(self):
-        return self.data[DMWG_IDENTIFIERSYSTEMCONCEPT_DISPLAY_KEY]
 

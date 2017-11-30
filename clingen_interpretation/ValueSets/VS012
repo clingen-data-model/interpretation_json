@@ -1,70 +1,234 @@
 {
   "id": "VS012",
   "type": "ValueSet",
-  "name": "AlleleFunctionalImpactType",
-  "includesConcept": [
+  "label": "Population",
+  "description": "TODO",
+  "conceptListExtensibility": {
+    "id": "VSCLExtnsID375",
+    "type": "ValueSetConceptListExtensibility",
+    "label": "extensible"
+  },
+  "sourceIdentifierSystems": [
     {
-      "id": "OBI:XXXXXX1",
-      "type": "IdentifierSystemConcept",
-      "code": "XXXXXX1",
-      "system": "http://purl.obolibrary.org/obo/OBI_",
-      "display": "Activation Assay"
+      "id": "IdSys027",
+      "type": "IdentifierSystem"
+    }
+  ],
+  "concept": [
+    {
+      "id": "PopID085",
+      "type": "Population",
+      "label": "African/African American"
     },
     {
-      "id": "OBI:XXXXXX2",
-      "type": "IdentifierSystemConcept",
-      "code": "XXXXXX2",
-      "system": "http://purl.obolibrary.org/obo/OBI_",
-      "display": "ATPase assay"
+      "id": "PopID086",
+      "type": "Population",
+      "label": "Latino"
     },
     {
-      "id": "OBI:0001146",
-      "type": "IdentifierSystemConcept",
-      "code": "0001146",
-      "system": "http://purl.obolibrary.org/obo/OBI_",
-      "display": "Binding assay"
+      "id": "PopID087",
+      "type": "Population",
+      "label": "Ashkenazi Jewish"
     },
     {
-      "id": "OBI:0002165",
-      "type": "IdentifierSystemConcept",
-      "code": "0002165",
-      "system": "http://purl.obolibrary.org/obo/OBI_",
-      "display": "cellular localization"
+      "id": "PopID088",
+      "type": "Population",
+      "label": "East Asian"
     },
     {
-      "id": "OBI:XXXXXX3",
-      "type": "IdentifierSystemConcept",
-      "code": "XXXXXX3",
-      "system": "http://purl.obolibrary.org/obo/OBI_",
-      "display": "Elk1 pohsphorylation via luciferase assay"
+      "id": "PopID089",
+      "type": "Population",
+      "label": "Finnish"
     },
     {
-      "id": "OBI:XXXXXX4",
-      "type": "IdentifierSystemConcept",
-      "code": "XXXXXX4",
-      "system": "http://purl.obolibrary.org/obo/OBI_",
-      "display": "iodide efflux"
+      "id": "PopID090",
+      "type": "Population",
+      "label": "Non-Finnish European"
     },
     {
-      "id": "OBI:XXXXXX5",
-      "type": "IdentifierSystemConcept",
-      "code": "XXXXXX5",
-      "system": "http://purl.obolibrary.org/obo/OBI_",
-      "display": "motility assay"
+      "id": "PopID091",
+      "type": "Population",
+      "label": "Other"
     },
     {
-      "id": "OBI:XXXXXX6",
-      "type": "IdentifierSystemConcept",
-      "code": "XXXXXX6",
-      "system": "http://purl.obolibrary.org/obo/OBI_",
-      "display": "neurite outgrowth"
+      "id": "PopID092",
+      "type": "Population",
+      "label": "South Asian"
     },
     {
-      "id": "OBI:XXXXXX7",
-      "type": "IdentifierSystemConcept",
-      "code": "XXXXXX7",
-      "system": "http://purl.obolibrary.org/obo/OBI_",
-      "display": "Yeast complementation assay"
+      "id": "PopID093",
+      "type": "Population",
+      "label": "Combined"
+    },
+    {
+      "id": "PopID094",
+      "type": "Population",
+      "label": "Overall"
+    },
+    {
+      "id": "PopID095",
+      "type": "Population",
+      "label": "European-American"
+    },
+    {
+      "id": "PopID096",
+      "type": "Population",
+      "label": "African-American"
+    },
+    {
+      "id": "PopID097",
+      "type": "Population",
+      "label": "African Caribbeans in Barbados"
+    },
+    {
+      "id": "PopID098",
+      "type": "Population",
+      "label": "African"
+    },
+    {
+      "id": "PopID099",
+      "type": "Population",
+      "label": "Ad Mixed American"
+    },
+    {
+      "id": "PopID100",
+      "type": "Population",
+      "label": "Americans of African Ancestry in SW USA"
+    },
+    {
+      "id": "PopID101",
+      "type": "Population",
+      "label": "Bengali from Bangladesh"
+    },
+    {
+      "id": "PopID102",
+      "type": "Population",
+      "label": "Chinese Dai in Xishuangbanna, China"
+    },
+    {
+      "id": "PopID103",
+      "type": "Population",
+      "label": "Utah Residents (CEPH) with Northern and Western European Ancestry"
+    },
+    {
+      "id": "PopID104",
+      "type": "Population",
+      "label": "Han Chinese in Bejing, China"
+    },
+    {
+      "id": "PopID105",
+      "type": "Population",
+      "label": "Southern Han Chinese"
+    },
+    {
+      "id": "PopID106",
+      "type": "Population",
+      "label": "Colombians from Medellin, Colombia"
+    },
+    {
+      "id": "PopID107",
+      "type": "Population",
+      "label": "East Asian"
+    },
+    {
+      "id": "PopID108",
+      "type": "Population",
+      "label": "Esan in Nigeria"
+    },
+    {
+      "id": "PopID109",
+      "type": "Population",
+      "label": "European"
+    },
+    {
+      "id": "PopID110",
+      "type": "Population",
+      "label": "Finnish in Finland"
+    },
+    {
+      "id": "PopID111",
+      "type": "Population",
+      "label": "British in England and Scotland"
+    },
+    {
+      "id": "PopID112",
+      "type": "Population",
+      "label": "Gujarati Indian from Houston, Texas"
+    },
+    {
+      "id": "PopID113",
+      "type": "Population",
+      "label": "Gambian in Western Divisions in the Gambia"
+    },
+    {
+      "id": "PopID114",
+      "type": "Population",
+      "label": "Iberian Population in Spain"
+    },
+    {
+      "id": "PopID115",
+      "type": "Population",
+      "label": "Indian Telugu from the UK"
+    },
+    {
+      "id": "PopID116",
+      "type": "Population",
+      "label": "Japanese in Tokyo, Japan"
+    },
+    {
+      "id": "PopID117",
+      "type": "Population",
+      "label": "Kinh in Ho Chi Minh City, Vietnam"
+    },
+    {
+      "id": "PopID118",
+      "type": "Population",
+      "label": "Luhya in Webuye, Kenya"
+    },
+    {
+      "id": "PopID119",
+      "type": "Population",
+      "label": "Mende in Sierra Leone"
+    },
+    {
+      "id": "PopID120",
+      "type": "Population",
+      "label": "Mexican Ancestry from Los Angeles USA"
+    },
+    {
+      "id": "PopID121",
+      "type": "Population",
+      "label": "Peruvians from Lima, Peru"
+    },
+    {
+      "id": "PopID122",
+      "type": "Population",
+      "label": "Punjabi from Lahore, Pakistan"
+    },
+    {
+      "id": "PopID123",
+      "type": "Population",
+      "label": "Puerto Ricans from Puerto Rico"
+    },
+    {
+      "id": "PopID124",
+      "type": "Population",
+      "label": "South Asian"
+    },
+    {
+      "id": "PopID125",
+      "type": "Population",
+      "label": "Sri Lankan Tamil from the UK"
+    },
+    {
+      "id": "PopID126",
+      "type": "Population",
+      "label": "Toscani in Italia"
+    },
+    {
+      "id": "PopID127",
+      "type": "Population",
+      "label": "Yoruba in Ibadan, Nigeria"
     }
   ]
 }

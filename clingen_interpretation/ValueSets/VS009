@@ -1,21 +1,29 @@
 {
   "id": "VS009",
   "type": "ValueSet",
-  "name": "MechanismType",
-  "includesConcept": [
+  "label": "Prediction",
+  "description": "TODO",
+  "conceptListExtensibility": {
+    "id": "VSCLExtnsID375",
+    "type": "ValueSetConceptListExtensibility",
+    "label": "extensible"
+  },
+  "sourceIdentifierSystems": [
     {
-      "id": "SO:0001583",
-      "type": "IdentifierSystemConcept",
-      "code": "0001583",
-      "system": "http://sequenceontology.org/",
-      "display": "missense variant"
+      "id": "IdSys023",
+      "type": "IdentifierSystem"
+    }
+  ],
+  "concept": [
+    {
+      "id": "PredID072",
+      "type": "Prediction",
+      "label": "missense effect"
     },
     {
-      "id": "SO:0002054",
-      "type": "IdentifierSystemConcept",
-      "code": "0002054",
-      "system": "http://sequenceontology.org/",
-      "display": "loss of function variant"
+      "id": "PredID073",
+      "type": "Prediction",
+      "label": "splicing prediction"
     }
   ]
 }

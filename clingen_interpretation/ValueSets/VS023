@@ -1,36 +1,38 @@
 {
   "id": "VS023",
   "type": "ValueSet",
-  "name": "AscertainmentType",
-  "description": "A coded or free-text term representing how people were chosen to be in the cohort in which the frequency is calculated.\nIt may be either because there are lots of ways that a cohort might be generated and our value set may not provide enough to allow for all cases.",
-  "includesConcept": [
+  "label": "Locus Specificity",
+  "description": "TODO",
+  "conceptListExtensibility": {
+    "id": "VSCLExtnsID375",
+    "type": "ValueSetConceptListExtensibility",
+    "label": "extensible"
+  },
+  "sourceIdentifierSystems": [
     {
-      "id": "SEPIO:0000262",
-      "type": "IdentifierSystemConcept",
-      "code": "0000262",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "1000 Genomes ascertainment method"
+      "id": "IdSys023",
+      "type": "IdentifierSystem"
     },
     {
-      "id": "SEPIO:0000332",
-      "type": "IdentifierSystemConcept",
-      "code": "0000332",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "ExAc ascertainment method"
+      "id": "IdSys024",
+      "type": "IdentifierSystem"
+    }
+  ],
+  "concept": [
+    {
+      "id": "LocSpecID209",
+      "type": "LocusSpecificity",
+      "label": "low"
     },
     {
-      "id": "SEPIO:0000333",
-      "type": "IdentifierSystemConcept",
-      "code": "0000333",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "ESP ascertainment method"
+      "id": "LocSpecID210",
+      "type": "LocusSpecificity",
+      "label": "high"
     },
     {
-      "id": "SEPIO:0000334",
-      "type": "IdentifierSystemConcept",
-      "code": "0000334",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "gnomAD ascertainment method"
+      "id": "LocSpecID211",
+      "type": "LocusSpecificity",
+      "label": "complete"
     }
   ]
 }

@@ -1,21 +1,39 @@
 {
   "id": "VS025",
   "type": "ValueSet",
-  "name": "Conservation",
-  "includesConcept": [
+  "label": "Parental Confirmation",
+  "description": "TODO",
+  "conceptListExtensibility": {
+    "id": "VSCLExtnsID375",
+    "type": "ValueSetConceptListExtensibility",
+    "label": "extensible"
+  },
+  "sourceIdentifierSystems": [
     {
-      "id": "SEPIO-CG:99003",
-      "type": "IdentifierSystemConcept",
-      "code": "99003",
-      "system": "http://obofoundry.org/sepio/clingen",
-      "display": "conserved"
+      "id": "IdSys024",
+      "type": "IdentifierSystem"
+    }
+  ],
+  "concept": [
+    {
+      "id": "ParenConfID214",
+      "type": "ParentalConfirmation",
+      "label": "maternal confirmation"
     },
     {
-      "id": "SEPIO-CG:99004",
-      "type": "IdentifierSystemConcept",
-      "code": "99004",
-      "system": "http://obofoundry.org/sepio/clingen",
-      "display": "not conserved"
+      "id": "ParenConfID215",
+      "type": "ParentalConfirmation",
+      "label": "paternal confirmation"
+    },
+    {
+      "id": "ParenConfID216",
+      "type": "ParentalConfirmation",
+      "label": "maternal and paternal confirmation"
+    },
+    {
+      "id": "ParenConfID217",
+      "type": "ParentalConfirmation",
+      "label": "no parental confirmation"
     }
   ]
 }

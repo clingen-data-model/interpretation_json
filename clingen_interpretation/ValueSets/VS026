@@ -1,35 +1,29 @@
 {
   "id": "VS026",
   "type": "ValueSet",
-  "name": "ParentalConfirmation",
-  "includesConcept": [
+  "label": "Condition Status",
+  "description": "TODO",
+  "conceptListExtensibility": {
+    "id": "VSCLExtnsID375",
+    "type": "ValueSetConceptListExtensibility",
+    "label": "extensible"
+  },
+  "sourceIdentifierSystems": [
     {
-      "id": "SEPIO-CG:99005",
-      "type": "IdentifierSystemConcept",
-      "code": "99005",
-      "system": "http://obofoundry.org/sepio/clingen",
-      "display": "maternal confirmation"
+      "id": "IdSys024",
+      "type": "IdentifierSystem"
+    }
+  ],
+  "concept": [
+    {
+      "id": "CondStatID218",
+      "type": "ConditionStatus",
+      "label": "affected"
     },
     {
-      "id": "SEPIO-CG:99006",
-      "type": "IdentifierSystemConcept",
-      "code": "99006",
-      "system": "http://obofoundry.org/sepio/clingen",
-      "display": "paternal confirmation"
-    },
-    {
-      "id": "SEPIO-CG:99007",
-      "type": "IdentifierSystemConcept",
-      "code": "99007",
-      "system": "http://obofoundry.org/sepio/clingen",
-      "display": "maternal and paternal confirmation"
-    },
-    {
-      "id": "SEPIO-CG:99008",
-      "type": "IdentifierSystemConcept",
-      "code": "99008",
-      "system": "http://obofoundry.org/sepio/clingen",
-      "display": "no parental confirmation"
+      "id": "CondStatID219",
+      "type": "ConditionStatus",
+      "label": "unaffected"
     }
   ]
 }

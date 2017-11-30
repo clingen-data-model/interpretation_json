@@ -1,28 +1,44 @@
 {
   "id": "VS015",
   "type": "ValueSet",
-  "name": "PenetranceType",
-  "includesConcept": [
+  "label": "Condition Mechanism Strength",
+  "description": "The level of strength for which a class of variants is a known mechanism for a condition",
+  "conceptListExtensibility": {
+    "id": "VSCLExtnsID375",
+    "type": "ValueSetConceptListExtensibility",
+    "label": "extensible"
+  },
+  "sourceIdentifierSystems": [
     {
-      "id": "HP:000XXX1",
-      "type": "IdentifierSystemConcept",
-      "code": "000XXX1",
-      "system": "http://human-phenotype-ontology.github.io/",
-      "display": "Complete"
+      "id": "IdSys023",
+      "type": "IdentifierSystem"
+    }
+  ],
+  "concept": [
+    {
+      "id": "CondMechStrgID133",
+      "type": "ConditionMechanismStrength",
+      "label": "common"
     },
     {
-      "id": "HP:000XXX2",
-      "type": "IdentifierSystemConcept",
-      "code": "000XXX2",
-      "system": "http://human-phenotype-ontology.github.io/",
-      "display": "High"
+      "id": "CondMechStrgID134",
+      "type": "ConditionMechanismStrength",
+      "label": "established"
     },
     {
-      "id": "HP:0003829",
-      "type": "IdentifierSystemConcept",
-      "code": "0003829",
-      "system": "http://human-phenotype-ontology.github.io/",
-      "display": "Incomplete"
+      "id": "CondMechStrgID135",
+      "type": "ConditionMechanismStrength",
+      "label": "primary"
+    },
+    {
+      "id": "CondMechStrgID136",
+      "type": "ConditionMechanismStrength",
+      "label": "suggested"
+    },
+    {
+      "id": "CondMechStrgID137",
+      "type": "ConditionMechanismStrength",
+      "label": "unknown"
     }
   ]
 }

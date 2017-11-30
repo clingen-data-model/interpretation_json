@@ -1,71 +1,216 @@
 {
   "id": "VS017",
   "type": "ValueSet",
-  "name": "EvidenceLineStrength",
-  "description": "The set of strengths needed for an evidence line.",
-  "includesConcept": [
+  "label": "Disease",
+  "description": "TODO",
+  "conceptListExtensibility": {
+    "id": "VSCLExtnsID375",
+    "type": "ValueSetConceptListExtensibility",
+    "label": "extensible"
+  },
+  "sourceIdentifierSystems": [
     {
-      "id": "SEPIO:0000325",
-      "type": "IdentifierSystemConcept",
-      "code": "0000325",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "Benign Stand Alone"
+      "id": "IdSys019",
+      "type": "IdentifierSystem"
     },
     {
-      "id": "SEPIO:0000326",
-      "type": "IdentifierSystemConcept",
-      "code": "0000326",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "Benign Moderate"
+      "id": "IdSys011",
+      "type": "IdentifierSystem"
     },
     {
-      "id": "SEPIO:0000327",
-      "type": "IdentifierSystemConcept",
-      "code": "0000327",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "Benign Supporting"
+      "id": "IdSys013",
+      "type": "IdentifierSystem"
     },
     {
-      "id": "SEPIO:0000328",
-      "type": "IdentifierSystemConcept",
-      "code": "0000328",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "Benign Strong"
+      "id": "IdSys020",
+      "type": "IdentifierSystem"
+    }
+  ],
+  "concept": [
+    {
+      "id": "DisID147",
+      "type": "Disease",
+      "label": "genetic disease"
     },
     {
-      "id": "SEPIO:0000218",
-      "type": "IdentifierSystemConcept",
-      "code": "0000218",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "None"
+      "id": "DisID148",
+      "type": "Disease",
+      "label": "hereditary breast ovarian cancer"
     },
     {
-      "id": "SEPIO:0000216",
-      "type": "IdentifierSystemConcept",
-      "code": "0000216",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "Pathogenic Moderate"
+      "id": "DisID149",
+      "type": "Disease",
+      "label": "Breast Cancer"
     },
     {
-      "id": "SEPIO:0000329",
-      "type": "IdentifierSystemConcept",
-      "code": "0000329",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "Pathogenic Supporting"
+      "id": "DisID150",
+      "type": "Disease",
+      "label": "Hypercholesterolemia, Familial"
     },
     {
-      "id": "SEPIO:0000330",
-      "type": "IdentifierSystemConcept",
-      "code": "0000330",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "Pathogenic Strong"
+      "id": "DisID151",
+      "type": "Disease",
+      "label": "myofibrillar myopathy 1"
     },
     {
-      "id": "SEPIO:0000220",
-      "type": "IdentifierSystemConcept",
-      "code": "0000220",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "Pathogenic Very Strong"
+      "id": "DisID152",
+      "type": "Disease",
+      "label": "noonan syndrome 3"
+    },
+    {
+      "id": "DisID153",
+      "type": "Disease",
+      "label": "Breast-Ovarian Cancer, Familial, Susceptibility To, 2"
+    },
+    {
+      "id": "DisID154",
+      "type": "Disease",
+      "label": "Myopathy, Distal, type 4"
+    },
+    {
+      "id": "DisID156",
+      "type": "Disease",
+      "label": "cardiofaciocutaneous syndrome"
+    },
+    {
+      "id": "DisID157",
+      "type": "Disease",
+      "label": "hereditary breast and ovarian cancer syndrome"
+    },
+    {
+      "id": "DisID158",
+      "type": "Disease",
+      "label": "cardiomyopathy"
+    },
+    {
+      "id": "DisID159",
+      "type": "Disease",
+      "label": "neuronal ceroid lipofuscinosis"
+    },
+    {
+      "id": "DisID160",
+      "type": "Disease",
+      "label": "hypertrophic cardiomyopathy"
+    },
+    {
+      "id": "DisID162",
+      "type": "Disease",
+      "label": "dilated cardiomyopathy"
+    },
+    {
+      "id": "DisID163",
+      "type": "Disease",
+      "label": "Primary ciliary dyskenisia"
+    },
+    {
+      "id": "DisID164",
+      "type": "Disease",
+      "label": "arrhythmogenic right ventricular cardiomyopathy"
+    },
+    {
+      "id": "DisID165",
+      "type": "Disease",
+      "label": "Mitochondrial complex 1 deficiency"
+    },
+    {
+      "id": "DisID166",
+      "type": "Disease",
+      "label": "Perrault Syndrome"
+    },
+    {
+      "id": "DisID167",
+      "type": "Disease",
+      "label": "costello syndrome"
+    },
+    {
+      "id": "DisID168",
+      "type": "Disease",
+      "label": "Wiedemann-Steiner syndrome"
+    },
+    {
+      "id": "DisID169",
+      "type": "Disease",
+      "label": "Fabry disease"
+    },
+    {
+      "id": "DisID170",
+      "type": "Disease",
+      "label": "Primary bone dysplasia"
+    },
+    {
+      "id": "DisID171",
+      "type": "Disease",
+      "label": "Gyrate atrophy of choroid and retina"
+    },
+    {
+      "id": "DisID172",
+      "type": "Disease",
+      "label": "Malignant hyperthermia"
+    },
+    {
+      "id": "DisID173",
+      "type": "Disease",
+      "label": "Marfan Syndrome"
+    },
+    {
+      "id": "DisID174",
+      "type": "Disease",
+      "label": "Cystic Fibrosis"
+    },
+    {
+      "id": "DisID175",
+      "type": "Disease",
+      "label": "noonan syndrome"
+    },
+    {
+      "id": "DisID176",
+      "type": "Disease",
+      "label": "Ornithine carbamoyltransferase deficiency"
+    },
+    {
+      "id": "DisID177",
+      "type": "Disease",
+      "label": "Pendred syndrome"
+    },
+    {
+      "id": "DisID178",
+      "type": "Disease",
+      "label": "Familial Adenomatous Polyposis"
+    },
+    {
+      "id": "DisID179",
+      "type": "Disease",
+      "label": "pseudoachondroplasia"
+    },
+    {
+      "id": "DisID180",
+      "type": "Disease",
+      "label": "hereditary hemorrhagic telangiectasia"
+    },
+    {
+      "id": "DisID181",
+      "type": "Disease",
+      "label": "Retinitis Pigmentosa"
+    },
+    {
+      "id": "DisID182",
+      "type": "Disease",
+      "label": "Fanconi Anemia"
+    },
+    {
+      "id": "DisID183",
+      "type": "Disease",
+      "label": "nonsyndromic deafness"
+    },
+    {
+      "id": "DisID184",
+      "type": "Disease",
+      "label": "Usher syndrome"
+    },
+    {
+      "id": "DisID185",
+      "type": "Disease",
+      "label": "Noonan syndrome and noonan-related syndrom"
     }
   ]
 }

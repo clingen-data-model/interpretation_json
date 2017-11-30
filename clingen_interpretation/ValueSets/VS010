@@ -1,21 +1,29 @@
 {
   "id": "VS010",
   "type": "ValueSet",
-  "name": "PredictionType",
-  "includesConcept": [
+  "label": "Criterion Evaluation",
+  "description": "TODO",
+  "conceptListExtensibility": {
+    "id": "VSCLExtnsID375",
+    "type": "ValueSetConceptListExtensibility",
+    "label": "extensible"
+  },
+  "sourceIdentifierSystems": [
     {
-      "id": "SEPIO:0000322",
-      "type": "IdentifierSystemConcept",
-      "code": "0000322",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "missense effect"
+      "id": "IdSys023",
+      "type": "IdentifierSystem"
+    }
+  ],
+  "concept": [
+    {
+      "id": "CritEvalID074",
+      "type": "CriterionEvaluation",
+      "label": "Met"
     },
     {
-      "id": "SEPIO:0000323",
-      "type": "IdentifierSystemConcept",
-      "code": "0000323",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "splicing prediction"
+      "id": "CritEvalID075",
+      "type": "CriterionEvaluation",
+      "label": "Not Met"
     }
   ]
 }

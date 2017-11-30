@@ -1,35 +1,44 @@
 {
   "id": "VS021",
   "type": "ValueSet",
-  "name": "ContributoryRole",
-  "includesConcept": [
+  "label": "Allele Inheritance",
+  "description": "TODO",
+  "conceptListExtensibility": {
+    "id": "VSCLExtnsID375",
+    "type": "ValueSetConceptListExtensibility",
+    "label": "extensible"
+  },
+  "sourceIdentifierSystems": [
     {
-      "id": "SEPIO:0000154",
-      "type": "IdentifierSystemConcept",
-      "code": "0000154",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "assessor role"
+      "id": "IdSys022",
+      "type": "IdentifierSystem"
+    }
+  ],
+  "concept": [
+    {
+      "id": "AlleleInhID197",
+      "type": "AlleleInheritance",
+      "label": "de novo"
     },
     {
-      "id": "SEPIO:0000156",
-      "type": "IdentifierSystemConcept",
-      "code": "0000156",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "curator role"
+      "id": "AlleleInhID198",
+      "type": "AlleleInheritance",
+      "label": "maternally inherited"
     },
     {
-      "id": "SEPIO:0000155",
-      "type": "IdentifierSystemConcept",
-      "code": "0000155",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "approver role"
+      "id": "AlleleInhID199",
+      "type": "AlleleInheritance",
+      "label": "paternally inherited"
     },
     {
-      "id": "SEPIO:0000331",
-      "type": "IdentifierSystemConcept",
-      "code": "0000331",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "interpreter role"
+      "id": "AlleleInhID200",
+      "type": "AlleleInheritance",
+      "label": "Unknown"
+    },
+    {
+      "id": "AlleleInhID201",
+      "type": "AlleleInheritance",
+      "label": "parentally inherited"
     }
   ]
 }

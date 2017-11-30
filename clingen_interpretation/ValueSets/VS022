@@ -1,43 +1,39 @@
 {
   "id": "VS022",
   "type": "ValueSet",
-  "name": "AlleleInheritanceType",
-  "description": "TODO",
-  "includesConcept": [
+  "label": "Ascertainment",
+  "description": "A coded or free-text term representing how people were chosen to be in the cohort in which the frequency is calculated.\nIt may be either because there are lots of ways that a cohort might be generated and our value set may not provide enough to allow for all cases.",
+  "conceptListExtensibility": {
+    "id": "VSCLExtnsID375",
+    "type": "ValueSetConceptListExtensibility",
+    "label": "extensible"
+  },
+  "sourceIdentifierSystems": [
     {
-      "id": "GENO:0000880",
-      "type": "IdentifierSystemConcept",
-      "code": "0000880",
-      "system": "http://obofoundry.org/geno/",
-      "display": "de novo"
+      "id": "IdSys023",
+      "type": "IdentifierSystem"
+    }
+  ],
+  "concept": [
+    {
+      "id": "AscrtID202",
+      "type": "Ascertainment",
+      "label": "1000 Genomes ascertainment method"
     },
     {
-      "id": "GENO:0000878",
-      "type": "IdentifierSystemConcept",
-      "code": "0000878",
-      "system": "http://obofoundry.org/geno/",
-      "display": "maternally inherited"
+      "id": "AscrtID203",
+      "type": "Ascertainment",
+      "label": "ExAc ascertainment method"
     },
     {
-      "id": "GENO:0000879",
-      "type": "IdentifierSystemConcept",
-      "code": "0000879",
-      "system": "http://obofoundry.org/geno/",
-      "display": "paternally inherited"
+      "id": "AscrtID204",
+      "type": "Ascertainment",
+      "label": "ESP ascertainment method"
     },
     {
-      "id": "GENO:0000881",
-      "type": "IdentifierSystemConcept",
-      "code": "0000881",
-      "system": "http://obofoundry.org/geno/",
-      "display": "Unknown"
-    },
-    {
-      "id": "GENO:0000888",
-      "type": "IdentifierSystemConcept",
-      "code": "0000888",
-      "system": "http://obofoundry.org/geno/",
-      "display": "parentally inherited"
+      "id": "AscrtID205",
+      "type": "Ascertainment",
+      "label": "gnomAD ascertainment method"
     }
   ]
 }

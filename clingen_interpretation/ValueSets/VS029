@@ -1,21 +1,29 @@
 {
   "id": "VS029",
   "type": "ValueSet",
-  "name": "NullAllele",
-  "includesConcept": [
+  "label": "Region Alleles Outcome",
+  "description": "TODO",
+  "conceptListExtensibility": {
+    "id": "VSCLExtnsID375",
+    "type": "ValueSetConceptListExtensibility",
+    "label": "extensible"
+  },
+  "sourceIdentifierSystems": [
     {
-      "id": "SO:0002054",
-      "type": "IdentifierSystemConcept",
-      "code": "0002054",
-      "system": "http://sequenceontology.org/",
-      "display": "loss of function variant"
+      "id": "IdSys024",
+      "type": "IdentifierSystem"
+    }
+  ],
+  "concept": [
+    {
+      "id": "RegAllOutID225",
+      "type": "RegionAllelesOutcome",
+      "label": "overlaps region"
     },
     {
-      "id": "SEPIO-CG:99015",
-      "type": "IdentifierSystemConcept",
-      "code": "99015",
-      "system": "http://obofoundry.org/sepio/clingen",
-      "display": "No"
+      "id": "RegAllOutID226",
+      "type": "RegionAllelesOutcome",
+      "label": "does not overlap region"
     }
   ]
 }

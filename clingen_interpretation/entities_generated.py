@@ -1,5 +1,4 @@
 from interpretation_constants import *
-from domain_entity_factory import get_factory_entity
 from node import Node
 
 class DomainEntity(Node):
@@ -16,12 +15,10 @@ class DomainEntity(Node):
         self.data[DMWG_DOMAINENTITY_LABEL_KEY] = x
     def get_label(self):
         return self.data[DMWG_DOMAINENTITY_LABEL_KEY]
-    def add_synonym(self,x):
-        if not DMWG_DOMAINENTITY_SYNONYM_KEY in self.data:
-            self.data[DMWG_DOMAINENTITY_SYNONYM_KEY] = []
-        self.data[DMWG_DOMAINENTITY_SYNONYM_KEY].append( x ) 
-    def get_synonym(self):
-        return self.data[DMWG_DOMAINENTITY_SYNONYM_KEY]
+    def set_userLabel(self,x):
+        self.data[DMWG_DOMAINENTITY_USERLABEL_KEY] = x
+    def get_userLabel(self):
+        return self.data[DMWG_DOMAINENTITY_USERLABEL_KEY]
 
 class ScoringAlgorithm(DomainEntity):
     def __init__(self,iri=None):
@@ -29,10 +26,6 @@ class ScoringAlgorithm(DomainEntity):
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_SCORINGALGORITHM_TYPE 
-    def set_description(self,x):
-        self.data[DMWG_SCORINGALGORITHM_DESCRIPTION_KEY] = x
-    def get_description(self):
-        return self.data[DMWG_SCORINGALGORITHM_DESCRIPTION_KEY]
 
 class AssertionMethod(DomainEntity):
     def __init__(self,iri=None):
@@ -40,10 +33,6 @@ class AssertionMethod(DomainEntity):
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_ASSERTIONMETHOD_TYPE 
-    def set_description(self,x):
-        self.data[DMWG_ASSERTIONMETHOD_DESCRIPTION_KEY] = x
-    def get_description(self):
-        return self.data[DMWG_ASSERTIONMETHOD_DESCRIPTION_KEY]
     def set_url(self,x):
         self.data[DMWG_ASSERTIONMETHOD_URL_KEY] = x
     def get_url(self):
@@ -58,16 +47,31 @@ class AssertionMethod(DomainEntity):
     def get_scoringAlgorithm(self):
         return self.data[DMWG_ASSERTIONMETHOD_SCORINGALGORITHM_KEY]
 
+class Genotype(DomainEntity):
+    def __init__(self,iri=None):
+        self.data = {}
+        if iri is not None:
+            self.data[DMWG_ID_KEY] = iri
+        self.data[DMWG_TYPE_KEY] = DMWG_GENOTYPE_TYPE 
+    @get_factory_entity('Haplotype')
+    def add_haplotype(self,x):
+        if not DMWG_GENOTYPE_HAPLOTYPE_KEY in self.data:
+            self.data[DMWG_GENOTYPE_HAPLOTYPE_KEY] = []
+        self.data[DMWG_GENOTYPE_HAPLOTYPE_KEY].append( x ) 
+    def get_haplotype(self):
+        return self.data[DMWG_GENOTYPE_HAPLOTYPE_KEY]
+    @get_factory_entity('AllelicState')
+    def set_zygosity(self,x):
+        self.data[DMWG_GENOTYPE_ZYGOSITY_KEY] = x
+    def get_zygosity(self):
+        return self.data[DMWG_GENOTYPE_ZYGOSITY_KEY]
+
 class Individual(DomainEntity):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_INDIVIDUAL_TYPE 
-    def set_description(self,x):
-        self.data[DMWG_INDIVIDUAL_DESCRIPTION_KEY] = x
-    def get_description(self):
-        return self.data[DMWG_INDIVIDUAL_DESCRIPTION_KEY]
 
 class Disease(DomainEntity):
     def __init__(self,iri=None):
@@ -76,26 +80,26 @@ class Disease(DomainEntity):
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_DISEASE_TYPE 
 
-class LocusSpecificityType(DomainEntity):
+class LocusSpecificity(DomainEntity):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_LOCUSSPECIFICITYTYPE_TYPE 
+        self.data[DMWG_TYPE_KEY] = DMWG_LOCUSSPECIFICITY_TYPE 
 
-class AscertainmentType(DomainEntity):
+class Ascertainment(DomainEntity):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_ASCERTAINMENTTYPE_TYPE 
+        self.data[DMWG_TYPE_KEY] = DMWG_ASCERTAINMENT_TYPE 
 
-class RegionAnnotationType(DomainEntity):
+class RegionAnnotation(DomainEntity):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_REGIONANNOTATIONTYPE_TYPE 
+        self.data[DMWG_TYPE_KEY] = DMWG_REGIONANNOTATION_TYPE 
 
 class Significance(DomainEntity):
     def __init__(self,iri=None):
@@ -104,19 +108,25 @@ class Significance(DomainEntity):
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_SIGNIFICANCE_TYPE 
 
-class MolecularConsequenceType(DomainEntity):
+class Haplotype(DomainEntity):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_MOLECULARCONSEQUENCETYPE_TYPE 
+        self.data[DMWG_TYPE_KEY] = DMWG_HAPLOTYPE_TYPE 
+    def add_allele(self,x):
+        if not DMWG_HAPLOTYPE_ALLELE_KEY in self.data:
+            self.data[DMWG_HAPLOTYPE_ALLELE_KEY] = []
+        self.data[DMWG_HAPLOTYPE_ALLELE_KEY].append( x ) 
+    def get_allele(self):
+        return self.data[DMWG_HAPLOTYPE_ALLELE_KEY]
 
-class ReferenceSequence(DomainEntity):
+class MolecularConsequence(DomainEntity):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_REFERENCESEQUENCE_TYPE 
+        self.data[DMWG_TYPE_KEY] = DMWG_MOLECULARCONSEQUENCE_TYPE 
 
 class Family(DomainEntity):
     def __init__(self,iri=None):
@@ -124,21 +134,13 @@ class Family(DomainEntity):
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_FAMILY_TYPE 
-    def set_label(self,x):
-        self.data[DMWG_FAMILY_LABEL_KEY] = x
-    def get_label(self):
-        return self.data[DMWG_FAMILY_LABEL_KEY]
-    def set_description(self,x):
-        self.data[DMWG_FAMILY_DESCRIPTION_KEY] = x
-    def get_description(self):
-        return self.data[DMWG_FAMILY_DESCRIPTION_KEY]
 
-class PenetranceType(DomainEntity):
+class Penetrance(DomainEntity):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_PENETRANCETYPE_TYPE 
+        self.data[DMWG_TYPE_KEY] = DMWG_PENETRANCE_TYPE 
 
 class EvidenceLineStrength(DomainEntity):
     def __init__(self,iri=None):
@@ -147,12 +149,12 @@ class EvidenceLineStrength(DomainEntity):
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_EVIDENCELINESTRENGTH_TYPE 
 
-class AlleleInheritanceType(DomainEntity):
+class AlleleInheritance(DomainEntity):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_ALLELEINHERITANCETYPE_TYPE 
+        self.data[DMWG_TYPE_KEY] = DMWG_ALLELEINHERITANCE_TYPE 
 
 class ContributoryRole(DomainEntity):
     def __init__(self,iri=None):
@@ -167,13 +169,6 @@ class ConditionMechanismStrength(DomainEntity):
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_CONDITIONMECHANISMSTRENGTH_TYPE 
-
-class Phenotype(DomainEntity):
-    def __init__(self,iri=None):
-        self.data = {}
-        if iri is not None:
-            self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_PHENOTYPE_TYPE 
 
 class ReferenceSequence(DomainEntity):
     def __init__(self,iri=None):
@@ -200,6 +195,33 @@ class ReferenceSequence(DomainEntity):
     def get_producedBy(self):
         return self.data[DMWG_REFERENCESEQUENCE_PRODUCEDBY_KEY]
 
+class IdentifierSystem(DomainEntity):
+    def __init__(self,iri=None):
+        self.data = {}
+        if iri is not None:
+            self.data[DMWG_ID_KEY] = iri
+        self.data[DMWG_TYPE_KEY] = DMWG_IDENTIFIERSYSTEM_TYPE 
+    def set_label(self,x):
+        self.data[DMWG_IDENTIFIERSYSTEM_LABEL_KEY] = x
+    def get_label(self):
+        return self.data[DMWG_IDENTIFIERSYSTEM_LABEL_KEY]
+    def set_description(self,x):
+        self.data[DMWG_IDENTIFIERSYSTEM_DESCRIPTION_KEY] = x
+    def get_description(self):
+        return self.data[DMWG_IDENTIFIERSYSTEM_DESCRIPTION_KEY]
+    def set_oid(self,x):
+        self.data[DMWG_IDENTIFIERSYSTEM_OID_KEY] = x
+    def get_oid(self):
+        return self.data[DMWG_IDENTIFIERSYSTEM_OID_KEY]
+    def set_uri(self,x):
+        self.data[DMWG_IDENTIFIERSYSTEM_URI_KEY] = x
+    def get_uri(self):
+        return self.data[DMWG_IDENTIFIERSYSTEM_URI_KEY]
+    def set_prefix(self,x):
+        self.data[DMWG_IDENTIFIERSYSTEM_PREFIX_KEY] = x
+    def get_prefix(self):
+        return self.data[DMWG_IDENTIFIERSYSTEM_PREFIX_KEY]
+
 class Gene(DomainEntity):
     def __init__(self,iri=None):
         self.data = {}
@@ -223,26 +245,26 @@ class Criterion(DomainEntity):
     def get_defaultStrength(self):
         return self.data[DMWG_CRITERION_DEFAULTSTRENGTH_KEY]
 
-class PopulationType(DomainEntity):
+class Population(DomainEntity):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_POPULATIONTYPE_TYPE 
+        self.data[DMWG_TYPE_KEY] = DMWG_POPULATION_TYPE 
 
-class BenignMissenseVariationRate(DomainEntity):
+class BenignMissenseVariationRateOutcome(DomainEntity):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_BENIGNMISSENSEVARIATIONRATE_TYPE 
+        self.data[DMWG_TYPE_KEY] = DMWG_BENIGNMISSENSEVARIATIONRATEOUTCOME_TYPE 
 
-class NullAllele(DomainEntity):
+class NullAlleleOutcome(DomainEntity):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_NULLALLELE_TYPE 
+        self.data[DMWG_TYPE_KEY] = DMWG_NULLALLELEOUTCOME_TYPE 
 
 class RegionAllelesOutcome(DomainEntity):
     def __init__(self,iri=None):
@@ -293,26 +315,26 @@ class ModeOfInheritance(DomainEntity):
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_MODEOFINHERITANCE_TYPE 
 
-class ReferenceSequenceRelatedType(DomainEntity):
+class ReferenceSequenceRelated(DomainEntity):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_REFERENCESEQUENCERELATEDTYPE_TYPE 
+        self.data[DMWG_TYPE_KEY] = DMWG_REFERENCESEQUENCERELATED_TYPE 
 
-class MechanismType(DomainEntity):
+class Mechanism(DomainEntity):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_MECHANISMTYPE_TYPE 
+        self.data[DMWG_TYPE_KEY] = DMWG_MECHANISM_TYPE 
 
-class PredictionType(DomainEntity):
+class Prediction(DomainEntity):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_PREDICTIONTYPE_TYPE 
+        self.data[DMWG_TYPE_KEY] = DMWG_PREDICTION_TYPE 
 
 class CriterionEvaluation(DomainEntity):
     def __init__(self,iri=None):
@@ -321,12 +343,26 @@ class CriterionEvaluation(DomainEntity):
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_CRITERIONEVALUATION_TYPE 
 
-class AlleleFunctionalImpactType(DomainEntity):
+class AlleleFunctionalAssayMethod(DomainEntity):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_ALLELEFUNCTIONALIMPACTTYPE_TYPE 
+        self.data[DMWG_TYPE_KEY] = DMWG_ALLELEFUNCTIONALASSAYMETHOD_TYPE 
+
+class ValueSetConceptListExtensibility(DomainEntity):
+    def __init__(self,iri=None):
+        self.data = {}
+        if iri is not None:
+            self.data[DMWG_ID_KEY] = iri
+        self.data[DMWG_TYPE_KEY] = DMWG_VALUESETCONCEPTLISTEXTENSIBILITY_TYPE 
+
+class Phenotype(DomainEntity):
+    def __init__(self,iri=None):
+        self.data = {}
+        if iri is not None:
+            self.data[DMWG_ID_KEY] = iri
+        self.data[DMWG_TYPE_KEY] = DMWG_PHENOTYPE_TYPE 
 
 class InconsistentSegregationObserved(DomainEntity):
     def __init__(self,iri=None):

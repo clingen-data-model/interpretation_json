@@ -1,21 +1,64 @@
 {
   "id": "VS011",
   "type": "ValueSet",
-  "name": "CriterionEvaluation",
-  "includesConcept": [
+  "label": "Allele Functional Assay Method",
+  "description": "TODO",
+  "conceptListExtensibility": {
+    "id": "VSCLExtnsID375",
+    "type": "ValueSetConceptListExtensibility",
+    "label": "extensible"
+  },
+  "sourceIdentifierSystems": [
     {
-      "id": "SEPIO:0000223",
-      "type": "IdentifierSystemConcept",
-      "code": "0000223",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "Met"
+      "id": "IdSys025",
+      "type": "IdentifierSystem"
+    }
+  ],
+  "concept": [
+    {
+      "id": "AFAMID076",
+      "type": "AlleleFunctionalAssayMethod",
+      "label": "Activation Assay"
     },
     {
-      "id": "SEPIO:0000224",
-      "type": "IdentifierSystemConcept",
-      "code": "0000224",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "Not Met"
+      "id": "AFAMID077",
+      "type": "AlleleFunctionalAssayMethod",
+      "label": "ATPase assay"
+    },
+    {
+      "id": "AFAMID078",
+      "type": "AlleleFunctionalAssayMethod",
+      "label": "Binding assay"
+    },
+    {
+      "id": "AFAMID079",
+      "type": "AlleleFunctionalAssayMethod",
+      "label": "cellular localization"
+    },
+    {
+      "id": "AFAMID080",
+      "type": "AlleleFunctionalAssayMethod",
+      "label": "Elk1 pohsphorylation via luciferase assay"
+    },
+    {
+      "id": "AFAMID081",
+      "type": "AlleleFunctionalAssayMethod",
+      "label": "iodide efflux"
+    },
+    {
+      "id": "AFAMID082",
+      "type": "AlleleFunctionalAssayMethod",
+      "label": "motility assay"
+    },
+    {
+      "id": "AFAMID083",
+      "type": "AlleleFunctionalAssayMethod",
+      "label": "neurite outgrowth"
+    },
+    {
+      "id": "AFAMID084",
+      "type": "AlleleFunctionalAssayMethod",
+      "label": "Yeast complementation assay"
     }
   ]
 }

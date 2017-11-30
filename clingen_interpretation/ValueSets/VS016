@@ -1,43 +1,64 @@
 {
   "id": "VS016",
   "type": "ValueSet",
-  "name": "ConditionMechanismStrength",
-  "description": "The level of strength for which a class of variants is a known mechanism for a condition",
-  "includesConcept": [
+  "label": "Evidence Line Strength",
+  "description": "The set of strengths needed for an evidence line.",
+  "conceptListExtensibility": {
+    "id": "VSCLExtnsID374",
+    "type": "ValueSetConceptListExtensibility",
+    "label": "fixed"
+  },
+  "sourceIdentifierSystems": [
     {
-      "id": "SEPIO:0000268",
-      "type": "IdentifierSystemConcept",
-      "code": "0000268",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "common"
+      "id": "IdSys023",
+      "type": "IdentifierSystem"
+    }
+  ],
+  "concept": [
+    {
+      "id": "EvLnStrgID138",
+      "type": "EvidenceLineStrength",
+      "label": "Benign Stand Alone"
     },
     {
-      "id": "SEPIO:0000269",
-      "type": "IdentifierSystemConcept",
-      "code": "0000269",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "established"
+      "id": "EvLnStrgID139",
+      "type": "EvidenceLineStrength",
+      "label": "Benign Moderate"
     },
     {
-      "id": "SEPIO:0000270",
-      "type": "IdentifierSystemConcept",
-      "code": "0000270",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "primary"
+      "id": "EvLnStrgID140",
+      "type": "EvidenceLineStrength",
+      "label": "Benign Supporting"
     },
     {
-      "id": "SEPIO:0000271",
-      "type": "IdentifierSystemConcept",
-      "code": "0000271",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "suggested"
+      "id": "EvLnStrgID141",
+      "type": "EvidenceLineStrength",
+      "label": "Benign Strong"
     },
     {
-      "id": "SEPIO:0000272",
-      "type": "IdentifierSystemConcept",
-      "code": "0000272",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "unknown"
+      "id": "EvLnStrgID142",
+      "type": "EvidenceLineStrength",
+      "label": "None"
+    },
+    {
+      "id": "EvLnStrgID143",
+      "type": "EvidenceLineStrength",
+      "label": "Pathogenic Moderate"
+    },
+    {
+      "id": "EvLnStrgID144",
+      "type": "EvidenceLineStrength",
+      "label": "Pathogenic Supporting"
+    },
+    {
+      "id": "EvLnStrgID145",
+      "type": "EvidenceLineStrength",
+      "label": "Pathogenic Strong"
+    },
+    {
+      "id": "EvLnStrgID146",
+      "type": "EvidenceLineStrength",
+      "label": "Pathogenic Very Strong"
     }
   ]
 }
