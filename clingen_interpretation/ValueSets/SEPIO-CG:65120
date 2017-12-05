@@ -1,0 +1,40 @@
+{
+  "id": "SEPIO-CG:65120",
+  "type": "ValueSet",
+  "label": "Contributory Role",
+  "description": "TODO",
+  "conceptListExtensibility": {
+    "id": "SEPIO-CG:02102",
+    "type": "ValueSetConceptListExtensibility",
+    "label": "extensible"
+  },
+  "sourceIdentifierSystems": [
+    {
+      "id": "IdSys023",
+      "type": "IdentifierSystem"
+    }
+  ],
+  "concept": [
+    {
+      "id": "SEPIO:0000154",
+      "type": "ContributoryRole",
+      "label": "assessor role"
+    },
+    {
+      "id": "SEPIO:0000156",
+      "type": "ContributoryRole",
+      "label": "curator role"
+    },
+    {
+      "id": "SEPIO:0000155",
+      "type": "ContributoryRole",
+      "label": "approver role"
+    },
+    {
+      "id": "SEPIO:0000331",
+      "type": "ContributoryRole",
+      "label": "interpreter role"
+    }
+  ],
+  "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
+}

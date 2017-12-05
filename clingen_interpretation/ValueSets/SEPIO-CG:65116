@@ -1,10 +1,10 @@
 {
-  "id": "VS016",
+  "id": "SEPIO-CG:65116",
   "type": "ValueSet",
   "label": "Evidence Line Strength",
   "description": "The set of strengths needed for an evidence line.",
   "conceptListExtensibility": {
-    "id": "VSCLExtnsID374",
+    "id": "SEPIO-CG:02101",
     "type": "ValueSetConceptListExtensibility",
     "label": "fixed"
   },
@@ -16,49 +16,50 @@
   ],
   "concept": [
     {
-      "id": "EvLnStrgID138",
+      "id": "SEPIO:0000325",
       "type": "EvidenceLineStrength",
       "label": "Benign Stand Alone"
     },
     {
-      "id": "EvLnStrgID139",
+      "id": "SEPIO:0000326",
       "type": "EvidenceLineStrength",
       "label": "Benign Moderate"
     },
     {
-      "id": "EvLnStrgID140",
+      "id": "SEPIO:0000327",
       "type": "EvidenceLineStrength",
       "label": "Benign Supporting"
     },
     {
-      "id": "EvLnStrgID141",
+      "id": "SEPIO:0000328",
       "type": "EvidenceLineStrength",
       "label": "Benign Strong"
     },
     {
-      "id": "EvLnStrgID142",
+      "id": "SEPIO:0000218",
       "type": "EvidenceLineStrength",
       "label": "None"
     },
     {
-      "id": "EvLnStrgID143",
+      "id": "SEPIO:0000216",
       "type": "EvidenceLineStrength",
       "label": "Pathogenic Moderate"
     },
     {
-      "id": "EvLnStrgID144",
+      "id": "SEPIO:0000329",
       "type": "EvidenceLineStrength",
       "label": "Pathogenic Supporting"
     },
     {
-      "id": "EvLnStrgID145",
+      "id": "SEPIO:0000330",
       "type": "EvidenceLineStrength",
       "label": "Pathogenic Strong"
     },
     {
-      "id": "EvLnStrgID146",
+      "id": "SEPIO:0000220",
       "type": "EvidenceLineStrength",
       "label": "Pathogenic Very Strong"
     }
-  ]
+  ],
+  "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
 }

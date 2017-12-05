@@ -1,10 +1,10 @@
 {
-  "id": "VS026",
+  "id": "SEPIO-CG:65126",
   "type": "ValueSet",
   "label": "Condition Status",
   "description": "TODO",
   "conceptListExtensibility": {
-    "id": "VSCLExtnsID375",
+    "id": "SEPIO-CG:02102",
     "type": "ValueSetConceptListExtensibility",
     "label": "extensible"
   },
@@ -16,14 +16,15 @@
   ],
   "concept": [
     {
-      "id": "CondStatID218",
+      "id": "SEPIO-CG:99009",
       "type": "ConditionStatus",
       "label": "affected"
     },
     {
-      "id": "CondStatID219",
+      "id": "SEPIO-CG:99010",
       "type": "ConditionStatus",
       "label": "unaffected"
     }
-  ]
+  ],
+  "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
 }

@@ -1,10 +1,10 @@
 {
-  "id": "VS005",
+  "id": "SEPIO-CG:65105",
   "type": "ValueSet",
   "label": "Phase",
   "description": "TODO",
   "conceptListExtensibility": {
-    "id": "VSCLExtnsID375",
+    "id": "SEPIO-CG:02102",
     "type": "ValueSetConceptListExtensibility",
     "label": "extensible"
   },
@@ -16,14 +16,15 @@
   ],
   "concept": [
     {
-      "id": "PhaseID036",
+      "id": "GENO:0000131",
       "type": "Phase",
       "label": "in cis"
     },
     {
-      "id": "PhaseID037",
+      "id": "GENO:0000132",
       "type": "Phase",
       "label": "in trans"
     }
-  ]
+  ],
+  "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
 }

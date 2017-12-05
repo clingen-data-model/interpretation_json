@@ -1,10 +1,10 @@
 {
-  "id": "VS007",
+  "id": "SEPIO-CG:65107",
   "type": "ValueSet",
   "label": "Mode of Inheritance",
   "description": "TODO",
   "conceptListExtensibility": {
-    "id": "VSCLExtnsID375",
+    "id": "SEPIO-CG:02102",
     "type": "ValueSetConceptListExtensibility",
     "label": "extensible"
   },
@@ -20,109 +20,110 @@
   ],
   "concept": [
     {
-      "id": "ModeOfInhID045",
+      "id": "HP:0001423",
       "type": "ModeOfInheritance",
       "label": "X-linked dominant inheritance"
     },
     {
-      "id": "ModeOfInhID046",
+      "id": "GENO:0000143",
       "type": "ModeOfInheritance",
       "label": "Codominant"
     },
     {
-      "id": "ModeOfInhID047",
+      "id": "GENO:0000892",
       "type": "ModeOfInheritance",
       "label": "Heteroplasmic mitochondrial inheritance"
     },
     {
-      "id": "ModeOfInhID048",
+      "id": "GENO:0000893",
       "type": "ModeOfInheritance",
       "label": "Homoplasmic mitochondrial inheritance"
     },
     {
-      "id": "ModeOfInhID049",
+      "id": "HP:0031362",
       "type": "ModeOfInheritance",
       "label": "Sex-limited autosomal recessive inheritance"
     },
     {
-      "id": "ModeOfInhID050",
+      "id": "GENO:0000889",
       "type": "ModeOfInheritance",
       "label": "unknown inheritance"
     },
     {
-      "id": "ModeOfInhID051",
+      "id": "HP:0000006",
       "type": "ModeOfInheritance",
       "label": "Autosomal Dominant"
     },
     {
-      "id": "ModeOfInhID052",
+      "id": "HP:0000007",
       "type": "ModeOfInheritance",
       "label": "Autosomal Recessive"
     },
     {
-      "id": "ModeOfInhID053",
+      "id": "HP:0001417",
       "type": "ModeOfInheritance",
       "label": "X linked inheritance"
     },
     {
-      "id": "ModeOfInhID054",
+      "id": "HP:0001419",
       "type": "ModeOfInheritance",
       "label": "X linked recessive inheritance"
     },
     {
-      "id": "ModeOfInhID057",
+      "id": "HP:0001426",
       "type": "ModeOfInheritance",
       "label": "Multifactorial inheritance"
     },
     {
-      "id": "ModeOfInhID058",
+      "id": "HP:0001427",
       "type": "ModeOfInheritance",
       "label": "Mitochondrial inheritance"
     },
     {
-      "id": "ModeOfInhID059",
+      "id": "HP:0001428",
       "type": "ModeOfInheritance",
       "label": "Somatic mutation"
     },
     {
-      "id": "ModeOfInhID060",
+      "id": "HP:0001450",
       "type": "ModeOfInheritance",
       "label": "Y linked inheritance"
     },
     {
-      "id": "ModeOfInhID061",
+      "id": "HP:0001470",
       "type": "ModeOfInheritance",
       "label": "Sex-limited autosomal dominant"
     },
     {
-      "id": "ModeOfInhID062",
+      "id": "HP:0003743",
       "type": "ModeOfInheritance",
       "label": "genetic anticipation"
     },
     {
-      "id": "ModeOfInhID063",
+      "id": "HP:0003745",
       "type": "ModeOfInheritance",
       "label": "Sporadic"
     },
     {
-      "id": "ModeOfInhID064",
+      "id": "HP:0010983",
       "type": "ModeOfInheritance",
       "label": "Oligogenic"
     },
     {
-      "id": "ModeOfInhID065",
+      "id": "HP:0012274",
       "type": "ModeOfInheritance",
       "label": "Autosomal dominant inheritance with paternal imprinting"
     },
     {
-      "id": "ModeOfInhID066",
+      "id": "HP:0012275",
       "type": "ModeOfInheritance",
       "label": "Autosomal dominant inheritance with maternal imprinting"
     },
     {
-      "id": "ModeOfInhID067",
+      "id": "HP:0025352",
       "type": "ModeOfInheritance",
       "label": "autosomal dominant germline de novo mutation"
     }
-  ]
+  ],
+  "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
 }

@@ -1,4 +1,5 @@
 from interpretation_constants import *
+from domain_entity_factory import get_factory_entity
 from node import Node
 
 class DomainEntity(Node):

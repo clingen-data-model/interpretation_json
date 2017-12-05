@@ -1,10 +1,10 @@
 {
-  "id": "VS028",
+  "id": "SEPIO-CG:65128",
   "type": "ValueSet",
   "label": "Null Allele Outcome",
   "description": "TODO",
   "conceptListExtensibility": {
-    "id": "VSCLExtnsID375",
+    "id": "SEPIO-CG:02102",
     "type": "ValueSetConceptListExtensibility",
     "label": "extensible"
   },
@@ -16,9 +16,10 @@
   ],
   "concept": [
     {
-      "id": "NullAllOutID223",
+      "id": "SO:0002055",
       "type": "NullAlleleOutcome",
       "label": "null mutation"
     }
-  ]
+  ],
+  "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
 }

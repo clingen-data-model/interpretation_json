@@ -1,10 +1,10 @@
 {
-  "id": "VS023",
+  "id": "SEPIO-CG:65123",
   "type": "ValueSet",
   "label": "Locus Specificity",
   "description": "TODO",
   "conceptListExtensibility": {
-    "id": "VSCLExtnsID375",
+    "id": "SEPIO-CG:02102",
     "type": "ValueSetConceptListExtensibility",
     "label": "extensible"
   },
@@ -20,19 +20,20 @@
   ],
   "concept": [
     {
-      "id": "LocSpecID209",
+      "id": "SEPIO:0000273",
       "type": "LocusSpecificity",
       "label": "low"
     },
     {
-      "id": "LocSpecID210",
+      "id": "SEPIO-CG:99001",
       "type": "LocusSpecificity",
       "label": "high"
     },
     {
-      "id": "LocSpecID211",
+      "id": "SEPIO-CG:99002",
       "type": "LocusSpecificity",
       "label": "complete"
     }
-  ]
+  ],
+  "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
 }

@@ -1,10 +1,10 @@
 {
-  "id": "VS021",
+  "id": "SEPIO-CG:65121",
   "type": "ValueSet",
   "label": "Allele Inheritance",
   "description": "TODO",
   "conceptListExtensibility": {
-    "id": "VSCLExtnsID375",
+    "id": "SEPIO-CG:02102",
     "type": "ValueSetConceptListExtensibility",
     "label": "extensible"
   },
@@ -16,29 +16,30 @@
   ],
   "concept": [
     {
-      "id": "AlleleInhID197",
+      "id": "GENO:0000880",
       "type": "AlleleInheritance",
       "label": "de novo"
     },
     {
-      "id": "AlleleInhID198",
+      "id": "GENO:0000878",
       "type": "AlleleInheritance",
       "label": "maternally inherited"
     },
     {
-      "id": "AlleleInhID199",
+      "id": "GENO:0000879",
       "type": "AlleleInheritance",
       "label": "paternally inherited"
     },
     {
-      "id": "AlleleInhID200",
+      "id": "GENO:0000881",
       "type": "AlleleInheritance",
       "label": "Unknown"
     },
     {
-      "id": "AlleleInhID201",
+      "id": "GENO:0000888",
       "type": "AlleleInheritance",
       "label": "parentally inherited"
     }
-  ]
+  ],
+  "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
 }

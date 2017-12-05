@@ -1,10 +1,10 @@
 {
-  "id": "VS003",
+  "id": "SEPIO-CG:65103",
   "type": "ValueSet",
   "label": "Clinical Signficance",
   "description": "TODO",
   "conceptListExtensibility": {
-    "id": "VSCLExtnsID374",
+    "id": "SEPIO-CG:02101",
     "type": "ValueSetConceptListExtensibility",
     "label": "fixed"
   },
@@ -16,29 +16,30 @@
   ],
   "concept": [
     {
-      "id": "SigID028",
+      "id": "LN:LA26332-9",
       "type": "Significance",
       "label": "Likely Pathogenic"
     },
     {
-      "id": "SigID029",
+      "id": "LN:LA26333-7",
       "type": "Significance",
       "label": "Uncertain Signficance"
     },
     {
-      "id": "SigID030",
+      "id": "LN:LA26334-5",
       "type": "Significance",
       "label": "Likely Benign"
     },
     {
-      "id": "SigID031",
+      "id": "LN:LA6668-3",
       "type": "Significance",
       "label": "Pathogenic"
     },
     {
-      "id": "SigID032",
+      "id": "LN:LA6675-8",
       "type": "Significance",
       "label": "Benign"
     }
-  ]
+  ],
+  "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
 }

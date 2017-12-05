@@ -1,10 +1,10 @@
 {
-  "id": "VS009",
+  "id": "SEPIO-CG:65109",
   "type": "ValueSet",
   "label": "Prediction",
   "description": "TODO",
   "conceptListExtensibility": {
-    "id": "VSCLExtnsID375",
+    "id": "SEPIO-CG:02102",
     "type": "ValueSetConceptListExtensibility",
     "label": "extensible"
   },
@@ -16,14 +16,15 @@
   ],
   "concept": [
     {
-      "id": "PredID072",
+      "id": "SEPIO:0000322",
       "type": "Prediction",
       "label": "missense effect"
     },
     {
-      "id": "PredID073",
+      "id": "SEPIO:0000323",
       "type": "Prediction",
       "label": "splicing prediction"
     }
-  ]
+  ],
+  "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
 }

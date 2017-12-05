@@ -1,10 +1,10 @@
 {
-  "id": "VS004",
+  "id": "SEPIO-CG:65104",
   "type": "ValueSet",
   "label": "Region Annotation",
   "description": "TODO",
   "conceptListExtensibility": {
-    "id": "VSCLExtnsID375",
+    "id": "SEPIO-CG:02102",
     "type": "ValueSetConceptListExtensibility",
     "label": "extensible"
   },
@@ -20,19 +20,20 @@
   ],
   "concept": [
     {
-      "id": "RegAnnID033",
+      "id": "SEPIO:0000320",
       "type": "RegionAnnotation",
       "label": "functional region"
     },
     {
-      "id": "RegAnnID034",
+      "id": "SEPIO:0000321",
       "type": "RegionAnnotation",
       "label": "mutational hotspot"
     },
     {
-      "id": "RegAnnID035",
+      "id": "SO:0000657",
       "type": "RegionAnnotation",
       "label": "repeat region "
     }
-  ]
+  ],
+  "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
 }

@@ -1,0 +1,25 @@
+{
+  "id": "SEPIO-CG:65133",
+  "type": "ValueSet",
+  "label": "Assertion Method Algorithm",
+  "description": "TODO",
+  "conceptListExtensibility": {
+    "id": "SEPIO-CG:02102",
+    "type": "ValueSetConceptListExtensibility",
+    "label": "extensible"
+  },
+  "sourceIdentifierSystems": [
+    {
+      "id": "IdSys024",
+      "type": "IdentifierSystem"
+    }
+  ],
+  "concept": [
+    {
+      "id": "SEPIO-CG:99300",
+      "type": "ScoringAlgorithm",
+      "description": "This is the description of how the weighting of the satisfied criterion are typically evaluated to arrive at a specific clinical significance."
+    }
+  ],
+  "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
+}

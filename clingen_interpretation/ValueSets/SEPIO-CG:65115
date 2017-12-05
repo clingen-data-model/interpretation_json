@@ -1,10 +1,10 @@
 {
-  "id": "VS015",
+  "id": "SEPIO-CG:65115",
   "type": "ValueSet",
   "label": "Condition Mechanism Strength",
   "description": "The level of strength for which a class of variants is a known mechanism for a condition",
   "conceptListExtensibility": {
-    "id": "VSCLExtnsID375",
+    "id": "SEPIO-CG:02102",
     "type": "ValueSetConceptListExtensibility",
     "label": "extensible"
   },
@@ -16,29 +16,30 @@
   ],
   "concept": [
     {
-      "id": "CondMechStrgID133",
+      "id": "SEPIO:0000268",
       "type": "ConditionMechanismStrength",
       "label": "common"
     },
     {
-      "id": "CondMechStrgID134",
+      "id": "SEPIO:0000269",
       "type": "ConditionMechanismStrength",
       "label": "established"
     },
     {
-      "id": "CondMechStrgID135",
+      "id": "SEPIO:0000270",
       "type": "ConditionMechanismStrength",
       "label": "primary"
     },
     {
-      "id": "CondMechStrgID136",
+      "id": "SEPIO:0000271",
       "type": "ConditionMechanismStrength",
       "label": "suggested"
     },
     {
-      "id": "CondMechStrgID137",
+      "id": "SEPIO:0000272",
       "type": "ConditionMechanismStrength",
       "label": "unknown"
     }
-  ]
+  ],
+  "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
 }

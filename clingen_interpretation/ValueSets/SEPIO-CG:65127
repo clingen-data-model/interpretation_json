@@ -1,10 +1,10 @@
 {
-  "id": "VS027",
+  "id": "SEPIO-CG:65127",
   "type": "ValueSet",
   "label": "Inconsistent Segregation Observed",
   "description": "TODO",
   "conceptListExtensibility": {
-    "id": "VSCLExtnsID375",
+    "id": "SEPIO-CG:02102",
     "type": "ValueSetConceptListExtensibility",
     "label": "extensible"
   },
@@ -16,19 +16,20 @@
   ],
   "concept": [
     {
-      "id": "InconSegObsID220",
+      "id": "SEPIO-CG:99011",
       "type": "InconsistentSegregationObserved",
       "label": "present"
     },
     {
-      "id": "InconSegObsID221",
+      "id": "SEPIO-CG:99012",
       "type": "InconsistentSegregationObserved",
       "label": "absent"
     },
     {
-      "id": "InconSegObsID222",
+      "id": "SEPIO-CG:99013",
       "type": "InconsistentSegregationObserved",
       "label": "unknown"
     }
-  ]
+  ],
+  "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
 }

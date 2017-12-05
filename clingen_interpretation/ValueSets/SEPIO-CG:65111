@@ -1,10 +1,10 @@
 {
-  "id": "VS011",
+  "id": "SEPIO-CG:65111",
   "type": "ValueSet",
   "label": "Allele Functional Assay Method",
   "description": "TODO",
   "conceptListExtensibility": {
-    "id": "VSCLExtnsID375",
+    "id": "SEPIO-CG:02102",
     "type": "ValueSetConceptListExtensibility",
     "label": "extensible"
   },
@@ -16,49 +16,50 @@
   ],
   "concept": [
     {
-      "id": "AFAMID076",
+      "id": "OBI:XXXXXX1",
       "type": "AlleleFunctionalAssayMethod",
       "label": "Activation Assay"
     },
     {
-      "id": "AFAMID077",
+      "id": "OBI:XXXXXX2",
       "type": "AlleleFunctionalAssayMethod",
       "label": "ATPase assay"
     },
     {
-      "id": "AFAMID078",
+      "id": "OBI:0001146",
       "type": "AlleleFunctionalAssayMethod",
       "label": "Binding assay"
     },
     {
-      "id": "AFAMID079",
+      "id": "OBI:0002165",
       "type": "AlleleFunctionalAssayMethod",
       "label": "cellular localization"
     },
     {
-      "id": "AFAMID080",
+      "id": "OBI:XXXXXX3",
       "type": "AlleleFunctionalAssayMethod",
       "label": "Elk1 pohsphorylation via luciferase assay"
     },
     {
-      "id": "AFAMID081",
+      "id": "OBI:XXXXXX4",
       "type": "AlleleFunctionalAssayMethod",
       "label": "iodide efflux"
     },
     {
-      "id": "AFAMID082",
+      "id": "OBI:XXXXXX5",
       "type": "AlleleFunctionalAssayMethod",
       "label": "motility assay"
     },
     {
-      "id": "AFAMID083",
+      "id": "OBI:XXXXXX6",
       "type": "AlleleFunctionalAssayMethod",
       "label": "neurite outgrowth"
     },
     {
-      "id": "AFAMID084",
+      "id": "OBI:XXXXXX7",
       "type": "AlleleFunctionalAssayMethod",
       "label": "Yeast complementation assay"
     }
-  ]
+  ],
+  "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
 }

@@ -2,6 +2,7 @@ import json
 from shutil import copy
 from collections import defaultdict
 import os, requests, sys
+import codecs
 
 NAME='name'
 FQNAME = 'fullyQualifiedName'
@@ -125,7 +126,7 @@ def write_library(types_and_atts,libname,entname, enumname):
     lib.write('from node import Node\n\n')
     entf = file(entname,'w')
     entf.write('from interpretation_constants import *\n')
-    lib.write('from domain_entity_factory import get_factory_entity\n')
+    entf.write('from domain_entity_factory import get_factory_entity\n')
     entf.write('from node import Node\n\n')
     type_ids = sort_types(types_and_atts)
     for type_id in type_ids:
@@ -179,15 +180,16 @@ def pull_value_sets(vsdir):
         os.mkdir(vsdir)
     except:
         pass
-    for i in range(2,38):
+    for i in range(65102,65134):
         #We don't really need to pull gene, disease, etc.
         #Plus we have a few empty ids.
-        if i in [1, 8, 18,19,20,31,32,33]:
+        if i in [65117,65118,65130]:
             continue
-        VS = 'VS%03d' % i
+        #VS = 'VS%03d' % i
+        VS = 'SEPIO-CG:%d' % i
         url = 'http://datamodel.clinicalgenome.org/interpretation/master/json/%s' % VS
         res = requests.get(url)
-        outf = file('%s/%s' % (vsdir,VS),'w')
+        outf = codecs.open('%s/%s' % (vsdir,VS),'w',encoding='utf-8')
         text = res.text
         outf.write(text)
         outf.close()

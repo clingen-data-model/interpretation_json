@@ -1,10 +1,10 @@
 {
-  "id": "VS012",
+  "id": "SEPIO-CG:65112",
   "type": "ValueSet",
   "label": "Population",
   "description": "TODO",
   "conceptListExtensibility": {
-    "id": "VSCLExtnsID375",
+    "id": "SEPIO-CG:02102",
     "type": "ValueSetConceptListExtensibility",
     "label": "extensible"
   },
@@ -16,219 +16,220 @@
   ],
   "concept": [
     {
-      "id": "PopID085",
+      "id": "BROAD-population-type:afr",
       "type": "Population",
       "label": "African/African American"
     },
     {
-      "id": "PopID086",
+      "id": "BROAD-population-type:amr",
       "type": "Population",
       "label": "Latino"
     },
     {
-      "id": "PopID087",
+      "id": "BROAD-population-type:asj",
       "type": "Population",
       "label": "Ashkenazi Jewish"
     },
     {
-      "id": "PopID088",
+      "id": "BROAD-population-type:eas",
       "type": "Population",
       "label": "East Asian"
     },
     {
-      "id": "PopID089",
+      "id": "BROAD-population-type:fin",
       "type": "Population",
       "label": "Finnish"
     },
     {
-      "id": "PopID090",
+      "id": "BROAD-population-type:nfe",
       "type": "Population",
       "label": "Non-Finnish European"
     },
     {
-      "id": "PopID091",
+      "id": "BROAD-population-type:oth",
       "type": "Population",
       "label": "Other"
     },
     {
-      "id": "PopID092",
+      "id": "BROAD-population-type:sas",
       "type": "Population",
       "label": "South Asian"
     },
     {
-      "id": "PopID093",
+      "id": "SEPIO-CG:98001",
       "type": "Population",
       "label": "Combined"
     },
     {
-      "id": "PopID094",
+      "id": "SEPIO-CG:98002",
       "type": "Population",
       "label": "Overall"
     },
     {
-      "id": "PopID095",
+      "id": "ESP-population-type:EA",
       "type": "Population",
       "label": "European-American"
     },
     {
-      "id": "PopID096",
+      "id": "ESP-population-type:AA",
       "type": "Population",
       "label": "African-American"
     },
     {
-      "id": "PopID097",
+      "id": "IGSR-population-type:acb",
       "type": "Population",
       "label": "African Caribbeans in Barbados"
     },
     {
-      "id": "PopID098",
+      "id": "IGSR-population-type:afr",
       "type": "Population",
       "label": "African"
     },
     {
-      "id": "PopID099",
+      "id": "IGSR-population-type:amr",
       "type": "Population",
       "label": "Ad Mixed American"
     },
     {
-      "id": "PopID100",
+      "id": "IGSR-population-type:asw",
       "type": "Population",
       "label": "Americans of African Ancestry in SW USA"
     },
     {
-      "id": "PopID101",
+      "id": "IGSR-population-type:beb",
       "type": "Population",
       "label": "Bengali from Bangladesh"
     },
     {
-      "id": "PopID102",
+      "id": "IGSR-population-type:cdx",
       "type": "Population",
       "label": "Chinese Dai in Xishuangbanna, China"
     },
     {
-      "id": "PopID103",
+      "id": "IGSR-population-type:ceu",
       "type": "Population",
       "label": "Utah Residents (CEPH) with Northern and Western European Ancestry"
     },
     {
-      "id": "PopID104",
+      "id": "IGSR-population-type:chb",
       "type": "Population",
       "label": "Han Chinese in Bejing, China"
     },
     {
-      "id": "PopID105",
+      "id": "IGSR-population-type:chs",
       "type": "Population",
       "label": "Southern Han Chinese"
     },
     {
-      "id": "PopID106",
+      "id": "IGSR-population-type:clm",
       "type": "Population",
       "label": "Colombians from Medellin, Colombia"
     },
     {
-      "id": "PopID107",
+      "id": "IGSR-population-type:eas",
       "type": "Population",
       "label": "East Asian"
     },
     {
-      "id": "PopID108",
+      "id": "IGSR-population-type:esn",
       "type": "Population",
       "label": "Esan in Nigeria"
     },
     {
-      "id": "PopID109",
+      "id": "IGSR-population-type:eur",
       "type": "Population",
       "label": "European"
     },
     {
-      "id": "PopID110",
+      "id": "IGSR-population-type:fin",
       "type": "Population",
       "label": "Finnish in Finland"
     },
     {
-      "id": "PopID111",
+      "id": "IGSR-population-type:gbr",
       "type": "Population",
       "label": "British in England and Scotland"
     },
     {
-      "id": "PopID112",
+      "id": "IGSR-population-type:gih",
       "type": "Population",
       "label": "Gujarati Indian from Houston, Texas"
     },
     {
-      "id": "PopID113",
+      "id": "IGSR-population-type:gwd",
       "type": "Population",
       "label": "Gambian in Western Divisions in the Gambia"
     },
     {
-      "id": "PopID114",
+      "id": "IGSR-population-type:ibs",
       "type": "Population",
       "label": "Iberian Population in Spain"
     },
     {
-      "id": "PopID115",
+      "id": "IGSR-population-type:itu",
       "type": "Population",
       "label": "Indian Telugu from the UK"
     },
     {
-      "id": "PopID116",
+      "id": "IGSR-population-type:jpt",
       "type": "Population",
       "label": "Japanese in Tokyo, Japan"
     },
     {
-      "id": "PopID117",
+      "id": "IGSR-population-type:khv",
       "type": "Population",
       "label": "Kinh in Ho Chi Minh City, Vietnam"
     },
     {
-      "id": "PopID118",
+      "id": "IGSR-population-type:lwk",
       "type": "Population",
       "label": "Luhya in Webuye, Kenya"
     },
     {
-      "id": "PopID119",
+      "id": "IGSR-population-type:msl",
       "type": "Population",
       "label": "Mende in Sierra Leone"
     },
     {
-      "id": "PopID120",
+      "id": "IGSR-population-type:mxl",
       "type": "Population",
       "label": "Mexican Ancestry from Los Angeles USA"
     },
     {
-      "id": "PopID121",
+      "id": "IGSR-population-type:pel",
       "type": "Population",
       "label": "Peruvians from Lima, Peru"
     },
     {
-      "id": "PopID122",
+      "id": "IGSR-population-type:pjl",
       "type": "Population",
       "label": "Punjabi from Lahore, Pakistan"
     },
     {
-      "id": "PopID123",
+      "id": "IGSR-population-type:pur",
       "type": "Population",
       "label": "Puerto Ricans from Puerto Rico"
     },
     {
-      "id": "PopID124",
+      "id": "IGSR-population-type:sas",
       "type": "Population",
       "label": "South Asian"
     },
     {
-      "id": "PopID125",
+      "id": "IGSR-population-type:stu",
       "type": "Population",
       "label": "Sri Lankan Tamil from the UK"
     },
     {
-      "id": "PopID126",
+      "id": "IGSR-population-type:tsi",
       "type": "Population",
       "label": "Toscani in Italia"
     },
     {
-      "id": "PopID127",
+      "id": "IGSR-population-type:yri",
       "type": "Population",
       "label": "Yoruba in Ibadan, Nigeria"
     }
-  ]
+  ],
+  "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
 }

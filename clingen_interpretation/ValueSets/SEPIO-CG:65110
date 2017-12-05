@@ -1,10 +1,10 @@
 {
-  "id": "VS010",
+  "id": "SEPIO-CG:65110",
   "type": "ValueSet",
   "label": "Criterion Evaluation",
   "description": "TODO",
   "conceptListExtensibility": {
-    "id": "VSCLExtnsID375",
+    "id": "SEPIO-CG:02102",
     "type": "ValueSetConceptListExtensibility",
     "label": "extensible"
   },
@@ -16,14 +16,15 @@
   ],
   "concept": [
     {
-      "id": "CritEvalID074",
+      "id": "SEPIO:0000223",
       "type": "CriterionEvaluation",
       "label": "Met"
     },
     {
-      "id": "CritEvalID075",
+      "id": "SEPIO:0000224",
       "type": "CriterionEvaluation",
       "label": "Not Met"
     }
-  ]
+  ],
+  "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
 }

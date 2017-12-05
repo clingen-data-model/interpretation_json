@@ -1,0 +1,30 @@
+{
+  "id": "SEPIO-CG:65108",
+  "type": "ValueSet",
+  "label": "Mechanism",
+  "description": "TODO",
+  "conceptListExtensibility": {
+    "id": "SEPIO-CG:02102",
+    "type": "ValueSetConceptListExtensibility",
+    "label": "extensible"
+  },
+  "sourceIdentifierSystems": [
+    {
+      "id": "IdSys007",
+      "type": "IdentifierSystem"
+    }
+  ],
+  "concept": [
+    {
+      "id": "SO:0001583",
+      "type": "Mechanism",
+      "label": "missense variant"
+    },
+    {
+      "id": "SO:0002054",
+      "type": "Mechanism",
+      "label": "loss of function variant"
+    }
+  ],
+  "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
+}

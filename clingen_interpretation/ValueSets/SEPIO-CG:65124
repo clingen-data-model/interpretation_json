@@ -1,10 +1,10 @@
 {
-  "id": "VS024",
+  "id": "SEPIO-CG:65124",
   "type": "ValueSet",
   "label": "Conservation",
   "description": "TODO",
   "conceptListExtensibility": {
-    "id": "VSCLExtnsID375",
+    "id": "SEPIO-CG:02102",
     "type": "ValueSetConceptListExtensibility",
     "label": "extensible"
   },
@@ -16,9 +16,10 @@
   ],
   "concept": [
     {
-      "id": "ConsrvID212",
+      "id": "SO:0000330",
       "type": "Conservation",
       "label": "conserved region"
     }
-  ]
+  ],
+  "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
 }

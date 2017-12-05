@@ -1,10 +1,10 @@
 {
-  "id": "VS006",
+  "id": "SEPIO-CG:65106",
   "type": "ValueSet",
   "label": "Allelic State",
   "description": "The level of occurance of a single DNA marker within a set of chromosomes. Informed by LOINC 53034-5 but with additional codes for somatic mosaicism and asserted absence.",
   "conceptListExtensibility": {
-    "id": "VSCLExtnsID375",
+    "id": "SEPIO-CG:02102",
     "type": "ValueSetConceptListExtensibility",
     "label": "extensible"
   },
@@ -16,39 +16,40 @@
   ],
   "concept": [
     {
-      "id": "AllStateID038",
+      "id": "GENO:0000137",
       "type": "AllelicState",
       "label": "unspecified zygosity"
     },
     {
-      "id": "AllStateID039",
+      "id": "GENO:0000134",
       "type": "AllelicState",
       "label": "hemizygous"
     },
     {
-      "id": "AllStateID040",
+      "id": "GENO:0000603",
       "type": "AllelicState",
       "label": "heteroplasmic"
     },
     {
-      "id": "AllStateID041",
+      "id": "GENO:0000135",
       "type": "AllelicState",
       "label": "heterozygous"
     },
     {
-      "id": "AllStateID042",
+      "id": "GENO:0000602",
       "type": "AllelicState",
       "label": "homoplasmic"
     },
     {
-      "id": "AllStateID043",
+      "id": "GENO:0000136",
       "type": "AllelicState",
       "label": "homozygous"
     },
     {
-      "id": "AllStateID044",
+      "id": "GENO:0000882",
       "type": "AllelicState",
       "label": "somatic"
     }
-  ]
+  ],
+  "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
 }

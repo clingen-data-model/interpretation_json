@@ -32,7 +32,7 @@ def create_contribution(agent, ondate, role):
 def create_dmwg_disease(system, code, name):
     iri = system+code
     disease = Disease(iri)
-    disease.add_synonym(name)
+    disease.set_userLabel(name)
     return disease
 
 #Utility method to make sure that coding gets the ID set correctly
@@ -46,14 +46,14 @@ def create_dmwg_disease(system, code, name):
 
 def read_criteria():
     this_dir, this_filename = os.path.split(__file__)
-    crit_path = os.path.join(this_dir, 'ValueSets', 'VS035')
+    crit_path = os.path.join(this_dir, 'ValueSets', 'SEPIO-CG:65131')
     inf = file(crit_path,'r')
     jcrit = json.load(inf)
     inf.close()
     criteria = {}
-    for crit in jcrit['includesConcept']:
+    for crit in jcrit['concept']:
         criterion = Criterion(crit['id'])
-        label = crit['display']
+        label = crit['label']
         criterion.set_label ( label )
         if label.startswith('PVS'):
             defStrength = 'Pathogenic Very Strong'

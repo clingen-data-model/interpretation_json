@@ -1,10 +1,10 @@
 {
-  "id": "VS029",
+  "id": "SEPIO-CG:65129",
   "type": "ValueSet",
   "label": "Region Alleles Outcome",
   "description": "TODO",
   "conceptListExtensibility": {
-    "id": "VSCLExtnsID375",
+    "id": "SEPIO-CG:02102",
     "type": "ValueSetConceptListExtensibility",
     "label": "extensible"
   },
@@ -16,14 +16,15 @@
   ],
   "concept": [
     {
-      "id": "RegAllOutID225",
+      "id": "RO:0002656",
       "type": "RegionAllelesOutcome",
       "label": "overlaps region"
     },
     {
-      "id": "RegAllOutID226",
+      "id": "RO:00002527",
       "type": "RegionAllelesOutcome",
       "label": "does not overlap region"
     }
-  ]
+  ],
+  "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
 }

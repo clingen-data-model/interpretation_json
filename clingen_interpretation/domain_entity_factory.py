@@ -2,6 +2,8 @@ import os
 import json
 from functools import wraps
 
+LABEL='label'
+
 class DomainEntityFactory:
     """Enables creation of Domain Entities from codes or display names.
 
@@ -20,16 +22,28 @@ class DomainEntityFactory:
             vsdir = os.path.join(this_dir, 'ValueSets')
         files = os.listdir(vsdir)
         for f in files:
-            if f.startswith('VS'):
+            if f.startswith('SEPIO-CG'):
                 inf = file('%s/%s'% (vsdir,f),'r')
                 valueset = json.load(inf)
                 vsid = valueset['id']
                 try:
-                    concepts = valueset['includesConcept']
+                    concepts = valueset['concept']
                 except KeyError:
+                    print 'No concepts in %s' % f
                     concepts = {}
                 self.vsets[vsid] = concepts
-                self.entity_types[valueset['name']] = vsid
+                for c in concepts:
+                    etype = c['type']
+                    if etype in self.entity_types:
+                        if self.entity_types[etype] != vsid:
+                            print 'Type %s occurs in 2 Value Sets'
+                            print vsid, self.entity_types[etype]
+                            print 'Need to make entity_types point to sets'
+                            print 'But have not yet'
+                            sys.exit(1)
+                    else:
+                        self.entity_types[etype] = vsid
+                #self.entity_types[''.join(valueset['label'].split())] = vsid
     def lookup_entity(self,entity_type_name,lookup):
         """Given a lookup value, return a well-formed Domain Entity.
 
@@ -41,11 +55,11 @@ class DomainEntityFactory:
         vset = self.vsets[valueset_id]
         import entities_generated
         entity_class = getattr(entities_generated, entity_type_name)
-        for key in ['id','code','display']:
+        for key in ['id','label']:
             for coding in vset:
                 if coding[key] == lookup:
                     e = entity_class(coding['id'])
-                    e.set_label(coding['display'])
+                    e.set_label(coding[LABEL])
                     #e.set_description(coding['description'])
                     return e
         #If we didn't find the value, we create without the IRI, and set label

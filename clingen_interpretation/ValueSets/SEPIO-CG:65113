@@ -1,10 +1,10 @@
 {
-  "id": "VS013",
+  "id": "SEPIO-CG:65113",
   "type": "ValueSet",
   "label": "Benign Missense Variation Rate Outcome",
   "description": "TODO",
   "conceptListExtensibility": {
-    "id": "VSCLExtnsID375",
+    "id": "SEPIO-CG:02102",
     "type": "ValueSetConceptListExtensibility",
     "label": "extensible"
   },
@@ -16,14 +16,15 @@
   ],
   "concept": [
     {
-      "id": "BMVROID128",
+      "id": "SEPIO:0000265",
       "type": "BenignMissenseVariationRateOutcome",
       "label": "High"
     },
     {
-      "id": "BMVROID129",
+      "id": "SEPIO:0000266",
       "type": "BenignMissenseVariationRateOutcome",
       "label": "Low"
     }
-  ]
+  ],
+  "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
 }

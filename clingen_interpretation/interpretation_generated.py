@@ -2,7 +2,6 @@ from interpretation_constants import *
 from domain_entity_factory import get_factory_entity
 from node import Node
 
-from domain_entity_factory import get_factory_entity
 class Contribution(Node):
     def __init__(self,iri=None):
         self.data = {}

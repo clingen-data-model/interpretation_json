@@ -1,5 +1,5 @@
 {
-  "id": "VS002",
+  "id": "SEPIO-CG:65102",
   "type": "ValueSet",
   "label": "Molecular Consequence",
   "sourceIdentifierSystems": [
@@ -10,145 +10,146 @@
   ],
   "description": "TODO desc of molecular consequence value set",
   "conceptListExtensibility": {
-    "id": "VSCLExtnsID375",
+    "id": "SEPIO-CG:02102",
     "type": "ValueSetConceptListExtensibility",
     "label": "extensible"
   },
   "concept": [
     {
-      "id": "MolConID001",
+      "id": "SO:0000159",
       "type": "MolecularConsequence",
       "label": "deletion"
     },
     {
-      "id": "MolConID002",
+      "id": "SO:0000191",
       "type": "MolecularConsequence",
       "label": "interior intron"
     },
     {
-      "id": "MolConID003",
+      "id": "SO:0000199",
       "type": "MolecularConsequence",
       "label": "translocation"
     },
     {
-      "id": "MolConID004",
+      "id": "SO:0000203",
       "type": "MolecularConsequence",
       "label": "three prime UTR"
     },
     {
-      "id": "MolConID005",
+      "id": "SO:0000204",
       "type": "MolecularConsequence",
       "label": "five prime UTR"
     },
     {
-      "id": "MolConID006",
+      "id": "SO:0000507",
       "type": "MolecularConsequence",
       "label": "pseudogenic exon"
     },
     {
-      "id": "MolConID007",
+      "id": "SO:0000667",
       "type": "MolecularConsequence",
       "label": "insertion"
     },
     {
-      "id": "MolConID008",
+      "id": "SO:0001019",
       "type": "MolecularConsequence",
       "label": "copy number variation"
     },
     {
-      "id": "MolConID009",
+      "id": "SO:0001568",
       "type": "MolecularConsequence",
       "label": "splicing variant"
     },
     {
-      "id": "MolConID010",
+      "id": "SO:0001578",
       "type": "MolecularConsequence",
       "label": "stop lost"
     },
     {
-      "id": "MolConID011",
+      "id": "SO:0001583",
       "type": "MolecularConsequence",
       "label": "missense variant"
     },
     {
-      "id": "MolConID012",
+      "id": "SO:0001586",
       "type": "MolecularConsequence",
       "label": "non conservative missense variant"
     },
     {
-      "id": "MolConID013",
+      "id": "SO:0001587",
       "type": "MolecularConsequence",
       "label": "stop gained"
     },
     {
-      "id": "MolConID014",
+      "id": "SO:0001589",
       "type": "MolecularConsequence",
       "label": "frameshift variant"
     },
     {
-      "id": "MolConID015",
+      "id": "SO:0001629",
       "type": "MolecularConsequence",
       "label": "splice-site variant"
     },
     {
-      "id": "MolConID016",
+      "id": "SO:0001819",
       "type": "MolecularConsequence",
       "label": "synonymous variant"
     },
     {
-      "id": "MolConID017",
+      "id": "SO:0001823",
       "type": "MolecularConsequence",
       "label": "conservative Inframe Insertion"
     },
     {
-      "id": "MolConID018",
+      "id": "SO:0001824",
       "type": "MolecularConsequence",
       "label": "disruptive inframe insertion"
     },
     {
-      "id": "MolConID019",
+      "id": "SO:0001825",
       "type": "MolecularConsequence",
       "label": "conservative Inframe Deletion"
     },
     {
-      "id": "MolConID020",
+      "id": "SO:0001826",
       "type": "MolecularConsequence",
       "label": "disruptive inframe deletion"
     },
     {
-      "id": "MolConID021",
+      "id": "SO:0001909",
       "type": "MolecularConsequence",
       "label": "frameshift elongation"
     },
     {
-      "id": "MolConID022",
+      "id": "SO:0002007",
       "type": "MolecularConsequence",
       "label": "MNV"
     },
     {
-      "id": "MolConID023",
+      "id": "SO:0002012",
       "type": "MolecularConsequence",
       "label": "start lost"
     },
     {
-      "id": "MolConID024",
+      "id": "SO:0002073",
       "type": "MolecularConsequence",
       "label": "no sequence alteration"
     },
     {
-      "id": "MolConID025",
+      "id": "SO:1000002",
       "type": "MolecularConsequence",
       "label": "substitution"
     },
     {
-      "id": "MolConID026",
+      "id": "SO:10000032",
       "type": "MolecularConsequence",
       "label": "indel"
     },
     {
-      "id": "MolConID027",
+      "id": "SO:1000036",
       "type": "MolecularConsequence",
       "label": "inversion"
     }
-  ]
+  ],
+  "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
 }
