@@ -1,39 +1,42 @@
 {
   "id": "SEPIO-CG:65123",
   "type": "ValueSet",
-  "label": "Locus Specificity",
   "description": "TODO",
   "conceptListExtensibility": {
     "id": "SEPIO-CG:02102",
-    "type": "ValueSetConceptListExtensibility",
     "label": "extensible"
   },
-  "sourceIdentifierSystems": [
-    {
-      "id": "IdSys023",
-      "type": "IdentifierSystem"
-    },
-    {
-      "id": "IdSys024",
-      "type": "IdentifierSystem"
-    }
-  ],
+  "conceptType": "LocusSpecificity",
   "concept": [
     {
-      "id": "SEPIO:0000273",
-      "type": "LocusSpecificity",
-      "label": "low"
-    },
-    {
       "id": "SEPIO-CG:99001",
-      "type": "LocusSpecificity",
       "label": "high"
     },
     {
       "id": "SEPIO-CG:99002",
-      "type": "LocusSpecificity",
       "label": "complete"
+    },
+    {
+      "id": "SEPIO:0000273",
+      "label": "low"
     }
   ],
+  "sourceIdentifierSystems": [
+    {
+      "id": "IdSys023",
+      "type": "IdentifierSystem",
+      "iri": "http://obofoundry.org/sepio/",
+      "prefix": "SEPIO",
+      "label": "Scientific Evidence Provenance Information Ontology"
+    },
+    {
+      "id": "IdSys024",
+      "type": "IdentifierSystem",
+      "iri": "http://obofoundry.org/sepio/clingen",
+      "prefix": "SEPIO-CG",
+      "label": "ClinGen extensions to SEPIO"
+    }
+  ],
+  "label": "Locus Specificity",
   "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
 }

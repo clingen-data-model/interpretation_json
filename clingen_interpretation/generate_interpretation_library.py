@@ -10,9 +10,10 @@ PARENT_KEY = 'parentType'
 ENTITY_ID = 'entityId'
 CARDINALITY = 'cardinality'
 TYPE = 'dataType'
-VSID = 'valueSetId'
+VSID = '@valueSetId'
 ATTRIBUTES = 'attributes'
 ID = 'id'
+DMWG_LABEL_ID = 'LabelIdentifier'
 
 def get_parent_name(dtype,types):
     if PARENT_KEY not in dtype:
@@ -64,6 +65,16 @@ def attribute_is_entity(attribute, types_and_atts):
     #It's not one of our types.  It's "string" or something like that.
     return False
 
+def add_label(dtype):
+    """We have an open-world point of view in constructing messages, but the model can't include everything.
+    This only really causes a problem when the a transform code wants to do things like set a label on an object.
+    We allow anything to have a label, but it's not specifically part of the model, so we add it here to every
+    node.  It might make more sense to modify the transform code to handle extra attributes, but this is
+    here for convenience sake"""
+    LABEL = 'label'
+    attribute = {CARDINALITY: '0..1', NAME: LABEL, ENTITY_ID: dtype[ID], ID: DMWG_LABEL_ID }
+    dtype[ATTRIBUTES].append(attribute)
+
 def write_data_type(types_and_atts,type_id,lib,t_const,a_const):
     """Write a python class representing a particular type_id."""
     dtype = types_and_atts[type_id]
@@ -71,21 +82,23 @@ def write_data_type(types_and_atts,type_id,lib,t_const,a_const):
     pname=get_parent_name(dtype,types_and_atts)
     type_const = t_const[type_id]
     lib.write( CLASSDEF % (name, pname, type_const) )
+    add_label(dtype)
     for att in dtype[ATTRIBUTES]:
         attkey = att[ID]
         eid = att[ENTITY_ID]
         if eid == type_id:
             attconst = a_const[attkey]
             attname = att[NAME]
-            if attribute_is_entity(att, types_and_atts):
+            if VSID in att and att[VSID] != '':
                 try:
-                    lib.write("\n    @get_factory_entity('%s')" % att[TYPE] )
+                    lib.write("\n    @get_factory_entity('%s')" % att[VSID] )
                 except:
                     pass
             try:
                 if '*' in att[CARDINALITY]:
                     lib.write( LISTSETTER % (attname, attconst, attconst, attconst) )
                 else:
+                    print attname, attconst
                     lib.write( SETTER % (attname,attconst))
             except:
                 print attkey
@@ -163,30 +176,37 @@ def write_constants(types_and_atts,enumname):
             try:
                 attfqname = att[FQNAME]
             except:
-                print 'Missing fqname for %s' % attkey
+                #print 'Missing fqname for %s' % attkey
                 attfqname = '%s.%s' % (attkey, attname)
             att_constant = 'DMWG_%s_KEY' % ('_'.join(attfqname.upper().split('.')))
             att_constants[attkey] = att_constant
             if att_constant not in attconsts:
                 enum.write("%s = '%s'\n" % (att_constant, attname))
                 attconsts.add(att_constant)
+    #Add label
+    att_constants[DMWG_LABEL_ID] = DMWG_LABEL_ID
+    enum.write("%s = 'label'\n" % DMWG_LABEL_ID)
+    for aid in att_constants:
+        print aid,att_constants[aid]
     enum.close()
     return type_constants, att_constants
 
-def pull_value_sets(vsdir):
+def pull_value_sets(vsdir,types_and_atts):
     """Pull the value set definitions from datamodel.clinicalgenome.org.
-    We hard code some values here for which ones we actually want to pull."""
+    We look for the value sets that are bound to attributes"""
+    typeids = sort_types(types_and_atts)
+    value_set_set = set()
+    for type_id in typeids:
+        dtype = types_and_atts[type_id]
+        for att in dtype[ATTRIBUTES]:
+            if VSID in att and att[VSID] != '':
+                value_set_set.add(att[VSID])
     try:
         os.mkdir(vsdir)
     except:
         pass
-    for i in range(65102,65134):
-        #We don't really need to pull gene, disease, etc.
-        #Plus we have a few empty ids.
-        if i in [65117,65118,65130]:
-            continue
-        #VS = 'VS%03d' % i
-        VS = 'SEPIO-CG:%d' % i
+    for VS in value_set_set:
+        print VS
         url = 'http://datamodel.clinicalgenome.org/interpretation/master/json/%s' % VS
         res = requests.get(url)
         outf = codecs.open('%s/%s' % (vsdir,VS),'w',encoding='utf-8')
@@ -203,9 +223,11 @@ def go():
     classes and constants"""
     type_url = 'http://datamodel.clinicalgenome.org/interpretation/master/json/Types'
     t_res = requests.get(type_url)
+    with file('types.json','w') as outf:
+        outf.write(json.dumps(t_res.json(),indent=4))
     json_string = t_res.text
     types_and_atts = json.loads(json_string)
-    pull_value_sets('ValueSets')
+    pull_value_sets('ValueSets',types_and_atts)
     write_library(types_and_atts, 'interpretation_generated.py', 'entities_generated.py', 'interpretation_constants.py')
 
 if __name__ == '__main__':

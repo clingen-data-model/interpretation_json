@@ -1,39 +1,42 @@
 {
   "id": "SEPIO-CG:65104",
   "type": "ValueSet",
-  "label": "Region Annotation",
-  "description": "TODO",
+  "description": "Concepts to categorize the genetic sequence region types used to assess ACMG rules.",
   "conceptListExtensibility": {
     "id": "SEPIO-CG:02102",
-    "type": "ValueSetConceptListExtensibility",
     "label": "extensible"
   },
-  "sourceIdentifierSystems": [
-    {
-      "id": "IdSys007",
-      "type": "IdentifierSystem"
-    },
-    {
-      "id": "IdSys023",
-      "type": "IdentifierSystem"
-    }
-  ],
+  "conceptType": "RegionAnnotation",
   "concept": [
     {
       "id": "SEPIO:0000320",
-      "type": "RegionAnnotation",
       "label": "functional region"
     },
     {
       "id": "SEPIO:0000321",
-      "type": "RegionAnnotation",
       "label": "mutational hotspot"
     },
     {
       "id": "SO:0000657",
-      "type": "RegionAnnotation",
       "label": "repeat region "
     }
   ],
+  "sourceIdentifierSystems": [
+    {
+      "id": "IdSys007",
+      "type": "IdentifierSystem",
+      "iri": "http://sequenceontology.org/",
+      "prefix": "SO",
+      "label": "SequenceOntology"
+    },
+    {
+      "id": "IdSys023",
+      "type": "IdentifierSystem",
+      "iri": "http://obofoundry.org/sepio/",
+      "prefix": "SEPIO",
+      "label": "Scientific Evidence Provenance Information Ontology"
+    }
+  ],
+  "label": "Region Annotation",
   "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
 }

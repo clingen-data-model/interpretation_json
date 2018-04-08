@@ -1,0 +1,39 @@
+{
+  "id": "SEPIO-CG:65101",
+  "type": "ValueSet",
+  "description": "Concepts to categorize the degree of extensibility of a given value set.",
+  "conceptListExtensibility": {
+    "id": "SEPIO-CG:02101",
+    "label": "fixed"
+  },
+  "conceptType": "ValueSetConceptListExtensibility",
+  "concept": [
+    {
+      "id": "SEPIO-CG:02101",
+      "label": "fixed"
+    },
+    {
+      "id": "SEPIO-CG:02102",
+      "label": "extensible"
+    }
+  ],
+  "sourceIdentifierSystems": [
+    {
+      "id": "IdSys002",
+      "type": "IdentifierSystem",
+      "oid": "2.16.840.1.113883.6.1",
+      "iri": "http://loinc.org/",
+      "prefix": "LN",
+      "label": "LOINC"
+    },
+    {
+      "id": "IdSys024",
+      "type": "IdentifierSystem",
+      "iri": "http://obofoundry.org/sepio/clingen",
+      "prefix": "SEPIO-CG",
+      "label": "ClinGen extensions to SEPIO"
+    }
+  ],
+  "label": "Value Set Concept List Exstensibility",
+  "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
+}

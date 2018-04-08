@@ -1,40 +1,39 @@
 {
   "id": "SEPIO-CG:65120",
   "type": "ValueSet",
-  "label": "Contributory Role",
   "description": "TODO",
   "conceptListExtensibility": {
     "id": "SEPIO-CG:02102",
-    "type": "ValueSetConceptListExtensibility",
     "label": "extensible"
   },
-  "sourceIdentifierSystems": [
-    {
-      "id": "IdSys023",
-      "type": "IdentifierSystem"
-    }
-  ],
+  "conceptType": "ContributoryRole",
   "concept": [
     {
       "id": "SEPIO:0000154",
-      "type": "ContributoryRole",
       "label": "assessor role"
     },
     {
-      "id": "SEPIO:0000156",
-      "type": "ContributoryRole",
-      "label": "curator role"
-    },
-    {
       "id": "SEPIO:0000155",
-      "type": "ContributoryRole",
       "label": "approver role"
     },
     {
+      "id": "SEPIO:0000156",
+      "label": "curator role"
+    },
+    {
       "id": "SEPIO:0000331",
-      "type": "ContributoryRole",
       "label": "interpreter role"
     }
   ],
+  "sourceIdentifierSystems": [
+    {
+      "id": "IdSys023",
+      "type": "IdentifierSystem",
+      "iri": "http://obofoundry.org/sepio/",
+      "prefix": "SEPIO",
+      "label": "Scientific Evidence Provenance Information Ontology"
+    }
+  ],
+  "label": "Contributory Role",
   "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
 }

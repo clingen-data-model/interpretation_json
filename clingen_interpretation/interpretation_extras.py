@@ -17,9 +17,9 @@ def add_evidenceItems( assessment, evidenceItems):
         evidence_line.add_evidenceItem( item )
         assessment.add_evidenceLine( evidence_line )
 
-DMWG_CURATOR_ROLE = 'curator'
-DMWG_INTERPRETER_ROLE = 'interpreter'
-DMWG_ASSESSOR_ROLE = 'assessor'
+DMWG_CURATOR_ROLE = 'curator role'
+DMWG_INTERPRETER_ROLE = 'interpreter role'
+DMWG_ASSESSOR_ROLE = 'assessor role'
 #Utility methods for creating contributions
 def create_contribution(agent, ondate, role):
     contribution = Contribution()
@@ -28,11 +28,11 @@ def create_contribution(agent, ondate, role):
     contribution.set_contributionRole(role)
     return contribution
 
-#Utility method for creating diseases
+#Utility method for creating diseases. Note that disease is not a type any more
 def create_dmwg_disease(system, code, name):
     iri = system+code
-    disease = Disease(iri)
-    disease.set_userLabel(name)
+    disease = Node(iri)
+    disease.set_label(name)
     return disease
 
 #Utility method to make sure that coding gets the ID set correctly

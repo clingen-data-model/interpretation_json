@@ -1,32 +1,34 @@
 {
   "id": "SEPIO-CG:65132",
   "type": "ValueSet",
-  "label": "Assertion Method",
   "description": "TODO",
   "conceptListExtensibility": {
     "id": "SEPIO-CG:02102",
-    "type": "ValueSetConceptListExtensibility",
     "label": "extensible"
   },
-  "sourceIdentifierSystems": [
-    {
-      "id": "IdSys024",
-      "type": "IdentifierSystem"
-    }
-  ],
+  "conceptType": "AssertionMethod",
   "concept": [
     {
-      "id": "SEPIO-CG:99200",
+      "id": "AssertMeth331",
       "type": "AssertionMethod",
       "description": "ACMG ISV guidelines 2015",
       "url": "https://www.acmg.net/docs/Standards_Guidelines_for_the_Interpretation_of_Sequence_Variants.pdf",
       "version": "1.0",
       "scoringAlgorithm": {
         "id": "SEPIO-CG:99300",
-        "type": "ScoringAlgorithm",
         "description": "This is the description of how the weighting of the satisfied criterion are typically evaluated to arrive at a specific clinical significance."
       }
     }
   ],
+  "sourceIdentifierSystems": [
+    {
+      "id": "IdSys024",
+      "type": "IdentifierSystem",
+      "iri": "http://obofoundry.org/sepio/clingen",
+      "prefix": "SEPIO-CG",
+      "label": "ClinGen extensions to SEPIO"
+    }
+  ],
+  "label": "Assertion Method",
   "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
 }

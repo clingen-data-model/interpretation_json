@@ -1,0 +1,193 @@
+{
+  "id": "SEPIO-CG:65117",
+  "type": "ValueSet",
+  "description": "Alteration of health status resulting from a physiopathological mechanism, and having a homogeneous clinical presentation and evolution and homogeneous therapeutic possibilities.",
+  "conceptListExtensibility": {
+    "id": "SEPIO-CG:02102",
+    "label": "extensible"
+  },
+  "conceptType": "Disease",
+  "concept": [
+    {
+      "id": "DOID:630",
+      "label": "genetic disease"
+    },
+    {
+      "id": "MESH:D061325",
+      "label": "hereditary breast ovarian cancer"
+    },
+    {
+      "id": "OMIM:114480",
+      "label": "Breast Cancer"
+    },
+    {
+      "id": "OMIM:143890",
+      "label": "Hypercholesterolemia, Familial"
+    },
+    {
+      "id": "OMIM:601419",
+      "label": "myofibrillar myopathy 1"
+    },
+    {
+      "id": "OMIM:609942",
+      "label": "noonan syndrome 3"
+    },
+    {
+      "id": "OMIM:612555",
+      "label": "Breast-Ovarian Cancer, Familial, Susceptibility To, 2"
+    },
+    {
+      "id": "OMIM:614065",
+      "label": "Myopathy, Distal, type 4"
+    },
+    {
+      "id": "Orphanet:1340",
+      "label": "cardiofaciocutaneous syndrome"
+    },
+    {
+      "id": "Orphanet:145",
+      "label": "hereditary breast and ovarian cancer syndrome"
+    },
+    {
+      "id": "Orphanet:167848",
+      "label": "cardiomyopathy"
+    },
+    {
+      "id": "Orphanet:216",
+      "label": "neuronal ceroid lipofuscinosis"
+    },
+    {
+      "id": "Orphanet:217569",
+      "label": "hypertrophic cardiomyopathy"
+    },
+    {
+      "id": "Orphanet:217604",
+      "label": "dilated cardiomyopathy"
+    },
+    {
+      "id": "Orphanet:244",
+      "label": "Primary ciliary dyskenisia"
+    },
+    {
+      "id": "Orphanet:247",
+      "label": "arrhythmogenic right ventricular cardiomyopathy"
+    },
+    {
+      "id": "Orphanet:2609",
+      "label": "Mitochondrial complex 1 deficiency"
+    },
+    {
+      "id": "Orphanet:2855",
+      "label": "Perrault Syndrome"
+    },
+    {
+      "id": "Orphanet:3071",
+      "label": "costello syndrome"
+    },
+    {
+      "id": "Orphanet:319182",
+      "label": "Wiedemann-Steiner syndrome"
+    },
+    {
+      "id": "Orphanet:324",
+      "label": "Fabry disease"
+    },
+    {
+      "id": "Orphanet:364526",
+      "label": "Primary bone dysplasia"
+    },
+    {
+      "id": "Orphanet:414",
+      "label": "Gyrate atrophy of choroid and retina"
+    },
+    {
+      "id": "Orphanet:423",
+      "label": "Malignant hyperthermia"
+    },
+    {
+      "id": "Orphanet:558",
+      "label": "Marfan Syndrome"
+    },
+    {
+      "id": "Orphanet:586",
+      "label": "Cystic Fibrosis"
+    },
+    {
+      "id": "Orphanet:648",
+      "label": "noonan syndrome"
+    },
+    {
+      "id": "Orphanet:664",
+      "label": "Ornithine carbamoyltransferase deficiency"
+    },
+    {
+      "id": "Orphanet:705",
+      "label": "Pendred syndrome"
+    },
+    {
+      "id": "Orphanet:733",
+      "label": "Familial Adenomatous Polyposis"
+    },
+    {
+      "id": "Orphanet:750",
+      "label": "pseudoachondroplasia"
+    },
+    {
+      "id": "Orphanet:774",
+      "label": "hereditary hemorrhagic telangiectasia"
+    },
+    {
+      "id": "Orphanet:791",
+      "label": "Retinitis Pigmentosa"
+    },
+    {
+      "id": "Orphanet:84",
+      "label": "Fanconi Anemia"
+    },
+    {
+      "id": "Orphanet:87884",
+      "label": "nonsyndromic deafness"
+    },
+    {
+      "id": "Orphanet:886",
+      "label": "Usher syndrome"
+    },
+    {
+      "id": "Orphanet:98733",
+      "label": "Noonan syndrome and noonan-related syndrom"
+    }
+  ],
+  "sourceIdentifierSystems": [
+    {
+      "id": "IdSys011",
+      "type": "IdentifierSystem",
+      "oid": "2.16.840.1.113883.6.174",
+      "iri": "http://www.omim.org/",
+      "prefix": "OMIM",
+      "label": "OMIM"
+    },
+    {
+      "id": "IdSys013",
+      "type": "IdentifierSystem",
+      "iri": "http://www.orpha.net/",
+      "prefix": "Orphanet",
+      "label": "Orphanet"
+    },
+    {
+      "id": "IdSys019",
+      "type": "IdentifierSystem",
+      "iri": "http://disease-ontology.org/",
+      "prefix": "DOID",
+      "label": "Disease Ontology"
+    },
+    {
+      "id": "IdSys020",
+      "type": "IdentifierSystem",
+      "iri": "https://meshb.nlm.nih.gov/",
+      "prefix": "MESH",
+      "label": "MeSH"
+    }
+  ],
+  "label": "Disease",
+  "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
+}

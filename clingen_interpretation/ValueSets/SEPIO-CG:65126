@@ -1,30 +1,31 @@
 {
   "id": "SEPIO-CG:65126",
   "type": "ValueSet",
-  "label": "Condition Status",
   "description": "TODO",
   "conceptListExtensibility": {
     "id": "SEPIO-CG:02102",
-    "type": "ValueSetConceptListExtensibility",
     "label": "extensible"
   },
-  "sourceIdentifierSystems": [
-    {
-      "id": "IdSys024",
-      "type": "IdentifierSystem"
-    }
-  ],
+  "conceptType": "ConditionStatus",
   "concept": [
     {
       "id": "SEPIO-CG:99009",
-      "type": "ConditionStatus",
       "label": "affected"
     },
     {
       "id": "SEPIO-CG:99010",
-      "type": "ConditionStatus",
       "label": "unaffected"
     }
   ],
+  "sourceIdentifierSystems": [
+    {
+      "id": "IdSys024",
+      "type": "IdentifierSystem",
+      "iri": "http://obofoundry.org/sepio/clingen",
+      "prefix": "SEPIO-CG",
+      "label": "ClinGen extensions to SEPIO"
+    }
+  ],
+  "label": "Condition Status",
   "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
 }

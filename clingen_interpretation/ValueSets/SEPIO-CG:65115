@@ -1,45 +1,43 @@
 {
   "id": "SEPIO-CG:65115",
   "type": "ValueSet",
-  "label": "Condition Mechanism Strength",
   "description": "The level of strength for which a class of variants is a known mechanism for a condition",
   "conceptListExtensibility": {
     "id": "SEPIO-CG:02102",
-    "type": "ValueSetConceptListExtensibility",
     "label": "extensible"
   },
-  "sourceIdentifierSystems": [
-    {
-      "id": "IdSys023",
-      "type": "IdentifierSystem"
-    }
-  ],
+  "conceptType": "ConditionMechanismStrength",
   "concept": [
     {
       "id": "SEPIO:0000268",
-      "type": "ConditionMechanismStrength",
       "label": "common"
     },
     {
       "id": "SEPIO:0000269",
-      "type": "ConditionMechanismStrength",
       "label": "established"
     },
     {
       "id": "SEPIO:0000270",
-      "type": "ConditionMechanismStrength",
       "label": "primary"
     },
     {
       "id": "SEPIO:0000271",
-      "type": "ConditionMechanismStrength",
       "label": "suggested"
     },
     {
       "id": "SEPIO:0000272",
-      "type": "ConditionMechanismStrength",
       "label": "unknown"
     }
   ],
+  "sourceIdentifierSystems": [
+    {
+      "id": "IdSys023",
+      "type": "IdentifierSystem",
+      "iri": "http://obofoundry.org/sepio/",
+      "prefix": "SEPIO",
+      "label": "Scientific Evidence Provenance Information Ontology"
+    }
+  ],
+  "label": "Condition Mechanism Strength",
   "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
 }

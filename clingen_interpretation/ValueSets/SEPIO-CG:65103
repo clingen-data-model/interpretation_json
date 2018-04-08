@@ -1,45 +1,44 @@
 {
   "id": "SEPIO-CG:65103",
   "type": "ValueSet",
-  "label": "Clinical Signficance",
-  "description": "TODO",
+  "description": "ACMG variant pathogenicity clinical significance concepts. Equivalent to LOINC answer list https://r.details.loinc.org/AnswerList/LL4034-6.html.",
   "conceptListExtensibility": {
     "id": "SEPIO-CG:02101",
-    "type": "ValueSetConceptListExtensibility",
     "label": "fixed"
   },
-  "sourceIdentifierSystems": [
-    {
-      "id": "IdSys002",
-      "type": "IdentifierSystem"
-    }
-  ],
+  "conceptType": "Significance",
   "concept": [
     {
       "id": "LN:LA26332-9",
-      "type": "Significance",
       "label": "Likely Pathogenic"
     },
     {
       "id": "LN:LA26333-7",
-      "type": "Significance",
       "label": "Uncertain Signficance"
     },
     {
       "id": "LN:LA26334-5",
-      "type": "Significance",
       "label": "Likely Benign"
     },
     {
       "id": "LN:LA6668-3",
-      "type": "Significance",
       "label": "Pathogenic"
     },
     {
       "id": "LN:LA6675-8",
-      "type": "Significance",
       "label": "Benign"
     }
   ],
+  "sourceIdentifierSystems": [
+    {
+      "id": "IdSys002",
+      "type": "IdentifierSystem",
+      "oid": "2.16.840.1.113883.6.1",
+      "iri": "http://loinc.org/",
+      "prefix": "LN",
+      "label": "LOINC"
+    }
+  ],
+  "label": "Clinical Signficance",
   "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
 }

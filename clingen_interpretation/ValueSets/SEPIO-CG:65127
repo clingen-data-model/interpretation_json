@@ -1,35 +1,35 @@
 {
   "id": "SEPIO-CG:65127",
   "type": "ValueSet",
-  "label": "Inconsistent Segregation Observed",
   "description": "TODO",
   "conceptListExtensibility": {
     "id": "SEPIO-CG:02102",
-    "type": "ValueSetConceptListExtensibility",
     "label": "extensible"
   },
-  "sourceIdentifierSystems": [
-    {
-      "id": "IdSys024",
-      "type": "IdentifierSystem"
-    }
-  ],
+  "conceptType": "InconsistentSegregationObserved",
   "concept": [
     {
       "id": "SEPIO-CG:99011",
-      "type": "InconsistentSegregationObserved",
       "label": "present"
     },
     {
       "id": "SEPIO-CG:99012",
-      "type": "InconsistentSegregationObserved",
       "label": "absent"
     },
     {
       "id": "SEPIO-CG:99013",
-      "type": "InconsistentSegregationObserved",
       "label": "unknown"
     }
   ],
+  "sourceIdentifierSystems": [
+    {
+      "id": "IdSys024",
+      "type": "IdentifierSystem",
+      "iri": "http://obofoundry.org/sepio/clingen",
+      "prefix": "SEPIO-CG",
+      "label": "ClinGen extensions to SEPIO"
+    }
+  ],
+  "label": "Inconsistent Segregation Observed",
   "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
 }

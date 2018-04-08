@@ -1,30 +1,31 @@
 {
   "id": "SEPIO-CG:65110",
   "type": "ValueSet",
-  "label": "Criterion Evaluation",
-  "description": "TODO",
+  "description": "Denotes whether the collected evidence is sufficient to meet a specified criteria or not",
   "conceptListExtensibility": {
     "id": "SEPIO-CG:02102",
-    "type": "ValueSetConceptListExtensibility",
     "label": "extensible"
   },
-  "sourceIdentifierSystems": [
-    {
-      "id": "IdSys023",
-      "type": "IdentifierSystem"
-    }
-  ],
+  "conceptType": "CriterionEvaluation",
   "concept": [
     {
       "id": "SEPIO:0000223",
-      "type": "CriterionEvaluation",
       "label": "Met"
     },
     {
       "id": "SEPIO:0000224",
-      "type": "CriterionEvaluation",
       "label": "Not Met"
     }
   ],
+  "sourceIdentifierSystems": [
+    {
+      "id": "IdSys023",
+      "type": "IdentifierSystem",
+      "iri": "http://obofoundry.org/sepio/",
+      "prefix": "SEPIO",
+      "label": "Scientific Evidence Provenance Information Ontology"
+    }
+  ],
+  "label": "Criterion Evaluation",
   "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
 }

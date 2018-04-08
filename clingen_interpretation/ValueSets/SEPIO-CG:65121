@@ -1,45 +1,43 @@
 {
   "id": "SEPIO-CG:65121",
   "type": "ValueSet",
-  "label": "Allele Inheritance",
   "description": "TODO",
   "conceptListExtensibility": {
     "id": "SEPIO-CG:02102",
-    "type": "ValueSetConceptListExtensibility",
     "label": "extensible"
   },
-  "sourceIdentifierSystems": [
-    {
-      "id": "IdSys022",
-      "type": "IdentifierSystem"
-    }
-  ],
+  "conceptType": "AlleleInheritance",
   "concept": [
     {
-      "id": "GENO:0000880",
-      "type": "AlleleInheritance",
-      "label": "de novo"
-    },
-    {
       "id": "GENO:0000878",
-      "type": "AlleleInheritance",
       "label": "maternally inherited"
     },
     {
       "id": "GENO:0000879",
-      "type": "AlleleInheritance",
       "label": "paternally inherited"
     },
     {
+      "id": "GENO:0000880",
+      "label": "de novo"
+    },
+    {
       "id": "GENO:0000881",
-      "type": "AlleleInheritance",
       "label": "Unknown"
     },
     {
       "id": "GENO:0000888",
-      "type": "AlleleInheritance",
       "label": "parentally inherited"
     }
   ],
+  "sourceIdentifierSystems": [
+    {
+      "id": "IdSys022",
+      "type": "IdentifierSystem",
+      "iri": "http://obofoundry.org/geno/",
+      "prefix": "GENO",
+      "label": "GENO"
+    }
+  ],
+  "label": "Allele Inheritance",
   "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
 }

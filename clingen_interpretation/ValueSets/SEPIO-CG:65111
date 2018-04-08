@@ -1,65 +1,59 @@
 {
   "id": "SEPIO-CG:65111",
   "type": "ValueSet",
-  "label": "Allele Functional Assay Method",
-  "description": "TODO",
+  "description": "Functional measurements carried out in a given assay",
   "conceptListExtensibility": {
     "id": "SEPIO-CG:02102",
-    "type": "ValueSetConceptListExtensibility",
     "label": "extensible"
   },
-  "sourceIdentifierSystems": [
-    {
-      "id": "IdSys025",
-      "type": "IdentifierSystem"
-    }
-  ],
+  "conceptType": "AlleleFunctionalAssayMethod",
   "concept": [
     {
-      "id": "OBI:XXXXXX1",
-      "type": "AlleleFunctionalAssayMethod",
+      "id": "AFAMID076",
       "label": "Activation Assay"
     },
     {
-      "id": "OBI:XXXXXX2",
-      "type": "AlleleFunctionalAssayMethod",
+      "id": "AFAMID077",
       "label": "ATPase assay"
     },
     {
-      "id": "OBI:0001146",
-      "type": "AlleleFunctionalAssayMethod",
+      "id": "AFAMID078",
       "label": "Binding assay"
     },
     {
-      "id": "OBI:0002165",
-      "type": "AlleleFunctionalAssayMethod",
+      "id": "AFAMID079",
       "label": "cellular localization"
     },
     {
-      "id": "OBI:XXXXXX3",
-      "type": "AlleleFunctionalAssayMethod",
+      "id": "AFAMID080",
       "label": "Elk1 pohsphorylation via luciferase assay"
     },
     {
-      "id": "OBI:XXXXXX4",
-      "type": "AlleleFunctionalAssayMethod",
+      "id": "AFAMID081",
       "label": "iodide efflux"
     },
     {
-      "id": "OBI:XXXXXX5",
-      "type": "AlleleFunctionalAssayMethod",
+      "id": "AFAMID082",
       "label": "motility assay"
     },
     {
-      "id": "OBI:XXXXXX6",
-      "type": "AlleleFunctionalAssayMethod",
+      "id": "AFAMID083",
       "label": "neurite outgrowth"
     },
     {
-      "id": "OBI:XXXXXX7",
-      "type": "AlleleFunctionalAssayMethod",
+      "id": "AFAMID084",
       "label": "Yeast complementation assay"
     }
   ],
+  "sourceIdentifierSystems": [
+    {
+      "id": "IdSys025",
+      "type": "IdentifierSystem",
+      "iri": "http://purl.obolibrary.org/obo/OBI_",
+      "prefix": "OBI",
+      "label": "OBI"
+    }
+  ],
+  "label": "Allele Functional Assay Method",
   "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
 }

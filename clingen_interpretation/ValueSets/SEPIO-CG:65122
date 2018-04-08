@@ -1,40 +1,39 @@
 {
   "id": "SEPIO-CG:65122",
   "type": "ValueSet",
-  "label": "Ascertainment",
   "description": "A coded or free-text term representing how people were chosen to be in the cohort in which the frequency is calculated.\nIt may be either because there are lots of ways that a cohort might be generated and our value set may not provide enough to allow for all cases.",
   "conceptListExtensibility": {
     "id": "SEPIO-CG:02102",
-    "type": "ValueSetConceptListExtensibility",
     "label": "extensible"
   },
-  "sourceIdentifierSystems": [
-    {
-      "id": "IdSys023",
-      "type": "IdentifierSystem"
-    }
-  ],
+  "conceptType": "Ascertainment",
   "concept": [
     {
       "id": "SEPIO:0000262",
-      "type": "Ascertainment",
       "label": "1000 Genomes ascertainment method"
     },
     {
       "id": "SEPIO:0000332",
-      "type": "Ascertainment",
-      "label": "ExAc ascertainment method"
+      "label": "ExAC ascertainment method"
     },
     {
       "id": "SEPIO:0000333",
-      "type": "Ascertainment",
       "label": "ESP ascertainment method"
     },
     {
       "id": "SEPIO:0000334",
-      "type": "Ascertainment",
       "label": "gnomAD ascertainment method"
     }
   ],
+  "sourceIdentifierSystems": [
+    {
+      "id": "IdSys023",
+      "type": "IdentifierSystem",
+      "iri": "http://obofoundry.org/sepio/",
+      "prefix": "SEPIO",
+      "label": "Scientific Evidence Provenance Information Ontology"
+    }
+  ],
+  "label": "Ascertainment",
   "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
 }

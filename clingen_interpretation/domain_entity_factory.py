@@ -1,6 +1,7 @@
 import os
 import json
 from functools import wraps
+from node import Node
 
 LABEL='label'
 
@@ -23,6 +24,7 @@ class DomainEntityFactory:
         files = os.listdir(vsdir)
         for f in files:
             if f.startswith('SEPIO-CG'):
+                print f
                 inf = file('%s/%s'% (vsdir,f),'r')
                 valueset = json.load(inf)
                 vsid = valueset['id']
@@ -33,35 +35,53 @@ class DomainEntityFactory:
                     concepts = {}
                 self.vsets[vsid] = concepts
                 for c in concepts:
-                    etype = c['type']
-                    if etype in self.entity_types:
-                        if self.entity_types[etype] != vsid:
-                            print 'Type %s occurs in 2 Value Sets'
-                            print vsid, self.entity_types[etype]
-                            print 'Need to make entity_types point to sets'
-                            print 'But have not yet'
-                            sys.exit(1)
-                    else:
-                        self.entity_types[etype] = vsid
-                #self.entity_types[''.join(valueset['label'].split())] = vsid
-    def lookup_entity(self,entity_type_name,lookup):
+                    try:
+                        etype = c['type']
+                        if etype in self.entity_types:
+                            if self.entity_types[etype] != vsid:
+                                print 'Type %s occurs in 2 Value Sets'
+                                print vsid, self.entity_types[etype]
+                                print 'Need to make entity_types point to sets'
+                                print 'But have not yet'
+                                sys.exit(1)
+                        else:
+                            self.entity_types[etype] = vsid
+                    except KeyError:
+                        #This concept doesn't have a type. That's ok, and in fact pretty common these days.
+                        pass
+                        
+
+    def lookup_entity(self,valueset_id,lookup):
         """Given a lookup value, return a well-formed Domain Entity.
 
         Given the lookup value, and a value set id, look in the value set
         for a value that matches either the id, the code or the display.
         Create the correct type of DomainEntity, set its values and return 
         it"""
-        valueset_id = self.entity_types[entity_type_name]
+        print 'looking for %s in %s' % (lookup,  valueset_id)
+        #valueset_id = self.entity_types[entity_type_name]
         vset = self.vsets[valueset_id]
-        import entities_generated
-        entity_class = getattr(entities_generated, entity_type_name)
+        found = False
         for key in ['id','label']:
             for coding in vset:
-                if coding[key] == lookup:
-                    e = entity_class(coding['id'])
-                    e.set_label(coding[LABEL])
+                if coding[key].upper() == lookup.upper():
+                    found = True
+                    if 'type' in coding:
+                        print ' .found type!'
+                        exit()
+                    print ' .found'
+                    node = Node(coding['id'])
+                    node.set_label(coding[LABEL])
+                    return node
+                    #e = entity_class(coding['id'])
+                    #e.set_label(coding[LABEL])
                     #e.set_description(coding['description'])
-                    return e
+                    #return e
+        if not found:
+            print "NOPE"
+            raise Exception("YUCK")
+        import entities_generated
+        entity_class = getattr(entities_generated, valueset_id)
         #If we didn't find the value, we create without the IRI, and set label
         e = entity_class()
         e.set_label(lookup)
@@ -73,8 +93,8 @@ def get_factory_entity(domain_entity_typename):
     def decorate(func):
         @wraps(func)
         def wrapper(*args, **kwargs):
-            from entities_generated import DomainEntity
-            if isinstance(args[1], DomainEntity):
+            from node import Node
+            if isinstance(args[1], Node):
                 return func(*args,**kwargs)
             coding = the_factory.lookup_entity(domain_entity_typename,args[1])
             alist = list(args)

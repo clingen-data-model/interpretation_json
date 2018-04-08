@@ -1,30 +1,31 @@
 {
   "id": "SEPIO-CG:65109",
   "type": "ValueSet",
-  "label": "Prediction",
-  "description": "TODO",
+  "description": "Types of in silico predictions",
   "conceptListExtensibility": {
     "id": "SEPIO-CG:02102",
-    "type": "ValueSetConceptListExtensibility",
     "label": "extensible"
   },
-  "sourceIdentifierSystems": [
-    {
-      "id": "IdSys023",
-      "type": "IdentifierSystem"
-    }
-  ],
+  "conceptType": "Prediction",
   "concept": [
     {
       "id": "SEPIO:0000322",
-      "type": "Prediction",
       "label": "missense effect"
     },
     {
       "id": "SEPIO:0000323",
-      "type": "Prediction",
       "label": "splicing prediction"
     }
   ],
+  "sourceIdentifierSystems": [
+    {
+      "id": "IdSys023",
+      "type": "IdentifierSystem",
+      "iri": "http://obofoundry.org/sepio/",
+      "prefix": "SEPIO",
+      "label": "Scientific Evidence Provenance Information Ontology"
+    }
+  ],
+  "label": "Prediction",
   "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
 }

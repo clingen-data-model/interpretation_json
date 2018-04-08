@@ -1,25 +1,27 @@
 {
   "id": "SEPIO-CG:65128",
   "type": "ValueSet",
-  "label": "Null Allele Outcome",
   "description": "TODO",
   "conceptListExtensibility": {
     "id": "SEPIO-CG:02102",
-    "type": "ValueSetConceptListExtensibility",
     "label": "extensible"
   },
-  "sourceIdentifierSystems": [
-    {
-      "id": "IdSys007",
-      "type": "IdentifierSystem"
-    }
-  ],
+  "conceptType": "NullAlleleOutcome",
   "concept": [
     {
       "id": "SO:0002055",
-      "type": "NullAlleleOutcome",
       "label": "null mutation"
     }
   ],
+  "sourceIdentifierSystems": [
+    {
+      "id": "IdSys007",
+      "type": "IdentifierSystem",
+      "iri": "http://sequenceontology.org/",
+      "prefix": "SO",
+      "label": "SequenceOntology"
+    }
+  ],
+  "label": "Null Allele Outcome",
   "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
 }

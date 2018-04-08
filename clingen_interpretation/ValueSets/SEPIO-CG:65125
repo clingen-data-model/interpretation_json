@@ -1,40 +1,39 @@
 {
   "id": "SEPIO-CG:65125",
   "type": "ValueSet",
-  "label": "Parental Confirmation",
   "description": "TODO",
   "conceptListExtensibility": {
     "id": "SEPIO-CG:02102",
-    "type": "ValueSetConceptListExtensibility",
     "label": "extensible"
   },
-  "sourceIdentifierSystems": [
-    {
-      "id": "IdSys024",
-      "type": "IdentifierSystem"
-    }
-  ],
+  "conceptType": "ParentalConfirmation",
   "concept": [
     {
       "id": "SEPIO-CG:99005",
-      "type": "ParentalConfirmation",
       "label": "maternal confirmation"
     },
     {
       "id": "SEPIO-CG:99006",
-      "type": "ParentalConfirmation",
       "label": "paternal confirmation"
     },
     {
       "id": "SEPIO-CG:99007",
-      "type": "ParentalConfirmation",
       "label": "maternal and paternal confirmation"
     },
     {
       "id": "SEPIO-CG:99008",
-      "type": "ParentalConfirmation",
       "label": "no parental confirmation"
     }
   ],
+  "sourceIdentifierSystems": [
+    {
+      "id": "IdSys024",
+      "type": "IdentifierSystem",
+      "iri": "http://obofoundry.org/sepio/clingen",
+      "prefix": "SEPIO-CG",
+      "label": "ClinGen extensions to SEPIO"
+    }
+  ],
+  "label": "Parental Confirmation",
   "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
 }

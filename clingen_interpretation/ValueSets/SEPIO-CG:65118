@@ -1,0 +1,47 @@
+{
+  "id": "SEPIO-CG:65118",
+  "type": "ValueSet",
+  "description": "TODO",
+  "conceptListExtensibility": {
+    "id": "SEPIO-CG:02102",
+    "label": "extensible"
+  },
+  "conceptType": "Phenotype",
+  "concept": [
+    {
+      "id": "HP:0000256",
+      "label": "macrocephaly"
+    },
+    {
+      "id": "HP:0000957",
+      "label": "cafĂŠ au lait macules (CALMs)"
+    },
+    {
+      "id": "HP:0000997",
+      "label": "axillary freckling"
+    },
+    {
+      "id": "HP:0011014",
+      "label": "Abnormal Glucose Homeostasis"
+    },
+    {
+      "id": "HP:0012873",
+      "label": "Absent vas deferens"
+    },
+    {
+      "id": "HP:0200106",
+      "label": "Absent/shortened dynein arms"
+    }
+  ],
+  "sourceIdentifierSystems": [
+    {
+      "id": "IdSys016",
+      "type": "IdentifierSystem",
+      "iri": "http://human-phenotype-ontology.github.io/",
+      "prefix": "HP",
+      "label": "HumanPhenotypeOntology"
+    }
+  ],
+  "label": "Phenotype",
+  "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
+}
