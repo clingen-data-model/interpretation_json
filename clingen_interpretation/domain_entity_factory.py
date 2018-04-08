@@ -58,7 +58,6 @@ class DomainEntityFactory:
         for a value that matches either the id, the code or the display.
         Create the correct type of DomainEntity, set its values and return 
         it"""
-        print 'looking for %s in %s' % (lookup,  valueset_id)
         #valueset_id = self.entity_types[entity_type_name]
         vset = self.vsets[valueset_id]
         found = False
@@ -66,10 +65,6 @@ class DomainEntityFactory:
             for coding in vset:
                 if coding[key].upper() == lookup.upper():
                     found = True
-                    if 'type' in coding:
-                        print ' .found type!'
-                        exit()
-                    print ' .found'
                     node = Node(coding['id'])
                     node.set_label(coding[LABEL])
                     return node
@@ -78,8 +73,7 @@ class DomainEntityFactory:
                     #e.set_description(coding['description'])
                     #return e
         if not found:
-            print "NOPE"
-            raise Exception("YUCK")
+            raise Exception("Did not find %s in %s" % (lookup, valueset_id))
         import entities_generated
         entity_class = getattr(entities_generated, valueset_id)
         #If we didn't find the value, we create without the IRI, and set label
