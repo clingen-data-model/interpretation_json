@@ -24,7 +24,6 @@ class DomainEntityFactory:
         files = os.listdir(vsdir)
         for f in files:
             if f.startswith('SEPIO-CG'):
-                print f
                 inf = file('%s/%s'% (vsdir,f),'r')
                 valueset = json.load(inf)
                 vsid = valueset['id']
