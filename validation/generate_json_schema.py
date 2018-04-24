@@ -78,6 +78,20 @@ def write_schema(types_and_atts, outfname):
     with file(outfname,'w') as outf:
         outf.write(json.dumps(schema, indent=4))
 
+def write_value_set(types_and_atts, outname):
+    """Write out a list of attributes associated with valuesets to be used
+       in validation"""
+    keeps = {}
+    for t in types_and_atts.values():
+        for a in t['attributes']:
+            if a['@valueSetId'] != '':
+                keeps[(t['name'],a['name'])] = a['@valueSetId']
+    with open(outname,'w') as outf:
+        for key,value in keeps.items():
+            outf.write('%s\t%s\t%s\n' % (key[0],key[1],value))
+
+
+
 def go():
     """Main function for creating json schema."""
     type_url = 'http://datamodel.clinicalgenome.org/interpretation/master/json/Types'
@@ -85,6 +99,7 @@ def go():
     json_string = t_res.text
     types_and_atts = json.loads(json_string)
     write_schema(types_and_atts, 'interpretation_schema.json')
+    write_value_set(types_and_atts, 'value_set_information.txt')
 
 
 if __name__ == '__main__':

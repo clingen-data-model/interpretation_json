@@ -17,6 +17,7 @@ class DomainEntityFactory:
         """Read value sets from disk.  Create maps of the value set entries
            and relationship with particular domain entities"""
         self.vsets = {}
+        self.extensibility = {}
         self.entity_types = {}
         if vsdir == '':
             this_dir, this_filename = os.path.split(__file__)
@@ -33,6 +34,7 @@ class DomainEntityFactory:
                     print 'No concepts in %s' % f
                     concepts = {}
                 self.vsets[vsid] = concepts
+                self.extensibility[vsid] = valueset['conceptListExtensibility']
                 for c in concepts:
                     try:
                         etype = c['type']
@@ -49,6 +51,11 @@ class DomainEntityFactory:
                         #This concept doesn't have a type. That's ok, and in fact pretty common these days.
                         pass
                         
+    def get_value_sets(self):
+        return self.vsets
+
+    def get_extensibility(self):
+        return self.extensibility
 
     def lookup_entity(self,valueset_id,lookup):
         """Given a lookup value, return a well-formed Domain Entity.
