@@ -70,9 +70,9 @@ def write_schema(types_and_atts, outfname):
     #VariantInterpretation created a definition, but because it's the top level
     # class, we need to pull it out of the definitions and add its elements
     # to that top level
-    videf = schema['definitions']['VariantInterpretation']
-    del schema['definitions']['VariantInterpretation']
-    schema['title'] = 'VariantInterpretation'
+    videf = schema['definitions']['VariantPathogenicityInterpretation']
+    del schema['definitions']['VariantPathogenicityInterpretation']
+    schema['title'] = 'VariantPathogenicityInterpretation'
     schema.update(videf)
     #dump the schema
     with file(outfname,'w') as outf:
@@ -84,12 +84,11 @@ def write_value_set(types_and_atts, outname):
     keeps = {}
     for t in types_and_atts.values():
         for a in t['attributes']:
-            if a['@valueSetId'] != '':
+            if '@valueSetId' in a and a['@valueSetId'] not in ('','???') :
                 keeps[(t['name'],a['name'])] = a['@valueSetId']
     with open(outname,'w') as outf:
         for key,value in keeps.items():
             outf.write('%s\t%s\t%s\n' % (key[0],key[1],value))
-
 
 
 def go():

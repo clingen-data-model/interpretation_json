@@ -26,7 +26,6 @@ class DomainEntityFactory:
         for f in files:
             fname='%s/%s'% (vsdir,f)
             inf = file(fname,'r')
-            print fname
             valueset = json.load(inf)
             vsid = valueset['id']
             try:
@@ -35,7 +34,6 @@ class DomainEntityFactory:
                 print 'No concepts in %s' % f
                 concepts = {}
             self.vsets[vsid] = concepts
-            print vsid
             self.extensibility[vsid] = valueset['valueSetExtensibility']
             for c in concepts:
                 try:

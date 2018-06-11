@@ -33,9 +33,9 @@ def validate_with_values(in_json):
             e_type = x[0]
             a_name = x[1]
             vs_id  = x[2]
-            if vs_id.startswith('SEPIO:'):
-                print "I don't recognize this ValueSet: %s" % vs_id 
-                continue
+            #if vs_id.startswith('SEPIO:'):
+            #    print "I don't recognize this ValueSet: %s" % vs_id 
+            #    continue
             if 'label' not in extents[vs_id] or extents[vs_id]['label'] == 'fixed':
                 accumulator = errors
             elif extents[vs_id]['label'] == 'extensible':
