@@ -1,31 +1,33 @@
 {
   "id": "SEPIO-CG:65108",
   "type": "ValueSet",
-  "description": "Types of alleles that can lead to a condition",
-  "conceptListExtensibility": {
-    "id": "SEPIO-CG:02102",
+  "label": "Condition Mechanism Value Set",
+  "description": "The particular type of allele that can lead to a condition",
+  "valueSetExtensibility": {
+    "id": "SEPIO:0000365",
+    "type": "Entity",
     "label": "extensible"
   },
-  "conceptType": "Mechanism",
   "concept": [
     {
       "id": "SO:0001583",
+      "type": "Entity",
       "label": "missense variant"
     },
     {
       "id": "SO:0002054",
+      "type": "Entity",
       "label": "loss of function variant"
     }
   ],
-  "sourceIdentifierSystems": [
+  "valueSetIdentifierSystems": [
     {
-      "id": "IdSys007",
+      "id": "http://purl.obolibrary.org/obo/so#",
       "type": "IdentifierSystem",
-      "iri": "http://sequenceontology.org/",
+      "label": "Sequence Ontology",
       "prefix": "SO",
-      "label": "SequenceOntology"
+      "urlPattern": "http://purl.obolibrary.org/obo/SO_"
     }
   ],
-  "label": "Mechanism",
   "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
 }

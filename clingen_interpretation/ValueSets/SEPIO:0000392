@@ -1,43 +1,48 @@
 {
-  "id": "SEPIO-CG:65121",
+  "id": "SEPIO:0000392",
   "type": "ValueSet",
-  "description": "TODO",
-  "conceptListExtensibility": {
-    "id": "SEPIO-CG:02102",
+  "label": "Allele Origin Value Set",
+  "description": "The source of an allele in an individual",
+  "valueSetExtensibility": {
+    "id": "SEPIO:0000365",
+    "type": "Entity",
     "label": "extensible"
   },
-  "conceptType": "AlleleInheritance",
   "concept": [
     {
       "id": "GENO:0000878",
+      "type": "Entity",
       "label": "maternally inherited"
     },
     {
       "id": "GENO:0000879",
+      "type": "Entity",
       "label": "paternally inherited"
     },
     {
       "id": "GENO:0000880",
+      "type": "Entity",
       "label": "de novo"
     },
     {
       "id": "GENO:0000881",
+      "type": "Entity",
       "label": "Unknown"
     },
     {
       "id": "GENO:0000888",
+      "type": "Entity",
       "label": "parentally inherited"
     }
   ],
-  "sourceIdentifierSystems": [
+  "valueSetIdentifierSystems": [
     {
-      "id": "IdSys022",
+      "id": "http://purl.obolibrary.org/obo/geno#",
       "type": "IdentifierSystem",
-      "iri": "http://obofoundry.org/geno/",
+      "label": "GENO",
       "prefix": "GENO",
-      "label": "GENO"
+      "urlPattern": "http://purl.obolibrary.org/obo/GENO_"
     }
   ],
-  "label": "Allele Inheritance",
   "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
 }

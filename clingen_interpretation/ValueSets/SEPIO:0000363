@@ -1,26 +1,33 @@
 {
-  "id": "SEPIO-CG:65126",
+  "id": "SEPIO:0000363",
   "type": "ValueSet",
-  "label": "Condition Status Value Set",
-  "description": "Whether or not an individual is affected by a specific genetic condition",
+  "label": "Value Set Extensibility Value Set",
+  "description": "Whether or not a ValueSet can be extended by users",
   "valueSetExtensibility": {
-    "id": "SEPIO:0000365",
+    "id": "SEPIO:0000364",
     "type": "Entity",
-    "label": "extensible"
+    "label": "fixed"
   },
   "concept": [
     {
-      "id": "SEPIO-CG:99009",
+      "id": "SEPIO:0000364",
       "type": "Entity",
-      "label": "affected"
+      "label": "fixed"
     },
     {
-      "id": "SEPIO-CG:99010",
+      "id": "SEPIO:0000365",
       "type": "Entity",
-      "label": "unaffected"
+      "label": "extensible"
     }
   ],
   "valueSetIdentifierSystems": [
+    {
+      "id": "http://loinc.org/",
+      "type": "IdentifierSystem",
+      "label": "LOINC",
+      "prefix": "LOINC",
+      "urlPattern": "http://loinc.org/"
+    },
     {
       "id": "http://purl.obolibrary.org/obo/sepio-clingen#",
       "type": "IdentifierSystem",

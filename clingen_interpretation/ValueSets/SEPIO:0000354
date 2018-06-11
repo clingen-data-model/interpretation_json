@@ -1,8 +1,8 @@
 {
-  "id": "SEPIO-CG:65120",
+  "id": "SEPIO:0000354",
   "type": "ValueSet",
-  "label": "Contributory Role Value Set",
-  "description": "The role played by an agent in the creation of an artifact",
+  "label": "Condition Mechanism Strength Value Set",
+  "description": "The strength of association between a genetic mechanism and a condition",
   "valueSetExtensibility": {
     "id": "SEPIO:0000365",
     "type": "Entity",
@@ -10,24 +10,29 @@
   },
   "concept": [
     {
-      "id": "SEPIO:0000154",
+      "id": "SEPIO:0000268",
       "type": "Entity",
-      "label": "assessor role"
+      "label": "common"
     },
     {
-      "id": "SEPIO:0000155",
+      "id": "SEPIO:0000269",
       "type": "Entity",
-      "label": "approver role"
+      "label": "established"
     },
     {
-      "id": "SEPIO:0000156",
+      "id": "SEPIO:0000270",
       "type": "Entity",
-      "label": "curator role"
+      "label": "primary"
     },
     {
-      "id": "SEPIO:0000331",
+      "id": "SEPIO:0000271",
       "type": "Entity",
-      "label": "interpreter role"
+      "label": "suggested"
+    },
+    {
+      "id": "SEPIO:0000272",
+      "type": "Entity",
+      "label": "unknown"
     }
   ],
   "valueSetIdentifierSystems": [

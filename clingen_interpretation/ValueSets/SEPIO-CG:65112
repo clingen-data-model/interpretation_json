@@ -1,195 +1,238 @@
 {
   "id": "SEPIO-CG:65112",
   "type": "ValueSet",
-  "description": "Labels for a group of individuals with a shared genetic background",
-  "conceptListExtensibility": {
-    "id": "SEPIO-CG:02102",
+  "label": "Population Value Set",
+  "description": "Label for a group of individuals with a shared genetic background",
+  "valueSetExtensibility": {
+    "id": "SEPIO:0000365",
+    "type": "Entity",
     "label": "extensible"
   },
-  "conceptType": "Population",
   "concept": [
     {
-      "id": "BROAD-population-type:afr",
+      "id": "GNOMAD:afr",
+      "type": "Entity",
       "label": "African/African American"
     },
     {
-      "id": "BROAD-population-type:amr",
+      "id": "GNOMAD:amr",
+      "type": "Entity",
       "label": "Latino"
     },
     {
-      "id": "BROAD-population-type:asj",
+      "id": "GNOMAD:asj",
+      "type": "Entity",
       "label": "Ashkenazi Jewish"
     },
     {
-      "id": "BROAD-population-type:eas",
+      "id": "GNOMAD:eas",
+      "type": "Entity",
       "label": "East Asian"
     },
     {
-      "id": "BROAD-population-type:fin",
+      "id": "GNOMAD:fin",
+      "type": "Entity",
       "label": "Finnish"
     },
     {
-      "id": "BROAD-population-type:nfe",
+      "id": "GNOMAD:nfe",
+      "type": "Entity",
       "label": "Non-Finnish European"
     },
     {
-      "id": "BROAD-population-type:oth",
+      "id": "GNOMAD:oth",
+      "type": "Entity",
       "label": "Other"
     },
     {
-      "id": "BROAD-population-type:sas",
+      "id": "GNOMAD:sas",
+      "type": "Entity",
       "label": "South Asian"
     },
     {
-      "id": "ESP-population-type:AA",
+      "id": "EVS:AA",
+      "type": "Entity",
       "label": "African-American"
     },
     {
-      "id": "ESP-population-type:EA",
+      "id": "EVS:EA",
+      "type": "Entity",
       "label": "European-American"
     },
     {
-      "id": "IGSR-population-type:acb",
+      "id": "IGSR:acb",
+      "type": "Entity",
       "label": "African Caribbeans in Barbados"
     },
     {
-      "id": "IGSR-population-type:afr",
+      "id": "IGSR:afr",
+      "type": "Entity",
       "label": "African"
     },
     {
-      "id": "IGSR-population-type:amr",
+      "id": "IGSR:amr",
+      "type": "Entity",
       "label": "Ad Mixed American"
     },
     {
-      "id": "IGSR-population-type:asw",
+      "id": "IGSR:asw",
+      "type": "Entity",
       "label": "Americans of African Ancestry in SW USA"
     },
     {
-      "id": "IGSR-population-type:beb",
+      "id": "IGSR:beb",
+      "type": "Entity",
       "label": "Bengali from Bangladesh"
     },
     {
-      "id": "IGSR-population-type:cdx",
+      "id": "IGSR:cdx",
+      "type": "Entity",
       "label": "Chinese Dai in Xishuangbanna, China"
     },
     {
-      "id": "IGSR-population-type:ceu",
+      "id": "IGSR:ceu",
+      "type": "Entity",
       "label": "Utah Residents (CEPH) with Northern and Western European Ancestry"
     },
     {
-      "id": "IGSR-population-type:chb",
+      "id": "IGSR:chb",
+      "type": "Entity",
       "label": "Han Chinese in Bejing, China"
     },
     {
-      "id": "IGSR-population-type:chs",
+      "id": "IGSR:chs",
+      "type": "Entity",
       "label": "Southern Han Chinese"
     },
     {
-      "id": "IGSR-population-type:clm",
+      "id": "IGSR:clm",
+      "type": "Entity",
       "label": "Colombians from Medellin, Colombia"
     },
     {
-      "id": "IGSR-population-type:eas",
+      "id": "IGSR:eas",
+      "type": "Entity",
       "label": "East Asian"
     },
     {
-      "id": "IGSR-population-type:esn",
+      "id": "IGSR:esn",
+      "type": "Entity",
       "label": "Esan in Nigeria"
     },
     {
-      "id": "IGSR-population-type:eur",
+      "id": "IGSR:eur",
+      "type": "Entity",
       "label": "European"
     },
     {
-      "id": "IGSR-population-type:fin",
+      "id": "IGSR:fin",
+      "type": "Entity",
       "label": "Finnish in Finland"
     },
     {
-      "id": "IGSR-population-type:gbr",
+      "id": "IGSR:gbr",
+      "type": "Entity",
       "label": "British in England and Scotland"
     },
     {
-      "id": "IGSR-population-type:gih",
+      "id": "IGSR:gih",
+      "type": "Entity",
       "label": "Gujarati Indian from Houston, Texas"
     },
     {
-      "id": "IGSR-population-type:gwd",
+      "id": "IGSR:gwd",
+      "type": "Entity",
       "label": "Gambian in Western Divisions in the Gambia"
     },
     {
-      "id": "IGSR-population-type:ibs",
+      "id": "IGSR:ibs",
+      "type": "Entity",
       "label": "Iberian Population in Spain"
     },
     {
-      "id": "IGSR-population-type:itu",
+      "id": "IGSR:itu",
+      "type": "Entity",
       "label": "Indian Telugu from the UK"
     },
     {
-      "id": "IGSR-population-type:jpt",
+      "id": "IGSR:jpt",
+      "type": "Entity",
       "label": "Japanese in Tokyo, Japan"
     },
     {
-      "id": "IGSR-population-type:khv",
+      "id": "IGSR:khv",
+      "type": "Entity",
       "label": "Kinh in Ho Chi Minh City, Vietnam"
     },
     {
-      "id": "IGSR-population-type:lwk",
+      "id": "IGSR:lwk",
+      "type": "Entity",
       "label": "Luhya in Webuye, Kenya"
     },
     {
-      "id": "IGSR-population-type:msl",
+      "id": "IGSR:msl",
+      "type": "Entity",
       "label": "Mende in Sierra Leone"
     },
     {
-      "id": "IGSR-population-type:mxl",
+      "id": "IGSR:mxl",
+      "type": "Entity",
       "label": "Mexican Ancestry from Los Angeles USA"
     },
     {
-      "id": "IGSR-population-type:pel",
+      "id": "IGSR:pel",
+      "type": "Entity",
       "label": "Peruvians from Lima, Peru"
     },
     {
-      "id": "IGSR-population-type:pjl",
+      "id": "IGSR:pjl",
+      "type": "Entity",
       "label": "Punjabi from Lahore, Pakistan"
     },
     {
-      "id": "IGSR-population-type:pur",
+      "id": "IGSR:pur",
+      "type": "Entity",
       "label": "Puerto Ricans from Puerto Rico"
     },
     {
-      "id": "IGSR-population-type:sas",
+      "id": "IGSR:sas",
+      "type": "Entity",
       "label": "South Asian"
     },
     {
-      "id": "IGSR-population-type:stu",
+      "id": "IGSR:stu",
+      "type": "Entity",
       "label": "Sri Lankan Tamil from the UK"
     },
     {
-      "id": "IGSR-population-type:tsi",
+      "id": "IGSR:tsi",
+      "type": "Entity",
       "label": "Toscani in Italia"
     },
     {
-      "id": "IGSR-population-type:yri",
+      "id": "IGSR:yri",
+      "type": "Entity",
       "label": "Yoruba in Ibadan, Nigeria"
     },
     {
       "id": "SEPIO-CG:98001",
+      "type": "Entity",
       "label": "Combined"
     },
     {
       "id": "SEPIO-CG:98002",
+      "type": "Entity",
       "label": "Overall"
     }
   ],
-  "sourceIdentifierSystems": [
+  "valueSetIdentifierSystems": [
     {
-      "id": "IdSys027",
+      "id": "http://purl.obolibrary.org/obo/ncit#",
       "type": "IdentifierSystem",
-      "iri": "http://purl.bioontology.org/ontology/NCIT",
+      "label": "NCI Thesarus",
       "prefix": "NCIT",
-      "label": "NCI Thesarus"
+      "urlPattern": "http://purl.obolibrary.org/obo/NCIT_"
     }
   ],
-  "label": "Population",
   "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
 }

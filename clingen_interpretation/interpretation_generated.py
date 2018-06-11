@@ -2,7 +2,26 @@ from interpretation_constants import *
 from domain_entity_factory import get_factory_entity
 from node import Node
 
-class Contribution(Node):
+class Entity(Node):
+    def __init__(self,iri=None):
+        self.data = {}
+        if iri is not None:
+            self.data[DMWG_ID_KEY] = iri
+        self.data[DMWG_TYPE_KEY] = DMWG_ENTITY_TYPE 
+    def set_label(self,x):
+        self.data[DMWG_A200_LABEL_KEY] = x
+    def get_label(self):
+        return self.data[DMWG_A200_LABEL_KEY]
+    def set_description(self,x):
+        self.data[DMWG_A201_DESCRIPTION_KEY] = x
+    def get_description(self):
+        return self.data[DMWG_A201_DESCRIPTION_KEY]
+    def set_label(self,x):
+        self.data[LabelIdentifier] = x
+    def get_label(self):
+        return self.data[LabelIdentifier]
+
+class Contribution(Entity):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
@@ -26,103 +45,73 @@ class Contribution(Node):
     def get_label(self):
         return self.data[LabelIdentifier]
 
-class Example(Node):
-    def __init__(self,iri=None):
-        self.data = {}
-        if iri is not None:
-            self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_EXAMPLE_TYPE 
-    def set_informationId(self,x):
-        self.data[DMWG_A013_INFORMATIONID_KEY] = x
-    def get_informationId(self):
-        return self.data[DMWG_A013_INFORMATIONID_KEY]
-    def set_searchTags(self,x):
-        self.data[DMWG_A014_SEARCHTAGS_KEY] = x
-    def get_searchTags(self):
-        return self.data[DMWG_A014_SEARCHTAGS_KEY]
-    def set_index(self,x):
-        self.data[DMWG_A015_INDEX_KEY] = x
-    def get_index(self):
-        return self.data[DMWG_A015_INDEX_KEY]
-    def set_author(self,x):
-        self.data[DMWG_A035_AUTHOR_KEY] = x
-    def get_author(self):
-        return self.data[DMWG_A035_AUTHOR_KEY]
-    def set_description(self,x):
-        self.data[DMWG_A036_DESCRIPTION_KEY] = x
-    def get_description(self):
-        return self.data[DMWG_A036_DESCRIPTION_KEY]
-    def set_image(self,x):
-        self.data[DMWG_A037_IMAGE_KEY] = x
-    def get_image(self):
-        return self.data[DMWG_A037_IMAGE_KEY]
-    def set_label(self,x):
-        self.data[LabelIdentifier] = x
-    def get_label(self):
-        return self.data[LabelIdentifier]
-
-class Agent(Node):
+class Agent(Entity):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_AGENT_TYPE 
-    def set_description(self,x):
-        self.data[DMWG_A148_DESCRIPTION_KEY] = x
-    def get_description(self):
-        return self.data[DMWG_A148_DESCRIPTION_KEY]
     def set_label(self,x):
         self.data[LabelIdentifier] = x
     def get_label(self):
         return self.data[LabelIdentifier]
 
-class ValueSet(Node):
+class UserLabel(Entity):
+    def __init__(self,iri=None):
+        self.data = {}
+        if iri is not None:
+            self.data[DMWG_ID_KEY] = iri
+        self.data[DMWG_TYPE_KEY] = DMWG_USERLABEL_TYPE 
+    def set_labelFor(self,x):
+        self.data[DMWG_A130_LABELFOR_KEY] = x
+    def get_labelFor(self):
+        return self.data[DMWG_A130_LABELFOR_KEY]
+    def add_contribution(self,x):
+        if not DMWG_A131_CONTRIBUTION_KEY in self.data:
+            self.data[DMWG_A131_CONTRIBUTION_KEY] = []
+        self.data[DMWG_A131_CONTRIBUTION_KEY].append( x ) 
+    def get_contribution(self):
+        return self.data[DMWG_A131_CONTRIBUTION_KEY]
+    def set_label(self,x):
+        self.data[LabelIdentifier] = x
+    def get_label(self):
+        return self.data[LabelIdentifier]
+
+class ValueSet(Entity):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_VALUESET_TYPE 
-    def set_description(self,x):
-        self.data[DMWG_A133_DESCRIPTION_KEY] = x
-    def get_description(self):
-        return self.data[DMWG_A133_DESCRIPTION_KEY]
-    @get_factory_entity('SEPIO-CG:65101')
-    def set_conceptListExtensibility(self,x):
-        self.data[DMWG_A136_CONCEPTLISTEXTENSIBILITY_KEY] = x
-    def get_conceptListExtensibility(self):
-        return self.data[DMWG_A136_CONCEPTLISTEXTENSIBILITY_KEY]
-    def add_sourceIdentifierSystems(self,x):
-        if not DMWG_A145_SOURCEIDENTIFIERSYSTEMS_KEY in self.data:
-            self.data[DMWG_A145_SOURCEIDENTIFIERSYSTEMS_KEY] = []
-        self.data[DMWG_A145_SOURCEIDENTIFIERSYSTEMS_KEY].append( x ) 
-    def get_sourceIdentifierSystems(self):
-        return self.data[DMWG_A145_SOURCEIDENTIFIERSYSTEMS_KEY]
+    @get_factory_entity('SEPIO:0000363')
+    def set_valueSetExtensibility(self,x):
+        self.data[DMWG_A136_VALUESETEXTENSIBILITY_KEY] = x
+    def get_valueSetExtensibility(self):
+        return self.data[DMWG_A136_VALUESETEXTENSIBILITY_KEY]
+    def add_valueSetIdentifierSystems(self,x):
+        if not DMWG_A145_VALUESETIDENTIFIERSYSTEMS_KEY in self.data:
+            self.data[DMWG_A145_VALUESETIDENTIFIERSYSTEMS_KEY] = []
+        self.data[DMWG_A145_VALUESETIDENTIFIERSYSTEMS_KEY].append( x ) 
+    def get_valueSetIdentifierSystems(self):
+        return self.data[DMWG_A145_VALUESETIDENTIFIERSYSTEMS_KEY]
     def add_concept(self,x):
         if not DMWG_A121_CONCEPT_KEY in self.data:
             self.data[DMWG_A121_CONCEPT_KEY] = []
         self.data[DMWG_A121_CONCEPT_KEY].append( x ) 
     def get_concept(self):
         return self.data[DMWG_A121_CONCEPT_KEY]
-    def set_conceptType(self,x):
-        self.data[DMWG_A155_CONCEPTTYPE_KEY] = x
-    def get_conceptType(self):
-        return self.data[DMWG_A155_CONCEPTTYPE_KEY]
     def set_label(self,x):
         self.data[LabelIdentifier] = x
     def get_label(self):
         return self.data[LabelIdentifier]
 
-class EvidenceLine(Node):
+class EvidenceLine(Entity):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_EVIDENCELINE_TYPE 
-    def set_description(self,x):
-        self.data[DMWG_A177_DESCRIPTION_KEY] = x
-    def get_description(self):
-        return self.data[DMWG_A177_DESCRIPTION_KEY]
-    @get_factory_entity('SEPIO-CG:65116')
+    @get_factory_entity('SEPIO:0000353')
     def set_evidenceStrength(self,x):
         self.data[DMWG_A179_EVIDENCESTRENGTH_KEY] = x
     def get_evidenceStrength(self):
@@ -144,32 +133,28 @@ class EvidenceLine(Node):
     def get_label(self):
         return self.data[LabelIdentifier]
 
-class Statement(Node):
+class Statement(Entity):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_STATEMENT_TYPE 
-    def add_userLabel(self,x):
-        if not DMWG_A073_USERLABEL_KEY in self.data:
-            self.data[DMWG_A073_USERLABEL_KEY] = []
-        self.data[DMWG_A073_USERLABEL_KEY].append( x ) 
-    def get_userLabel(self):
-        return self.data[DMWG_A073_USERLABEL_KEY]
-    def set_qualifier(self,x):
-        self.data[DMWG_A004_QUALIFIER_KEY] = x
-    def get_qualifier(self):
-        return self.data[DMWG_A004_QUALIFIER_KEY]
+    def add_userLabelDictionary(self,x):
+        if not DMWG_A073_USERLABELDICTIONARY_KEY in self.data:
+            self.data[DMWG_A073_USERLABELDICTIONARY_KEY] = []
+        self.data[DMWG_A073_USERLABELDICTIONARY_KEY].append( x ) 
+    def get_userLabelDictionary(self):
+        return self.data[DMWG_A073_USERLABELDICTIONARY_KEY]
+    def set_outcomeQualifier(self,x):
+        self.data[DMWG_A004_OUTCOMEQUALIFIER_KEY] = x
+    def get_outcomeQualifier(self):
+        return self.data[DMWG_A004_OUTCOMEQUALIFIER_KEY]
     def add_evidenceLine(self,x):
         if not DMWG_A055_EVIDENCELINE_KEY in self.data:
             self.data[DMWG_A055_EVIDENCELINE_KEY] = []
         self.data[DMWG_A055_EVIDENCELINE_KEY].append( x ) 
     def get_evidenceLine(self):
         return self.data[DMWG_A055_EVIDENCELINE_KEY]
-    def set_description(self,x):
-        self.data[DMWG_A120_DESCRIPTION_KEY] = x
-    def get_description(self):
-        return self.data[DMWG_A120_DESCRIPTION_KEY]
     def add_contribution(self,x):
         if not DMWG_A119_CONTRIBUTION_KEY in self.data:
             self.data[DMWG_A119_CONTRIBUTION_KEY] = []
@@ -187,12 +172,12 @@ class Statement(Node):
     def get_label(self):
         return self.data[LabelIdentifier]
 
-class IndividualAlleleInheritance(Statement):
+class IndividualAlleleInheritanceStatement(Statement):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_INDIVIDUALALLELEINHERITANCE_TYPE 
+        self.data[DMWG_TYPE_KEY] = DMWG_INDIVIDUALALLELEINHERITANCESTATEMENT_TYPE 
     def set_canonicalAllele(self,x):
         self.data[DMWG_A022_CANONICALALLELE_KEY] = x
     def get_canonicalAllele(self):
@@ -201,13 +186,13 @@ class IndividualAlleleInheritance(Statement):
         self.data[DMWG_A023_INDIVIDUAL_KEY] = x
     def get_individual(self):
         return self.data[DMWG_A023_INDIVIDUAL_KEY]
-    @get_factory_entity('SEPIO-CG:65121')
-    def add_alleleInheritance(self,x):
-        if not DMWG_A074_ALLELEINHERITANCE_KEY in self.data:
-            self.data[DMWG_A074_ALLELEINHERITANCE_KEY] = []
-        self.data[DMWG_A074_ALLELEINHERITANCE_KEY].append( x ) 
-    def get_alleleInheritance(self):
-        return self.data[DMWG_A074_ALLELEINHERITANCE_KEY]
+    @get_factory_entity('SEPIO:0000392')
+    def add_statementOutcome(self,x):
+        if not DMWG_A074_STATEMENTOUTCOME_KEY in self.data:
+            self.data[DMWG_A074_STATEMENTOUTCOME_KEY] = []
+        self.data[DMWG_A074_STATEMENTOUTCOME_KEY].append( x ) 
+    def get_statementOutcome(self):
+        return self.data[DMWG_A074_STATEMENTOUTCOME_KEY]
     @get_factory_entity('SEPIO-CG:65125')
     def set_parentalConfirmation(self,x):
         self.data[DMWG_A025_PARENTALCONFIRMATION_KEY] = x
@@ -218,12 +203,12 @@ class IndividualAlleleInheritance(Statement):
     def get_label(self):
         return self.data[LabelIdentifier]
 
-class FamilyCondition(Statement):
+class FamilyConditionStatement(Statement):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_FAMILYCONDITION_TYPE 
+        self.data[DMWG_TYPE_KEY] = DMWG_FAMILYCONDITIONSTATEMENT_TYPE 
     def set_proband(self,x):
         self.data[DMWG_A019_PROBAND_KEY] = x
     def get_proband(self):
@@ -235,21 +220,80 @@ class FamilyCondition(Statement):
     def get_condition(self):
         return self.data[DMWG_A020_CONDITION_KEY]
     @get_factory_entity('SEPIO-CG:65126')
-    def set_familyHasCondition(self,x):
-        self.data[DMWG_A021_FAMILYHASCONDITION_KEY] = x
-    def get_familyHasCondition(self):
-        return self.data[DMWG_A021_FAMILYHASCONDITION_KEY]
+    def set_statementOutcome(self,x):
+        self.data[DMWG_A021_STATEMENTOUTCOME_KEY] = x
+    def get_statementOutcome(self):
+        return self.data[DMWG_A021_STATEMENTOUTCOME_KEY]
     def set_label(self,x):
         self.data[LabelIdentifier] = x
     def get_label(self):
         return self.data[LabelIdentifier]
 
-class VariantInterpretation(Statement):
+class InSilicoPredictionStatement(Statement):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_VARIANTINTERPRETATION_TYPE 
+        self.data[DMWG_TYPE_KEY] = DMWG_INSILICOPREDICTIONSTATEMENT_TYPE 
+    def set_canonicalAllele(self,x):
+        self.data[DMWG_A096_CANONICALALLELE_KEY] = x
+    def get_canonicalAllele(self):
+        return self.data[DMWG_A096_CANONICALALLELE_KEY]
+    @get_factory_entity('SEPIO-CG:65119')
+    def set_transcript(self,x):
+        self.data[DMWG_A034_TRANSCRIPT_KEY] = x
+    def get_transcript(self):
+        return self.data[DMWG_A034_TRANSCRIPT_KEY]
+    @get_factory_entity('SEPIO:0000345')
+    def set_predictionType(self,x):
+        self.data[DMWG_A097_PREDICTIONTYPE_KEY] = x
+    def get_predictionType(self):
+        return self.data[DMWG_A097_PREDICTIONTYPE_KEY]
+    def set_statementOutcome(self,x):
+        self.data[DMWG_A099_STATEMENTOUTCOME_KEY] = x
+    def get_statementOutcome(self):
+        return self.data[DMWG_A099_STATEMENTOUTCOME_KEY]
+    def set_algorithm(self,x):
+        self.data[DMWG_A098_ALGORITHM_KEY] = x
+    def get_algorithm(self):
+        return self.data[DMWG_A098_ALGORITHM_KEY]
+    def set_label(self,x):
+        self.data[LabelIdentifier] = x
+    def get_label(self):
+        return self.data[LabelIdentifier]
+
+class RegionAllelesStatement(Statement):
+    def __init__(self,iri=None):
+        self.data = {}
+        if iri is not None:
+            self.data[DMWG_ID_KEY] = iri
+        self.data[DMWG_TYPE_KEY] = DMWG_REGIONALLELESSTATEMENT_TYPE 
+    def add_allele(self,x):
+        if not DMWG_A058_ALLELE_KEY in self.data:
+            self.data[DMWG_A058_ALLELE_KEY] = []
+        self.data[DMWG_A058_ALLELE_KEY].append( x ) 
+    def get_allele(self):
+        return self.data[DMWG_A058_ALLELE_KEY]
+    def set_region(self,x):
+        self.data[DMWG_A071_REGION_KEY] = x
+    def get_region(self):
+        return self.data[DMWG_A071_REGION_KEY]
+    @get_factory_entity('SEPIO-CG:65129')
+    def set_statementOutcome(self,x):
+        self.data[DMWG_A059_STATEMENTOUTCOME_KEY] = x
+    def get_statementOutcome(self):
+        return self.data[DMWG_A059_STATEMENTOUTCOME_KEY]
+    def set_label(self,x):
+        self.data[LabelIdentifier] = x
+    def get_label(self):
+        return self.data[LabelIdentifier]
+
+class VariantPathogenicityInterpretation(Statement):
+    def __init__(self,iri=None):
+        self.data = {}
+        if iri is not None:
+            self.data[DMWG_ID_KEY] = iri
+        self.data[DMWG_TYPE_KEY] = DMWG_VARIANTPATHOGENICITYINTERPRETATION_TYPE 
     def set_variant(self,x):
         self.data[DMWG_A122_VARIANT_KEY] = x
     def get_variant(self):
@@ -260,11 +304,11 @@ class VariantInterpretation(Statement):
         self.data[DMWG_A123_CONDITION_KEY].append( x ) 
     def get_condition(self):
         return self.data[DMWG_A123_CONDITION_KEY]
-    @get_factory_entity('SEPIO-CG:65103')
-    def set_outcome(self,x):
-        self.data[DMWG_A124_OUTCOME_KEY] = x
-    def get_outcome(self):
-        return self.data[DMWG_A124_OUTCOME_KEY]
+    @get_factory_entity('SEPIO:0000371')
+    def set_statementOutcome(self,x):
+        self.data[DMWG_A124_STATEMENTOUTCOME_KEY] = x
+    def get_statementOutcome(self):
+        return self.data[DMWG_A124_STATEMENTOUTCOME_KEY]
     @get_factory_entity('SEPIO-CG:65132')
     def set_assertionMethod(self,x):
         self.data[DMWG_A125_ASSERTIONMETHOD_KEY] = x
@@ -275,62 +319,12 @@ class VariantInterpretation(Statement):
     def get_label(self):
         return self.data[LabelIdentifier]
 
-class IndividualCondition(Statement):
+class AggregateCosegregationStatement(Statement):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_INDIVIDUALCONDITION_TYPE 
-    def set_individual(self,x):
-        self.data[DMWG_A016_INDIVIDUAL_KEY] = x
-    def get_individual(self):
-        return self.data[DMWG_A016_INDIVIDUAL_KEY]
-    def add_condition(self,x):
-        if not DMWG_A017_CONDITION_KEY in self.data:
-            self.data[DMWG_A017_CONDITION_KEY] = []
-        self.data[DMWG_A017_CONDITION_KEY].append( x ) 
-    def get_condition(self):
-        return self.data[DMWG_A017_CONDITION_KEY]
-    @get_factory_entity('SEPIO-CG:65126')
-    def set_individualHasCondition(self,x):
-        self.data[DMWG_A018_INDIVIDUALHASCONDITION_KEY] = x
-    def get_individualHasCondition(self):
-        return self.data[DMWG_A018_INDIVIDUALHASCONDITION_KEY]
-    def set_label(self,x):
-        self.data[LabelIdentifier] = x
-    def get_label(self):
-        return self.data[LabelIdentifier]
-
-class LocusHeterogeneity(Statement):
-    def __init__(self,iri=None):
-        self.data = {}
-        if iri is not None:
-            self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_LOCUSHETEROGENEITY_TYPE 
-    def set_condition(self,x):
-        self.data[DMWG_A100_CONDITION_KEY] = x
-    def get_condition(self):
-        return self.data[DMWG_A100_CONDITION_KEY]
-    def set_gene(self,x):
-        self.data[DMWG_A101_GENE_KEY] = x
-    def get_gene(self):
-        return self.data[DMWG_A101_GENE_KEY]
-    @get_factory_entity('SEPIO-CG:65123')
-    def set_specificity(self,x):
-        self.data[DMWG_A102_SPECIFICITY_KEY] = x
-    def get_specificity(self):
-        return self.data[DMWG_A102_SPECIFICITY_KEY]
-    def set_label(self,x):
-        self.data[LabelIdentifier] = x
-    def get_label(self):
-        return self.data[LabelIdentifier]
-
-class AggregateSegregation(Statement):
-    def __init__(self,iri=None):
-        self.data = {}
-        if iri is not None:
-            self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_AGGREGATESEGREGATION_TYPE 
+        self.data[DMWG_TYPE_KEY] = DMWG_AGGREGATECOSEGREGATIONSTATEMENT_TYPE 
     def set_canonicalAllele(self,x):
         self.data[DMWG_A086_CANONICALALLELE_KEY] = x
     def get_canonicalAllele(self):
@@ -349,11 +343,11 @@ class AggregateSegregation(Statement):
         self.data[DMWG_A089_FAMILYSEGREGATION_KEY].append( x ) 
     def get_familySegregation(self):
         return self.data[DMWG_A089_FAMILYSEGREGATION_KEY]
-    @get_factory_entity('SEPIO-CG:65107')
-    def set_modeOfInheritance(self,x):
-        self.data[DMWG_A160_MODEOFINHERITANCE_KEY] = x
-    def get_modeOfInheritance(self):
-        return self.data[DMWG_A160_MODEOFINHERITANCE_KEY]
+    @get_factory_entity('SEPIO:0000416')
+    def set_inheritancePatternParameter(self,x):
+        self.data[DMWG_A160_INHERITANCEPATTERNPARAMETER_KEY] = x
+    def get_inheritancePatternParameter(self):
+        return self.data[DMWG_A160_INHERITANCEPATTERNPARAMETER_KEY]
     def set_totalOfAllelePosConditionPosIndividuals(self,x):
         self.data[DMWG_A161_TOTALOFALLELEPOSCONDITIONPOSINDIVIDUALS_KEY] = x
     def get_totalOfAllelePosConditionPosIndividuals(self):
@@ -387,35 +381,36 @@ class AggregateSegregation(Statement):
     def get_label(self):
         return self.data[LabelIdentifier]
 
-class AlleleConservation(Statement):
+class AlleleConservationStatement(Statement):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_ALLELECONSERVATION_TYPE 
+        self.data[DMWG_TYPE_KEY] = DMWG_ALLELECONSERVATIONSTATEMENT_TYPE 
     def set_allele(self,x):
         self.data[DMWG_A111_ALLELE_KEY] = x
     def get_allele(self):
         return self.data[DMWG_A111_ALLELE_KEY]
-    def set_conservationType(self,x):
-        self.data[DMWG_A112_CONSERVATIONTYPE_KEY] = x
-    def get_conservationType(self):
-        return self.data[DMWG_A112_CONSERVATIONTYPE_KEY]
     def set_algorithm(self,x):
         self.data[DMWG_A113_ALGORITHM_KEY] = x
     def get_algorithm(self):
         return self.data[DMWG_A113_ALGORITHM_KEY]
+    @get_factory_entity('SEPIO-CG:65124')
+    def set_statementOutcome(self,x):
+        self.data[DMWG_A112_STATEMENTOUTCOME_KEY] = x
+    def get_statementOutcome(self):
+        return self.data[DMWG_A112_STATEMENTOUTCOME_KEY]
     def set_label(self,x):
         self.data[LabelIdentifier] = x
     def get_label(self):
         return self.data[LabelIdentifier]
 
-class ConditionPenetrance(Statement):
+class ConditionPenetranceStatement(Statement):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_CONDITIONPENETRANCE_TYPE 
+        self.data[DMWG_TYPE_KEY] = DMWG_CONDITIONPENETRANCESTATEMENT_TYPE 
     def add_condition(self,x):
         if not DMWG_A107_CONDITION_KEY in self.data:
             self.data[DMWG_A107_CONDITION_KEY] = []
@@ -423,29 +418,25 @@ class ConditionPenetrance(Statement):
     def get_condition(self):
         return self.data[DMWG_A107_CONDITION_KEY]
     @get_factory_entity('SEPIO-CG:65114')
-    def set_penetrance(self,x):
-        self.data[DMWG_A108_PENETRANCE_KEY] = x
-    def get_penetrance(self):
-        return self.data[DMWG_A108_PENETRANCE_KEY]
+    def set_statementOutcome(self,x):
+        self.data[DMWG_A108_STATEMENTOUTCOME_KEY] = x
+    def get_statementOutcome(self):
+        return self.data[DMWG_A108_STATEMENTOUTCOME_KEY]
     def set_label(self,x):
         self.data[LabelIdentifier] = x
     def get_label(self):
         return self.data[LabelIdentifier]
 
-class AlleleConservationScore(Statement):
+class AlleleConservationScoreStatement(Statement):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_ALLELECONSERVATIONSCORE_TYPE 
+        self.data[DMWG_TYPE_KEY] = DMWG_ALLELECONSERVATIONSCORESTATEMENT_TYPE 
     def set_allele(self,x):
         self.data[DMWG_A185_ALLELE_KEY] = x
     def get_allele(self):
         return self.data[DMWG_A185_ALLELE_KEY]
-    def set_conservationType(self,x):
-        self.data[DMWG_A186_CONSERVATIONTYPE_KEY] = x
-    def get_conservationType(self):
-        return self.data[DMWG_A186_CONSERVATIONTYPE_KEY]
     def set_algorithm(self,x):
         self.data[DMWG_A187_ALGORITHM_KEY] = x
     def get_algorithm(self):
@@ -459,118 +450,22 @@ class AlleleConservationScore(Statement):
     def get_label(self):
         return self.data[LabelIdentifier]
 
-class InSilicoPrediction(Statement):
+class InSilicoPredictionScoreStatement(Statement):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_INSILICOPREDICTION_TYPE 
-    def set_canonicalAllele(self,x):
-        self.data[DMWG_A096_CANONICALALLELE_KEY] = x
-    def get_canonicalAllele(self):
-        return self.data[DMWG_A096_CANONICALALLELE_KEY]
-    def set_transcript(self,x):
-        self.data[DMWG_A034_TRANSCRIPT_KEY] = x
-    def get_transcript(self):
-        return self.data[DMWG_A034_TRANSCRIPT_KEY]
-    @get_factory_entity('SEPIO-CG:65109')
-    def set_predictionType(self,x):
-        self.data[DMWG_A097_PREDICTIONTYPE_KEY] = x
-    def get_predictionType(self):
-        return self.data[DMWG_A097_PREDICTIONTYPE_KEY]
-    def set_prediction(self,x):
-        self.data[DMWG_A099_PREDICTION_KEY] = x
-    def get_prediction(self):
-        return self.data[DMWG_A099_PREDICTION_KEY]
-    def set_algorithm(self,x):
-        self.data[DMWG_A098_ALGORITHM_KEY] = x
-    def get_algorithm(self):
-        return self.data[DMWG_A098_ALGORITHM_KEY]
-    def set_label(self,x):
-        self.data[LabelIdentifier] = x
-    def get_label(self):
-        return self.data[LabelIdentifier]
-
-class CriterionAssessment(Statement):
-    def __init__(self,iri=None):
-        self.data = {}
-        if iri is not None:
-            self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_CRITERIONASSESSMENT_TYPE 
-    @get_factory_entity('SEPIO-CG:65131')
-    def set_criterion(self,x):
-        self.data[DMWG_A115_CRITERION_KEY] = x
-    def get_criterion(self):
-        return self.data[DMWG_A115_CRITERION_KEY]
-    def set_variant(self,x):
-        self.data[DMWG_A117_VARIANT_KEY] = x
-    def get_variant(self):
-        return self.data[DMWG_A117_VARIANT_KEY]
-    def add_condition(self,x):
-        if not DMWG_A118_CONDITION_KEY in self.data:
-            self.data[DMWG_A118_CONDITION_KEY] = []
-        self.data[DMWG_A118_CONDITION_KEY].append( x ) 
-    def get_condition(self):
-        return self.data[DMWG_A118_CONDITION_KEY]
-    @get_factory_entity('SEPIO-CG:65110')
-    def set_outcome(self,x):
-        self.data[DMWG_A116_OUTCOME_KEY] = x
-    def get_outcome(self):
-        return self.data[DMWG_A116_OUTCOME_KEY]
-    def set_label(self,x):
-        self.data[LabelIdentifier] = x
-    def get_label(self):
-        return self.data[LabelIdentifier]
-
-class ConditionPrevelance(Statement):
-    def __init__(self,iri=None):
-        self.data = {}
-        if iri is not None:
-            self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_CONDITIONPREVELANCE_TYPE 
-    def add_condition(self,x):
-        if not DMWG_A103_CONDITION_KEY in self.data:
-            self.data[DMWG_A103_CONDITION_KEY] = []
-        self.data[DMWG_A103_CONDITION_KEY].append( x ) 
-    def get_condition(self):
-        return self.data[DMWG_A103_CONDITION_KEY]
-    @get_factory_entity('SEPIO-CG:65112')
-    def set_population(self,x):
-        self.data[DMWG_A106_POPULATION_KEY] = x
-    def get_population(self):
-        return self.data[DMWG_A106_POPULATION_KEY]
-    def set_minimum(self,x):
-        self.data[DMWG_A104_MINIMUM_KEY] = x
-    def get_minimum(self):
-        return self.data[DMWG_A104_MINIMUM_KEY]
-    def set_maximum(self,x):
-        self.data[DMWG_A105_MAXIMUM_KEY] = x
-    def get_maximum(self):
-        return self.data[DMWG_A105_MAXIMUM_KEY]
-    def set_prevelance(self,x):
-        self.data[DMWG_A109_PREVELANCE_KEY] = x
-    def get_prevelance(self):
-        return self.data[DMWG_A109_PREVELANCE_KEY]
-    def set_label(self,x):
-        self.data[LabelIdentifier] = x
-    def get_label(self):
-        return self.data[LabelIdentifier]
-
-class InSilicoPredictionScore(Statement):
-    def __init__(self,iri=None):
-        self.data = {}
-        if iri is not None:
-            self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_INSILICOPREDICTIONSCORE_TYPE 
+        self.data[DMWG_TYPE_KEY] = DMWG_INSILICOPREDICTIONSCORESTATEMENT_TYPE 
     def set_canonicalAllele(self,x):
         self.data[DMWG_A181_CANONICALALLELE_KEY] = x
     def get_canonicalAllele(self):
         return self.data[DMWG_A181_CANONICALALLELE_KEY]
+    @get_factory_entity('SEPIO-CG:65119')
     def set_transcript(self,x):
         self.data[DMWG_A182_TRANSCRIPT_KEY] = x
     def get_transcript(self):
         return self.data[DMWG_A182_TRANSCRIPT_KEY]
-    @get_factory_entity('SEPIO-CG:65109')
+    @get_factory_entity('SEPIO:0000345')
     def set_predictionType(self,x):
         self.data[DMWG_A183_PREDICTIONTYPE_KEY] = x
     def get_predictionType(self):
@@ -588,36 +483,12 @@ class InSilicoPredictionScore(Statement):
     def get_label(self):
         return self.data[LabelIdentifier]
 
-class BenignMissenseVariationRate(Statement):
+class FamilyCosegregationStatement(Statement):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_BENIGNMISSENSEVARIATIONRATE_TYPE 
-    def set_region(self,x):
-        self.data[DMWG_A076_REGION_KEY] = x
-    def get_region(self):
-        return self.data[DMWG_A076_REGION_KEY]
-    def set_gene(self,x):
-        self.data[DMWG_A094_GENE_KEY] = x
-    def get_gene(self):
-        return self.data[DMWG_A094_GENE_KEY]
-    @get_factory_entity('SEPIO-CG:65113')
-    def set_value(self,x):
-        self.data[DMWG_A080_VALUE_KEY] = x
-    def get_value(self):
-        return self.data[DMWG_A080_VALUE_KEY]
-    def set_label(self,x):
-        self.data[LabelIdentifier] = x
-    def get_label(self):
-        return self.data[LabelIdentifier]
-
-class FamilySegregation(Statement):
-    def __init__(self,iri=None):
-        self.data = {}
-        if iri is not None:
-            self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_FAMILYSEGREGATION_TYPE 
+        self.data[DMWG_TYPE_KEY] = DMWG_FAMILYCOSEGREGATIONSTATEMENT_TYPE 
     def set_canonicalAllele(self,x):
         self.data[DMWG_A082_CANONICALALLELE_KEY] = x
     def get_canonicalAllele(self):
@@ -684,64 +555,64 @@ class FamilySegregation(Statement):
     def get_label(self):
         return self.data[LabelIdentifier]
 
-class RegionType(Statement):
+class RegionTypeStatement(Statement):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_REGIONTYPE_TYPE 
+        self.data[DMWG_TYPE_KEY] = DMWG_REGIONTYPESTATEMENT_TYPE 
     def set_region(self,x):
         self.data[DMWG_A063_REGION_KEY] = x
     def get_region(self):
         return self.data[DMWG_A063_REGION_KEY]
-    @get_factory_entity('SEPIO-CG:65104')
-    def add_annotation(self,x):
-        if not DMWG_A057_ANNOTATION_KEY in self.data:
-            self.data[DMWG_A057_ANNOTATION_KEY] = []
-        self.data[DMWG_A057_ANNOTATION_KEY].append( x ) 
-    def get_annotation(self):
-        return self.data[DMWG_A057_ANNOTATION_KEY]
+    @get_factory_entity('SEPIO:0000343')
+    def add_statementOutcome(self,x):
+        if not DMWG_A057_STATEMENTOUTCOME_KEY in self.data:
+            self.data[DMWG_A057_STATEMENTOUTCOME_KEY] = []
+        self.data[DMWG_A057_STATEMENTOUTCOME_KEY].append( x ) 
+    def get_statementOutcome(self):
+        return self.data[DMWG_A057_STATEMENTOUTCOME_KEY]
     def set_label(self,x):
         self.data[LabelIdentifier] = x
     def get_label(self):
         return self.data[LabelIdentifier]
 
-class RegionAlleles(Statement):
+class BenignMissenseVariationRateStatement(Statement):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_REGIONALLELES_TYPE 
+        self.data[DMWG_TYPE_KEY] = DMWG_BENIGNMISSENSEVARIATIONRATESTATEMENT_TYPE 
     def set_region(self,x):
-        self.data[DMWG_A071_REGION_KEY] = x
+        self.data[DMWG_A076_REGION_KEY] = x
     def get_region(self):
-        return self.data[DMWG_A071_REGION_KEY]
-    def add_allele(self,x):
-        if not DMWG_A058_ALLELE_KEY in self.data:
-            self.data[DMWG_A058_ALLELE_KEY] = []
-        self.data[DMWG_A058_ALLELE_KEY].append( x ) 
-    def get_allele(self):
-        return self.data[DMWG_A058_ALLELE_KEY]
-    @get_factory_entity('SEPIO-CG:65129')
-    def set_outcome(self,x):
-        self.data[DMWG_A059_OUTCOME_KEY] = x
-    def get_outcome(self):
-        return self.data[DMWG_A059_OUTCOME_KEY]
+        return self.data[DMWG_A076_REGION_KEY]
+    @get_factory_entity('SEPIO:0000396')
+    def set_gene(self,x):
+        self.data[DMWG_A094_GENE_KEY] = x
+    def get_gene(self):
+        return self.data[DMWG_A094_GENE_KEY]
+    @get_factory_entity('SEPIO:0000349')
+    def set_statementOutcome(self,x):
+        self.data[DMWG_A080_STATEMENTOUTCOME_KEY] = x
+    def get_statementOutcome(self):
+        return self.data[DMWG_A080_STATEMENTOUTCOME_KEY]
     def set_label(self,x):
         self.data[LabelIdentifier] = x
     def get_label(self):
         return self.data[LabelIdentifier]
 
-class AlleleFunctionalImpact(Statement):
+class AlleleFunctionalImpactStatement(Statement):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_ALLELEFUNCTIONALIMPACT_TYPE 
+        self.data[DMWG_TYPE_KEY] = DMWG_ALLELEFUNCTIONALIMPACTSTATEMENT_TYPE 
     def set_contextualAllele(self,x):
         self.data[DMWG_A028_CONTEXTUALALLELE_KEY] = x
     def get_contextualAllele(self):
         return self.data[DMWG_A028_CONTEXTUALALLELE_KEY]
+    @get_factory_entity('SEPIO:0000396')
     def set_gene(self,x):
         self.data[DMWG_A029_GENE_KEY] = x
     def get_gene(self):
@@ -750,7 +621,7 @@ class AlleleFunctionalImpact(Statement):
         self.data[DMWG_A026_RESULTDESCRIPTION_KEY] = x
     def get_resultDescription(self):
         return self.data[DMWG_A026_RESULTDESCRIPTION_KEY]
-    @get_factory_entity('SEPIO-CG:65111')
+    @get_factory_entity('SEPIO:0000382')
     def set_assayType(self,x):
         self.data[DMWG_A027_ASSAYTYPE_KEY] = x
     def get_assayType(self):
@@ -760,12 +631,12 @@ class AlleleFunctionalImpact(Statement):
     def get_label(self):
         return self.data[LabelIdentifier]
 
-class CaseControl(Statement):
+class CaseControlAlleleFrequencyStatement(Statement):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_CASECONTROL_TYPE 
+        self.data[DMWG_TYPE_KEY] = DMWG_CASECONTROLALLELEFREQUENCYSTATEMENT_TYPE 
     def set_canonicalAllele(self,x):
         self.data[DMWG_A038_CANONICALALLELE_KEY] = x
     def get_canonicalAllele(self):
@@ -803,32 +674,223 @@ class CaseControl(Statement):
     def get_label(self):
         return self.data[LabelIdentifier]
 
-class NullAllele(Statement):
+class NullAlleleStatement(Statement):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_NULLALLELE_TYPE 
+        self.data[DMWG_TYPE_KEY] = DMWG_NULLALLELESTATEMENT_TYPE 
     def set_contextualAllele(self,x):
         self.data[DMWG_A077_CONTEXTUALALLELE_KEY] = x
     def get_contextualAllele(self):
         return self.data[DMWG_A077_CONTEXTUALALLELE_KEY]
     @get_factory_entity('SEPIO-CG:65128')
-    def set_annotation(self,x):
-        self.data[DMWG_A078_ANNOTATION_KEY] = x
-    def get_annotation(self):
-        return self.data[DMWG_A078_ANNOTATION_KEY]
+    def set_statementOutcome(self,x):
+        self.data[DMWG_A078_STATEMENTOUTCOME_KEY] = x
+    def get_statementOutcome(self):
+        return self.data[DMWG_A078_STATEMENTOUTCOME_KEY]
     def set_label(self,x):
         self.data[LabelIdentifier] = x
     def get_label(self):
         return self.data[LabelIdentifier]
 
-class AlleleFrequency(Statement):
+class CriterionAssessment(Statement):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_ALLELEFREQUENCY_TYPE 
+        self.data[DMWG_TYPE_KEY] = DMWG_CRITERIONASSESSMENT_TYPE 
+    @get_factory_entity('SEPIO:0000395')
+    def set_criterion(self,x):
+        self.data[DMWG_A115_CRITERION_KEY] = x
+    def get_criterion(self):
+        return self.data[DMWG_A115_CRITERION_KEY]
+    def set_variant(self,x):
+        self.data[DMWG_A117_VARIANT_KEY] = x
+    def get_variant(self):
+        return self.data[DMWG_A117_VARIANT_KEY]
+    def add_condition(self,x):
+        if not DMWG_A118_CONDITION_KEY in self.data:
+            self.data[DMWG_A118_CONDITION_KEY] = []
+        self.data[DMWG_A118_CONDITION_KEY].append( x ) 
+    def get_condition(self):
+        return self.data[DMWG_A118_CONDITION_KEY]
+    @get_factory_entity('SEPIO:0000347')
+    def set_statementOutcome(self,x):
+        self.data[DMWG_A116_STATEMENTOUTCOME_KEY] = x
+    def get_statementOutcome(self):
+        return self.data[DMWG_A116_STATEMENTOUTCOME_KEY]
+    def set_label(self,x):
+        self.data[LabelIdentifier] = x
+    def get_label(self):
+        return self.data[LabelIdentifier]
+
+class IndividualGenotypeStatement(Statement):
+    def __init__(self,iri=None):
+        self.data = {}
+        if iri is not None:
+            self.data[DMWG_ID_KEY] = iri
+        self.data[DMWG_TYPE_KEY] = DMWG_INDIVIDUALGENOTYPESTATEMENT_TYPE 
+    def set_individual(self,x):
+        self.data[DMWG_A065_INDIVIDUAL_KEY] = x
+    def get_individual(self):
+        return self.data[DMWG_A065_INDIVIDUAL_KEY]
+    def add_genotype(self,x):
+        if not DMWG_A066_GENOTYPE_KEY in self.data:
+            self.data[DMWG_A066_GENOTYPE_KEY] = []
+        self.data[DMWG_A066_GENOTYPE_KEY].append( x ) 
+    def get_genotype(self):
+        return self.data[DMWG_A066_GENOTYPE_KEY]
+    def set_statementOutcome(self,x):
+        self.data[DMWG_A188_STATEMENTOUTCOME_KEY] = x
+    def get_statementOutcome(self):
+        return self.data[DMWG_A188_STATEMENTOUTCOME_KEY]
+    def set_label(self,x):
+        self.data[LabelIdentifier] = x
+    def get_label(self):
+        return self.data[LabelIdentifier]
+
+class LocusHeterogeneityStatement(Statement):
+    def __init__(self,iri=None):
+        self.data = {}
+        if iri is not None:
+            self.data[DMWG_ID_KEY] = iri
+        self.data[DMWG_TYPE_KEY] = DMWG_LOCUSHETEROGENEITYSTATEMENT_TYPE 
+    def set_condition(self,x):
+        self.data[DMWG_A100_CONDITION_KEY] = x
+    def get_condition(self):
+        return self.data[DMWG_A100_CONDITION_KEY]
+    @get_factory_entity('SEPIO:0000396')
+    def set_gene(self,x):
+        self.data[DMWG_A101_GENE_KEY] = x
+    def get_gene(self):
+        return self.data[DMWG_A101_GENE_KEY]
+    @get_factory_entity('SEPIO:0000348')
+    def set_statementOutcome(self,x):
+        self.data[DMWG_A102_STATEMENTOUTCOME_KEY] = x
+    def get_statementOutcome(self):
+        return self.data[DMWG_A102_STATEMENTOUTCOME_KEY]
+    def set_label(self,x):
+        self.data[LabelIdentifier] = x
+    def get_label(self):
+        return self.data[LabelIdentifier]
+
+class ConditionPrevelanceStatement(Statement):
+    def __init__(self,iri=None):
+        self.data = {}
+        if iri is not None:
+            self.data[DMWG_ID_KEY] = iri
+        self.data[DMWG_TYPE_KEY] = DMWG_CONDITIONPREVELANCESTATEMENT_TYPE 
+    def add_condition(self,x):
+        if not DMWG_A103_CONDITION_KEY in self.data:
+            self.data[DMWG_A103_CONDITION_KEY] = []
+        self.data[DMWG_A103_CONDITION_KEY].append( x ) 
+    def get_condition(self):
+        return self.data[DMWG_A103_CONDITION_KEY]
+    @get_factory_entity('SEPIO-CG:65112')
+    def set_population(self,x):
+        self.data[DMWG_A106_POPULATION_KEY] = x
+    def get_population(self):
+        return self.data[DMWG_A106_POPULATION_KEY]
+    def set_minimum(self,x):
+        self.data[DMWG_A104_MINIMUM_KEY] = x
+    def get_minimum(self):
+        return self.data[DMWG_A104_MINIMUM_KEY]
+    def set_maximum(self,x):
+        self.data[DMWG_A105_MAXIMUM_KEY] = x
+    def get_maximum(self):
+        return self.data[DMWG_A105_MAXIMUM_KEY]
+    def set_prevelance(self,x):
+        self.data[DMWG_A109_PREVELANCE_KEY] = x
+    def get_prevelance(self):
+        return self.data[DMWG_A109_PREVELANCE_KEY]
+    def set_label(self,x):
+        self.data[LabelIdentifier] = x
+    def get_label(self):
+        return self.data[LabelIdentifier]
+
+class AlleleMolecularConsequenceStatement(Statement):
+    def __init__(self,iri=None):
+        self.data = {}
+        if iri is not None:
+            self.data[DMWG_ID_KEY] = iri
+        self.data[DMWG_TYPE_KEY] = DMWG_ALLELEMOLECULARCONSEQUENCESTATEMENT_TYPE 
+    def set_contextualAllele(self,x):
+        self.data[DMWG_A009_CONTEXTUALALLELE_KEY] = x
+    def get_contextualAllele(self):
+        return self.data[DMWG_A009_CONTEXTUALALLELE_KEY]
+    @get_factory_entity('SEPIO:0000380')
+    def set_statementOutcome(self,x):
+        self.data[DMWG_A001_STATEMENTOUTCOME_KEY] = x
+    def get_statementOutcome(self):
+        return self.data[DMWG_A001_STATEMENTOUTCOME_KEY]
+    def set_label(self,x):
+        self.data[LabelIdentifier] = x
+    def get_label(self):
+        return self.data[LabelIdentifier]
+
+class ConditionMechanismStatement(Statement):
+    def __init__(self,iri=None):
+        self.data = {}
+        if iri is not None:
+            self.data[DMWG_ID_KEY] = iri
+        self.data[DMWG_TYPE_KEY] = DMWG_CONDITIONMECHANISMSTATEMENT_TYPE 
+    def set_condition(self,x):
+        self.data[DMWG_A012_CONDITION_KEY] = x
+    def get_condition(self):
+        return self.data[DMWG_A012_CONDITION_KEY]
+    @get_factory_entity('SEPIO:0000396')
+    def set_gene(self,x):
+        self.data[DMWG_A011_GENE_KEY] = x
+    def get_gene(self):
+        return self.data[DMWG_A011_GENE_KEY]
+    @get_factory_entity('SEPIO-CG:65108')
+    def set_statementOutcome(self,x):
+        self.data[DMWG_A002_STATEMENTOUTCOME_KEY] = x
+    def get_statementOutcome(self):
+        return self.data[DMWG_A002_STATEMENTOUTCOME_KEY]
+    @get_factory_entity('SEPIO:0000354')
+    def set_mechanismConfidence(self,x):
+        self.data[DMWG_A003_MECHANISMCONFIDENCE_KEY] = x
+    def get_mechanismConfidence(self):
+        return self.data[DMWG_A003_MECHANISMCONFIDENCE_KEY]
+    def set_label(self,x):
+        self.data[LabelIdentifier] = x
+    def get_label(self):
+        return self.data[LabelIdentifier]
+
+class IndividualConditionStatement(Statement):
+    def __init__(self,iri=None):
+        self.data = {}
+        if iri is not None:
+            self.data[DMWG_ID_KEY] = iri
+        self.data[DMWG_TYPE_KEY] = DMWG_INDIVIDUALCONDITIONSTATEMENT_TYPE 
+    def set_individual(self,x):
+        self.data[DMWG_A016_INDIVIDUAL_KEY] = x
+    def get_individual(self):
+        return self.data[DMWG_A016_INDIVIDUAL_KEY]
+    def add_condition(self,x):
+        if not DMWG_A017_CONDITION_KEY in self.data:
+            self.data[DMWG_A017_CONDITION_KEY] = []
+        self.data[DMWG_A017_CONDITION_KEY].append( x ) 
+    def get_condition(self):
+        return self.data[DMWG_A017_CONDITION_KEY]
+    @get_factory_entity('SEPIO-CG:65126')
+    def set_statementOutcome(self,x):
+        self.data[DMWG_A018_STATEMENTOUTCOME_KEY] = x
+    def get_statementOutcome(self):
+        return self.data[DMWG_A018_STATEMENTOUTCOME_KEY]
+    def set_label(self,x):
+        self.data[LabelIdentifier] = x
+    def get_label(self):
+        return self.data[LabelIdentifier]
+
+class PopulationAlleleFrequencyStatement(Statement):
+    def __init__(self,iri=None):
+        self.data = {}
+        if iri is not None:
+            self.data[DMWG_ID_KEY] = iri
+        self.data[DMWG_TYPE_KEY] = DMWG_POPULATIONALLELEFREQUENCYSTATEMENT_TYPE 
     def set_allele(self,x):
         self.data[DMWG_A031_ALLELE_KEY] = x
     def get_allele(self):
@@ -838,7 +900,7 @@ class AlleleFrequency(Statement):
         self.data[DMWG_A047_POPULATION_KEY] = x
     def get_population(self):
         return self.data[DMWG_A047_POPULATION_KEY]
-    @get_factory_entity('SEPIO-CG:65122')
+    @get_factory_entity('SEPIO:0000409')
     def set_ascertainment(self,x):
         self.data[DMWG_A030_ASCERTAINMENT_KEY] = x
     def get_ascertainment(self):
@@ -875,105 +937,6 @@ class AlleleFrequency(Statement):
         self.data[DMWG_A062_MEDIANCOVERAGE_KEY] = x
     def get_medianCoverage(self):
         return self.data[DMWG_A062_MEDIANCOVERAGE_KEY]
-    def set_label(self,x):
-        self.data[LabelIdentifier] = x
-    def get_label(self):
-        return self.data[LabelIdentifier]
-
-class IndividualGenotype(Statement):
-    def __init__(self,iri=None):
-        self.data = {}
-        if iri is not None:
-            self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_INDIVIDUALGENOTYPE_TYPE 
-    def set_individual(self,x):
-        self.data[DMWG_A065_INDIVIDUAL_KEY] = x
-    def get_individual(self):
-        return self.data[DMWG_A065_INDIVIDUAL_KEY]
-    def add_genotype(self,x):
-        if not DMWG_A066_GENOTYPE_KEY in self.data:
-            self.data[DMWG_A066_GENOTYPE_KEY] = []
-        self.data[DMWG_A066_GENOTYPE_KEY].append( x ) 
-    def get_genotype(self):
-        return self.data[DMWG_A066_GENOTYPE_KEY]
-    def set_label(self,x):
-        self.data[LabelIdentifier] = x
-    def get_label(self):
-        return self.data[LabelIdentifier]
-
-class AlleleMolecularConsequence(Statement):
-    def __init__(self,iri=None):
-        self.data = {}
-        if iri is not None:
-            self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_ALLELEMOLECULARCONSEQUENCE_TYPE 
-    def set_contextualAllele(self,x):
-        self.data[DMWG_A009_CONTEXTUALALLELE_KEY] = x
-    def get_contextualAllele(self):
-        return self.data[DMWG_A009_CONTEXTUALALLELE_KEY]
-    @get_factory_entity('SEPIO-CG:65102')
-    def set_consequence(self,x):
-        self.data[DMWG_A001_CONSEQUENCE_KEY] = x
-    def get_consequence(self):
-        return self.data[DMWG_A001_CONSEQUENCE_KEY]
-    def set_label(self,x):
-        self.data[LabelIdentifier] = x
-    def get_label(self):
-        return self.data[LabelIdentifier]
-
-class ConditionMechanism(Statement):
-    def __init__(self,iri=None):
-        self.data = {}
-        if iri is not None:
-            self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_CONDITIONMECHANISM_TYPE 
-    def set_condition(self,x):
-        self.data[DMWG_A012_CONDITION_KEY] = x
-    def get_condition(self):
-        return self.data[DMWG_A012_CONDITION_KEY]
-    def set_gene(self,x):
-        self.data[DMWG_A011_GENE_KEY] = x
-    def get_gene(self):
-        return self.data[DMWG_A011_GENE_KEY]
-    @get_factory_entity('SEPIO-CG:65108')
-    def set_mechanism(self,x):
-        self.data[DMWG_A002_MECHANISM_KEY] = x
-    def get_mechanism(self):
-        return self.data[DMWG_A002_MECHANISM_KEY]
-    @get_factory_entity('SEPIO-CG:65115')
-    def set_mechanismConfidence(self,x):
-        self.data[DMWG_A003_MECHANISMCONFIDENCE_KEY] = x
-    def get_mechanismConfidence(self):
-        return self.data[DMWG_A003_MECHANISMCONFIDENCE_KEY]
-    def set_label(self,x):
-        self.data[LabelIdentifier] = x
-    def get_label(self):
-        return self.data[LabelIdentifier]
-
-class UserLabel(Node):
-    def __init__(self,iri=None):
-        self.data = {}
-        if iri is not None:
-            self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_USERLABEL_TYPE 
-    def set_labelFor(self,x):
-        self.data[DMWG_A130_LABELFOR_KEY] = x
-    def get_labelFor(self):
-        return self.data[DMWG_A130_LABELFOR_KEY]
-    def set_description(self,x):
-        self.data[DMWG_A134_DESCRIPTION_KEY] = x
-    def get_description(self):
-        return self.data[DMWG_A134_DESCRIPTION_KEY]
-    def add_contribution(self,x):
-        if not DMWG_A131_CONTRIBUTION_KEY in self.data:
-            self.data[DMWG_A131_CONTRIBUTION_KEY] = []
-        self.data[DMWG_A131_CONTRIBUTION_KEY].append( x ) 
-    def get_contribution(self):
-        return self.data[DMWG_A131_CONTRIBUTION_KEY]
-    def set_comments(self,x):
-        self.data[DMWG_A150_COMMENTS_KEY] = x
-    def get_comments(self):
-        return self.data[DMWG_A150_COMMENTS_KEY]
     def set_label(self,x):
         self.data[LabelIdentifier] = x
     def get_label(self):

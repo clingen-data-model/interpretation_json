@@ -46,13 +46,13 @@ def create_dmwg_disease(system, code, name):
 
 def read_criteria():
     this_dir, this_filename = os.path.split(__file__)
-    crit_path = os.path.join(this_dir, 'ValueSets', 'SEPIO-CG:65131')
+    crit_path = os.path.join(this_dir, 'ValueSets', 'SEPIO:0000395')
     inf = file(crit_path,'r')
     jcrit = json.load(inf)
     inf.close()
     criteria = {}
     for crit in jcrit['concept']:
-        criterion = Criterion(crit['id'])
+        criterion = VariantInterpretationCriterion(crit['id'])
         label = crit['label']
         criterion.set_label ( label )
         if label.startswith('PVS'):
@@ -95,7 +95,7 @@ class InterpretationEncoder(json.JSONEncoder):
     def default(self,obj):
         if isinstance(obj,Node):
             #is this right?  Probably should do it by depth?
-            if isinstance(obj,VariantInterpretation):
+            if isinstance(obj,VariantPathogenicityInterpretation):
                 obj.data['@context'] = self.context
             if self.ostyle == 'full':
                 return obj.data

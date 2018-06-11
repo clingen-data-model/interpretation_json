@@ -1,8 +1,8 @@
 {
-  "id": "SEPIO-CG:65128",
+  "id": "SEPIO:0000343",
   "type": "ValueSet",
-  "label": "Null Allele Outcome Value Set",
-  "description": "Denotes whether an allele leads to a non-functional transcript",
+  "label": "Region Annotation Value Set",
+  "description": "A label applied to a sequence region",
   "valueSetExtensibility": {
     "id": "SEPIO:0000365",
     "type": "Entity",
@@ -10,19 +10,19 @@
   },
   "concept": [
     {
-      "id": "SO:0002055",
+      "id": "SO:0002188",
       "type": "Entity",
-      "label": "null mutation"
+      "label": "functional region"
     },
     {
-      "id": "SEPIO-CG:99015",
+      "id": "SO:0002186",
       "type": "Entity",
-      "label": "function not lost"
+      "label": "mutational hotspot"
     },
     {
-      "id": "SEPIO-CG:99016",
+      "id": "SO:0000657",
       "type": "Entity",
-      "label": "function unknown"
+      "label": "repeat region "
     }
   ],
   "valueSetIdentifierSystems": [
@@ -32,6 +32,13 @@
       "label": "Sequence Ontology",
       "prefix": "SO",
       "urlPattern": "http://purl.obolibrary.org/obo/SO_"
+    },
+    {
+      "id": "http://purl.obolibrary.org/obo/sepio#",
+      "type": "IdentifierSystem",
+      "label": "Scientific Evidence Provenance Information Ontology",
+      "prefix": "SEPIO",
+      "urlPattern": "http://purl.obolibrary.org/obo/SEPIO_"
     }
   ],
   "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"

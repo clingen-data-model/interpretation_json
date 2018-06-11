@@ -79,6 +79,10 @@ def write_data_type(types_and_atts,type_id,lib,t_const,a_const):
     """Write a python class representing a particular type_id."""
     dtype = types_and_atts[type_id]
     name = dtype[NAME]
+    # We have these in our sheets, but they need to be broken out.  For now, we have this stuff hardcoded
+    # to enable transitions from AR.
+    if name in ('CanonicalAllele', 'ContextualAllele'):
+        return
     pname=get_parent_name(dtype,types_and_atts)
     type_const = t_const[type_id]
     lib.write( CLASSDEF % (name, pname, type_const) )
@@ -91,14 +95,14 @@ def write_data_type(types_and_atts,type_id,lib,t_const,a_const):
             attname = att[NAME]
             if VSID in att and att[VSID] != '':
                 try:
-                    lib.write("\n    @get_factory_entity('%s')" % att[VSID] )
+                    if att[VSID] != '???': #The ??? is a marker in the sheets for things we need to generate.
+                        lib.write("\n    @get_factory_entity('%s')" % att[VSID] )
                 except:
                     pass
             try:
                 if '*' in att[CARDINALITY]:
                     lib.write( LISTSETTER % (attname, attconst, attconst, attconst) )
                 else:
-                    print attname, attconst
                     lib.write( SETTER % (attname,attconst))
             except:
                 print attkey
@@ -139,6 +143,7 @@ def write_library(types_and_atts,libname,entname, enumname):
     lib.write('from node import Node\n\n')
     entf = file(entname,'w')
     entf.write('from interpretation_constants import *\n')
+    entf.write('from interpretation_generated import Entity\n')
     entf.write('from domain_entity_factory import get_factory_entity\n')
     entf.write('from node import Node\n\n')
     type_ids = sort_types(types_and_atts)
@@ -147,6 +152,7 @@ def write_library(types_and_atts,libname,entname, enumname):
             outf = entf
         else:
             outf = lib
+        print type_id, outf
         write_data_type(types_and_atts,type_id,outf,t_const,a_const)
     lib.close()
     entf.close()
@@ -186,8 +192,8 @@ def write_constants(types_and_atts,enumname):
     #Add label
     att_constants[DMWG_LABEL_ID] = DMWG_LABEL_ID
     enum.write("%s = 'label'\n" % DMWG_LABEL_ID)
-    for aid in att_constants:
-        print aid,att_constants[aid]
+    #for aid in att_constants:
+    #    print aid,att_constants[aid]
     enum.close()
     return type_constants, att_constants
 
@@ -206,7 +212,8 @@ def pull_value_sets(vsdir,types_and_atts):
     except:
         pass
     for VS in value_set_set:
-        print VS
+        if ':' not in VS: #don't pull down "???" or other garbage
+            continue
         url = 'http://datamodel.clinicalgenome.org/interpretation/master/json/%s' % VS
         res = requests.get(url)
         outf = codecs.open('%s/%s' % (vsdir,VS),'w',encoding='utf-8')

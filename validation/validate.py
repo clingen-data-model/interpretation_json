@@ -6,6 +6,7 @@ from jsonpath_ng.ext import parse
 from clingen_interpretation.domain_entity_factory import DomainEntityFactory
 
 def validate_with_schema(in_json):
+    """Apply the json schema to a json file and see if the file matches the schema"""
     with open('interpretation_schema.json','r') as inf:
         schema = json.load(inf)
     with open(in_json,'r') as inf:
@@ -13,6 +14,12 @@ def validate_with_schema(in_json):
     validate(input_json ,schema)
 
 def validate_with_values(in_json):
+    """Attributes can be annotated with ValueSets.  If the ValueSet is not extensible than the
+       value of the attribute must be from the value set.  This checks these non-extensible attributes to make
+       sure that this is the case.
+       
+       If the value set is extensible, the validator prints a warning if it finds a value that is not in the value 
+       set."""
     with open(in_json,'r') as inf:
         input_json = json.load(inf)
     factory = DomainEntityFactory()

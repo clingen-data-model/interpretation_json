@@ -1,0 +1,348 @@
+{
+  "id": "SEPIO:0000395",
+  "type": "ValueSet",
+  "label": "ACMG Criterion Value Set",
+  "description": "TODO",
+  "valueSetExtensibility": {
+    "id": "SEPIO:0000365",
+    "type": "Entity",
+    "label": "extensible"
+  },
+  "concept": [
+    {
+      "id": "SEPIO-CG:99022",
+      "type": "VariantInterpretationCriterion",
+      "label": "PVS1",
+      "description": "null variant (nonsense, frameshift, canonical ±1 or 2 splice sites, initiation codon, single or multiexon deletion) in a gene where LOF is a known mechanism of disease",
+      "usageNotes": "The two main concerns for applying this rule is:\na. Is LOF an established disease mechanism?\nb. Is LOF actually occurring?",
+      "defaultStrength": {
+        "id": "SEPIO:0000220",
+        "type": "Entity",
+        "label": "Pathogenic Very Strong"
+      }
+    },
+    {
+      "id": "SEPIO-CG:99023",
+      "type": "VariantInterpretationCriterion",
+      "label": "PS1",
+      "description": "Same amino acid change as a previously established pathogenic variant regardless of nucleotide change",
+      "usageNotes": "Beware of changes that impact splicing rather than at the amino acid/protein level\nFrom CSER paper: One site erroneously used this to apply prior publication of the same exact variant while this rule, as described in more depth on the ACMG/AMP guideline, only applies when the established pathogenic variant has a different nucleotide change than the variant being interpreted.",
+      "defaultStrength": {
+        "id": "SEPIO:0000330",
+        "type": "Entity",
+        "label": "Pathogenic Strong"
+      }
+    },
+    {
+      "id": "SEPIO-CG:99024",
+      "type": "VariantInterpretationCriterion",
+      "label": "PS2",
+      "description": "De novo (both maternity and paternity confirmed) in a patient with the disease and no family history",
+      "usageNotes": "MYH7 is adding specificity to this rule with\na. No family history = parents have had ECHO and ECG\nb. Only paternity confirmation required",
+      "defaultStrength": {
+        "id": "SEPIO:0000330",
+        "type": "Entity",
+        "label": "Pathogenic Strong"
+      }
+    },
+    {
+      "id": "SEPIO-CG:99025",
+      "type": "VariantInterpretationCriterion",
+      "label": "PS3",
+      "description": "Well-established in vitro or in vivo functional studies supportive of a damaging effect on the gene or gene product",
+      "usageNotes": "This particular rule will probably be downgraded often, given that there are not many “Functional studies that have been validated and shown to be reproducible and robust in a clinical diagnostic laboratory setting”",
+      "defaultStrength": {
+        "id": "SEPIO:0000330",
+        "type": "Entity",
+        "label": "Pathogenic Strong"
+      }
+    },
+    {
+      "id": "SEPIO-CG:99026",
+      "type": "VariantInterpretationCriterion",
+      "label": "PS4",
+      "description": "The prevalence of the variant in affected individuals is significantly increased compared with the prevalence in controls",
+      "defaultStrength": {
+        "id": "SEPIO:0000330",
+        "type": "Entity",
+        "label": "Pathogenic Strong"
+      }
+    },
+    {
+      "id": "SEPIO-CG:99027",
+      "type": "VariantInterpretationCriterion",
+      "label": "PM1",
+      "description": "Located in a mutational hot spot and/or critical and well-established functional domain (e.g., active site of an enzyme) without benign variation",
+      "usageNotes": "Suggested that this rule is NOT appropriate for LOF variants.\nAlso, note that when the region of interest is a “well-established functional domain” then it’s not necessary to show through evidence that it is intolerant of benign missense variants.  However, when a mutational hotspot is being defined, then showing it does not have benign missense variants is important.",
+      "defaultStrength": {
+        "id": "SEPIO:0000216",
+        "type": "Entity",
+        "label": "Pathogenic Moderate"
+      }
+    },
+    {
+      "id": "SEPIO-CG:99028",
+      "type": "VariantInterpretationCriterion",
+      "label": "PM2",
+      "description": "Absent from controls (or at extremely low frequency if recessive) (Table 6) in Exome Sequencing Project, 1000 Genomes Project, or Exome Aggregation Consortium",
+      "usageNotes": "Some groups are allowing to rule to be used if even not 100% absent\nFor instance, Cardio has allowed PM2 to be used if MAF is <0.05% with 95% CI if\nCI lower is ~0.00% (at 2 decimal places) AND CI upper is below 0.05%\n Caveat: Population data for insertions/deletions may be poorly called by next-generation sequencing",
+      "defaultStrength": {
+        "id": "SEPIO:0000216",
+        "type": "Entity",
+        "label": "Pathogenic Moderate"
+      }
+    },
+    {
+      "id": "SEPIO-CG:99029",
+      "type": "VariantInterpretationCriterion",
+      "label": "PM3",
+      "description": "For recessive disorders, detected in trans with a pathogenic variant",
+      "usageNotes": "CSER - Laboratories discussed when to modify the strength of PM3, the variant is seen in trans with a pathogenic variant for recessive disorders. Published literature may not always explicitly state the phase of variants found in affected individuals which raises a challenge for invoking PM3.\nWhen phase has not been established, some felt that PM3 could be invoked as supporting evidence. Also, if the variant is seen in trans with a pathogenic variant in more than one individual it was felt that PM3 can be upgraded to strong. However, sites did not agree on how many additional observations were necessary to call the evidence strong (2 vs. 3) but concluded that such guidance would be useful.\n \nLMM - INCREASES IN STRENGTH IF VARIANT SEEN IN MULTIPLE COMPOUND HETS WITH DIFFERENT LIKELY PATHOGENIC/PATHOGENIC VARIANTS",
+      "defaultStrength": {
+        "id": "SEPIO:0000216",
+        "type": "Entity",
+        "label": "Pathogenic Moderate"
+      }
+    },
+    {
+      "id": "SEPIO-CG:99030",
+      "type": "VariantInterpretationCriterion",
+      "label": "PM4",
+      "description": "Protein length changes as a result of in-frame deletions/insertions in a nonrepeat region or stop-loss variants",
+      "usageNotes": "Need to ensure that variant is not located within a repeat region\n\nThis rule is also (likely) applicable for frameshift variants that result in extension of the protein as opposed to truncation (similar to stop loss).",
+      "defaultStrength": {
+        "id": "SEPIO:0000216",
+        "type": "Entity",
+        "label": "Pathogenic Moderate"
+      }
+    },
+    {
+      "id": "SEPIO-CG:99031",
+      "type": "VariantInterpretationCriterion",
+      "label": "PM5",
+      "description": "Novel missense change at an amino acid residue where a different missense change determined to be pathogenic has been seen before",
+      "usageNotes": "Need to be sure that pathogenic variant exists at the residue in question. Sometimes discrepancy resolution may be required. Some thing like Variantexplorer.org may be useful.\nSometimes no assertion is provided in ClinVar ...may require curation by lit. search.",
+      "defaultStrength": {
+        "id": "SEPIO:0000216",
+        "type": "Entity",
+        "label": "Pathogenic Moderate"
+      }
+    },
+    {
+      "id": "SEPIO-CG:99032",
+      "type": "VariantInterpretationCriterion",
+      "label": "PM6",
+      "description": "Assumed de novo, but without confirmation of paternity and maternity",
+      "defaultStrength": {
+        "id": "SEPIO:0000216",
+        "type": "Entity",
+        "label": "Pathogenic Moderate"
+      }
+    },
+    {
+      "id": "SEPIO-CG:99033",
+      "type": "VariantInterpretationCriterion",
+      "label": "PP1",
+      "description": "Cosegregation with disease in multiple affected family members in a gene definitively known to cause the disease",
+      "defaultStrength": {
+        "id": "SEPIO:0000329",
+        "type": "Entity",
+        "label": "Pathogenic Supporting"
+      }
+    },
+    {
+      "id": "SEPIO-CG:99034",
+      "type": "VariantInterpretationCriterion",
+      "label": "PP2",
+      "description": "Missense variant in a gene that has a low rate of benign missense variation and in which missense variants are a common mechanism of disease",
+      "usageNotes": "Seems no one has established firm rules for when this rule is applicable so not sure how great any examples will be\nAgree with the lack of firm rules. Seems like one criteria may be observed missense variants over 5% allele frequency in ExAC. If this seems reasonable then I could generate a couple of examples.",
+      "defaultStrength": {
+        "id": "SEPIO:0000329",
+        "type": "Entity",
+        "label": "Pathogenic Supporting"
+      }
+    },
+    {
+      "id": "SEPIO-CG:99035",
+      "type": "VariantInterpretationCriterion",
+      "label": "PP3",
+      "description": "Multiple lines of computational evidence support a deleterious effect on the gene or gene product (conservation, evolutionary, splicing impact, etc.)",
+      "usageNotes": "Don’t know if there is a definition of “multiple” . If >1 then the algorithms chosen are at the discretion of the curator/lab.  There is a difference between lines of evidence and number of implementations.",
+      "defaultStrength": {
+        "id": "SEPIO:0000329",
+        "type": "Entity",
+        "label": "Pathogenic Supporting"
+      }
+    },
+    {
+      "id": "SEPIO-CG:99036",
+      "type": "VariantInterpretationCriterion",
+      "label": "PP4",
+      "description": "Patient’s phenotype or family history is highly specific for a disease with a single genetic etiology",
+      "defaultStrength": {
+        "id": "SEPIO:0000329",
+        "type": "Entity",
+        "label": "Pathogenic Supporting"
+      }
+    },
+    {
+      "id": "SEPIO-CG:99037",
+      "type": "VariantInterpretationCriterion",
+      "label": "PP5",
+      "description": "Reputable source recently reports variant as pathogenic, but the evidence is not available to the laboratory to perform an independent evaluation",
+      "defaultStrength": {
+        "id": "SEPIO:0000329",
+        "type": "Entity",
+        "label": "Pathogenic Supporting"
+      }
+    },
+    {
+      "id": "SEPIO-CG:99038",
+      "type": "VariantInterpretationCriterion",
+      "label": "BA1",
+      "description": "Allele frequency is >5% in Exome Sequencing Project, 1000 Genomes Project, or Exome Aggregation Consortium",
+      "usageNotes": "Several groups have lowered the BA1 threshold (e.g. PTEN-1%). Also the sequence variant interpretation group is working on a modified version of this guideline including the minimum # of alleles that need to be examined and the population stratification effects, if any.",
+      "defaultStrength": {
+        "id": "SEPIO:0000325",
+        "type": "Entity",
+        "label": "Benign Stand Alone"
+      }
+    },
+    {
+      "id": "SEPIO-CG:99039",
+      "type": "VariantInterpretationCriterion",
+      "label": "BS1",
+      "description": "Allele frequency is greater than expected for disorder",
+      "defaultStrength": {
+        "id": "SEPIO:0000328",
+        "type": "Entity",
+        "label": "Benign Strong"
+      }
+    },
+    {
+      "id": "SEPIO-CG:99040",
+      "type": "VariantInterpretationCriterion",
+      "label": "BS2",
+      "description": "Observed in a healthy adult individual for a recessive (homozygous), dominant (heterozygous), or X-linked (hemizygous) disorder, with full penetrance expected at an early age",
+      "usageNotes": "This rule should not be used for diseases with reduced penetrance or late/variable age of  onset (such as certain cardiomyopathies).",
+      "defaultStrength": {
+        "id": "SEPIO:0000328",
+        "type": "Entity",
+        "label": "Benign Strong"
+      }
+    },
+    {
+      "id": "SEPIO-CG:99041",
+      "type": "VariantInterpretationCriterion",
+      "label": "BS3",
+      "description": "Well-established in vitro or in vivo functional studies show no damaging effect on protein function or splicing",
+      "usageNotes": "This will all depend on what is “established”, which could end up being defined by the different clinical domain working groups.",
+      "defaultStrength": {
+        "id": "SEPIO:0000328",
+        "type": "Entity",
+        "label": "Benign Strong"
+      }
+    },
+    {
+      "id": "SEPIO-CG:99042",
+      "type": "VariantInterpretationCriterion",
+      "label": "BS4",
+      "description": "Lack of segregation in affected members of a family",
+      "usageNotes": "This rule is for “lack of segregation” meaning phenotype positive / genotype negative (and not pheno neg / geno pos). Also need to be careful of phenocopies. Also need rules for how many cases are needed in use this rule",
+      "defaultStrength": {
+        "id": "SEPIO:0000328",
+        "type": "Entity",
+        "label": "Benign Strong"
+      }
+    },
+    {
+      "id": "SEPIO-CG:99043",
+      "type": "VariantInterpretationCriterion",
+      "label": "BP1",
+      "description": "Missense variant in a gene for which primarily truncating variants are known to cause disease",
+      "usageNotes": "Is there any guidance on the proportion of pathogenic variants that are LOF to apply this rule?  99%? 90%? 75%?",
+      "defaultStrength": {
+        "id": "SEPIO:0000327",
+        "type": "Entity",
+        "label": "Benign Supporting"
+      }
+    },
+    {
+      "id": "SEPIO-CG:99044",
+      "type": "VariantInterpretationCriterion",
+      "label": "BP2",
+      "description": "Observed in trans with a pathogenic variant for a fully penetrant dominant gene/disorder or observed in cis with a pathogenic variant in any inheritance pattern",
+      "defaultStrength": {
+        "id": "SEPIO:0000327",
+        "type": "Entity",
+        "label": "Benign Supporting"
+      }
+    },
+    {
+      "id": "SEPIO-CG:99045",
+      "type": "VariantInterpretationCriterion",
+      "label": "BP3",
+      "description": "In-frame deletions/insertions in a repetitive region without a known function",
+      "defaultStrength": {
+        "id": "SEPIO:0000327",
+        "type": "Entity",
+        "label": "Benign Supporting"
+      }
+    },
+    {
+      "id": "SEPIO-CG:99046",
+      "type": "VariantInterpretationCriterion",
+      "label": "BP4",
+      "description": "Multiple lines of computational evidence suggest no impact on gene or gene product (conservation, evolutionary, splicing impact, etc.)",
+      "usageNotes": "same issues as PP3.",
+      "defaultStrength": {
+        "id": "SEPIO:0000327",
+        "type": "Entity",
+        "label": "Benign Supporting"
+      }
+    },
+    {
+      "id": "SEPIO-CG:99047",
+      "type": "VariantInterpretationCriterion",
+      "label": "BP5",
+      "description": "Variant found in a case with an alternate molecular basis for disease",
+      "defaultStrength": {
+        "id": "SEPIO:0000327",
+        "type": "Entity",
+        "label": "Benign Supporting"
+      }
+    },
+    {
+      "id": "SEPIO-CG:99048",
+      "type": "VariantInterpretationCriterion",
+      "label": "BP6",
+      "description": "Reputable source recently reports variant as benign, but the evidence is not available to the laboratory to perform an independent evaluation",
+      "defaultStrength": {
+        "id": "SEPIO:0000327",
+        "type": "Entity",
+        "label": "Benign Supporting"
+      }
+    },
+    {
+      "id": "SEPIO-CG:99049",
+      "type": "VariantInterpretationCriterion",
+      "label": "BP7",
+      "description": "A synonymous (silent) variant for which splicing prediction algorithms predict no impact to the splice consensus sequence nor the creation of a new splice site AND the nucleotide is not highly conserved",
+      "defaultStrength": {
+        "id": "SEPIO:0000327",
+        "type": "Entity",
+        "label": "Benign Supporting"
+      }
+    }
+  ],
+  "valueSetIdentifierSystems": [
+    {
+      "id": "http://purl.obolibrary.org/obo/sepio-clingen#",
+      "type": "IdentifierSystem",
+      "label": "ClinGen extensions to SEPIO",
+      "prefix": "SEPIO-CG",
+      "urlPattern": "http://purl.obolibrary.org/obo/SEPIO-CG_"
+    }
+  ],
+  "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
+}

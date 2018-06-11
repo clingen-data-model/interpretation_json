@@ -1,0 +1,21 @@
+{
+  "id": "SEPIO:0000396",
+  "type": "ValueSet",
+  "label": "Gene Value Set",
+  "description": "TODO",
+  "valueSetExtensibility": {
+    "id": "SEPIO:0000365",
+    "type": "Entity",
+    "label": "extensible"
+  },
+  "valueSetIdentifierSystems": [
+    {
+      "id": "http://www.genenames.org/",
+      "type": "IdentifierSystem",
+      "label": "HGNC",
+      "prefix": "HGNC",
+      "urlPattern": "http://www.genenames.org/"
+    }
+  ],
+  "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
+}

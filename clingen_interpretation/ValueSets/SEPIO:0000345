@@ -1,8 +1,8 @@
 {
-  "id": "SEPIO-CG:65120",
+  "id": "SEPIO:0000345",
   "type": "ValueSet",
-  "label": "Contributory Role Value Set",
-  "description": "The role played by an agent in the creation of an artifact",
+  "label": "In Silico Prediction Method Value Set",
+  "description": "The type of InSilico Predictor",
   "valueSetExtensibility": {
     "id": "SEPIO:0000365",
     "type": "Entity",
@@ -10,24 +10,14 @@
   },
   "concept": [
     {
-      "id": "SEPIO:0000154",
+      "id": "SEPIO:0000322",
       "type": "Entity",
-      "label": "assessor role"
+      "label": "missense effect"
     },
     {
-      "id": "SEPIO:0000155",
+      "id": "SEPIO:0000323",
       "type": "Entity",
-      "label": "approver role"
-    },
-    {
-      "id": "SEPIO:0000156",
-      "type": "Entity",
-      "label": "curator role"
-    },
-    {
-      "id": "SEPIO:0000331",
-      "type": "Entity",
-      "label": "interpreter role"
+      "label": "splicing prediction"
     }
   ],
   "valueSetIdentifierSystems": [

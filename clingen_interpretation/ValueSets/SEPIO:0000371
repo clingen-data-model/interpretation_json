@@ -1,0 +1,48 @@
+{
+  "id": "SEPIO:0000371",
+  "type": "ValueSet",
+  "label": "Clinical Significance Value Set",
+  "description": "The role that a variant plays in the causing a genetic condition\n(see LOINC answer list https://r.details.loinc.org/AnswerList/LL4034-6.html)",
+  "valueSetExtensibility": {
+    "id": "SEPIO:0000364",
+    "type": "Entity",
+    "label": "fixed"
+  },
+  "concept": [
+    {
+      "id": "LOINC:LA26332-9",
+      "type": "Entity",
+      "label": "Likely Pathogenic"
+    },
+    {
+      "id": "LOINC:LA26333-7",
+      "type": "Entity",
+      "label": "Uncertain Significance"
+    },
+    {
+      "id": "LOINC:LA26334-5",
+      "type": "Entity",
+      "label": "Likely Benign"
+    },
+    {
+      "id": "LOINC:LA6668-3",
+      "type": "Entity",
+      "label": "Pathogenic"
+    },
+    {
+      "id": "LOINC:LA6675-8",
+      "type": "Entity",
+      "label": "Benign"
+    }
+  ],
+  "valueSetIdentifierSystems": [
+    {
+      "id": "http://loinc.org/",
+      "type": "IdentifierSystem",
+      "label": "LOINC",
+      "prefix": "LOINC",
+      "urlPattern": "http://loinc.org/"
+    }
+  ],
+  "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
+}

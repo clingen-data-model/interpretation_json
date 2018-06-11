@@ -1,120 +1,110 @@
 {
   "id": "SEPIO-CG:65119",
   "type": "ValueSet",
+  "label": "Reference Sequence Value Set",
   "description": "TODO",
-  "conceptListExtensibility": {
-    "id": "SEPIO-CG:02102",
+  "valueSetExtensibility": {
+    "id": "SEPIO:0000365",
+    "type": "Entity",
     "label": "extensible"
   },
-  "conceptType": "ReferenceSequence",
   "concept": [
     {
-      "id": "RefSeq287",
-      "type": "ReferenceSequence",
-      "accession": "NM_005228.3",
-      "produces": [
-        {
-          "id": "RefSeq288",
-          "type": "ReferenceSequence",
-          "accession": "NP_005219.2",
-          "producedBy": "RefSeq287"
-        }
-      ]
+      "id": "REFSEQ:NM_005228.3",
+      "type": "Entity",
+      "label": "NM_005228.3"
     },
     {
-      "id": "RefSeq288",
-      "type": "ReferenceSequence",
-      "accession": "NP_005219.2",
-      "producedBy": "RefSeq287"
+      "id": "REFSEQ:NP_005219.2",
+      "type": "Entity",
+      "label": "NP_005219.2"
     },
     {
-      "id": "RefSeq289",
-      "type": "ReferenceSequence",
-      "accession": "NM_004333.4"
+      "id": "REFSEQ:NM_004333.4",
+      "type": "Entity",
+      "label": "NM_004333.4"
     },
     {
-      "id": "RefSeq290",
-      "type": "ReferenceSequence",
-      "accession": "NM_000169.2"
+      "id": "REFSEQ:NM_004333.4",
+      "type": "Entity",
+      "label": "NM_004333.4"
     },
     {
-      "id": "RefSeq291",
-      "type": "ReferenceSequence",
-      "accession": "NP_001360.1"
+      "id": "REFSEQ:NP_001360.1",
+      "type": "Entity",
+      "label": "NP_001360.1"
     },
     {
-      "id": "RefSeq292",
-      "type": "ReferenceSequence",
-      "accession": "NP_056375.2"
+      "id": "REFSEQ:NP_056375.2",
+      "type": "Entity",
+      "label": "NP_056375.2"
     },
     {
-      "id": "RefSeq293",
-      "type": "ReferenceSequence",
-      "accession": "NP_003915.2"
+      "id": "REFSEQ:NP_003915.2",
+      "type": "Entity",
+      "label": "NP_003915.2"
     },
     {
-      "id": "RefSeq294",
-      "type": "ReferenceSequence",
-      "accession": "NM_001271208.1"
+      "id": "REFSEQ:NM_001271208.1",
+      "type": "Entity",
+      "label": "NM_001271208.1"
     },
     {
-      "id": "RefSeq295",
-      "type": "ReferenceSequence",
-      "accession": "NM_133378.4"
+      "id": "REFSEQ:NM_133378.4",
+      "type": "Entity",
+      "label": "NM_133378.4"
     },
     {
-      "id": "RefSeq296",
-      "type": "ReferenceSequence",
-      "accession": "NM_147196.2"
+      "id": "REFSEQ:NM_147196.2",
+      "type": "Entity",
+      "label": "NM_147196.2"
     },
     {
-      "id": "RefSeq297",
-      "type": "ReferenceSequence",
-      "accession": "NM_000257.2"
+      "id": "REFSEQ:NM_000257.2",
+      "type": "Entity",
+      "label": "NM_000257.2"
     },
     {
-      "id": "RefSeq298",
-      "type": "ReferenceSequence",
-      "accession": "ENST00000566221.5"
+      "id": "ENSEMBL:ENST00000566221.5",
+      "type": "Entity",
+      "label": "ENST00000566221.5"
     },
     {
-      "id": "RefSeq299",
-      "type": "ReferenceSequence",
-      "accession": "NM_000363.4"
+      "id": "REFSEQ:NM_000363.4",
+      "type": "Entity",
+      "label": "NM_000363.4"
     },
     {
-      "id": "RefSeq300",
-      "type": "ReferenceSequence",
-      "accession": "NM_000059.3"
+      "id": "REFSEQ:NM_000059.3",
+      "type": "Entity",
+      "label": "NM_000059.3"
     },
     {
-      "id": "RefSeq301",
-      "type": "ReferenceSequence",
-      "accession": "NM_138691.2"
+      "id": "REFSEQ:NM_138691.2",
+      "type": "Entity",
+      "label": "NM_138691.2"
     },
     {
-      "id": "RefSeq302",
-      "type": "ReferenceSequence",
-      "accession": "NM_002880.3"
+      "id": "REFSEQ:NM_002880.3",
+      "type": "Entity",
+      "label": "NM_002880.3"
     }
   ],
-  "sourceIdentifierSystems": [
+  "valueSetIdentifierSystems": [
     {
-      "id": "IdSys004",
+      "id": "http://www.ncbi.nlm.nih.gov/nuccore/",
       "type": "IdentifierSystem",
-      "oid": "2.16.840.1.113883.6.280",
-      "iri": "http://www.ncbi.nlm.nih.gov/nuccore/",
+      "label": "RefSeq",
       "prefix": "REFSEQ",
-      "label": "RefSeq"
+      "urlPattern": "http://www.ncbi.nlm.nih.gov/nuccore/"
     },
     {
-      "id": "IdSys006",
+      "id": "http://www.ensembl.org/",
       "type": "IdentifierSystem",
-      "iri": "http://www.ensembl.org/",
+      "label": "Ensembl",
       "prefix": "ENSEMBL",
-      "label": "Ensembl"
+      "urlPattern": "http://www.ensembl.org/"
     }
   ],
-  "label": "Reference Sequence",
   "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
 }

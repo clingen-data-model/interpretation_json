@@ -1,34 +1,35 @@
 {
   "id": "SEPIO-CG:65132",
   "type": "ValueSet",
+  "label": "Variant Interpretation Guideline Value Set",
   "description": "TODO",
-  "conceptListExtensibility": {
-    "id": "SEPIO-CG:02102",
+  "valueSetExtensibility": {
+    "id": "SEPIO:0000365",
+    "type": "Entity",
     "label": "extensible"
   },
-  "conceptType": "AssertionMethod",
   "concept": [
     {
-      "id": "AssertMeth331",
-      "type": "AssertionMethod",
+      "id": "CGEX:AssertMeth331",
+      "type": "VariantPathogenicityInterpretationGuideline",
       "description": "ACMG ISV guidelines 2015",
       "url": "https://www.acmg.net/docs/Standards_Guidelines_for_the_Interpretation_of_Sequence_Variants.pdf",
       "version": "1.0",
       "scoringAlgorithm": {
-        "id": "SEPIO-CG:99300",
-        "description": "This is the description of how the weighting of the satisfied criterion are typically evaluated to arrive at a specific clinical significance."
+        "id": "CGEX:AssertMethScoringAlgorithm001",
+        "type": "Entity",
+        "description": "ACMG ISV 2015 combining/scoring algorithm"
       }
     }
   ],
-  "sourceIdentifierSystems": [
+  "valueSetIdentifierSystems": [
     {
-      "id": "IdSys024",
+      "id": "http://purl.obolibrary.org/obo/sepio-clingen#",
       "type": "IdentifierSystem",
-      "iri": "http://obofoundry.org/sepio/clingen",
+      "label": "ClinGen extensions to SEPIO",
       "prefix": "SEPIO-CG",
-      "label": "ClinGen extensions to SEPIO"
+      "urlPattern": "http://purl.obolibrary.org/obo/SEPIO-CG_"
     }
   ],
-  "label": "Assertion Method",
   "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
 }

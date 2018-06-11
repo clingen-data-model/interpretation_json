@@ -1,59 +1,68 @@
 {
-  "id": "SEPIO-CG:65116",
+  "id": "SEPIO:0000353",
   "type": "ValueSet",
-  "description": "The set of strengths needed for an evidence line.",
-  "conceptListExtensibility": {
-    "id": "SEPIO-CG:02101",
+  "label": "ACMG Evidence Strength Value Set",
+  "description": "Degree of support that a set of evidence lends to a subsequent statement",
+  "valueSetExtensibility": {
+    "id": "SEPIO:0000364",
+    "type": "Entity",
     "label": "fixed"
   },
-  "conceptType": "EvidenceLineStrength",
   "concept": [
     {
       "id": "SEPIO:0000216",
+      "type": "Entity",
       "label": "Pathogenic Moderate"
     },
     {
       "id": "SEPIO:0000218",
+      "type": "Entity",
       "label": "None"
     },
     {
       "id": "SEPIO:0000220",
+      "type": "Entity",
       "label": "Pathogenic Very Strong"
     },
     {
       "id": "SEPIO:0000325",
+      "type": "Entity",
       "label": "Benign Stand Alone"
     },
     {
       "id": "SEPIO:0000326",
+      "type": "Entity",
       "label": "Benign Moderate"
     },
     {
       "id": "SEPIO:0000327",
+      "type": "Entity",
       "label": "Benign Supporting"
     },
     {
       "id": "SEPIO:0000328",
+      "type": "Entity",
       "label": "Benign Strong"
     },
     {
       "id": "SEPIO:0000329",
+      "type": "Entity",
       "label": "Pathogenic Supporting"
     },
     {
       "id": "SEPIO:0000330",
+      "type": "Entity",
       "label": "Pathogenic Strong"
     }
   ],
-  "sourceIdentifierSystems": [
+  "valueSetIdentifierSystems": [
     {
-      "id": "IdSys023",
+      "id": "http://purl.obolibrary.org/obo/sepio#",
       "type": "IdentifierSystem",
-      "iri": "http://obofoundry.org/sepio/",
+      "label": "Scientific Evidence Provenance Information Ontology",
       "prefix": "SEPIO",
-      "label": "Scientific Evidence Provenance Information Ontology"
+      "urlPattern": "http://purl.obolibrary.org/obo/SEPIO_"
     }
   ],
-  "label": "Evidence Line Strength",
   "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
 }

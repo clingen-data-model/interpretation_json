@@ -1,47 +1,53 @@
 {
-  "id": "SEPIO-CG:65118",
+  "id": "SEPIO:0000375",
   "type": "ValueSet",
-  "description": "TODO",
-  "conceptListExtensibility": {
-    "id": "SEPIO-CG:02102",
+  "label": "Phenotype Value Set",
+  "description": "The assemblage of traits or outward appearance of an individual. It is the product of interactions between genes and between genes and the environment. (From NCIT)",
+  "valueSetExtensibility": {
+    "id": "SEPIO:0000365",
+    "type": "Entity",
     "label": "extensible"
   },
-  "conceptType": "Phenotype",
   "concept": [
     {
       "id": "HP:0000256",
+      "type": "Entity",
       "label": "macrocephaly"
     },
     {
       "id": "HP:0000957",
+      "type": "Entity",
       "label": "cafĂŠ au lait macules (CALMs)"
     },
     {
       "id": "HP:0000997",
+      "type": "Entity",
       "label": "axillary freckling"
     },
     {
       "id": "HP:0011014",
+      "type": "Entity",
       "label": "Abnormal Glucose Homeostasis"
     },
     {
       "id": "HP:0012873",
+      "type": "Entity",
       "label": "Absent vas deferens"
     },
     {
       "id": "HP:0200106",
+      "type": "Entity",
       "label": "Absent/shortened dynein arms"
     }
   ],
-  "sourceIdentifierSystems": [
+  "valueSetIdentifierSystems": [
     {
-      "id": "IdSys016",
+      "id": "http://purl.obolibrary.org/obo/hp#",
       "type": "IdentifierSystem",
-      "iri": "http://human-phenotype-ontology.github.io/",
+      "label": "Human Phenotype Ontology",
       "prefix": "HP",
-      "label": "HumanPhenotypeOntology"
+      "urlPattern": "http://purl.obolibrary.org/obo/HP_"
     }
   ],
-  "label": "Phenotype",
   "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
 }

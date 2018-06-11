@@ -1,35 +1,38 @@
 {
   "id": "SEPIO-CG:65114",
   "type": "ValueSet",
+  "label": "Condition Penetrance Value Set",
   "description": "The chance of having a particular genetic condition given the presence of a particular variant or damaged gene",
-  "conceptListExtensibility": {
-    "id": "SEPIO-CG:02102",
+  "valueSetExtensibility": {
+    "id": "SEPIO:0000365",
+    "type": "Entity",
     "label": "extensible"
   },
-  "conceptType": "Penetrance",
   "concept": [
     {
       "id": "HP:0003829",
+      "type": "Entity",
       "label": "Incomplete"
     },
     {
       "id": "HP:000XXX1",
+      "type": "Entity",
       "label": "Complete"
     },
     {
       "id": "HP:000XXX2",
+      "type": "Entity",
       "label": "High"
     }
   ],
-  "sourceIdentifierSystems": [
+  "valueSetIdentifierSystems": [
     {
-      "id": "IdSys016",
+      "id": "http://purl.obolibrary.org/obo/hp#",
       "type": "IdentifierSystem",
-      "iri": "http://human-phenotype-ontology.github.io/",
+      "label": "Human Phenotype Ontology",
       "prefix": "HP",
-      "label": "HumanPhenotypeOntology"
+      "urlPattern": "http://purl.obolibrary.org/obo/HP_"
     }
   ],
-  "label": "Penetrance",
   "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
 }

@@ -1,31 +1,33 @@
 {
   "id": "SEPIO-CG:65129",
   "type": "ValueSet",
-  "description": "TODO",
-  "conceptListExtensibility": {
-    "id": "SEPIO-CG:02102",
+  "label": "Region Alleles Outcome Value Set",
+  "description": "Whether or not an allele overlaps a sequence region",
+  "valueSetExtensibility": {
+    "id": "SEPIO:0000365",
+    "type": "Entity",
     "label": "extensible"
   },
-  "conceptType": "RegionAllelesOutcome",
   "concept": [
     {
-      "id": "RO:00002527",
+      "id": "RO:0002527",
+      "type": "Entity",
       "label": "does not overlap region"
     },
     {
       "id": "RO:0002656",
+      "type": "Entity",
       "label": "overlaps region"
     }
   ],
-  "sourceIdentifierSystems": [
+  "valueSetIdentifierSystems": [
     {
-      "id": "IdSys024",
+      "id": "http://purl.obolibrary.org/obo/sepio-clingen#",
       "type": "IdentifierSystem",
-      "iri": "http://obofoundry.org/sepio/clingen",
+      "label": "ClinGen extensions to SEPIO",
       "prefix": "SEPIO-CG",
-      "label": "ClinGen extensions to SEPIO"
+      "urlPattern": "http://purl.obolibrary.org/obo/SEPIO-CG_"
     }
   ],
-  "label": "Region Alleles Outcome",
   "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
 }

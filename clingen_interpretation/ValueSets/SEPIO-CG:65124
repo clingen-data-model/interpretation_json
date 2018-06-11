@@ -1,8 +1,8 @@
 {
-  "id": "SEPIO-CG:65133",
+  "id": "SEPIO-CG:65124",
   "type": "ValueSet",
-  "label": "Variant Interpretation Criterion Scoring Rules Value Set",
-  "description": "This is the description of how the weighting of the satisfied criterion are typically evaluated to arrive at a specific clinical significance.",
+  "label": "Allele Conservation Value Set",
+  "description": "The degree to which an allele is preserved over evolutionary history",
   "valueSetExtensibility": {
     "id": "SEPIO:0000365",
     "type": "Entity",
@@ -10,9 +10,14 @@
   },
   "concept": [
     {
-      "id": "CGEX:AssertMethScoringAlgorithm001",
+      "id": "SO:0000330",
       "type": "Entity",
-      "description": "ACMG ISV 2015 combining/scoring algorithm"
+      "label": "conserved region"
+    },
+    {
+      "id": "SEPIO-CG:99017",
+      "type": "Entity",
+      "label": "not conserved region"
     }
   ],
   "valueSetIdentifierSystems": [

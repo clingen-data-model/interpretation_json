@@ -3,6 +3,7 @@ from entities_generated import *
 from interpretation_constants import *
 
 
+'''
 class Coding(Node):
     """We need Coding because Allele is defined in terms of it"""
     def __init__(self,iri=None):
@@ -22,6 +23,7 @@ class Coding(Node):
         self.data['display'] = x
     def get_display(self):
         return self.data['display']
+'''
 
 #This is not necessarily useful outside of the DMWG Interpretation Library because we are keeping the 
 # data in the format expected for the InterpretationEncoder. In particular, rather than having 
@@ -33,7 +35,7 @@ class Variant(Node):
         self.data={}        
         self.data[DMWG_ID_KEY] = ar_rep[ALLELE_REGISTRY_ID_KEY]
         self.data[DMWG_TYPE_KEY] = 'CanonicalAllele'
-        self.data['CanonicalAlleleType'] = ar_rep['type']
+        self.data['canonicalAlleleType'] = ar_rep['type']
         #todo: double check this?
         self.data['complexity'] = 'simple'  
         if 'externalRecords' in ar_rep:
@@ -55,16 +57,14 @@ class Variant(Node):
     def add_external_identifier(self,source,value,display=None):
         if 'relatedIdentifier' not in self.data:
             self.data['relatedIdentifier'] = []
-        if source == 'ClinVar':
-            system = 'http://www.ncbi.nlm.nih.gov/clinvar/variation/'
-        elif source == 'dbSNP':
-            system = 'http://www.ncbi.nlm.nih.gov/snp/'
-        coding = Coding()
-        coding.set_system(system)
-        coding.set_code(value)
+        #if source == 'ClinVar':
+        #    system = 'http://www.ncbi.nlm.nih.gov/clinvar/variation/'
+        #elif source == 'dbSNP':
+        #    system = 'http://www.ncbi.nlm.nih.gov/snp/'
+        ext_identifier = { "id": "%s:%s" % (source,value)  }
         if display is not None:
-            coding.set_display(display)
-        self.data['relatedIdentifier'].append(coding)
+            ext_identifier = { "label" : display }
+        self.data['relatedIdentifier'].append(ext_identifier)
     def get_allele(self,ref_genome):
         for cxa in self.data['relatedContextualAllele']:
             if cxa.ref_genome == ref_genome:

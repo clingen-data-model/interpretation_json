@@ -1,193 +1,229 @@
 {
-  "id": "SEPIO-CG:65117",
+  "id": "SEPIO:0000372",
   "type": "ValueSet",
-  "description": "Alteration of health status resulting from a physiopathological mechanism, and having a homogeneous clinical presentation and evolution and homogeneous therapeutic possibilities.",
-  "conceptListExtensibility": {
-    "id": "SEPIO-CG:02102",
+  "label": "Disease Value Set",
+  "description": "An alteration of health status resulting from a physiopathological mechanism, and having a homogeneous clinical presentation and evolution and homogeneous therapeutic possibilities. (From MONDO)",
+  "valueSetExtensibility": {
+    "id": "SEPIO:0000365",
+    "type": "Entity",
     "label": "extensible"
   },
-  "conceptType": "Disease",
   "concept": [
     {
       "id": "DOID:630",
+      "type": "Entity",
       "label": "genetic disease"
     },
     {
       "id": "MESH:D061325",
+      "type": "Entity",
       "label": "hereditary breast ovarian cancer"
     },
     {
       "id": "OMIM:114480",
+      "type": "Entity",
       "label": "Breast Cancer"
     },
     {
       "id": "OMIM:143890",
+      "type": "Entity",
       "label": "Hypercholesterolemia, Familial"
     },
     {
       "id": "OMIM:601419",
+      "type": "Entity",
       "label": "myofibrillar myopathy 1"
     },
     {
       "id": "OMIM:609942",
+      "type": "Entity",
       "label": "noonan syndrome 3"
     },
     {
       "id": "OMIM:612555",
+      "type": "Entity",
       "label": "Breast-Ovarian Cancer, Familial, Susceptibility To, 2"
     },
     {
       "id": "OMIM:614065",
+      "type": "Entity",
       "label": "Myopathy, Distal, type 4"
     },
     {
       "id": "Orphanet:1340",
+      "type": "Entity",
       "label": "cardiofaciocutaneous syndrome"
     },
     {
       "id": "Orphanet:145",
+      "type": "Entity",
       "label": "hereditary breast and ovarian cancer syndrome"
     },
     {
       "id": "Orphanet:167848",
+      "type": "Entity",
       "label": "cardiomyopathy"
     },
     {
       "id": "Orphanet:216",
+      "type": "Entity",
       "label": "neuronal ceroid lipofuscinosis"
     },
     {
       "id": "Orphanet:217569",
+      "type": "Entity",
       "label": "hypertrophic cardiomyopathy"
     },
     {
       "id": "Orphanet:217604",
+      "type": "Entity",
       "label": "dilated cardiomyopathy"
     },
     {
       "id": "Orphanet:244",
+      "type": "Entity",
       "label": "Primary ciliary dyskenisia"
     },
     {
       "id": "Orphanet:247",
+      "type": "Entity",
       "label": "arrhythmogenic right ventricular cardiomyopathy"
     },
     {
       "id": "Orphanet:2609",
+      "type": "Entity",
       "label": "Mitochondrial complex 1 deficiency"
     },
     {
       "id": "Orphanet:2855",
+      "type": "Entity",
       "label": "Perrault Syndrome"
     },
     {
       "id": "Orphanet:3071",
+      "type": "Entity",
       "label": "costello syndrome"
     },
     {
       "id": "Orphanet:319182",
+      "type": "Entity",
       "label": "Wiedemann-Steiner syndrome"
     },
     {
       "id": "Orphanet:324",
+      "type": "Entity",
       "label": "Fabry disease"
     },
     {
       "id": "Orphanet:364526",
+      "type": "Entity",
       "label": "Primary bone dysplasia"
     },
     {
       "id": "Orphanet:414",
+      "type": "Entity",
       "label": "Gyrate atrophy of choroid and retina"
     },
     {
       "id": "Orphanet:423",
+      "type": "Entity",
       "label": "Malignant hyperthermia"
     },
     {
       "id": "Orphanet:558",
+      "type": "Entity",
       "label": "Marfan Syndrome"
     },
     {
       "id": "Orphanet:586",
+      "type": "Entity",
       "label": "Cystic Fibrosis"
     },
     {
       "id": "Orphanet:648",
+      "type": "Entity",
       "label": "noonan syndrome"
     },
     {
       "id": "Orphanet:664",
+      "type": "Entity",
       "label": "Ornithine carbamoyltransferase deficiency"
     },
     {
       "id": "Orphanet:705",
+      "type": "Entity",
       "label": "Pendred syndrome"
     },
     {
       "id": "Orphanet:733",
+      "type": "Entity",
       "label": "Familial Adenomatous Polyposis"
     },
     {
       "id": "Orphanet:750",
+      "type": "Entity",
       "label": "pseudoachondroplasia"
     },
     {
       "id": "Orphanet:774",
+      "type": "Entity",
       "label": "hereditary hemorrhagic telangiectasia"
     },
     {
       "id": "Orphanet:791",
+      "type": "Entity",
       "label": "Retinitis Pigmentosa"
     },
     {
       "id": "Orphanet:84",
+      "type": "Entity",
       "label": "Fanconi Anemia"
     },
     {
       "id": "Orphanet:87884",
+      "type": "Entity",
       "label": "nonsyndromic deafness"
     },
     {
       "id": "Orphanet:886",
+      "type": "Entity",
       "label": "Usher syndrome"
     },
     {
       "id": "Orphanet:98733",
+      "type": "Entity",
       "label": "Noonan syndrome and noonan-related syndrom"
     }
   ],
-  "sourceIdentifierSystems": [
+  "valueSetIdentifierSystems": [
     {
-      "id": "IdSys011",
+      "id": "http://www.omim.org/",
       "type": "IdentifierSystem",
-      "oid": "2.16.840.1.113883.6.174",
-      "iri": "http://www.omim.org/",
+      "label": "OMIM",
       "prefix": "OMIM",
-      "label": "OMIM"
+      "urlPattern": "http://www.omim.org/"
     },
     {
-      "id": "IdSys013",
+      "id": "http://www.orpha.net/",
       "type": "IdentifierSystem",
-      "iri": "http://www.orpha.net/",
+      "label": "Orphanet",
       "prefix": "Orphanet",
-      "label": "Orphanet"
+      "urlPattern": "http://www.orpha.net/"
     },
     {
-      "id": "IdSys019",
+      "id": "http://purl.obolibrary.org/obo/doid#",
       "type": "IdentifierSystem",
-      "iri": "http://disease-ontology.org/",
+      "label": "Disease Ontology",
       "prefix": "DOID",
-      "label": "Disease Ontology"
+      "urlPattern": "http://purl.obolibrary.org/obo/DOID_"
     },
     {
-      "id": "IdSys020",
+      "id": "https://meshb.nlm.nih.gov/",
       "type": "IdentifierSystem",
-      "iri": "https://meshb.nlm.nih.gov/",
+      "label": "MeSH",
       "prefix": "MESH",
-      "label": "MeSH"
+      "urlPattern": "https://meshb.nlm.nih.gov/"
     }
   ],
-  "label": "Disease",
   "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
 }

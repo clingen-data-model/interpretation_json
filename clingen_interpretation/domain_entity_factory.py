@@ -1,4 +1,4 @@
-import os
+import os,sys
 import json
 from functools import wraps
 from node import Node
@@ -24,33 +24,39 @@ class DomainEntityFactory:
             vsdir = os.path.join(this_dir, 'ValueSets')
         files = os.listdir(vsdir)
         for f in files:
-            if f.startswith('SEPIO-CG'):
-                inf = file('%s/%s'% (vsdir,f),'r')
-                valueset = json.load(inf)
-                vsid = valueset['id']
+            fname='%s/%s'% (vsdir,f)
+            inf = file(fname,'r')
+            print fname
+            valueset = json.load(inf)
+            vsid = valueset['id']
+            try:
+                concepts = valueset['concept']
+            except KeyError:
+                print 'No concepts in %s' % f
+                concepts = {}
+            self.vsets[vsid] = concepts
+            print vsid
+            self.extensibility[vsid] = valueset['valueSetExtensibility']
+            for c in concepts:
                 try:
-                    concepts = valueset['concept']
+                    etype = c['type']
+                    #Workaround for now CB 6/11/2018
+                    if etype == 'Entity':
+                        continue
+                    #End workaround
+                    if etype in self.entity_types:
+                        if self.entity_types[etype] != vsid:
+                            print 'Type %s occurs in 2 Value Sets' % etype
+                            print vsid, self.entity_types[etype]
+                            print 'Need to make entity_types point to sets'
+                            print 'But have not yet'
+                            sys.exit(1)
+                    else:
+                        self.entity_types[etype] = vsid
                 except KeyError:
-                    print 'No concepts in %s' % f
-                    concepts = {}
-                self.vsets[vsid] = concepts
-                self.extensibility[vsid] = valueset['conceptListExtensibility']
-                for c in concepts:
-                    try:
-                        etype = c['type']
-                        if etype in self.entity_types:
-                            if self.entity_types[etype] != vsid:
-                                print 'Type %s occurs in 2 Value Sets'
-                                print vsid, self.entity_types[etype]
-                                print 'Need to make entity_types point to sets'
-                                print 'But have not yet'
-                                sys.exit(1)
-                        else:
-                            self.entity_types[etype] = vsid
-                    except KeyError:
-                        #This concept doesn't have a type. That's ok, and in fact pretty common these days.
-                        pass
-                        
+                    #This concept doesn't have a type. That's ok, and in fact pretty common these days.
+                    pass
+                    
     def get_value_sets(self):
         return self.vsets
 

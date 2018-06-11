@@ -1,31 +1,33 @@
 {
-  "id": "SEPIO-CG:65113",
+  "id": "SEPIO:0000349",
   "type": "ValueSet",
+  "label": "Benign Missense Variation Rate Outcome Value Set",
   "description": "The rate of missense variation in a transcript that do not lead to a genetic condition",
-  "conceptListExtensibility": {
-    "id": "SEPIO-CG:02102",
+  "valueSetExtensibility": {
+    "id": "SEPIO:0000365",
+    "type": "Entity",
     "label": "extensible"
   },
-  "conceptType": "BenignMissenseVariationRateOutcome",
   "concept": [
     {
       "id": "SEPIO:0000265",
+      "type": "Entity",
       "label": "High"
     },
     {
       "id": "SEPIO:0000266",
+      "type": "Entity",
       "label": "Low"
     }
   ],
-  "sourceIdentifierSystems": [
+  "valueSetIdentifierSystems": [
     {
-      "id": "IdSys023",
+      "id": "http://purl.obolibrary.org/obo/sepio#",
       "type": "IdentifierSystem",
-      "iri": "http://obofoundry.org/sepio/",
+      "label": "Scientific Evidence Provenance Information Ontology",
       "prefix": "SEPIO",
-      "label": "Scientific Evidence Provenance Information Ontology"
+      "urlPattern": "http://purl.obolibrary.org/obo/SEPIO_"
     }
   ],
-  "label": "Benign Missense Variation Rate Outcome",
   "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
 }

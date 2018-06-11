@@ -1,114 +1,135 @@
 {
-  "id": "SEPIO-CG:65107",
+  "id": "SEPIO:0000416",
   "type": "ValueSet",
-  "description": "Classifies the transmission pattern of a condition in a pedigree.",
-  "conceptListExtensibility": {
-    "id": "SEPIO-CG:02102",
+  "label": "Inheritance Pattern Value Set",
+  "description": "Classifies the transmission pattern of a condition in a pedigree.\n(see LOINC Answer List https://r.details.loinc.org/AnswerList/LL3731-8.html)",
+  "valueSetExtensibility": {
+    "id": "SEPIO:0000365",
+    "type": "Entity",
     "label": "extensible"
   },
-  "conceptType": "ModeOfInheritance",
   "concept": [
     {
       "id": "GENO:0000143",
+      "type": "Entity",
       "label": "Codominant"
     },
     {
       "id": "GENO:0000889",
+      "type": "Entity",
       "label": "unknown inheritance"
     },
     {
       "id": "GENO:0000892",
+      "type": "Entity",
       "label": "Heteroplasmic mitochondrial inheritance"
     },
     {
       "id": "GENO:0000893",
+      "type": "Entity",
       "label": "Homoplasmic mitochondrial inheritance"
     },
     {
       "id": "HP:0000006",
+      "type": "Entity",
       "label": "Autosomal Dominant"
     },
     {
       "id": "HP:0000007",
+      "type": "Entity",
       "label": "Autosomal Recessive"
     },
     {
       "id": "HP:0001417",
+      "type": "Entity",
       "label": "X linked inheritance"
     },
     {
       "id": "HP:0001419",
+      "type": "Entity",
       "label": "X linked recessive inheritance"
     },
     {
       "id": "HP:0001423",
+      "type": "Entity",
       "label": "X-linked dominant inheritance"
     },
     {
       "id": "HP:0001426",
+      "type": "Entity",
       "label": "Multifactorial inheritance"
     },
     {
       "id": "HP:0001427",
+      "type": "Entity",
       "label": "Mitochondrial inheritance"
     },
     {
       "id": "HP:0001428",
+      "type": "Entity",
       "label": "Somatic mutation"
     },
     {
       "id": "HP:0001450",
+      "type": "Entity",
       "label": "Y linked inheritance"
     },
     {
       "id": "HP:0001470",
+      "type": "Entity",
       "label": "Sex-limited autosomal dominant"
     },
     {
       "id": "HP:0003743",
+      "type": "Entity",
       "label": "genetic anticipation"
     },
     {
       "id": "HP:0003745",
+      "type": "Entity",
       "label": "Sporadic"
     },
     {
       "id": "HP:0010983",
+      "type": "Entity",
       "label": "Oligogenic"
     },
     {
       "id": "HP:0012274",
+      "type": "Entity",
       "label": "Autosomal dominant inheritance with paternal imprinting"
     },
     {
       "id": "HP:0012275",
+      "type": "Entity",
       "label": "Autosomal dominant inheritance with maternal imprinting"
     },
     {
       "id": "HP:0025352",
+      "type": "Entity",
       "label": "autosomal dominant germline de novo mutation"
     },
     {
       "id": "HP:0031362",
+      "type": "Entity",
       "label": "Sex-limited autosomal recessive inheritance"
     }
   ],
-  "sourceIdentifierSystems": [
+  "valueSetIdentifierSystems": [
     {
-      "id": "IdSys016",
+      "id": "http://purl.obolibrary.org/obo/hp#",
       "type": "IdentifierSystem",
-      "iri": "http://human-phenotype-ontology.github.io/",
+      "label": "Human Phenotype Ontology",
       "prefix": "HP",
-      "label": "HumanPhenotypeOntology"
+      "urlPattern": "http://purl.obolibrary.org/obo/HP_"
     },
     {
-      "id": "IdSys022",
+      "id": "http://purl.obolibrary.org/obo/geno#",
       "type": "IdentifierSystem",
-      "iri": "http://obofoundry.org/geno/",
+      "label": "GENO",
       "prefix": "GENO",
-      "label": "GENO"
+      "urlPattern": "http://purl.obolibrary.org/obo/GENO_"
     }
   ],
-  "label": "Mode of Inheritance",
   "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
 }
