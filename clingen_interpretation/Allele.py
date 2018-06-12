@@ -68,21 +68,21 @@ class Variant(Node):
     def get_allele(self,ref_genome):
         for cxa in self.data['relatedContextualAllele']:
             if cxa.ref_genome == ref_genome:
-                return cxa.data['allele']
+                return cxa.data['state']
         return None
     def get_ref_allele(self,ref_genome):
         for cxa in self.data['relatedContextualAllele']:
             if cxa.ref_genome == ref_genome:
-                return cxa.data['referenceCoordinate']['refAllele']
+                return cxa.data['referenceCoordinate']['refState']
         return None
 
 class ContextualAllele(Node):
     def __init__(self,ar_rep,canonical_allele_id, atype):
         self.data = {}
         self.data[DMWG_TYPE_KEY] = 'ContextualAllele'
-        self.data['CanonicalAllele'] = canonical_allele_id
+        self.data['relatedCanonicalAllele'] = canonical_allele_id
         self.data['contextualAlleleType'] = atype
-        self.data['allele'] = ar_rep['coordinates'][0]['allele']
+        self.data['state'] = ar_rep['coordinates'][0]['allele']
         self.data['alleleName'] = []
         seqnames = []
         for hgvs in ar_rep['hgvs']:
@@ -104,7 +104,7 @@ class ContextualAllele(Node):
         start = {'index': ar_rep['coordinates'][0]['start'] }
         end = {'index': ar_rep['coordinates'][0]['end'] }
         ra = ar_rep['coordinates'][0]['referenceAllele']
-        ref_coord = {'referenceSequence': ref_sequence, 'start':start, 'end':end, 'refAllele': ra }
+        ref_coord = {'referenceSequence': ref_sequence, 'start':start, 'end':end, 'refState': ra }
         self.data['referenceCoordinate'] = ref_coord
 
     
