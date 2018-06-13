@@ -5,23 +5,19 @@
   "description": "Whether or not inconsistent segretations have been observed in a pedigree",
   "valueSetExtensibility": {
     "id": "SEPIO:0000365",
-    "type": "Entity",
     "label": "extensible"
   },
   "concept": [
     {
       "id": "SEPIO-CG:99011",
-      "type": "Entity",
       "label": "present"
     },
     {
       "id": "SEPIO-CG:99012",
-      "type": "Entity",
       "label": "absent"
     },
     {
       "id": "SEPIO-CG:99013",
-      "type": "Entity",
       "label": "unknown"
     }
   ],

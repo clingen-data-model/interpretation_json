@@ -5,28 +5,23 @@
   "description": "The method by which a set of people was chosen to define a group",
   "valueSetExtensibility": {
     "id": "SEPIO:0000365",
-    "type": "Entity",
     "label": "extensible"
   },
   "concept": [
     {
       "id": "SEPIO:0000262",
-      "type": "Entity",
       "label": "1000 Genomes ascertainment method"
     },
     {
       "id": "SEPIO:0000332",
-      "type": "Entity",
       "label": "ExAC ascertainment method"
     },
     {
       "id": "SEPIO:0000333",
-      "type": "Entity",
       "label": "ESP ascertainment method"
     },
     {
       "id": "SEPIO:0000334",
-      "type": "Entity",
       "label": "gnomAD ascertainment method"
     }
   ],

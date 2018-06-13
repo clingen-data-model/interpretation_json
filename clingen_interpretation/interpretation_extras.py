@@ -52,7 +52,7 @@ def read_criteria():
     inf.close()
     criteria = {}
     for crit in jcrit['concept']:
-        criterion = VariantInterpretationCriterion(crit['id'])
+        criterion = VariantPathogenicityInterpretationCriterion(crit['id'])
         label = crit['label']
         criterion.set_label ( label )
         if label.startswith('PVS'):

@@ -5,223 +5,179 @@
   "description": "Label for a group of individuals with a shared genetic background",
   "valueSetExtensibility": {
     "id": "SEPIO:0000365",
-    "type": "Entity",
     "label": "extensible"
   },
   "concept": [
     {
       "id": "GNOMAD:afr",
-      "type": "Entity",
       "label": "African/African American"
     },
     {
       "id": "GNOMAD:amr",
-      "type": "Entity",
       "label": "Latino"
     },
     {
       "id": "GNOMAD:asj",
-      "type": "Entity",
       "label": "Ashkenazi Jewish"
     },
     {
       "id": "GNOMAD:eas",
-      "type": "Entity",
       "label": "East Asian"
     },
     {
       "id": "GNOMAD:fin",
-      "type": "Entity",
       "label": "Finnish"
     },
     {
       "id": "GNOMAD:nfe",
-      "type": "Entity",
       "label": "Non-Finnish European"
     },
     {
       "id": "GNOMAD:oth",
-      "type": "Entity",
       "label": "Other"
     },
     {
       "id": "GNOMAD:sas",
-      "type": "Entity",
       "label": "South Asian"
     },
     {
       "id": "EVS:AA",
-      "type": "Entity",
       "label": "African-American"
     },
     {
       "id": "EVS:EA",
-      "type": "Entity",
       "label": "European-American"
     },
     {
       "id": "IGSR:acb",
-      "type": "Entity",
       "label": "African Caribbeans in Barbados"
     },
     {
       "id": "IGSR:afr",
-      "type": "Entity",
       "label": "African"
     },
     {
       "id": "IGSR:amr",
-      "type": "Entity",
       "label": "Ad Mixed American"
     },
     {
       "id": "IGSR:asw",
-      "type": "Entity",
       "label": "Americans of African Ancestry in SW USA"
     },
     {
       "id": "IGSR:beb",
-      "type": "Entity",
       "label": "Bengali from Bangladesh"
     },
     {
       "id": "IGSR:cdx",
-      "type": "Entity",
       "label": "Chinese Dai in Xishuangbanna, China"
     },
     {
       "id": "IGSR:ceu",
-      "type": "Entity",
       "label": "Utah Residents (CEPH) with Northern and Western European Ancestry"
     },
     {
       "id": "IGSR:chb",
-      "type": "Entity",
       "label": "Han Chinese in Bejing, China"
     },
     {
       "id": "IGSR:chs",
-      "type": "Entity",
       "label": "Southern Han Chinese"
     },
     {
       "id": "IGSR:clm",
-      "type": "Entity",
       "label": "Colombians from Medellin, Colombia"
     },
     {
       "id": "IGSR:eas",
-      "type": "Entity",
       "label": "East Asian"
     },
     {
       "id": "IGSR:esn",
-      "type": "Entity",
       "label": "Esan in Nigeria"
     },
     {
       "id": "IGSR:eur",
-      "type": "Entity",
       "label": "European"
     },
     {
       "id": "IGSR:fin",
-      "type": "Entity",
       "label": "Finnish in Finland"
     },
     {
       "id": "IGSR:gbr",
-      "type": "Entity",
       "label": "British in England and Scotland"
     },
     {
       "id": "IGSR:gih",
-      "type": "Entity",
       "label": "Gujarati Indian from Houston, Texas"
     },
     {
       "id": "IGSR:gwd",
-      "type": "Entity",
       "label": "Gambian in Western Divisions in the Gambia"
     },
     {
       "id": "IGSR:ibs",
-      "type": "Entity",
       "label": "Iberian Population in Spain"
     },
     {
       "id": "IGSR:itu",
-      "type": "Entity",
       "label": "Indian Telugu from the UK"
     },
     {
       "id": "IGSR:jpt",
-      "type": "Entity",
       "label": "Japanese in Tokyo, Japan"
     },
     {
       "id": "IGSR:khv",
-      "type": "Entity",
       "label": "Kinh in Ho Chi Minh City, Vietnam"
     },
     {
       "id": "IGSR:lwk",
-      "type": "Entity",
       "label": "Luhya in Webuye, Kenya"
     },
     {
       "id": "IGSR:msl",
-      "type": "Entity",
       "label": "Mende in Sierra Leone"
     },
     {
       "id": "IGSR:mxl",
-      "type": "Entity",
       "label": "Mexican Ancestry from Los Angeles USA"
     },
     {
       "id": "IGSR:pel",
-      "type": "Entity",
       "label": "Peruvians from Lima, Peru"
     },
     {
       "id": "IGSR:pjl",
-      "type": "Entity",
       "label": "Punjabi from Lahore, Pakistan"
     },
     {
       "id": "IGSR:pur",
-      "type": "Entity",
       "label": "Puerto Ricans from Puerto Rico"
     },
     {
       "id": "IGSR:sas",
-      "type": "Entity",
       "label": "South Asian"
     },
     {
       "id": "IGSR:stu",
-      "type": "Entity",
       "label": "Sri Lankan Tamil from the UK"
     },
     {
       "id": "IGSR:tsi",
-      "type": "Entity",
       "label": "Toscani in Italia"
     },
     {
       "id": "IGSR:yri",
-      "type": "Entity",
       "label": "Yoruba in Ibadan, Nigeria"
     },
     {
       "id": "SEPIO-CG:98001",
-      "type": "Entity",
       "label": "Combined"
     },
     {
       "id": "SEPIO-CG:98002",
-      "type": "Entity",
       "label": "Overall"
     }
   ],

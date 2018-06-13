@@ -5,53 +5,43 @@
   "description": "The functional measurement carried out in a given assay",
   "valueSetExtensibility": {
     "id": "SEPIO:0000365",
-    "type": "Entity",
     "label": "extensible"
   },
   "concept": [
     {
       "id": "CGEX:AFAMID076",
-      "type": "Entity",
       "label": "Activation Assay"
     },
     {
       "id": "CGEX:AFAMID077",
-      "type": "Entity",
       "label": "ATPase assay"
     },
     {
       "id": "CGEX:AFAMID078",
-      "type": "Entity",
       "label": "Binding assay"
     },
     {
       "id": "CGEX:AFAMID079",
-      "type": "Entity",
       "label": "cellular localization"
     },
     {
       "id": "CGEX:AFAMID080",
-      "type": "Entity",
       "label": "Elk1 pohsphorylation via luciferase assay"
     },
     {
       "id": "CGEX:AFAMID081",
-      "type": "Entity",
       "label": "iodide efflux"
     },
     {
       "id": "CGEX:AFAMID082",
-      "type": "Entity",
       "label": "motility assay"
     },
     {
       "id": "CGEX:AFAMID083",
-      "type": "Entity",
       "label": "neurite outgrowth"
     },
     {
       "id": "CGEX:AFAMID084",
-      "type": "Entity",
       "label": "Yeast complementation assay"
     }
   ],

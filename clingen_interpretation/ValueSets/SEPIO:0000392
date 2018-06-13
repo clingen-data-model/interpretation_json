@@ -5,33 +5,27 @@
   "description": "The source of an allele in an individual",
   "valueSetExtensibility": {
     "id": "SEPIO:0000365",
-    "type": "Entity",
     "label": "extensible"
   },
   "concept": [
     {
       "id": "GENO:0000878",
-      "type": "Entity",
       "label": "maternally inherited"
     },
     {
       "id": "GENO:0000879",
-      "type": "Entity",
       "label": "paternally inherited"
     },
     {
       "id": "GENO:0000880",
-      "type": "Entity",
       "label": "de novo"
     },
     {
       "id": "GENO:0000881",
-      "type": "Entity",
       "label": "Unknown"
     },
     {
       "id": "GENO:0000888",
-      "type": "Entity",
       "label": "parentally inherited"
     }
   ],

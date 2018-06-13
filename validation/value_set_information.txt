@@ -1,5 +1,6 @@
 ConditionMechanismStatement	gene	SEPIO:0000396
 BenignMissenseVariationRateStatement	statementOutcome	SEPIO:0000349
+PopulationAlleleFrequencyStatement	ascertainment	SEPIO:0000409
 InSilicoPredictionStatement	predictionType	SEPIO:0000345
 CriterionAssessment	statementOutcome	SEPIO:0000347
 ConditionMechanismStatement	statementOutcome	SEPIO-CG:65108
@@ -34,11 +35,10 @@ IndividualAlleleInheritanceStatement	parentalConfirmation	SEPIO-CG:65125
 InSilicoPredictionScoreStatement	predictionType	SEPIO:0000345
 Genotype	zygosity	SEPIO:0000338
 VariantPathogenicityInterpretation	statementOutcome	SEPIO:0000371
-PopulationAlleleFrequencyStatement	ascertainment	SEPIO:0000409
+VariantPathogenicityInterpretationCriterion	defaultStrength	SEPIO:0000353
 AlleleConservationStatement	statementOutcome	SEPIO-CG:65124
 VariantPathogenicityInterpretationGuideline	scoringAlgorithm	SEPIO-CG:65133
 ConditionPenetranceStatement	statementOutcome	SEPIO-CG:65114
 BenignMissenseVariationRateStatement	gene	SEPIO:0000396
 EvidenceLine	evidenceStrength	SEPIO:0000353
 NullAlleleStatement	statementOutcome	SEPIO-CG:65128
-VariantInterpretationCriterion	defaultStrength	SEPIO:0000353

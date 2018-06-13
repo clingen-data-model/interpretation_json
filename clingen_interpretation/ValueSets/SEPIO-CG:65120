@@ -5,28 +5,23 @@
   "description": "The role played by an agent in the creation of an artifact",
   "valueSetExtensibility": {
     "id": "SEPIO:0000365",
-    "type": "Entity",
     "label": "extensible"
   },
   "concept": [
     {
       "id": "SEPIO:0000154",
-      "type": "Entity",
       "label": "assessor role"
     },
     {
       "id": "SEPIO:0000155",
-      "type": "Entity",
       "label": "approver role"
     },
     {
       "id": "SEPIO:0000156",
-      "type": "Entity",
       "label": "curator role"
     },
     {
       "id": "SEPIO:0000331",
-      "type": "Entity",
       "label": "interpreter role"
     }
   ],

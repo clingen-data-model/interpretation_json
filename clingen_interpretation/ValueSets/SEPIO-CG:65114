@@ -5,23 +5,19 @@
   "description": "The chance of having a particular genetic condition given the presence of a particular variant or damaged gene",
   "valueSetExtensibility": {
     "id": "SEPIO:0000365",
-    "type": "Entity",
     "label": "extensible"
   },
   "concept": [
     {
       "id": "HP:0003829",
-      "type": "Entity",
       "label": "Incomplete"
     },
     {
       "id": "HP:000XXX1",
-      "type": "Entity",
       "label": "Complete"
     },
     {
       "id": "HP:000XXX2",
-      "type": "Entity",
       "label": "High"
     }
   ],

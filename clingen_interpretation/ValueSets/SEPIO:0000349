@@ -5,18 +5,15 @@
   "description": "The rate of missense variation in a transcript that do not lead to a genetic condition",
   "valueSetExtensibility": {
     "id": "SEPIO:0000365",
-    "type": "Entity",
     "label": "extensible"
   },
   "concept": [
     {
       "id": "SEPIO:0000265",
-      "type": "Entity",
       "label": "High"
     },
     {
       "id": "SEPIO:0000266",
-      "type": "Entity",
       "label": "Low"
     }
   ],

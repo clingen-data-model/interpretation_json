@@ -5,33 +5,27 @@
   "description": "The strength of association between a genetic mechanism and a condition",
   "valueSetExtensibility": {
     "id": "SEPIO:0000365",
-    "type": "Entity",
     "label": "extensible"
   },
   "concept": [
     {
       "id": "SEPIO:0000268",
-      "type": "Entity",
       "label": "common"
     },
     {
       "id": "SEPIO:0000269",
-      "type": "Entity",
       "label": "established"
     },
     {
       "id": "SEPIO:0000270",
-      "type": "Entity",
       "label": "primary"
     },
     {
       "id": "SEPIO:0000271",
-      "type": "Entity",
       "label": "suggested"
     },
     {
       "id": "SEPIO:0000272",
-      "type": "Entity",
       "label": "unknown"
     }
   ],

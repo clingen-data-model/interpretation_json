@@ -5,7 +5,6 @@
   "description": "TODO",
   "valueSetExtensibility": {
     "id": "SEPIO:0000365",
-    "type": "Entity",
     "label": "extensible"
   },
   "valueSetIdentifierSystems": [

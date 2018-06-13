@@ -5,23 +5,19 @@
   "description": "A label applied to a sequence region",
   "valueSetExtensibility": {
     "id": "SEPIO:0000365",
-    "type": "Entity",
     "label": "extensible"
   },
   "concept": [
     {
       "id": "SO:0002188",
-      "type": "Entity",
       "label": "functional region"
     },
     {
       "id": "SO:0002186",
-      "type": "Entity",
       "label": "mutational hotspot"
     },
     {
       "id": "SO:0000657",
-      "type": "Entity",
       "label": "repeat region "
     }
   ],

@@ -5,53 +5,43 @@
   "description": "Degree of support that a set of evidence lends to a subsequent statement",
   "valueSetExtensibility": {
     "id": "SEPIO:0000364",
-    "type": "Entity",
     "label": "fixed"
   },
   "concept": [
     {
       "id": "SEPIO:0000216",
-      "type": "Entity",
       "label": "Pathogenic Moderate"
     },
     {
       "id": "SEPIO:0000218",
-      "type": "Entity",
       "label": "None"
     },
     {
       "id": "SEPIO:0000220",
-      "type": "Entity",
       "label": "Pathogenic Very Strong"
     },
     {
       "id": "SEPIO:0000325",
-      "type": "Entity",
       "label": "Benign Stand Alone"
     },
     {
       "id": "SEPIO:0000326",
-      "type": "Entity",
       "label": "Benign Moderate"
     },
     {
       "id": "SEPIO:0000327",
-      "type": "Entity",
       "label": "Benign Supporting"
     },
     {
       "id": "SEPIO:0000328",
-      "type": "Entity",
       "label": "Benign Strong"
     },
     {
       "id": "SEPIO:0000329",
-      "type": "Entity",
       "label": "Pathogenic Supporting"
     },
     {
       "id": "SEPIO:0000330",
-      "type": "Entity",
       "label": "Pathogenic Strong"
     }
   ],

@@ -5,18 +5,15 @@
   "description": "Denotes whether the collected evidence is sufficient to meet a specified criteria or not",
   "valueSetExtensibility": {
     "id": "SEPIO:0000365",
-    "type": "Entity",
     "label": "extensible"
   },
   "concept": [
     {
       "id": "SEPIO:0000223",
-      "type": "Entity",
       "label": "Met"
     },
     {
       "id": "SEPIO:0000224",
-      "type": "Entity",
       "label": "Not Met"
     }
   ],

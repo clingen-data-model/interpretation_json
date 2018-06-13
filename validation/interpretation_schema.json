@@ -7,12 +7,12 @@
                 }, 
                 {
                     "required": [
-                        "haplotype"
+                        "hasPart"
                     ], 
                     "type": "object", 
                     "description": "A set of haplotypes on different molecules (i.e. in trans)", 
                     "properties": {
-                        "haplotype": {
+                        "hasPart": {
                             "items": {
                                 "$ref": "#/definitions/Haplotype"
                             }, 
@@ -212,26 +212,57 @@
                 }
             ]
         }, 
-        "VariantInterpretationCriterion": {
+        "NullAlleleStatement": {
             "anyOf": [
                 {
                     "type": "string"
                 }, 
                 {
+                    "required": [
+                        "contextualAllele", 
+                        "statementOutcome"
+                    ], 
                     "type": "object", 
-                    "description": "A specification that describes how to interpret the direction and strength of evidence provided by a specific type of information, as relevant to the pathogenicity or benignancy of a genetic variant.\n\nA specification that describes how to interpret the direction and strength of evidence provided by a specific type of information for the pathogenicity or benignancy of a genetic variant.", 
+                    "description": "A statement that asserts whether an allele causes complete loss of function of a gene or gene  product. ", 
                     "properties": {
-                        "defaultStrength": {
-                            "$ref": "#/definitions/LabeledIRI"
-                        }, 
                         "description": {
                             "type": "string"
                         }, 
-                        "usageNotes": {
-                            "type": "string"
+                        "source": {
+                            "items": {
+                                "type": "string"
+                            }, 
+                            "type": "array"
+                        }, 
+                        "statementOutcome": {
+                            "$ref": "#/definitions/LabeledIRI"
                         }, 
                         "label": {
                             "type": "string"
+                        }, 
+                        "outcomeQualifier": {
+                            "type": "string"
+                        }, 
+                        "evidenceLine": {
+                            "items": {
+                                "$ref": "#/definitions/EvidenceLine"
+                            }, 
+                            "type": "array"
+                        }, 
+                        "userLabelDictionary": {
+                            "items": {
+                                "$ref": "#/definitions/UserLabel"
+                            }, 
+                            "type": "array"
+                        }, 
+                        "contextualAllele": {
+                            "$ref": "#/definitions/ContextualAllele"
+                        }, 
+                        "contribution": {
+                            "items": {
+                                "$ref": "#/definitions/Contribution"
+                            }, 
+                            "type": "array"
                         }
                     }
                 }
@@ -415,7 +446,7 @@
                             "type": "array"
                         }, 
                         "statementOutcome": {
-                            "type": "string"
+                            "$ref": "#/definitions/LabeledIRI"
                         }, 
                         "canonicalAllele": {
                             "$ref": "#/definitions/CanonicalAllele"
@@ -529,13 +560,13 @@
                         "referenceSequence": {
                             "$ref": "#/definitions/LabeledIRI"
                         }, 
+                        "refState": {
+                            "type": "string"
+                        }, 
                         "end": {
                             "$ref": "#/definitions/Position"
                         }, 
                         "description": {
-                            "type": "string"
-                        }, 
-                        "refAllele": {
                             "type": "string"
                         }, 
                         "label": {
@@ -644,6 +675,25 @@
                 }
             ]
         }, 
+        "DomainEntity": {
+            "anyOf": [
+                {
+                    "type": "string"
+                }, 
+                {
+                    "type": "object", 
+                    "description": "Parent class for all concepts that may fit the following uses: \n- referenced in a ValueSet\n- provide for an optional UserLabel in lieu of the registered id label\n- define a novel concept with only a UserLabel for a given subclass", 
+                    "properties": {
+                        "description": {
+                            "type": "string"
+                        }, 
+                        "label": {
+                            "type": "string"
+                        }
+                    }
+                }
+            ]
+        }, 
         "GeneticCondition": {
             "anyOf": [
                 {
@@ -681,16 +731,22 @@
                 }
             ]
         }, 
-        "DomainEntity": {
+        "VariantPathogenicityInterpretationCriterion": {
             "anyOf": [
                 {
                     "type": "string"
                 }, 
                 {
                     "type": "object", 
-                    "description": "Parent class for all concepts that may fit the following uses: \n- referenced in a ValueSet\n- provide for an optional UserLabel in lieu of the registered id label\n- define a novel concept with only a UserLabel for a given subclass", 
+                    "description": "A specification that describes how to interpret the direction and strength of evidence provided by a specific type of information, as relevant to the pathogenicity or benignancy of a genetic variant.\n\nA specification that describes how to interpret the direction and strength of evidence provided by a specific type of information for the pathogenicity or benignancy of a genetic variant.", 
                     "properties": {
+                        "defaultStrength": {
+                            "$ref": "#/definitions/LabeledIRI"
+                        }, 
                         "description": {
+                            "type": "string"
+                        }, 
+                        "usageNotes": {
                             "type": "string"
                         }, 
                         "label": {
@@ -971,16 +1027,16 @@
                         "description": {
                             "type": "string"
                         }, 
+                        "relatedCanonicalAllele": {
+                            "$ref": "#/definitions/CanonicalAllele"
+                        }, 
                         "contextualAlleleType": {
                             "$ref": "#/definitions/LabeledIRI"
                         }, 
                         "label": {
                             "type": "string"
                         }, 
-                        "canonicalAllele": {
-                            "$ref": "#/definitions/CanonicalAllele"
-                        }, 
-                        "allele": {
+                        "state": {
                             "type": "string"
                         }
                     }
@@ -1040,63 +1096,7 @@
                         }, 
                         "condition": {
                             "items": {
-                                "$ref": "#/definitions/MendelianCondition"
-                            }, 
-                            "type": "array"
-                        }
-                    }
-                }
-            ]
-        }, 
-        "NullAlleleStatement": {
-            "anyOf": [
-                {
-                    "type": "string"
-                }, 
-                {
-                    "required": [
-                        "contextualAllele", 
-                        "statementOutcome"
-                    ], 
-                    "type": "object", 
-                    "description": "A statement that asserts whether an allele causes complete loss of function of a gene or gene  product. ", 
-                    "properties": {
-                        "description": {
-                            "type": "string"
-                        }, 
-                        "source": {
-                            "items": {
-                                "type": "string"
-                            }, 
-                            "type": "array"
-                        }, 
-                        "statementOutcome": {
-                            "$ref": "#/definitions/LabeledIRI"
-                        }, 
-                        "label": {
-                            "type": "string"
-                        }, 
-                        "outcomeQualifier": {
-                            "type": "string"
-                        }, 
-                        "evidenceLine": {
-                            "items": {
-                                "$ref": "#/definitions/EvidenceLine"
-                            }, 
-                            "type": "array"
-                        }, 
-                        "userLabelDictionary": {
-                            "items": {
-                                "$ref": "#/definitions/UserLabel"
-                            }, 
-                            "type": "array"
-                        }, 
-                        "contextualAllele": {
-                            "$ref": "#/definitions/ContextualAllele"
-                        }, 
-                        "contribution": {
-                            "items": {
-                                "$ref": "#/definitions/Contribution"
+                                "$ref": "#/definitions/GeneticCondition"
                             }, 
                             "type": "array"
                         }
@@ -1685,12 +1685,12 @@
                 }, 
                 {
                     "required": [
-                        "allele"
+                        "hasPart"
                     ], 
                     "type": "object", 
                     "description": "A set of alleles on the same molecule (i.e. in cis)", 
                     "properties": {
-                        "allele": {
+                        "hasPart": {
                             "items": {
                                 "$ref": "#/definitions/CanonicalAllele"
                             }, 

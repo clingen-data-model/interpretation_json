@@ -57,10 +57,10 @@ class ReferenceCoordinate(DomainEntity):
         self.data[DMWG_A932_END_KEY] = x
     def get_end(self):
         return self.data[DMWG_A932_END_KEY]
-    def set_refAllele(self,x):
-        self.data[DMWG_A930_REFALLELE_KEY] = x
-    def get_refAllele(self):
-        return self.data[DMWG_A930_REFALLELE_KEY]
+    def set_refState(self,x):
+        self.data[DMWG_A930_REFSTATE_KEY] = x
+    def get_refState(self):
+        return self.data[DMWG_A930_REFSTATE_KEY]
     def set_label(self,x):
         self.data[LabelIdentifier] = x
     def get_label(self):
@@ -114,12 +114,12 @@ class Haplotype(DomainEntity):
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_HAPLOTYPE_TYPE 
-    def add_allele(self,x):
-        if not DMWG_A067_ALLELE_KEY in self.data:
-            self.data[DMWG_A067_ALLELE_KEY] = []
-        self.data[DMWG_A067_ALLELE_KEY].append( x ) 
-    def get_allele(self):
-        return self.data[DMWG_A067_ALLELE_KEY]
+    def add_hasPart(self,x):
+        if not DMWG_A067_HASPART_KEY in self.data:
+            self.data[DMWG_A067_HASPART_KEY] = []
+        self.data[DMWG_A067_HASPART_KEY].append( x ) 
+    def get_hasPart(self):
+        return self.data[DMWG_A067_HASPART_KEY]
     def set_label(self,x):
         self.data[LabelIdentifier] = x
     def get_label(self):
@@ -184,12 +184,12 @@ class GeneticCondition(DomainEntity):
     def get_label(self):
         return self.data[LabelIdentifier]
 
-class VariantInterpretationCriterion(DomainEntity):
+class VariantPathogenicityInterpretationCriterion(DomainEntity):
     def __init__(self,iri=None):
         self.data = {}
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_VARIANTINTERPRETATIONCRITERION_TYPE 
+        self.data[DMWG_TYPE_KEY] = DMWG_VARIANTPATHOGENICITYINTERPRETATIONCRITERION_TYPE 
     @get_factory_entity('SEPIO:0000353')
     def set_defaultStrength(self,x):
         self.data[DMWG_A153_DEFAULTSTRENGTH_KEY] = x
@@ -210,12 +210,12 @@ class Genotype(DomainEntity):
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_GENOTYPE_TYPE 
-    def add_haplotype(self,x):
-        if not DMWG_A068_HAPLOTYPE_KEY in self.data:
-            self.data[DMWG_A068_HAPLOTYPE_KEY] = []
-        self.data[DMWG_A068_HAPLOTYPE_KEY].append( x ) 
-    def get_haplotype(self):
-        return self.data[DMWG_A068_HAPLOTYPE_KEY]
+    def add_hasPart(self,x):
+        if not DMWG_A068_HASPART_KEY in self.data:
+            self.data[DMWG_A068_HASPART_KEY] = []
+        self.data[DMWG_A068_HASPART_KEY].append( x ) 
+    def get_hasPart(self):
+        return self.data[DMWG_A068_HASPART_KEY]
     @get_factory_entity('SEPIO:0000338')
     def set_zygosity(self,x):
         self.data[DMWG_A069_ZYGOSITY_KEY] = x

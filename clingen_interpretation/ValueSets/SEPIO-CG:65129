@@ -5,18 +5,15 @@
   "description": "Whether or not an allele overlaps a sequence region",
   "valueSetExtensibility": {
     "id": "SEPIO:0000365",
-    "type": "Entity",
     "label": "extensible"
   },
   "concept": [
     {
       "id": "RO:0002527",
-      "type": "Entity",
       "label": "does not overlap region"
     },
     {
       "id": "RO:0002656",
-      "type": "Entity",
       "label": "overlaps region"
     }
   ],

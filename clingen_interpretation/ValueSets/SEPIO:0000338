@@ -5,43 +5,35 @@
   "description": "Describes the existence of an allele across multiple copies of a chromosome\n(Informed by LOINC answer list https://r.details.loinc.org/AnswerList/LL381-5.html but with additional codes for somatic mosaicism and asserted absence.)",
   "valueSetExtensibility": {
     "id": "SEPIO:0000365",
-    "type": "Entity",
     "label": "extensible"
   },
   "concept": [
     {
       "id": "GENO:0000134",
-      "type": "Entity",
       "label": "hemizygous"
     },
     {
       "id": "GENO:0000135",
-      "type": "Entity",
       "label": "heterozygous"
     },
     {
       "id": "GENO:0000136",
-      "type": "Entity",
       "label": "homozygous"
     },
     {
       "id": "GENO:0000137",
-      "type": "Entity",
       "label": "unspecified zygosity"
     },
     {
       "id": "GENO:0000602",
-      "type": "Entity",
       "label": "homoplasmic"
     },
     {
       "id": "GENO:0000603",
-      "type": "Entity",
       "label": "heteroplasmic"
     },
     {
       "id": "GENO:0000882",
-      "type": "Entity",
       "label": "somatic"
     }
   ],

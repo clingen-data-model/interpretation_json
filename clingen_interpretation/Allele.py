@@ -100,7 +100,7 @@ class ContextualAllele(Node):
         for seqname in seqnames:
             if seqname.startswith('NC'):
                 bestname = seqname
-        ref_sequence = {'reference': ar_rep['referenceSequence'], 'display': bestname }
+        ref_sequence = {'reference': ar_rep['referenceSequence'], 'label': bestname }
         start = {'index': ar_rep['coordinates'][0]['start'] }
         end = {'index': ar_rep['coordinates'][0]['end'] }
         ra = ar_rep['coordinates'][0]['referenceAllele']

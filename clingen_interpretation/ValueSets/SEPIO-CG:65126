@@ -5,18 +5,15 @@
   "description": "Whether or not an individual is affected by a specific genetic condition",
   "valueSetExtensibility": {
     "id": "SEPIO:0000365",
-    "type": "Entity",
     "label": "extensible"
   },
   "concept": [
     {
       "id": "SEPIO-CG:99009",
-      "type": "Entity",
       "label": "affected"
     },
     {
       "id": "SEPIO-CG:99010",
-      "type": "Entity",
       "label": "unaffected"
     }
   ],

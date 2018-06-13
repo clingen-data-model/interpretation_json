@@ -5,13 +5,11 @@
   "description": "This is the description of how the weighting of the satisfied criterion are typically evaluated to arrive at a specific clinical significance.",
   "valueSetExtensibility": {
     "id": "SEPIO:0000365",
-    "type": "Entity",
     "label": "extensible"
   },
   "concept": [
     {
       "id": "CGEX:AssertMethScoringAlgorithm001",
-      "type": "Entity",
       "description": "ACMG ISV 2015 combining/scoring algorithm"
     }
   ],

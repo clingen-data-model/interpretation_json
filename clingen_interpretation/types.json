@@ -1,6 +1,7 @@
 {
     "E19": {
         "description": "A statement about the origin of a particular allele in an individual - i.e. whether it occurred  de novo in the individual as a result of a spontaneous mutation event, or whether it was inherited from a parent.", 
+        "comments": "", 
         "iri": "SEPIO:0000240", 
         "parentType": "E01", 
         "link": "IndAllInh", 
@@ -156,6 +157,7 @@
     }, 
     "E18": {
         "description": "A statement asserting the occurrence of a particular disease in the history of a family.", 
+        "comments": "Used  to indicate if there are other  individuals that are affected by or exhibit  a condition in the proband's family.", 
         "iri": "SEPIO:0000239", 
         "parentType": "E01", 
         "link": "FamCond", 
@@ -296,6 +298,7 @@
     }, 
     "E47": {
         "description": "A statement asserting the predicted impact of a particular allele on the function of its resulting gene product (e.g. that it is 'deleterious', 'damaging', 'tolerated', etc.). Such assertions are typically based on interpretation of the quantitative output of predictive computational algorithms.", 
+        "comments": "", 
         "iri": "SEPIO:0000249", 
         "parentType": "E01", 
         "link": "InSilicoPred", 
@@ -434,7 +437,7 @@
             {
                 "name": "statementOutcome", 
                 "precedence": 5.0, 
-                "dataType": "string", 
+                "dataType": "@id", 
                 "iri-label": "asserted_conclusion", 
                 "description": "The value of the prediction", 
                 "iri": "SEPIO:0000197", 
@@ -463,6 +466,7 @@
     }, 
     "E32": {
         "description": "A specification that describes how to interpret information as evidence in order to make an  assertion about the pathogenicity of a genetic variant.", 
+        "comments": "Guidelines typically include specific 'variant interpretation criterion' that describe how to interpret the direction and strength of evidence provided by a particular type of information, and 'criterion scoring algorithms' which describe how to combine the outcomes of each criterion assessment to arrive at a final interpretation of a variant's pathogenicity.\n. . . ", 
         "iri": "SEPIO:0000193", 
         "parentType": "E40", 
         "link": "AssertMeth", 
@@ -536,6 +540,7 @@
     }, 
     "E25": {
         "description": "A statement about the positional relationship between a region of genomic sequence and one or more alleles. (i.e. whether the region overlaps or is adjacent to the allele).", 
+        "comments": "", 
         "iri": "SEPIO:0000244", 
         "parentType": "E01", 
         "link": "RegAll", 
@@ -636,7 +641,7 @@
                 "dataType": "ContextualAllele", 
                 "iri-label": "is_about_allele", 
                 "description": "Alleles that are being explicited assessed as either included or excluded from the region.", 
-                "iri": "SEPIO-CG:0000275", 
+                "iri": "SEPIO:0000275", 
                 "cg-label": "allele", 
                 "entityId": "E25", 
                 "cardinality": "0..*", 
@@ -676,6 +681,7 @@
     }, 
     "E11": {
         "description": "The actions taken by a particular agent in the creation, modification, assessment, or destruction of an artifact.", 
+        "comments": "A contribution describes the part played by a particular agent in the creation, modification, assessment, or descruction of an artifact. The scope of a given 'contribution' instance is constrained to include only the actions of a particular agent in contributing to a particular artifact. Contribution instances are used to organize information about when, where, how (e.g. what roles were played), and on whose behalf these actions were performed.", 
         "iri": "SEPIO:0000158", 
         "parentType": "E00", 
         "link": "Contrib", 
@@ -750,6 +756,7 @@
     }, 
     "E12": {
         "description": "An agent is something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent's activity (from PROV).", 
+        "comments": "Agents are entities that actively contribute to the creation, modification or assessment of some artifact such as an assertion, evidence line, or data item. In doing so, an 'agent role' is realized.  Types of entities that play this role can include persons, organizations, and software.", 
         "iri": "PROV:agent", 
         "parentType": "E00", 
         "link": "Agent", 
@@ -784,6 +791,7 @@
     }, 
     "E35": {
         "description": "An assertion about the pathogenicity of a genetic sequence variant, based on evaluation of one or more lines of evidence.", 
+        "comments": "The generation of variant Interpretations typically follows specific guidelines that include a defined set of 'criteria' specifying how to interpret specific types of information as evidence, and a set of rules ('criterion scoring algorithms') for combining the outcomes of individual criterion assessments to make a final interpretation of a variant's pathogenicity.  ", 
         "iri": "SEPIO:0000190", 
         "parentType": "E01", 
         "link": "VarInterp", 
@@ -939,6 +947,7 @@
     }, 
     "E39": {
         "description": "An alternative label for a term that a curator specifies to provide a custom label in the context of a particular message/data set.", 
+        "comments": "Although external naming systems provide labels for entities such as diseases, some users will require the ability to relabel entities with names that have local or historical importance.  A UserLabel  contains this user-defined label, as well as a Contribution describing the provenance of the label, and comments about the need for the label.", 
         "iri": "SEPIO:0000421", 
         "parentType": "E00", 
         "link": "UsrLabl", 
@@ -999,7 +1008,7 @@
     }, 
     "E91": {
         "name": "ReferenceCoordinate", 
-        "iri": "CG:021", 
+        "iri": "CG:0021", 
         "parentType": "E40", 
         "link": "CtxCoord", 
         "attributes": [
@@ -1044,7 +1053,7 @@
                 "precedence": 2.0, 
                 "dataType": "Position", 
                 "iri-label": "start_position", 
-                "iri": "CG:0009", 
+                "iri": "GENO:0000894", 
                 "cg-label": "start", 
                 "entityId": "E91", 
                 "cardinality": "0..1", 
@@ -1055,19 +1064,19 @@
                 "precedence": 3.0, 
                 "dataType": "Position", 
                 "iri-label": "end_position", 
-                "iri": "CG:0010", 
-                "cg-label": "end", 
+                "iri": "GENO:0000895", 
+                "cg-label": "stop", 
                 "entityId": "E91", 
                 "cardinality": "0..1", 
                 "id": "A932"
             }, 
             {
-                "name": "refAllele", 
+                "name": "refState", 
                 "precedence": 4.0, 
                 "dataType": "string", 
-                "iri-label": "reference allele", 
+                "iri-label": "reference state", 
                 "iri": "CG:0008", 
-                "cg-label": "refAllele", 
+                "cg-label": "refState", 
                 "entityId": "E91", 
                 "cardinality": "0..1", 
                 "id": "A930"
@@ -1077,7 +1086,7 @@
     }, 
     "E90": {
         "name": "ContextualAlleleName", 
-        "iri": "CG:020", 
+        "iri": "CG:0020", 
         "parentType": "E40", 
         "link": "CtxNm", 
         "attributes": [
@@ -1144,6 +1153,7 @@
     }, 
     "E41": {
         "description": "(LB) this is not directly related to the model, but it is needed for our work in order to store the data for all the Systems and related meta data, URIs, prefixes, OIDs, etc. that provide externally referenced identifiers.  ", 
+        "comments": "", 
         "iri": "SEPIO:0000374", 
         "parentType": "E40", 
         "link": "IdSys", 
@@ -1230,13 +1240,13 @@
                 "description": "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."
             }, 
             {
-                "name": "allele", 
+                "name": "hasPart", 
                 "precedence": 1.0, 
                 "dataType": "CanonicalAllele", 
                 "iri-label": "has part", 
                 "description": "Individual Alleles that constitute the haplotype", 
                 "iri": "BFO:0000051", 
-                "cg-label": "allele", 
+                "cg-label": "hasPart", 
                 "entityId": "E29", 
                 "cardinality": "1..*", 
                 "id": "A067", 
@@ -1248,6 +1258,7 @@
     }, 
     "E54": {
         "description": "A set of identifiers that can be used as the values of specific properties", 
+        "comments": "TODO", 
         "iri": "SEPIO-CG:02000", 
         "parentType": "E00", 
         "link": "VS", 
@@ -1321,6 +1332,7 @@
     }, 
     "E46": {
         "description": "A statement describing the observed correlation between transmission of a particular allele and a particular genetic condition, across multiple family pedigrees (i.e. the co-segregation of an allele and a condition as observed across multiple family pedigrees).", 
+        "comments": "", 
         "iri": "SEPIO:0000248", 
         "parentType": "E01", 
         "link": "AggSeg", 
@@ -1579,6 +1591,7 @@
     }, 
     "E56": {
         "description": "An evidence line represents an independent and meaningful argument for or against a particular proposition, that is based on the interpretation of one or more pieces of information as evidence.", 
+        "comments": "Evidence lines are organizational nodes in SEPIO used to group all 'evidence items' (pieces of information interpreted as evidence) that contribute to one independent argument relevant to the validity of a proposition. Most often, 'evidence items' are grouped under an evidence line in virtue of their having been generated in a single study or investigation. For example, primary measurement values and derived statistical scores from a study of blood glucose levels in wild-type vs. mutant  mice are all evidence items that would belong to the same Evidence Line. But sometimes information arising from completely separate lines of investigation is grouped under a single evidence line - in cases where two or more independent facts or findings must all be true in order for a meaningful argument for or against a proposition to exist.  For example, the ACMG \"PVS1\" criteria holds that very strong evidence for the pathogenicity of a variant allele exists when: (1) it represents a 'null mutation' that inactivates the resulting gene product, and (2) loss-of-function of the affected gene is a known mechanism of disease. An evidence line based on this criteria would group all evidence items pertinent to establishing either of these independent facts.\n\nAn evidence line is created through the interpretation of one or more pieces of information that collectively support a meaningful argument for or against a proposition. To qualify as an evidence line, this argument must be independently significant as evidence - i.e. it must be capable of affecting the probability of accepting the target proposition as true. This does not mean, however, that an evidence line must be independently sufficient to establish belief in the proposition, as additional evidence lines may be required to ultimately accept the proposition as true. For example, in the ACMG framework for variant interpretations establishes a variant's \"absence in population databases\" as a type of evidence line that can argue for the pathogenicty of the variant. But the ACMG Framework does not consider this argument alone as sufficient to establish a variant's pathogencity, as the additional lines of evidence are required to classify it as definitively pathogenic (e.g. a line of evidence demonstrating the variant to have a deleterious effect on protein function, or showing it to segregate with disease features in a family tree).\n\nEditor Note:\nIt may help to think of evidence lines as representing the relationship between a set of one or more 'evidence items' and a proposition, where the evidence items are interpreted together as supporting one argument  for or against a particular proposition. In SEPIO however, we define them as representing the argument itself, as this is the simplest and most pragmatic way to explain this concept to users. But we acknowledge that the precise ontological nature of an 'argument', and therefore an 'evidence line', in the context of the BFO remains ambiguous.", 
         "iri": "SEPIO:0000002", 
         "parentType": "E00", 
         "link": "EvLn", 
@@ -1652,6 +1665,7 @@
     }, 
     "E51": {
         "description": "A statement describing the observed correlation between transmission of a particular allele and a particular genetic condition, across multiple family pedigrees (i.e. the co-segregation of an allele and a condition as observed across multiple family pedigrees).", 
+        "comments": "", 
         "iri": "SEPIO:0000253", 
         "parentType": "E01", 
         "link": "AllConserv", 
@@ -1793,6 +1807,7 @@
     }, 
     "E50": {
         "description": "A statement about the proportion of individuals carrying a causal allele that exhibit a particular disease or phenotype.", 
+        "comments": "", 
         "iri": "SEPIO:0000252", 
         "parentType": "E01", 
         "link": "CondPenet", 
@@ -1920,6 +1935,7 @@
     }, 
     "E53": {
         "description": "A statement describing a quantitative score of the degree of evolutionary conservation of an allele across a defined set of taxa/species", 
+        "comments": "", 
         "iri": "SEPIO:0000369", 
         "parentType": "E01", 
         "link": "AllConservScore", 
@@ -2061,6 +2077,7 @@
     }, 
     "E52": {
         "description": "A statement describing a quantitative score fron an InSilico Prediction", 
+        "comments": "", 
         "iri": "SEPIO:0000368", 
         "parentType": "E01", 
         "link": "InSilicoPredScore", 
@@ -2224,6 +2241,7 @@
     }, 
     "E22": {
         "description": "An attribute of a sequence feature related to the location of its starting and ending residues according to some reference coordinate system.", 
+        "comments": "TODO MB: add comment clarifying 'sequence feature' used in SO sense, and explain this", 
         "iri": "GENO:0000815", 
         "parentType": "E40", 
         "link": "Loc", 
@@ -2272,7 +2290,7 @@
                 "dataType": "integer", 
                 "iri-label": "start_position", 
                 "description": "Start of the region in 0-based coordinates", 
-                "iri": "GENO:000894", 
+                "iri": "GENO:0000894", 
                 "cg-label": "start", 
                 "entityId": "E22", 
                 "cardinality": "0..1", 
@@ -2285,7 +2303,7 @@
                 "dataType": "integer", 
                 "iri-label": "end_position", 
                 "description": "End of the region in 0-based coordinates", 
-                "iri": "GENO:000895", 
+                "iri": "GENO:0000895", 
                 "cg-label": "stop", 
                 "entityId": "E22", 
                 "cardinality": "0..1", 
@@ -2298,6 +2316,7 @@
     }, 
     "E14": {
         "description": "A disease, or a set of one or more co-occurring phenotypes, typically controlled by a single locus with a defined inheritance pattern.", 
+        "comments": "CB: It appears that most descriptions of mendelian conditions do emphasize the single-locus nature.  (Many say monogenic, but single-locus makes more sense to me for something like a large-deletion?)  The problem, perhapse is that we have allowed Mendelian Condition to contain terms that are not, strictly speaking, Mendelian conditions.  For instance, parent nodes in a disease ontology which is a parent to many different monogenic diseases that all share similary phenotypic features (like hearing loss).\n\nMB: I think the 'typically' accommodates this in the definition, but CG should add clarifying comments as noted above.\n\nTODO:CG to add clarifying coments here about monogenic nature of mendelian conditions ", 
         "iri": "SEPIO:0000219", 
         "parentType": "E40", 
         "link": "GenCond", 
@@ -2385,6 +2404,7 @@
     }, 
     "E45": {
         "description": "A statement describing the observed correlation between transmission of a particular allele and a particular genetic condition, across a single family pedigree (i.e. the co-segregation of an allele and a condition as observed across a family pedigree).\n", 
+        "comments": "Co-segregatation' refers to the correlation between the presence of a particular allele and the manifestation of a condition in a family pedigree. When an allele and a condition are only found together in family members, they are said to co-segregate. \n\nWhen there are no individuals that have the allele without the condition or the condition without the allele, the allele and condition are said to co-segregate.", 
         "iri": "SEPIO:0000247", 
         "parentType": "E01", 
         "link": "FamSeg", 
@@ -2656,6 +2676,7 @@
     }, 
     "E04": {
         "description": "A specification that describes how to interpret the direction and strength of evidence provided by a specific type of information, as relevant to the pathogenicity or benignancy of a genetic variant.\n\nA specification that describes how to interpret the direction and strength of evidence provided by a specific type of information for the pathogenicity or benignancy of a genetic variant.", 
+        "comments": "\tIn the process of generating a variant interpretation, criterion support the generation of intermediate assertions ('criterion assessments') that establish whether a variant meets the standards set forth in the criterion. Many criterion also define a default strength to a particular type of evidence it defines (e.g. the ACMG criteria for pathogenicity are categorized as very string, strong, moderate, and supporting). These strengths are ultimately used by rules that combine the outcomes of all satisfied criterion to make a final interpretation of the variant's pathogenicity.", 
         "iri": "SEPIO:0000192", 
         "parentType": "E40", 
         "link": "Crit", 
@@ -2710,10 +2731,11 @@
             }
         ], 
         "id": "E04", 
-        "name": "VariantInterpretationCriterion"
+        "name": "VariantPathogenicityInterpretationCriterion"
     }, 
     "E24": {
         "description": "A statement that classifies a particular region of biological sequence as being of a specified type or types  (e.g. using terms from the Sequence Ontology).", 
+        "comments": "", 
         "iri": "SEPIO:0000243", 
         "parentType": "E01", 
         "link": "RegTyp", 
@@ -2843,6 +2865,7 @@
     }, 
     "E43": {
         "description": "A statement about the frequency at which missense variants in a particular region are tolerated (i.e. do not cause a pathological condition)", 
+        "comments": "", 
         "iri": "SEPIO:0000246", 
         "parentType": "E01", 
         "link": "BMVR", 
@@ -2985,6 +3008,9 @@
         "name": "BenignMissenseVariationRateStatement"
     }, 
     "E40": {
+        "description": "Parent class for all concepts that may fit the following uses: \n- referenced in a ValueSet\n- provide for an optional UserLabel in lieu of the registered id label\n- define a novel concept with only a UserLabel for a given subclass", 
+        "comments": "These types represent base domain-related classes needed to describe variant pathogenicity data, such as alleles and conditions.  Several of these entities are more fully described in the [ClinGen allele model](http://datamodel.clinicalgenome.org/allele/master/index.html), but are included here for convenience.", 
+        "parentType": "E00", 
         "attributes": [
             {
                 "name": "label", 
@@ -3011,13 +3037,12 @@
                 "description": "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."
             }
         ], 
-        "parentType": "E00", 
-        "description": "Parent class for all concepts that may fit the following uses: \n- referenced in a ValueSet\n- provide for an optional UserLabel in lieu of the registered id label\n- define a novel concept with only a UserLabel for a given subclass", 
         "id": "E40", 
         "name": "DomainEntity"
     }, 
     "E05": {
         "description": "One of a set of coexisting sequence variants at a defined genomic locus, or a set of such variants located in cis on the same copy of the chromosome.\n", 
+        "comments": "", 
         "iri": "GENO:0000890", 
         "parentType": "E40", 
         "link": "CanAll", 
@@ -3099,6 +3124,7 @@
     }, 
     "E20": {
         "description": "A statement describing a particular experimental result about the impact of an allele on gene product function (typically that of the directly affected gene).", 
+        "comments": "", 
         "iri": "SEPIO:0000241", 
         "parentType": "E01", 
         "link": "Func", 
@@ -3253,6 +3279,7 @@
     }, 
     "E21": {
         "description": "A statement describing allele frequencies identified in a particular study group as a function of case-control status (i.e frequency in affected vs unaffected study groups)", 
+        "comments": "", 
         "iri": "SEPIO:0000242", 
         "parentType": "E01", 
         "link": "CaseCtrl", 
@@ -3459,6 +3486,7 @@
     }, 
     "E08": {
         "description": "A statement that asserts whether an allele causes complete loss of function of a gene or gene  product. ", 
+        "comments": "", 
         "iri": "SEPIO:0000274", 
         "parentType": "E01", 
         "link": "Null", 
@@ -3560,7 +3588,7 @@
                 "dataType": "ContextualAllele", 
                 "iri-label": "is_about_allele", 
                 "description": "The allele that is being described", 
-                "iri": "SEPIO-CG:0000275", 
+                "iri": "SEPIO:0000275", 
                 "cg-label": "contextualAllele", 
                 "entityId": "E08", 
                 "cardinality": "1..1", 
@@ -3586,6 +3614,7 @@
     }, 
     "E09": {
         "description": "An assertion of whether sufficient evidence exists to satisfy some pre-defined 'variant interpretation criterion', which defines requirements for a particular type of argument relevant to the pathogenicity of a genetic variant.", 
+        "comments": "Variant interpretation criteria are provided as part of frameworks such as the ACMG Guidelines for charaterizing the pathogenicty of genetic variants. These criteria define relevant data types and rules for interpreting this data as evidence, to make a specific type of assertion about a variant that is ultimately relevant to its pathogenicity interpretation.  For example, the PM2 ACMG criterion may be met based on a study showing a variant to be absent in a particular population of healthy individuals (e.g. non-Finnish Europeans in the ExAC database). Implicit in an this criterion being 'met' is the broader assertion that the frequency of the variant is sufficiently low in healthy populations to support a meaningful argument for the pathogenicity of the variant.      \n\nIn the process of generating a variant interpretation through the ACMG workflow, criterion assessments are treate as 'intermediate' assertions that establish whether a particuar criterion is met or not for the variant under review.  Evidence relevant to the merit of this assertion is organized around one or more evidence lines, and the criterion assessment is itself used as evidence for the final interpretation of the variant's pathogenicity.", 
         "iri": "SEPIO:0000191", 
         "parentType": "E01", 
         "link": "CritAssess", 
@@ -3741,6 +3770,7 @@
     }, 
     "E06": {
         "description": "An informational artifact that describes an allele as defined on a particular reference sequence.", 
+        "comments": "", 
         "iri": "GENO:0000891", 
         "parentType": "E40", 
         "link": "CtxAll", 
@@ -3770,7 +3800,7 @@
                 "description": "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."
             }, 
             {
-                "name": "canonicalAllele", 
+                "name": "relatedCanonicalAllele", 
                 "precedence": 1.0, 
                 "dataType": "CanonicalAllele", 
                 "iri-label": "related canonical allele", 
@@ -3792,12 +3822,12 @@
                 "id": "A911"
             }, 
             {
-                "name": "allele", 
+                "name": "state", 
                 "precedence": 3.0, 
                 "dataType": "string", 
-                "iri-label": "allele", 
+                "iri-label": "state", 
                 "iri": "CG:0004", 
-                "cg-label": "allele", 
+                "cg-label": "state", 
                 "entityId": "E06", 
                 "cardinality": "0..1", 
                 "id": "A912"
@@ -3831,6 +3861,7 @@
     }, 
     "E28": {
         "description": "A statement about the allelic state of one or more alleles in the genome of an individual (e.g. zygosity information, or phase relative to a second allele).", 
+        "comments": "", 
         "iri": "SEPIO:0000245", 
         "parentType": "E01", 
         "link": "IndGeno", 
@@ -3973,6 +4004,7 @@
     }, 
     "E48": {
         "description": "A statement about the specificity with which a genetic condition is caused by variants in a particular gene or locus (i.e. whether it is the only known gene associated with the condition, or one or more other genes have been linked to the condition).", 
+        "comments": "The gene-specificity for a condition is low if the condition can be caused by other genes or factors, and high/complete if mutations in the gene are only known cause.", 
         "iri": "SEPIO:0000250", 
         "parentType": "E01", 
         "link": "LocHet", 
@@ -4113,6 +4145,7 @@
     }, 
     "E49": {
         "description": "A statement describing the observed frequency of a condition as determined for a particular population of persons (ascertained by factors such as ethnicity, race, socio-economic  status, geographic residence, etc).", 
+        "comments": "", 
         "iri": "SEPIO:0000251", 
         "parentType": "E01", 
         "link": "CondPrev", 
@@ -4279,6 +4312,7 @@
     }, 
     "E02": {
         "description": "A statement about the expected effect of a variant allele at the level of genomic or transcript sequence (e.g. how it might affect splicing, truncate a gene product, etc.).", 
+        "comments": "Molecular consequence statements typically describe the type of variation the allele represents (e.g. a deletion or insertion or translocation), the type of genomic or transcript feature the allele affects (e.g. that it occurs in a 3' UTR, or an exon), or its impact on the structure or processing of a gene (e.g. that it generates a copy number variation, results in a lost stop codon,  disrupts a slice site, or causes a frameshift elongation). Molecular Consequence statements do not include predictions about the impact a variation might have on the function of an encoded gene product. \n\nExample of usage.  Molecular consequence statements are produced by software such as Annovar (http://annovar.openbioinformatics.org), SnpEff (http://snpeff.sourceforge.net) or Variant Effect Predictor (http://www.ensembl.org/vep), and often take the form of annotation of a variant with a term from the sequence ontology such as 'missense variant', 'frameshift variant', 'splice-site variant', 'frameshift elongation', 'substitution', 'inversion'.", 
         "iri": "SEPIO:0000229", 
         "parentType": "E01", 
         "link": "MolCon", 
@@ -4407,6 +4441,7 @@
     }, 
     "E03": {
         "description": "A statement about the mechanism underlying a genetic condition (e.g. if that LOF mutations in a particular gene are a known mechanism of disease).", 
+        "comments": "", 
         "iri": "SEPIO:0000228", 
         "parentType": "E01", 
         "link": "CondMech", 
@@ -4562,7 +4597,10 @@
         "name": "ConditionMechanismStatement"
     }, 
     "E00": {
+        "name": "Entity", 
+        "comments": "", 
         "iri": "BFO:0000001", 
+        "link": "E", 
         "attributes": [
             {
                 "name": "label", 
@@ -4589,12 +4627,11 @@
                 "description": "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."
             }
         ], 
-        "link": "E", 
-        "id": "E00", 
-        "name": "Entity"
+        "id": "E00"
     }, 
     "E01": {
         "description": "An information content entity expressing a declarative sentence that is either true or false.", 
+        "comments": "A Statement is the superclass for any declarative statement.  In particular, subclasses of Statment are either \n\n 1. Supported by evidence (such as VariantInterpretation),\n 2. Evidence themselves (such as AlleleConservation), or\n 3. Both supported by evidence, and providing support to other statements (such as a CriterionAssessment).\n\nStatement is abstract, and is not ever instantiated directly.  The purpose of this class is to provide a home for attributes shared across all Statements.\n\nAny statement may be negated using the qualifier attribute.  For example, to create a statement saying that a particular allele is not a loss of function allele, the qualifier \"NOT\" is added to a statement that the allele is a loss of function allele.", 
         "iri": "SEPIO:0000174", 
         "parentType": "E00", 
         "link": "Stmt", 
@@ -4696,6 +4733,7 @@
     }, 
     "E30": {
         "description": "A set of haplotypes on different molecules (i.e. in trans)", 
+        "comments": "", 
         "iri": "GENO:0000719", 
         "parentType": "E40", 
         "link": "Geno", 
@@ -4725,13 +4763,13 @@
                 "description": "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."
             }, 
             {
-                "name": "haplotype", 
+                "name": "hasPart", 
                 "precedence": 1.0, 
                 "dataType": "Haplotype", 
                 "iri-label": "has part", 
                 "description": "Individual Haplotypes that constitute the Genotype", 
                 "iri": "BFO:0000051", 
-                "cg-label": "haplotype", 
+                "cg-label": "hasPart", 
                 "entityId": "E30", 
                 "cardinality": "1..*", 
                 "id": "A068", 
@@ -4755,6 +4793,7 @@
     }, 
     "E17": {
         "description": "A statement about whether a individual is affected by or exhibits a particular condition.", 
+        "comments": "A 'condition' can be either a disease affecting the individual or a set of one or more phenotypes the individual exhibits.", 
         "iri": "SEPIO:0000238", 
         "parentType": "E01", 
         "link": "IndCond", 
@@ -4867,7 +4906,7 @@
             {
                 "name": "condition", 
                 "precedence": 2.0, 
-                "dataType": "MendelianCondition", 
+                "dataType": "GeneticCondition", 
                 "iri-label": "is_about_condition", 
                 "description": "The condition that the person may have", 
                 "iri": "SEPIO:0000276", 
@@ -4896,6 +4935,7 @@
     }, 
     "E23": {
         "description": "A statement that describes the observed frequency of an allele as determined in a defined group of individuals (typically a representative sampling that serves as a proxy for some larger population of individuals).\n", 
+        "comments": "The population in which allele frequency is determined is defined based on features such as  ethnicity, nationality, geography, socio-economic status, etc.  ", 
         "iri": "SEPIO:0000227", 
         "parentType": "E01", 
         "link": "AllFreq", 
@@ -5141,7 +5181,7 @@
     }, 
     "E92": {
         "name": "Position", 
-        "iri": "CG:022", 
+        "iri": "CG:0022", 
         "parentType": "E40", 
         "link": "CtxPos", 
         "attributes": [

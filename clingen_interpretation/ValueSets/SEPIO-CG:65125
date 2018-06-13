@@ -5,28 +5,23 @@
   "description": "Whether or not parentage has been confirmed with a genetic test",
   "valueSetExtensibility": {
     "id": "SEPIO:0000365",
-    "type": "Entity",
     "label": "extensible"
   },
   "concept": [
     {
       "id": "SEPIO-CG:99005",
-      "type": "Entity",
       "label": "maternal confirmation"
     },
     {
       "id": "SEPIO-CG:99006",
-      "type": "Entity",
       "label": "paternal confirmation"
     },
     {
       "id": "SEPIO-CG:99007",
-      "type": "Entity",
       "label": "maternal and paternal confirmation"
     },
     {
       "id": "SEPIO-CG:99008",
-      "type": "Entity",
       "label": "no parental confirmation"
     }
   ],

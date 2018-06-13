@@ -5,143 +5,115 @@
   "description": "A classification of a genomic variant based on its effect on a transcript or its location with respect to the transcript.",
   "valueSetExtensibility": {
     "id": "SEPIO:0000365",
-    "type": "Entity",
     "label": "extensible"
   },
   "concept": [
     {
       "id": "SO:0000159",
-      "type": "Entity",
       "label": "deletion"
     },
     {
       "id": "SO:0000191",
-      "type": "Entity",
       "label": "interior intron"
     },
     {
       "id": "SO:0000199",
-      "type": "Entity",
       "label": "translocation"
     },
     {
       "id": "SO:0000203",
-      "type": "Entity",
       "label": "three prime UTR"
     },
     {
       "id": "SO:0000204",
-      "type": "Entity",
       "label": "five prime UTR"
     },
     {
       "id": "SO:0000507",
-      "type": "Entity",
       "label": "pseudogenic exon"
     },
     {
       "id": "SO:0000667",
-      "type": "Entity",
       "label": "insertion"
     },
     {
       "id": "SO:0001019",
-      "type": "Entity",
       "label": "copy number variation"
     },
     {
       "id": "SO:0001568",
-      "type": "Entity",
       "label": "splicing variant"
     },
     {
       "id": "SO:0001578",
-      "type": "Entity",
       "label": "stop lost"
     },
     {
       "id": "SO:0001583",
-      "type": "Entity",
       "label": "missense variant"
     },
     {
       "id": "SO:0001586",
-      "type": "Entity",
       "label": "non conservative missense variant"
     },
     {
       "id": "SO:0001587",
-      "type": "Entity",
       "label": "stop gained"
     },
     {
       "id": "SO:0001589",
-      "type": "Entity",
       "label": "frameshift variant"
     },
     {
       "id": "SO:0001629",
-      "type": "Entity",
       "label": "splice-site variant"
     },
     {
       "id": "SO:0001819",
-      "type": "Entity",
       "label": "synonymous variant"
     },
     {
       "id": "SO:0001823",
-      "type": "Entity",
       "label": "conservative Inframe Insertion"
     },
     {
       "id": "SO:0001824",
-      "type": "Entity",
       "label": "disruptive inframe insertion"
     },
     {
       "id": "SO:0001825",
-      "type": "Entity",
       "label": "conservative Inframe Deletion"
     },
     {
       "id": "SO:0001826",
-      "type": "Entity",
       "label": "disruptive inframe deletion"
     },
     {
       "id": "SO:0001909",
-      "type": "Entity",
       "label": "frameshift elongation"
     },
     {
       "id": "SO:0002007",
-      "type": "Entity",
       "label": "MNV"
     },
     {
       "id": "SO:0002012",
-      "type": "Entity",
       "label": "start lost"
     },
     {
       "id": "SO:0002073",
-      "type": "Entity",
       "label": "no sequence alteration"
     },
     {
       "id": "SO:1000002",
-      "type": "Entity",
       "label": "substitution"
     },
     {
       "id": "SO:10000032",
-      "type": "Entity",
       "label": "indel"
     },
     {
       "id": "SO:1000036",
-      "type": "Entity",
       "label": "inversion"
     }
   ],
