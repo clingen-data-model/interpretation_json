@@ -89,7 +89,7 @@ class InterpretationEncoder(json.JSONEncoder):
         if 'context' in kwargs:
             self.context = kwargs['context']
         else:
-            self.context = 'http://datamodel.clinicalgenome.org/interpretation/json/context'
+            self.context = 'http://dataexchange.clinicalgenome.org/interpretation/json/context'
         super(InterpretationEncoder, self).__init__(*args, **kwargs)
         self.written_nodes = set()
     def default(self,obj):

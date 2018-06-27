@@ -23,5 +23,5 @@
       "urlPattern": "http://www.ensembl.org/"
     }
   ],
-  "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
+  "@context": "http://dataexchange.clinicalgenome.org/interpretation/json/context"
 }

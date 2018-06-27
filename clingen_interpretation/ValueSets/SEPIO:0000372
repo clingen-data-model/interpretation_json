@@ -32,7 +32,7 @@
     {
       "id": "https://meshb.nlm.nih.gov/",
       "type": "IdentifierSystem",
-      "label": "MeSH",
+      "label": "Medical Subject Headers",
       "prefix": "MESH",
       "urlPattern": "https://meshb.nlm.nih.gov/"
     },
@@ -44,5 +44,5 @@
       "urlPattern": "http://purl.obolibrary.org/obo/MONDO_"
     }
   ],
-  "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
+  "@context": "http://dataexchange.clinicalgenome.org/interpretation/json/context"
 }

@@ -152,7 +152,6 @@ def write_library(types_and_atts,libname,entname, enumname):
             outf = entf
         else:
             outf = lib
-        print type_id, outf
         write_data_type(types_and_atts,type_id,outf,t_const,a_const)
     lib.close()
     entf.close()
@@ -198,7 +197,7 @@ def write_constants(types_and_atts,enumname):
     return type_constants, att_constants
 
 def pull_value_sets(vsdir,types_and_atts):
-    """Pull the value set definitions from datamodel.clinicalgenome.org.
+    """Pull the value set definitions from dataexchange.clinicalgenome.org.
     We look for the value sets that are bound to attributes"""
     typeids = sort_types(types_and_atts)
     value_set_set = set()
@@ -214,7 +213,7 @@ def pull_value_sets(vsdir,types_and_atts):
     for VS in value_set_set:
         if ':' not in VS: #don't pull down "???" or other garbage
             continue
-        url = 'http://datamodel.clinicalgenome.org/interpretation/master/json/%s' % VS
+        url = 'http://dataexchange.clinicalgenome.org/interpretation/master/json/%s' % VS
         res = requests.get(url)
         outf = codecs.open('%s/%s' % (vsdir,VS),'w',encoding='utf-8')
         text = res.text
@@ -228,7 +227,7 @@ def go():
     In order to create JSON objects, we want to pull Type/Attribute/Value
     definitions from the web and use those definitions to create python 
     classes and constants"""
-    type_url = 'http://datamodel.clinicalgenome.org/interpretation/master/json/Types'
+    type_url = 'http://dataexchange.clinicalgenome.org/interpretation/master/json/Types'
     t_res = requests.get(type_url)
     with file('types.json','w') as outf:
         outf.write(json.dumps(t_res.json(),indent=4))

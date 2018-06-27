@@ -22,5 +22,5 @@
       "urlPattern": "http://purl.obolibrary.org/obo/SEPIO-CG_"
     }
   ],
-  "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
+  "@context": "http://dataexchange.clinicalgenome.org/interpretation/json/context"
 }
