@@ -20,15 +20,15 @@ The fundamental definition of the ClinGen model is a series of JSON files hosted
 A full example of using the library to construct a JSON-LD interpretation is included in examples.py
 The structure of an interpretation is described more fully [here](http://datamodel.clinicalgenome.org/interpretation/master/index.html).
 
-### VariantInterpretation
+### VariantPathogenicityInterpretation
 
 
-The root of an interpretation document is a VariantInterpretation, which contains the pathogenicity of a particular variant for a particular disease. A VariantInterpretation requires an identifier; it is up to the user to manage these identifiers.  In this example, we create an interpretation with a fictitious id:
+The root of an interpretation document is a VariantPathogenicityInterpretation, which contains the pathogenicity of a particular variant for a particular disease. A VariantPathogenicityInterpretation requires an identifier; it is up to the user to manage these identifiers.  In this example, we create an interpretation with a fictitious id:
 ```
 def create_example():
     #Create the root interpretation
     interpretation_id = 'http://example.com/interpretation_1'
-    interpretation = VariantInterpretation(interpretation_id)
+    interpretation = VariantPathogenicityInterpretation(interpretation_id)
 ```
 
 Now we want to add the necessary attributes to the interpretation.  In particular we want to add an allele, a condition, and a pathogenicity.  Later we will also add the rules and data that were used to derive the interpretation.
@@ -129,7 +129,7 @@ def create_assessment(allele,agent):
     criterion = criteria['PM2']
     assessment.set_criterion(criterion)
     #The library will check the input against allowed codings
-    assessment.set_outcome('met')
+    assessment.set_statementOutcome('met')
     assessment.set_variant(allele)
     when = '2017-01-24T16:07:57.082704+00:00'
     contribution = create_contribution(agent, when, DMWG_ASSESSOR_ROLE)
@@ -156,11 +156,11 @@ def create_computational_agent():
 
  #Note numbers here are not correct; they are only for examples.
 def create_frequency_data(allele,agent):
-    frequency = AlleleFrequency()
+    frequency = PopulationAlleleFrequencyStatement()
     #the library will look up the code
-    frequency.set_ascertainment('ExAC')
+    frequency.set_ascertainment('ExAC ascertainment method')
     #the library will look up the code
-    frequency.set_population('nfe')
+    frequency.set_population('GNOMAD:nfe')
     frequency.set_allele(allele)
     frequency.set_alleleCount(0)
     frequency.set_alleleNumber(1000)
