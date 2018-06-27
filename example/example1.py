@@ -46,7 +46,7 @@ def create_assessment(allele,agent):
     criterion = criteria['PM2']
     assessment.set_criterion(criterion)
     #The library will check the input against allowed codings
-    assessment.set_outcome('met')
+    assessment.set_statementOutcome('met')
     assessment.set_variant(allele)
     when = '2017-01-24T16:07:57.082704+00:00'
     contribution = create_contribution(agent, when, DMWG_ASSESSOR_ROLE)
@@ -55,11 +55,11 @@ def create_assessment(allele,agent):
 
 #The numbers here are not correct; they are only for examples.
 def create_frequency_data(allele,agent):
-    frequency = AlleleFrequency()
+    frequency = PopulationAlleleFrequencyStatement()
     #the library will look up the code
-    frequency.set_ascertainment('ExAC')
+    frequency.set_ascertainment('ExAC ascertainment method')
     #the library will look up the code
-    frequency.set_population('nfe') 
+    frequency.set_population('GNOMAD:nfe') 
     frequency.set_allele(allele)
     frequency.set_alleleCount(0)
     frequency.set_alleleNumber(1000)
@@ -74,14 +74,14 @@ def create_example():
     #Create the root interpretation
     interpretation_id = 'http://example.com/interpretation_1'
     #Create and add the allele(variant)
-    interpretation = VariantInterpretation(interpretation_id)
+    interpretation = VariantPathogenicityInterpretation(interpretation_id)
     allele = create_allele()
     interpretation.set_variant(allele)
     #Create and add the condition (disease)
     condition = create_condition()
     interpretation.add_condition(condition)
     #Call the variant pathogenic for this disease
-    interpretation.set_outcome( 'Pathogenic' )
+    interpretation.set_statementOutcome( 'Pathogenic' )
     #Create Agent/contribution
     agent = create_agent()
     when = '2017-01-24T16:16:59.073653+00:00'
