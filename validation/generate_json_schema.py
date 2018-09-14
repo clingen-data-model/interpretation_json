@@ -93,7 +93,7 @@ def write_value_set(types_and_atts, outname):
 
 def go():
     """Main function for creating json schema."""
-    type_url = 'http://datamodel.clinicalgenome.org/interpretation/master/json/Types'
+    type_url = 'http://dataexchange.clinicalgenome.org/interpretation/master/json/Types'
     t_res = requests.get(type_url)
     json_string = t_res.text
     types_and_atts = json.loads(json_string)
