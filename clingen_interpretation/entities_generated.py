@@ -80,6 +80,7 @@ class ContextualAlleleName(DomainEntity):
         self.data[DMWG_A921_PREFERRED_KEY] = x
     def get_preferred(self):
         return self.data[DMWG_A921_PREFERRED_KEY]
+    @get_factory_entity('SEPIO-CG:65903')
     def set_nameType(self,x):
         self.data[DMWG_A943_NAMETYPE_KEY] = x
     def get_nameType(self):

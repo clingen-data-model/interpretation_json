@@ -249,6 +249,7 @@ class InSilicoPredictionStatement(Statement):
         self.data[DMWG_A097_PREDICTIONTYPE_KEY] = x
     def get_predictionType(self):
         return self.data[DMWG_A097_PREDICTIONTYPE_KEY]
+    @get_factory_entity('SEPIO-CG:65900')
     def set_statementOutcome(self,x):
         self.data[DMWG_A099_STATEMENTOUTCOME_KEY] = x
     def get_statementOutcome(self):
@@ -741,6 +742,7 @@ class IndividualGenotypeStatement(Statement):
         self.data[DMWG_A066_GENOTYPE_KEY].append( x ) 
     def get_genotype(self):
         return self.data[DMWG_A066_GENOTYPE_KEY]
+    @get_factory_entity('SEPIO-CG:65900')
     def set_statementOutcome(self,x):
         self.data[DMWG_A188_STATEMENTOUTCOME_KEY] = x
     def get_statementOutcome(self):

@@ -454,7 +454,7 @@
                 "entityId": "E47", 
                 "cardinality": "1..1", 
                 "id": "A099", 
-                "@valueSetId": ""
+                "@valueSetId": "SEPIO-CG:65900"
             }, 
             {
                 "name": "algorithm", 
@@ -1179,7 +1179,7 @@
                 "entityId": "E90", 
                 "cardinality": "1..1", 
                 "id": "A943", 
-                "@valueSetId": "???"
+                "@valueSetId": "SEPIO-CG:65903"
             }
         ], 
         "id": "E90"
@@ -3177,7 +3177,7 @@
                 "entityId": "E05", 
                 "cardinality": "1..1", 
                 "id": "A941", 
-                "@valueSetId": "???"
+                "@valueSetId": "SEPIO-CG:65901"
             }, 
             {
                 "name": "complexity", 
@@ -3189,7 +3189,7 @@
                 "entityId": "E05", 
                 "cardinality": "1..1", 
                 "id": "A942", 
-                "@valueSetId": "???"
+                "@valueSetId": "SEPIO-CG:65902"
             }, 
             {
                 "name": "relatedIdentifier", 
@@ -3952,7 +3952,7 @@
                 "entityId": "E06", 
                 "cardinality": "1..1", 
                 "id": "A944", 
-                "@valueSetId": "???"
+                "@valueSetId": "SEPIO-CG:65904"
             }
         ], 
         "id": "E06", 
@@ -4098,7 +4098,7 @@
                 "cardinality": "1..1", 
                 "isReference": "yes", 
                 "id": "A188", 
-                "@valueSetId": "???"
+                "@valueSetId": "SEPIO-CG:65900"
             }
         ], 
         "id": "E28", 
