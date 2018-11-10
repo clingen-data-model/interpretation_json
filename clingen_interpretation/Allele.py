@@ -31,7 +31,7 @@ class Coding(Node):
 #
 # TODO Fix all the type names and stuff.
 class Variant(Node):
-    def __init__(self,ar_rep):
+    def __init__(self,ar_rep,preferred_sequence=None):
         self.data={}        
         self.data[DMWG_ID_KEY] = ar_rep[ALLELE_REGISTRY_ID_KEY]
         self.data[DMWG_TYPE_KEY] = 'CanonicalAllele'
@@ -53,7 +53,9 @@ class Variant(Node):
                     self.add_external_identifier('dbSNP', rsid['rs'])
         self.data['relatedContextualAllele'] = []
         for ca in ar_rep['genomicAlleles']:
-            self.data['relatedContextualAllele'].append( ContextualAllele( ca, ar_rep[ALLELE_REGISTRY_ID_KEY], 'genomic') )
+            self.data['relatedContextualAllele'].append( ContextualAllele( ca, ar_rep[ALLELE_REGISTRY_ID_KEY], 'genomic',preferred_sequence) )
+        for ca in ar_rep['transcriptAlleles']:
+            self.data['relatedContextualAllele'].append( ContextualAllele( ca, ar_rep[ALLELE_REGISTRY_ID_KEY], 'transcript',preferred_sequence) )
     def add_external_identifier(self,source,value,display=None):
         if 'relatedIdentifier' not in self.data:
             self.data['relatedIdentifier'] = []
@@ -77,7 +79,7 @@ class Variant(Node):
         return None
 
 class ContextualAllele(Node):
-    def __init__(self,ar_rep,canonical_allele_id, atype):
+    def __init__(self,ar_rep,canonical_allele_id, atype, preferred_sequence=None):
         self.data = {}
         self.data[DMWG_TYPE_KEY] = 'ContextualAllele'
         self.data['relatedCanonicalAllele'] = canonical_allele_id
@@ -89,17 +91,14 @@ class ContextualAllele(Node):
             nm = { 'nameType':'hgvs', 'name':hgvs }
             self.data['alleleName'].append(nm)
             seqnames.append( hgvs.split(':')[0] )
-        #print '-----------'
-        #print ar_rep.keys()
-        #print '-----------'
         if 'referenceGenome' in ar_rep:
             self.ref_genome = ar_rep['referenceGenome']
-            if (ar_rep['referenceGenome'] == 'GRCh38'):
+            if (preferred_sequence is None and ar_rep['referenceGenome'] == 'GRCh38'):
                 self.data['preferred'] = True
-        bestname = ''
-        for seqname in seqnames:
-            if seqname.startswith('NC'):
-                bestname = seqname
+        bestname = seqnames[0]
+        print( preferred_sequence, bestname )
+        if preferred_sequence is not None and preferred_sequence == bestname:
+            self.data['preferred'] = True
         ref_sequence = {'reference': ar_rep['referenceSequence'], 'label': bestname }
         start = {'index': ar_rep['coordinates'][0]['start'] }
         end = {'index': ar_rep['coordinates'][0]['end'] }
