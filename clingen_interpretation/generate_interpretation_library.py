@@ -95,7 +95,7 @@ def write_data_type(types_and_atts,type_id,lib,t_const,a_const):
             attname = att[NAME]
             if VSID in att and att[VSID] != '':
                 try:
-                    if att[VSID] != '???': #The ??? is a marker in the sheets for things we need to generate.
+                    if att[VSID] != 'SEPIO-CG:65900': #SEPIO-CG:65900 is a marker in the sheets for things we need to generate.
                         lib.write("\n    @get_factory_entity('%s')" % att[VSID] )
                 except:
                     pass
