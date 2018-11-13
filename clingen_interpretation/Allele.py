@@ -96,7 +96,6 @@ class ContextualAllele(Node):
             if (preferred_sequence is None and ar_rep['referenceGenome'] == 'GRCh38'):
                 self.data['preferred'] = True
         bestname = seqnames[0]
-        print( preferred_sequence, bestname )
         if preferred_sequence is not None and preferred_sequence == bestname:
             self.data['preferred'] = True
         ref_sequence = {'reference': ar_rep['referenceSequence'], 'label': bestname }
