@@ -10,19 +10,23 @@
   "concept": [
     {
       "id": "SEPIO:0000154",
-      "label": "assessor role"
+      "label": "assessor"
     },
     {
       "id": "SEPIO:0000155",
-      "label": "approver role"
+      "label": "approver"
     },
     {
       "id": "SEPIO:0000156",
-      "label": "curator role"
+      "label": "curator"
     },
     {
       "id": "SEPIO:0000331",
-      "label": "interpreter role"
+      "label": "interpreter"
+    },
+    {
+      "id": "SEPIO-CG:97010",
+      "label": "publisher"
     }
   ],
   "valueSetIdentifierSystems": [
