@@ -538,13 +538,12 @@
                 "precedence": 4.0, 
                 "dataType": "@id", 
                 "iri-label": "has part", 
-                "description": "The algorithm used to combine AssertionCriteria into a final Interpretation using this Method", 
                 "iri": "BFO:0000051", 
                 "cg-label": "scoringAlgorithm", 
                 "entityId": "E32", 
                 "cardinality": "0..1", 
                 "id": "A174", 
-                "@valueSetId": "SEPIO-CG:65133"
+                "description": "The algorithm used to combine AssertionCriteria into a final Interpretation using this Method"
             }
         ], 
         "id": "E32", 
@@ -954,16 +953,15 @@
             {
                 "name": "assertionMethod", 
                 "precedence": 4.0, 
-                "dataType": "AssertionMethod", 
+                "dataType": "VariantPathogenicityInterpretationGuideline", 
                 "iri-label": "is_specified_by", 
-                "description": "The  framework that formally defines the methodology used in creating this interpretation.", 
                 "iri": "SEPIO:0000041", 
                 "cg-label": "assertionMethod", 
                 "entityId": "E35", 
                 "cardinality": "0..1", 
                 "isReference": "yes", 
                 "id": "A125", 
-                "@valueSetId": "SEPIO-CG:65132"
+                "description": "The  framework that formally defines the methodology used in creating this interpretation."
             }
         ], 
         "id": "E35", 

@@ -309,7 +309,6 @@ class VariantPathogenicityInterpretation(Statement):
         self.data[DMWG_A124_STATEMENTOUTCOME_KEY] = x
     def get_statementOutcome(self):
         return self.data[DMWG_A124_STATEMENTOUTCOME_KEY]
-    @get_factory_entity('SEPIO-CG:65132')
     def set_assertionMethod(self,x):
         self.data[DMWG_A125_ASSERTIONMETHOD_KEY] = x
     def get_assertionMethod(self):

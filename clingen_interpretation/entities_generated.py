@@ -28,7 +28,6 @@ class VariantPathogenicityInterpretationGuideline(DomainEntity):
         self.data[DMWG_A173_VERSION_KEY] = x
     def get_version(self):
         return self.data[DMWG_A173_VERSION_KEY]
-    @get_factory_entity('SEPIO-CG:65133')
     def set_scoringAlgorithm(self,x):
         self.data[DMWG_A174_SCORINGALGORITHM_KEY] = x
     def get_scoringAlgorithm(self):
