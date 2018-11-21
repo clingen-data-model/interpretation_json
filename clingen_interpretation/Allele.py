@@ -25,37 +25,37 @@ class Coding(Node):
         return self.data['display']
 '''
 
-#This is not necessarily useful outside of the DMWG Interpretation Library because we are keeping the 
-# data in the format expected for the InterpretationEncoder. In particular, rather than having 
+#This is not necessarily useful outside of the DMWG Interpretation Library because we are keeping the
+# data in the format expected for the InterpretationEncoder. In particular, rather than having
 # data members, we just shove all the data into the self.data element.
 #
 # TODO Fix all the type names and stuff.
 class Variant(Node):
-    def __init__(self,ar_rep,preferred_sequence=None):
-        self.data={}        
-        self.data[DMWG_ID_KEY] = ar_rep[ALLELE_REGISTRY_ID_KEY]
+    def __init__(self,car_rep,preferred_sequence=None):
+        self.data={}
+        self.data[DMWG_ID_KEY] = car_rep[ALLELE_REGISTRY_ID_KEY]
         self.data[DMWG_TYPE_KEY] = 'CanonicalAllele'
-        self.data['canonicalAlleleType'] = ar_rep['type']
+        self.data['canonicalAlleleType'] = car_rep['type']
         #todo: double check this?
-        self.data['complexity'] = 'simple'  
-        if 'externalRecords' in ar_rep:
-            er = ar_rep['externalRecords']
-            if 'ClinVarVariations' in er:
+        self.data['complexity'] = 'simple'
+        if 'externalRecords' in car_rep:
+            car_external_ids = car_rep['externalRecords']
+            if 'ClinVarVariations' in car_external_ids:
                 label = None
-                if (len(er['ClinVarVariations']) == 1) and \
-                    ('ClinVarAlleles' in er) and \
-                    ( len(er['ClinVarAlleles']) == 1) :
-                    label=er['ClinVarAlleles'][0]['preferredName']
-                for cva in er['ClinVarVariations']:
+                if (len(car_external_ids['ClinVarVariations']) == 1) and \
+                    ('ClinVarAlleles' in car_external_ids) and \
+                    ( len(car_external_ids['ClinVarAlleles']) == 1) :
+                    label=car_external_ids['ClinVarAlleles'][0]['preferredName']
+                for cva in car_external_ids['ClinVarVariations']:
                     self.add_external_identifier('ClinVar', cva['variationId'], label)
-            if 'dbSNP' in er:
-                for rsid in er['dbSNP']:
+            if 'dbSNP' in car_external_ids:
+                for rsid in car_external_ids['dbSNP']:
                     self.add_external_identifier('dbSNP', rsid['rs'])
         self.data['relatedContextualAllele'] = []
-        for ca in ar_rep['genomicAlleles']:
-            self.data['relatedContextualAllele'].append( ContextualAllele( ca, ar_rep[ALLELE_REGISTRY_ID_KEY], 'genomic',preferred_sequence) )
-        for ca in ar_rep['transcriptAlleles']:
-            self.data['relatedContextualAllele'].append( ContextualAllele( ca, ar_rep[ALLELE_REGISTRY_ID_KEY], 'transcript',preferred_sequence) )
+        for gen_ctx_allele in car_rep['genomicAlleles']:
+            self.data['relatedContextualAllele'].append( ContextualAllele( gen_ctx_allele, car_rep[ALLELE_REGISTRY_ID_KEY], 'genomic',preferred_sequence) )
+        for trx_ctx_allele in car_rep['transcriptAlleles']:
+            self.data['relatedContextualAllele'].append( ContextualAllele( trx_ctx_allele, car_rep[ALLELE_REGISTRY_ID_KEY], 'transcript',preferred_sequence) )
     def add_external_identifier(self,source,value,display=None):
         if 'relatedIdentifier' not in self.data:
             self.data['relatedIdentifier'] = []
@@ -68,41 +68,43 @@ class Variant(Node):
             ext_identifier = { "label" : display }
         self.data['relatedIdentifier'].append(ext_identifier)
     def get_allele(self,ref_genome):
-        for cxa in self.data['relatedContextualAllele']:
-            if cxa.ref_genome == ref_genome:
-                return cxa.data['state']
+        for ctx_allele in self.data['relatedContextualAllele']:
+            if ctx_allele.ref_genome == ref_genome:
+                return ctx_allele.data['state']
         return None
     def get_ref_allele(self,ref_genome):
-        for cxa in self.data['relatedContextualAllele']:
-            if cxa.ref_genome == ref_genome:
-                return cxa.data['referenceCoordinate']['refState']
+        for ctx_allele in self.data['relatedContextualAllele']:
+            if ctx_allele.ref_genome == ref_genome:
+                return ctx_allele.data['referenceCoordinate']['refState']
         return None
 
 class ContextualAllele(Node):
-    def __init__(self,ar_rep,canonical_allele_id, atype, preferred_sequence=None):
+    def __init__(self,ctx_allele_rep,canonical_allele_id, allele_type, preferred_sequence=None):
         self.data = {}
         self.data[DMWG_TYPE_KEY] = 'ContextualAllele'
         self.data['relatedCanonicalAllele'] = canonical_allele_id
-        self.data['contextualAlleleType'] = atype
-        self.data['state'] = ar_rep['coordinates'][0]['allele']
+        self.data['contextualAlleleType'] = allele_type
+        self.data['state'] = ctx_allele_rep['coordinates'][0]['allele']
         self.data['alleleName'] = []
         seqnames = []
-        for hgvs in ar_rep['hgvs']:
+        for hgvs in ctx_allele_rep['hgvs']:
             nm = { 'nameType':'hgvs', 'name':hgvs }
             self.data['alleleName'].append(nm)
             seqnames.append( hgvs.split(':')[0] )
-        if 'referenceGenome' in ar_rep:
-            self.ref_genome = ar_rep['referenceGenome']
-            if (preferred_sequence is None and ar_rep['referenceGenome'] == 'GRCh38'):
+        if 'referenceGenome' in ctx_allele_rep:
+            self.ref_genome = ctx_allele_rep['referenceGenome']
+            if (preferred_sequence is None and ctx_allele_rep['referenceGenome'] == 'GRCh38'):
                 self.data['preferred'] = True
         bestname = seqnames[0]
         if preferred_sequence is not None and preferred_sequence == bestname:
             self.data['preferred'] = True
-        ref_sequence = {'reference': ar_rep['referenceSequence'], 'label': bestname }
-        start = {'index': ar_rep['coordinates'][0]['start'] }
-        end = {'index': ar_rep['coordinates'][0]['end'] }
-        ra = ar_rep['coordinates'][0]['referenceAllele']
-        ref_coord = {'referenceSequence': ref_sequence, 'start':start, 'end':end, 'refState': ra }
+        ref_sequence = {'id': ctx_allele_rep['referenceSequence'], 'label': bestname}
+        start = {'index': ctx_allele_rep['coordinates'][0]['start'] }
+        end = {'index': ctx_allele_rep['coordinates'][0]['end'] }
+        ref_allele = ctx_allele_rep['coordinates'][0]['referenceAllele']
+        ref_coord = {'referenceSequence': ref_sequence, 'start':start, 'end':end, 'refState': ref_allele }
         self.data['referenceCoordinate'] = ref_coord
-
-    
+        if 'chromosome' in ctx_allele_rep:
+            self.data['chromosome'] = ctx_allele_rep['chromosome']
+        if 'gene' in ctx_allele_rep:
+            self.data['gene'] = {'id': 'GENE:'+str(ctx_allele_rep['geneNCBI_id']), 'label': ctx_allele_rep['geneSymbol']}
