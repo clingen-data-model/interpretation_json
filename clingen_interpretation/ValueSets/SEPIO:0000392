@@ -22,11 +22,11 @@
     },
     {
       "id": "GENO:0000881",
-      "label": "Unknown"
+      "label": "Unknown inheritance"
     },
     {
       "id": "GENO:0000888",
-      "label": "parentally inherited"
+      "label": "Parentally inherited"
     }
   ],
   "valueSetIdentifierSystems": [
