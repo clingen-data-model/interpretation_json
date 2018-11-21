@@ -11,9 +11,16 @@
     {
       "id": "http://www.genenames.org/",
       "type": "IdentifierSystem",
-      "label": "HGNC",
+      "label": "Human Gene Nomenclature Committee",
       "prefix": "HGNC",
       "urlPattern": "http://www.genenames.org/"
+    },
+    {
+      "id": "https://www.ncbi.nlm.nih.gov/gene#",
+      "type": "IdentifierSystem",
+      "label": "NCBI Gene",
+      "prefix": "GENE",
+      "urlPattern": "https://www.ncbi.nlm.nih.gov/gene/"
     }
   ],
   "@context": "http://dataexchange.clinicalgenome.org/interpretation/json/context"
