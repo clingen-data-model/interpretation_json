@@ -9,8 +9,8 @@
   },
   "concept": [
     {
-      "id": "CGEX:AssertMethScoringAlgorithm001",
-      "description": "ACMG ISV 2015 combining/scoring algorithm"
+      "id": "SEPIO-CG:95900",
+      "label": "ACMG ISV 2015 combining/scoring algorithm"
     }
   ],
   "valueSetIdentifierSystems": [

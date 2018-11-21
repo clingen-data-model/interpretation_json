@@ -9,14 +9,14 @@
   },
   "concept": [
     {
-      "id": "CGEX:AssertMeth331",
+      "id": "SEPIO-CG:95000",
       "type": "VariantPathogenicityInterpretationGuideline",
-      "description": "ACMG ISV guidelines 2015",
+      "label": "ACMG guidelines 2015",
       "url": "https://www.acmg.net/docs/Standards_Guidelines_for_the_Interpretation_of_Sequence_Variants.pdf",
       "version": "1.0",
       "scoringAlgorithm": {
-        "id": "CGEX:AssertMethScoringAlgorithm001",
-        "description": "ACMG ISV 2015 combining/scoring algorithm"
+        "id": "SEPIO-CG:95900",
+        "label": "ACMG ISV 2015 combining/scoring algorithm"
       }
     }
   ],
