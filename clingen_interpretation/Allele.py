@@ -107,4 +107,45 @@ class ContextualAllele(Node):
         if 'chromosome' in ctx_allele_rep:
             self.data['chromosome'] = ctx_allele_rep['chromosome']
         if 'gene' in ctx_allele_rep:
-            self.data['gene'] = {'id': 'GENE:'+str(ctx_allele_rep['geneNCBI_id']), 'label': ctx_allele_rep['geneSymbol']}
+            self.data['gene'] = {'id': 'NCBIGene:'+str(ctx_allele_rep['geneNCBI_id']), 'label': ctx_allele_rep['geneSymbol']}
+
+class ClinVarVariant(Node):
+    """In the case when we have something like a structural variant, CAR won't handle it, so we need to make an allele
+    from just the ClinVar allele."""
+    def __init__(self,vci_rep):
+        self.data={}
+        cvid="ClinVar:"+vci_rep['clinvarVariantId']
+        self.data[DMWG_ID_KEY] = cvid
+        self.data[DMWG_TYPE_KEY] = 'CanonicalAllele'
+        label = vci_rep['clinvarVariantTitle']
+        self.add_external_identifier('ClinVar', vci_rep['clinvarVariantId'], label)
+        self.data['relatedContextualAllele'] = []
+        for ref in ['GRCh38','GRCh37']:
+            if ref in vci_rep['hgvsNames']:
+                self.data['relatedContextualAllele'].append(ClinVarContextualAllele(cvid,'genomic',vci_rep['hgvsNames'][ref],ref))
+        if 'others' in vci_rep['hgvsNames']:
+            for hgvs in vci_rep['hgvsNames']['others']:
+                self.data['relatedContextualAllele'].append(ClinVarContextualAllele(cvid,'transcript',hgvs))
+    def add_external_identifier(self,source,value,display=None):
+        if 'relatedIdentifier' not in self.data:
+            self.data['relatedIdentifier'] = []
+        ext_identifier = { "id": "%s:%s" % (source,value)  }
+        if display is not None:
+            ext_identifier = { "label" : display }
+        self.data['relatedIdentifier'].append(ext_identifier)
+
+
+class ClinVarContextualAllele(Node):
+    def __init__(self,canonical_allele_id,allele_type,hgvs,ref_genome=None):
+        self.data = {}
+        self.data[DMWG_TYPE_KEY] = 'ContextualAllele'
+        self.data['relatedCanonicalAllele'] = canonical_allele_id
+        self.data['contextualAlleleType'] = allele_type
+        self.data['alleleName'] = [hgvs]
+        seqnames = []
+        nm = { 'nameType':'hgvs', 'name':hgvs }
+        self.data['alleleName'].append(nm)
+        seqnames.append( hgvs.split(':')[0] )
+        if ref_genome is not None:
+            self.ref_genome = ref_genome
+ 
