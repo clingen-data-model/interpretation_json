@@ -2,7 +2,7 @@
   "id": "SEPIO:0000395",
   "type": "ValueSet",
   "label": "ACMG Criterion Value Set",
-  "description": "TODO",
+  "description": "The ACMG-AMP IVS variant pathogenicity rule or criterion codes including extended codes used in domain specific derivatives of the original guideline. (e.g. BA1, PS2, PM3, PVS1, ...)",
   "valueSetExtensibility": {
     "id": "SEPIO:0000365",
     "label": "extensible"

@@ -30,6 +30,24 @@ def create_contribution(agent, ondate, role):
     contribution.set_contributionRole(role)
     return contribution
 
+#Utility methods for creating contributions
+def create_agent(id, label, agent_for=None):
+    if id is None:
+        id = the_factory.get_next_blank_iri()
+    agent = Agent(id)
+    agent.set_label(label)
+    if agent_for is not None:
+        agent.set_agentFor(agent_for)
+    return agent
+
+#Utility methods for creating assertion methods (VariantPathogenicityInterpretationGuideline)
+def create_assertion_method(name, url=None):
+    method = VariantPathogenicityInterpretationGuideline(the_factory.get_next_blank_iri())
+    method.set_label( name )
+    if url is not None:
+        method.set_url( url )
+    return method
+
 #Utility method for creating diseases. Note that disease is not a type any more
 def create_dmwg_disease(system, code, name):
     iri = system+code

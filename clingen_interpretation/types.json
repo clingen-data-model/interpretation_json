@@ -35,7 +35,7 @@
             }, 
             {
                 "name": "userLabelDictionary", 
-                "precedence": 2.0, 
+                "precedence": 89.0, 
                 "dataType": "UserLabel", 
                 "iri-label": "user_label_dictionary", 
                 "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.", 
@@ -101,22 +101,8 @@
                 "@valueSetId": ""
             }, 
             {
-                "name": "canonicalAllele", 
-                "precedence": 1.0, 
-                "dataType": "CanonicalAllele", 
-                "iri-label": "is_about_allele ", 
-                "description": "The allele whose denovo status is being described", 
-                "iri": "SEPIO:0000275", 
-                "cg-label": "canonicalAllele", 
-                "entityId": "E19", 
-                "cardinality": "0..1", 
-                "isReference": "yes", 
-                "id": "A022", 
-                "@valueSetId": ""
-            }, 
-            {
                 "name": "individual", 
-                "precedence": 2.0, 
+                "precedence": 10.0, 
                 "dataType": "@id", 
                 "iri-label": "is_about_individual", 
                 "description": "The individual whose allele may be denovo", 
@@ -128,8 +114,21 @@
                 "@valueSetId": ""
             }, 
             {
+                "name": "parentalConfirmation", 
+                "precedence": 11.0, 
+                "dataType": "@id", 
+                "iri-label": "assertion_confidence_level", 
+                "description": "Whether or not the parent-child relationship was independently confirmed", 
+                "iri": "SEPIO:0000167", 
+                "cg-label": "parentalConfirmation", 
+                "entityId": "E19", 
+                "cardinality": "0..1", 
+                "id": "A025", 
+                "@valueSetId": "SEPIO-CG:65125"
+            }, 
+            {
                 "name": "statementOutcome", 
-                "precedence": 3.0, 
+                "precedence": 20.0, 
                 "dataType": "@id", 
                 "iri-label": "asserted_conclusion", 
                 "description": "Source of an allele in an individual", 
@@ -142,17 +141,18 @@
                 "@valueSetId": "SEPIO:0000392"
             }, 
             {
-                "name": "parentalConfirmation", 
-                "precedence": 4.0, 
-                "dataType": "@id", 
-                "iri-label": "assertion_confidence_level", 
-                "description": "Whether or not the parent-child relationship was independently confirmed", 
-                "iri": "SEPIO:0000167", 
-                "cg-label": "parentalConfirmation", 
+                "name": "canonicalAllele", 
+                "precedence": 30.0, 
+                "dataType": "CanonicalAllele", 
+                "iri-label": "is_about_allele ", 
+                "description": "The allele whose denovo status is being described", 
+                "iri": "SEPIO:0000275", 
+                "cg-label": "canonicalAllele", 
                 "entityId": "E19", 
                 "cardinality": "0..1", 
-                "id": "A025", 
-                "@valueSetId": "SEPIO-CG:65125"
+                "isReference": "yes", 
+                "id": "A022", 
+                "@valueSetId": ""
             }
         ], 
         "id": "E19", 
@@ -194,7 +194,7 @@
             }, 
             {
                 "name": "userLabelDictionary", 
-                "precedence": 2.0, 
+                "precedence": 89.0, 
                 "dataType": "UserLabel", 
                 "iri-label": "user_label_dictionary", 
                 "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.", 
@@ -261,7 +261,7 @@
             }, 
             {
                 "name": "proband", 
-                "precedence": 1.0, 
+                "precedence": 10.0, 
                 "dataType": "@id", 
                 "iri-label": "is_about_proband", 
                 "description": "The person that was the original source of the condition in this family", 
@@ -273,21 +273,8 @@
                 "@valueSetId": ""
             }, 
             {
-                "name": "condition", 
-                "precedence": 2.0, 
-                "dataType": "GeneticCondition", 
-                "iri-label": "is_about_condition", 
-                "description": "A condition that the family may or may not have", 
-                "iri": "SEPIO:0000276", 
-                "cg-label": "condition", 
-                "entityId": "E18", 
-                "cardinality": "0..*", 
-                "id": "A020", 
-                "@valueSetId": ""
-            }, 
-            {
                 "name": "statementOutcome", 
-                "precedence": 3.0, 
+                "precedence": 20.0, 
                 "dataType": "@id", 
                 "iri-label": "asserted_conclusion", 
                 "description": "Whether or not this family has the stated condition", 
@@ -297,517 +284,23 @@
                 "cardinality": "1..1", 
                 "id": "A021", 
                 "@valueSetId": "SEPIO-CG:65126"
+            }, 
+            {
+                "name": "condition", 
+                "precedence": 30.0, 
+                "dataType": "GeneticCondition", 
+                "iri-label": "is_about_condition", 
+                "description": "A condition that the family may or may not have", 
+                "iri": "SEPIO:0000276", 
+                "cg-label": "condition", 
+                "entityId": "E18", 
+                "cardinality": "0..*", 
+                "id": "A020", 
+                "@valueSetId": ""
             }
         ], 
         "id": "E18", 
         "description": "A statement asserting the occurrence of a particular disease in the history of a family."
-    }, 
-    "E47": {
-        "name": "InSilicoPredictionStatement", 
-        "iri": "SEPIO:0000249", 
-        "iri-label": "in silico prediction statement", 
-        "level2": "Allele", 
-        "comments": "", 
-        "level1": "Evidence Statement", 
-        "parentType": "E01", 
-        "link": "InSilicoPred", 
-        "attributes": [
-            {
-                "name": "label", 
-                "precedence": 1.0, 
-                "dataType": "string", 
-                "iri-label": "label", 
-                "iri": "RDFS:label", 
-                "cg-label": "label", 
-                "entityId": "E00", 
-                "cardinality": "0..1", 
-                "id": "A200", 
-                "description": "A name given to the resource."
-            }, 
-            {
-                "name": "description", 
-                "precedence": 2.0, 
-                "dataType": "string", 
-                "iri-label": "description", 
-                "iri": "DC:description", 
-                "cg-label": "description", 
-                "entityId": "E00", 
-                "cardinality": "0..1", 
-                "id": "A201", 
-                "description": "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."
-            }, 
-            {
-                "name": "userLabelDictionary", 
-                "precedence": 2.0, 
-                "dataType": "UserLabel", 
-                "iri-label": "user_label_dictionary", 
-                "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.", 
-                "iri": "SEPIO:0000422", 
-                "cg-label": "userLabelDictionary", 
-                "entityId": "E01", 
-                "cardinality": "0..*", 
-                "isReference": "yes", 
-                "id": "A073", 
-                "@valueSetId": ""
-            }, 
-            {
-                "name": "outcomeQualifier", 
-                "precedence": 90.0, 
-                "dataType": "string", 
-                "iri-label": "statement_qualifier", 
-                "description": "Use \u201cNOT\u201d as the value of this property to assert that the statement is negated.", 
-                "iri": "SEPIO:0000346", 
-                "cg-label": "outcomeQualifier", 
-                "entityId": "E01", 
-                "cardinality": "0..1", 
-                "id": "A004", 
-                "@valueSetId": ""
-            }, 
-            {
-                "name": "evidenceLine", 
-                "precedence": 91.0, 
-                "dataType": "EvidenceLine", 
-                "iri-label": "has_evidence_line", 
-                "description": "supporting evidence", 
-                "iri": "SEPIO:0000006", 
-                "cg-label": "evidenceLine", 
-                "entityId": "E01", 
-                "cardinality": "0..*", 
-                "id": "A055", 
-                "@valueSetId": ""
-            }, 
-            {
-                "name": "contribution", 
-                "precedence": 93.0, 
-                "dataType": "Contribution", 
-                "iri-label": "qualified_contribution", 
-                "description": "The contributions (agent, time and role) made to this entity", 
-                "iri": "SEPIO:0000159", 
-                "cg-label": "contribution", 
-                "entityId": "E01", 
-                "cardinality": "0..*", 
-                "id": "A119", 
-                "@valueSetId": ""
-            }, 
-            {
-                "name": "source", 
-                "precedence": 94.0, 
-                "dataType": "string", 
-                "iri-label": "source", 
-                "description": "A string indicating the source of a Statement", 
-                "iri": "DC:source", 
-                "cg-label": "source", 
-                "entityId": "E01", 
-                "cardinality": "0..*", 
-                "isReference": "yes", 
-                "id": "A127", 
-                "@valueSetId": ""
-            }, 
-            {
-                "name": "canonicalAllele", 
-                "precedence": 1.0, 
-                "dataType": "CanonicalAllele", 
-                "iri-label": "is_about_allele", 
-                "description": "The contextual allele on which the prediction is made", 
-                "iri": "SEPIO:0000275", 
-                "cg-label": "canonicalAllele", 
-                "entityId": "E47", 
-                "cardinality": "1..1", 
-                "isReference": "yes", 
-                "id": "A096", 
-                "@valueSetId": ""
-            }, 
-            {
-                "name": "transcript", 
-                "precedence": 2.0, 
-                "dataType": "@id", 
-                "iri-label": "is_about_transcript", 
-                "description": "The transcript on which the prediction is made", 
-                "iri": "SEPIO:0000283", 
-                "cg-label": "transcript", 
-                "entityId": "E47", 
-                "cardinality": "0..1", 
-                "id": "A034", 
-                "@valueSetId": "SEPIO-CG:65119"
-            }, 
-            {
-                "name": "predictionType", 
-                "precedence": 3.0, 
-                "dataType": "@id", 
-                "iri-label": "has_supporting_method", 
-                "description": "The type of prediction being made", 
-                "iri": "SEPIO:0000255", 
-                "cg-label": "predictionType", 
-                "entityId": "E47", 
-                "cardinality": "1..1", 
-                "id": "A097", 
-                "@valueSetId": "SEPIO:0000345"
-            }, 
-            {
-                "name": "statementOutcome", 
-                "precedence": 5.0, 
-                "dataType": "@id", 
-                "iri-label": "asserted_conclusion", 
-                "description": "The value of the prediction", 
-                "iri": "SEPIO:0000197", 
-                "cg-label": "statementOutcome", 
-                "entityId": "E47", 
-                "cardinality": "1..1", 
-                "id": "A099", 
-                "@valueSetId": "SEPIO-CG:65900"
-            }, 
-            {
-                "name": "algorithm", 
-                "precedence": 6.0, 
-                "dataType": "string", 
-                "iri-label": "asserted_by", 
-                "description": "The computational tool or algorithm that makes the prediction", 
-                "iri": "SEPIO:0000130", 
-                "cg-label": "algorithm", 
-                "entityId": "E47", 
-                "cardinality": "0..1", 
-                "id": "A098", 
-                "@valueSetId": ""
-            }
-        ], 
-        "id": "E47", 
-        "description": "A statement asserting the predicted impact of a particular allele on the function of its resulting gene product (e.g. that it is 'deleterious', 'damaging', 'tolerated', etc.). Such assertions are typically based on interpretation of the quantitative output of predictive computational algorithms."
-    }, 
-    "E32": {
-        "name": "VariantPathogenicityInterpretationGuideline", 
-        "iri": "SEPIO:0000193", 
-        "iri-label": "variant pathogenicity interpretation guideline", 
-        "level2": "Framework", 
-        "comments": "Guidelines typically include specific 'variant interpretation criterion' that describe how to interpret the direction and strength of evidence provided by a particular type of information, and 'criterion scoring algorithms' which describe how to combine the outcomes of each criterion assessment to arrive at a final interpretation of a variant's pathogenicity.\n. . . ", 
-        "level1": "Foundation", 
-        "parentType": "E40", 
-        "link": "AssertMeth", 
-        "attributes": [
-            {
-                "name": "label", 
-                "precedence": 1.0, 
-                "dataType": "string", 
-                "iri-label": "label", 
-                "iri": "RDFS:label", 
-                "cg-label": "label", 
-                "entityId": "E00", 
-                "cardinality": "0..1", 
-                "id": "A200", 
-                "description": "A name given to the resource."
-            }, 
-            {
-                "name": "description", 
-                "precedence": 2.0, 
-                "dataType": "string", 
-                "iri-label": "description", 
-                "iri": "DC:description", 
-                "cg-label": "description", 
-                "entityId": "E00", 
-                "cardinality": "0..1", 
-                "id": "A201", 
-                "description": "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."
-            }, 
-            {
-                "name": "url", 
-                "precedence": 2.0, 
-                "dataType": "string", 
-                "iri-label": "has_url", 
-                "description": "Location of a document that contains a description of this AssertionMethod", 
-                "iri": "ERO:0000480", 
-                "cg-label": "url", 
-                "entityId": "E32", 
-                "cardinality": "0..1", 
-                "id": "A156", 
-                "@valueSetId": ""
-            }, 
-            {
-                "name": "version", 
-                "precedence": 3.0, 
-                "dataType": "string", 
-                "iri-label": "version", 
-                "description": "Version of this AssertionMethod", 
-                "iri": "PAV:version", 
-                "cg-label": "version", 
-                "entityId": "E32", 
-                "cardinality": "0..1", 
-                "id": "A173", 
-                "@valueSetId": ""
-            }, 
-            {
-                "name": "scoringAlgorithm", 
-                "precedence": 4.0, 
-                "dataType": "@id", 
-                "iri-label": "has part", 
-                "iri": "BFO:0000051", 
-                "cg-label": "scoringAlgorithm", 
-                "entityId": "E32", 
-                "cardinality": "0..1", 
-                "id": "A174", 
-                "description": "The algorithm used to combine AssertionCriteria into a final Interpretation using this Method"
-            }
-        ], 
-        "id": "E32", 
-        "description": "A specification that describes how to interpret information as evidence in order to make an  assertion about the pathogenicity of a genetic variant."
-    }, 
-    "E25": {
-        "name": "RegionAllelesStatement", 
-        "iri": "SEPIO:0000244", 
-        "iri-label": "region alleles statement", 
-        "level2": "Allele", 
-        "comments": "", 
-        "level1": "Evidence Statement", 
-        "parentType": "E01", 
-        "link": "RegAll", 
-        "attributes": [
-            {
-                "name": "label", 
-                "precedence": 1.0, 
-                "dataType": "string", 
-                "iri-label": "label", 
-                "iri": "RDFS:label", 
-                "cg-label": "label", 
-                "entityId": "E00", 
-                "cardinality": "0..1", 
-                "id": "A200", 
-                "description": "A name given to the resource."
-            }, 
-            {
-                "name": "description", 
-                "precedence": 2.0, 
-                "dataType": "string", 
-                "iri-label": "description", 
-                "iri": "DC:description", 
-                "cg-label": "description", 
-                "entityId": "E00", 
-                "cardinality": "0..1", 
-                "id": "A201", 
-                "description": "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."
-            }, 
-            {
-                "name": "userLabelDictionary", 
-                "precedence": 2.0, 
-                "dataType": "UserLabel", 
-                "iri-label": "user_label_dictionary", 
-                "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.", 
-                "iri": "SEPIO:0000422", 
-                "cg-label": "userLabelDictionary", 
-                "entityId": "E01", 
-                "cardinality": "0..*", 
-                "isReference": "yes", 
-                "id": "A073", 
-                "@valueSetId": ""
-            }, 
-            {
-                "name": "outcomeQualifier", 
-                "precedence": 90.0, 
-                "dataType": "string", 
-                "iri-label": "statement_qualifier", 
-                "description": "Use \u201cNOT\u201d as the value of this property to assert that the statement is negated.", 
-                "iri": "SEPIO:0000346", 
-                "cg-label": "outcomeQualifier", 
-                "entityId": "E01", 
-                "cardinality": "0..1", 
-                "id": "A004", 
-                "@valueSetId": ""
-            }, 
-            {
-                "name": "evidenceLine", 
-                "precedence": 91.0, 
-                "dataType": "EvidenceLine", 
-                "iri-label": "has_evidence_line", 
-                "description": "supporting evidence", 
-                "iri": "SEPIO:0000006", 
-                "cg-label": "evidenceLine", 
-                "entityId": "E01", 
-                "cardinality": "0..*", 
-                "id": "A055", 
-                "@valueSetId": ""
-            }, 
-            {
-                "name": "contribution", 
-                "precedence": 93.0, 
-                "dataType": "Contribution", 
-                "iri-label": "qualified_contribution", 
-                "description": "The contributions (agent, time and role) made to this entity", 
-                "iri": "SEPIO:0000159", 
-                "cg-label": "contribution", 
-                "entityId": "E01", 
-                "cardinality": "0..*", 
-                "id": "A119", 
-                "@valueSetId": ""
-            }, 
-            {
-                "name": "source", 
-                "precedence": 94.0, 
-                "dataType": "string", 
-                "iri-label": "source", 
-                "description": "A string indicating the source of a Statement", 
-                "iri": "DC:source", 
-                "cg-label": "source", 
-                "entityId": "E01", 
-                "cardinality": "0..*", 
-                "isReference": "yes", 
-                "id": "A127", 
-                "@valueSetId": ""
-            }, 
-            {
-                "name": "allele", 
-                "dataType": "ContextualAllele", 
-                "iri-label": "is_about_allele", 
-                "description": "Alleles that are being explicited assessed as either included or excluded from the region.", 
-                "iri": "SEPIO:0000275", 
-                "cg-label": "allele", 
-                "entityId": "E25", 
-                "cardinality": "0..*", 
-                "id": "A058", 
-                "@valueSetId": ""
-            }, 
-            {
-                "name": "region", 
-                "precedence": 1.0, 
-                "dataType": "SequenceLocation", 
-                "iri-label": "is_about_region", 
-                "description": "Region within which alleles are being measured", 
-                "iri": "SEPIO:0000279", 
-                "cg-label": "region", 
-                "entityId": "E25", 
-                "cardinality": "1..1", 
-                "isReference": "yes", 
-                "id": "A071", 
-                "@valueSetId": ""
-            }, 
-            {
-                "name": "statementOutcome", 
-                "precedence": 3.0, 
-                "dataType": "@id", 
-                "iri-label": "asserted_conclusion", 
-                "description": "Assessed outcome of specified alleles as either included or excluded.", 
-                "iri": "SEPIO:0000197", 
-                "cg-label": "statementOutcome", 
-                "entityId": "E25", 
-                "cardinality": "1..1", 
-                "id": "A059", 
-                "@valueSetId": "SEPIO-CG:65129"
-            }
-        ], 
-        "id": "E25", 
-        "description": "A statement about the positional relationship between a region of genomic sequence and one or more alleles. (i.e. whether the region overlaps or is adjacent to the allele)."
-    }, 
-    "E11": {
-        "name": "Contribution", 
-        "iri": "SEPIO:0000158", 
-        "iri-label": "contribution", 
-        "level2": "SEPIO", 
-        "comments": "A contribution describes the part played by a particular agent in the creation, modification, assessment, or descruction of an artifact. The scope of a given 'contribution' instance is constrained to include only the actions of a particular agent in contributing to a particular artifact. Contribution instances are used to organize information about when, where, how (e.g. what roles were played), and on whose behalf these actions were performed.", 
-        "level1": "Foundation", 
-        "parentType": "E00", 
-        "link": "Contrib", 
-        "attributes": [
-            {
-                "name": "label", 
-                "precedence": 1.0, 
-                "dataType": "string", 
-                "iri-label": "label", 
-                "iri": "RDFS:label", 
-                "cg-label": "label", 
-                "entityId": "E00", 
-                "cardinality": "0..1", 
-                "id": "A200", 
-                "description": "A name given to the resource."
-            }, 
-            {
-                "name": "description", 
-                "precedence": 2.0, 
-                "dataType": "string", 
-                "iri-label": "description", 
-                "iri": "DC:description", 
-                "cg-label": "description", 
-                "entityId": "E00", 
-                "cardinality": "0..1", 
-                "id": "A201", 
-                "description": "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."
-            }, 
-            {
-                "name": "agent", 
-                "precedence": 1.0, 
-                "dataType": "Agent", 
-                "iri-label": "has_agent", 
-                "description": "A person, group of people, algorithm, or some other actor that could make a contribution", 
-                "iri": "SEPIO:0000017", 
-                "cg-label": "agent", 
-                "entityId": "E11", 
-                "cardinality": "1..1", 
-                "isReference": "yes", 
-                "id": "A006", 
-                "@valueSetId": ""
-            }, 
-            {
-                "name": "contributionDate", 
-                "precedence": 2.0, 
-                "dataType": "Datetime", 
-                "iri-label": "activity_date", 
-                "description": "The date on which a contribution was completed", 
-                "iri": "SEPIO:0000160", 
-                "cg-label": "contributionDate", 
-                "entityId": "E11", 
-                "cardinality": "0..1", 
-                "id": "A007", 
-                "@valueSetId": ""
-            }, 
-            {
-                "name": "contributionRole", 
-                "precedence": 3.0, 
-                "dataType": "@id", 
-                "iri-label": "realizes", 
-                "description": "The particular role in which an agent was acting while making the contribution", 
-                "iri": "BFO:0000055", 
-                "cg-label": "contributionRole", 
-                "entityId": "E11", 
-                "cardinality": "1..1", 
-                "id": "A008", 
-                "@valueSetId": "SEPIO-CG:65120"
-            }
-        ], 
-        "id": "E11", 
-        "description": "The actions taken by a particular agent in the creation, modification, assessment, or destruction of an artifact."
-    }, 
-    "E12": {
-        "name": "Agent", 
-        "iri": "PROV:agent", 
-        "iri-label": "Agent", 
-        "level2": "SEPIO", 
-        "comments": "Agents are entities that actively contribute to the creation, modification or assessment of some artifact such as an assertion, evidence line, or data item. In doing so, an 'agent role' is realized.  Types of entities that play this role can include persons, organizations, and software.", 
-        "level1": "Foundation", 
-        "parentType": "E00", 
-        "link": "Agent", 
-        "attributes": [
-            {
-                "name": "label", 
-                "precedence": 1.0, 
-                "dataType": "string", 
-                "iri-label": "label", 
-                "iri": "RDFS:label", 
-                "cg-label": "label", 
-                "entityId": "E00", 
-                "cardinality": "0..1", 
-                "id": "A200", 
-                "description": "A name given to the resource."
-            }, 
-            {
-                "name": "description", 
-                "precedence": 2.0, 
-                "dataType": "string", 
-                "iri-label": "description", 
-                "iri": "DC:description", 
-                "cg-label": "description", 
-                "entityId": "E00", 
-                "cardinality": "0..1", 
-                "id": "A201", 
-                "description": "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."
-            }
-        ], 
-        "id": "E12", 
-        "description": "An agent is something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent's activity (from PROV)."
     }, 
     "E35": {
         "name": "VariantPathogenicityInterpretation", 
@@ -845,7 +338,7 @@
             }, 
             {
                 "name": "userLabelDictionary", 
-                "precedence": 2.0, 
+                "precedence": 89.0, 
                 "dataType": "UserLabel", 
                 "iri-label": "user_label_dictionary", 
                 "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.", 
@@ -912,7 +405,7 @@
             }, 
             {
                 "name": "variant", 
-                "precedence": 1.0, 
+                "precedence": 10.0, 
                 "dataType": "CanonicalAllele", 
                 "iri-label": "is_about_allele", 
                 "description": "The variant whose pathogenicity is being described", 
@@ -924,21 +417,8 @@
                 "@valueSetId": ""
             }, 
             {
-                "name": "condition", 
-                "precedence": 2.0, 
-                "dataType": "GeneticCondition", 
-                "iri-label": "is_about_condition", 
-                "description": "The condition for which the variant's pathogenicity is described", 
-                "iri": "SEPIO:0000276", 
-                "cg-label": "condition", 
-                "entityId": "E35", 
-                "cardinality": "0..*", 
-                "id": "A123", 
-                "@valueSetId": ""
-            }, 
-            {
                 "name": "statementOutcome", 
-                "precedence": 3.0, 
+                "precedence": 20.0, 
                 "dataType": "@id", 
                 "iri-label": "asserted_conclusion", 
                 "description": "The coded pathogenicity of the variant for the condition", 
@@ -951,21 +431,541 @@
                 "@valueSetId": "SEPIO:0000371"
             }, 
             {
+                "name": "condition", 
+                "precedence": 30.0, 
+                "dataType": "GeneticCondition", 
+                "iri-label": "is_about_condition", 
+                "description": "The condition for which the variant's pathogenicity is described", 
+                "iri": "SEPIO:0000276", 
+                "cg-label": "condition", 
+                "entityId": "E35", 
+                "cardinality": "0..*", 
+                "id": "A123", 
+                "@valueSetId": ""
+            }, 
+            {
                 "name": "assertionMethod", 
-                "precedence": 4.0, 
+                "precedence": 40.0, 
                 "dataType": "VariantPathogenicityInterpretationGuideline", 
                 "iri-label": "is_specified_by", 
+                "description": "The  framework that formally defines the methodology used in creating this interpretation.", 
                 "iri": "SEPIO:0000041", 
                 "cg-label": "assertionMethod", 
                 "entityId": "E35", 
                 "cardinality": "0..1", 
                 "isReference": "yes", 
                 "id": "A125", 
-                "description": "The  framework that formally defines the methodology used in creating this interpretation."
+                "@valueSetId": "SEPIO-CG:65132"
             }
         ], 
         "id": "E35", 
         "description": "An assertion about the pathogenicity of a genetic sequence variant, based on evaluation of one or more lines of evidence."
+    }, 
+    "E32": {
+        "name": "VariantPathogenicityInterpretationGuideline", 
+        "iri": "SEPIO:0000193", 
+        "iri-label": "variant pathogenicity interpretation guideline", 
+        "level2": "Framework", 
+        "comments": "Guidelines typically include specific 'variant interpretation criterion' that describe how to interpret the direction and strength of evidence provided by a particular type of information, and 'criterion scoring algorithms' which describe how to combine the outcomes of each criterion assessment to arrive at a final interpretation of a variant's pathogenicity.\n. . . ", 
+        "level1": "Foundation", 
+        "parentType": "E40", 
+        "link": "AssertMeth", 
+        "attributes": [
+            {
+                "name": "label", 
+                "precedence": 1.0, 
+                "dataType": "string", 
+                "iri-label": "label", 
+                "iri": "RDFS:label", 
+                "cg-label": "label", 
+                "entityId": "E00", 
+                "cardinality": "0..1", 
+                "id": "A200", 
+                "description": "A name given to the resource."
+            }, 
+            {
+                "name": "description", 
+                "precedence": 2.0, 
+                "dataType": "string", 
+                "iri-label": "description", 
+                "iri": "DC:description", 
+                "cg-label": "description", 
+                "entityId": "E00", 
+                "cardinality": "0..1", 
+                "id": "A201", 
+                "description": "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."
+            }, 
+            {
+                "name": "version", 
+                "precedence": 10.0, 
+                "dataType": "string", 
+                "iri-label": "version", 
+                "description": "Version of this AssertionMethod", 
+                "iri": "PAV:version", 
+                "cg-label": "version", 
+                "entityId": "E32", 
+                "cardinality": "0..1", 
+                "id": "A173", 
+                "@valueSetId": ""
+            }, 
+            {
+                "name": "url", 
+                "precedence": 11.0, 
+                "dataType": "string", 
+                "iri-label": "has_url", 
+                "description": "Location of a document that contains a description of this AssertionMethod", 
+                "iri": "ERO:0000480", 
+                "cg-label": "url", 
+                "entityId": "E32", 
+                "cardinality": "0..1", 
+                "id": "A156", 
+                "@valueSetId": ""
+            }, 
+            {
+                "name": "scoringAlgorithm", 
+                "precedence": 20.0, 
+                "dataType": "@id", 
+                "iri-label": "has part", 
+                "description": "The algorithm used to combine AssertionCriteria into a final Interpretation using this Method", 
+                "iri": "BFO:0000051", 
+                "cg-label": "scoringAlgorithm", 
+                "entityId": "E32", 
+                "cardinality": "0..1", 
+                "id": "A174", 
+                "@valueSetId": "SEPIO-CG:65133"
+            }
+        ], 
+        "id": "E32", 
+        "description": "A specification that describes how to interpret information as evidence in order to make an  assertion about the pathogenicity of a genetic variant."
+    }, 
+    "E30": {
+        "name": "Genotype", 
+        "iri": "GENO:0000719", 
+        "iri-label": "intrinsic genotype", 
+        "level2": "Interpretation", 
+        "comments": "", 
+        "level1": "Domain Entity", 
+        "parentType": "E40", 
+        "link": "Geno", 
+        "attributes": [
+            {
+                "name": "label", 
+                "precedence": 1.0, 
+                "dataType": "string", 
+                "iri-label": "label", 
+                "iri": "RDFS:label", 
+                "cg-label": "label", 
+                "entityId": "E00", 
+                "cardinality": "0..1", 
+                "id": "A200", 
+                "description": "A name given to the resource."
+            }, 
+            {
+                "name": "description", 
+                "precedence": 2.0, 
+                "dataType": "string", 
+                "iri-label": "description", 
+                "iri": "DC:description", 
+                "cg-label": "description", 
+                "entityId": "E00", 
+                "cardinality": "0..1", 
+                "id": "A201", 
+                "description": "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."
+            }, 
+            {
+                "name": "hasPart", 
+                "precedence": 10.0, 
+                "dataType": "Haplotype", 
+                "iri-label": "has part", 
+                "description": "Individual Haplotypes that constitute the Genotype", 
+                "iri": "BFO:0000051", 
+                "cg-label": "hasPart", 
+                "entityId": "E30", 
+                "cardinality": "1..*", 
+                "id": "A068", 
+                "@valueSetId": ""
+            }, 
+            {
+                "name": "zygosity", 
+                "precedence": 11.0, 
+                "dataType": "@id", 
+                "iri-label": "has_zygosity", 
+                "iri": "GENO:0000608", 
+                "cg-label": "zygosity", 
+                "entityId": "E30", 
+                "cardinality": "0..1", 
+                "id": "A069", 
+                "@valueSetId": "SEPIO:0000338"
+            }
+        ], 
+        "id": "E30", 
+        "description": "A set of haplotypes on different molecules (i.e. in trans)"
+    }, 
+    "E11": {
+        "name": "Contribution", 
+        "iri": "SEPIO:0000158", 
+        "iri-label": "contribution", 
+        "level2": "SEPIO", 
+        "comments": "A contribution describes the part played by a particular agent in the creation, modification, assessment, or descruction of an artifact. The scope of a given 'contribution' instance is constrained to include only the actions of a particular agent in contributing to a particular artifact. Contribution instances are used to organize information about when, where, how (e.g. what roles were played), and on whose behalf these actions were performed.", 
+        "level1": "Foundation", 
+        "parentType": "E00", 
+        "link": "Contrib", 
+        "attributes": [
+            {
+                "name": "label", 
+                "precedence": 1.0, 
+                "dataType": "string", 
+                "iri-label": "label", 
+                "iri": "RDFS:label", 
+                "cg-label": "label", 
+                "entityId": "E00", 
+                "cardinality": "0..1", 
+                "id": "A200", 
+                "description": "A name given to the resource."
+            }, 
+            {
+                "name": "description", 
+                "precedence": 2.0, 
+                "dataType": "string", 
+                "iri-label": "description", 
+                "iri": "DC:description", 
+                "cg-label": "description", 
+                "entityId": "E00", 
+                "cardinality": "0..1", 
+                "id": "A201", 
+                "description": "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."
+            }, 
+            {
+                "name": "agent", 
+                "precedence": 10.0, 
+                "dataType": "Agent", 
+                "iri-label": "has_agent", 
+                "description": "A person, group of people, algorithm, or some other actor that could make a contribution", 
+                "iri": "SEPIO:0000017", 
+                "cg-label": "agent", 
+                "entityId": "E11", 
+                "cardinality": "1..1", 
+                "isReference": "yes", 
+                "id": "A006", 
+                "@valueSetId": ""
+            }, 
+            {
+                "name": "contributionRole", 
+                "precedence": 11.0, 
+                "dataType": "@id", 
+                "iri-label": "realizes", 
+                "description": "The particular role in which an agent was acting while making the contribution", 
+                "iri": "BFO:0000055", 
+                "cg-label": "contributionRole", 
+                "entityId": "E11", 
+                "cardinality": "1..1", 
+                "id": "A008", 
+                "@valueSetId": "SEPIO-CG:65120"
+            }, 
+            {
+                "name": "contributionDate", 
+                "precedence": 20.0, 
+                "dataType": "Datetime", 
+                "iri-label": "activity_date", 
+                "description": "The date on which a contribution was completed", 
+                "iri": "SEPIO:0000160", 
+                "cg-label": "contributionDate", 
+                "entityId": "E11", 
+                "cardinality": "0..1", 
+                "id": "A007", 
+                "@valueSetId": ""
+            }
+        ], 
+        "id": "E11", 
+        "description": "The actions taken by a particular agent in the creation, modification, assessment, or destruction of an artifact."
+    }, 
+    "E43": {
+        "name": "BenignMissenseVariationRateStatement", 
+        "iri": "SEPIO:0000246", 
+        "iri-label": "benign missense variation rate statement", 
+        "level2": "Feature", 
+        "comments": "", 
+        "level1": "Evidence Statement", 
+        "parentType": "E01", 
+        "link": "BMVR", 
+        "attributes": [
+            {
+                "name": "label", 
+                "precedence": 1.0, 
+                "dataType": "string", 
+                "iri-label": "label", 
+                "iri": "RDFS:label", 
+                "cg-label": "label", 
+                "entityId": "E00", 
+                "cardinality": "0..1", 
+                "id": "A200", 
+                "description": "A name given to the resource."
+            }, 
+            {
+                "name": "description", 
+                "precedence": 2.0, 
+                "dataType": "string", 
+                "iri-label": "description", 
+                "iri": "DC:description", 
+                "cg-label": "description", 
+                "entityId": "E00", 
+                "cardinality": "0..1", 
+                "id": "A201", 
+                "description": "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."
+            }, 
+            {
+                "name": "userLabelDictionary", 
+                "precedence": 89.0, 
+                "dataType": "UserLabel", 
+                "iri-label": "user_label_dictionary", 
+                "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.", 
+                "iri": "SEPIO:0000422", 
+                "cg-label": "userLabelDictionary", 
+                "entityId": "E01", 
+                "cardinality": "0..*", 
+                "isReference": "yes", 
+                "id": "A073", 
+                "@valueSetId": ""
+            }, 
+            {
+                "name": "outcomeQualifier", 
+                "precedence": 90.0, 
+                "dataType": "string", 
+                "iri-label": "statement_qualifier", 
+                "description": "Use \u201cNOT\u201d as the value of this property to assert that the statement is negated.", 
+                "iri": "SEPIO:0000346", 
+                "cg-label": "outcomeQualifier", 
+                "entityId": "E01", 
+                "cardinality": "0..1", 
+                "id": "A004", 
+                "@valueSetId": ""
+            }, 
+            {
+                "name": "evidenceLine", 
+                "precedence": 91.0, 
+                "dataType": "EvidenceLine", 
+                "iri-label": "has_evidence_line", 
+                "description": "supporting evidence", 
+                "iri": "SEPIO:0000006", 
+                "cg-label": "evidenceLine", 
+                "entityId": "E01", 
+                "cardinality": "0..*", 
+                "id": "A055", 
+                "@valueSetId": ""
+            }, 
+            {
+                "name": "contribution", 
+                "precedence": 93.0, 
+                "dataType": "Contribution", 
+                "iri-label": "qualified_contribution", 
+                "description": "The contributions (agent, time and role) made to this entity", 
+                "iri": "SEPIO:0000159", 
+                "cg-label": "contribution", 
+                "entityId": "E01", 
+                "cardinality": "0..*", 
+                "id": "A119", 
+                "@valueSetId": ""
+            }, 
+            {
+                "name": "source", 
+                "precedence": 94.0, 
+                "dataType": "string", 
+                "iri-label": "source", 
+                "description": "A string indicating the source of a Statement", 
+                "iri": "DC:source", 
+                "cg-label": "source", 
+                "entityId": "E01", 
+                "cardinality": "0..*", 
+                "isReference": "yes", 
+                "id": "A127", 
+                "@valueSetId": ""
+            }, 
+            {
+                "name": "region", 
+                "precedence": 10.0, 
+                "dataType": "SequenceLocation", 
+                "iri-label": "is_about_region", 
+                "description": "Sequence on which the region is defined", 
+                "iri": "SEPIO:0000279", 
+                "cg-label": "region", 
+                "entityId": "E43", 
+                "cardinality": "0..1", 
+                "isReference": "yes", 
+                "id": "A076", 
+                "@valueSetId": ""
+            }, 
+            {
+                "name": "gene", 
+                "precedence": 11.0, 
+                "dataType": "@id", 
+                "iri-label": "is_about_gene", 
+                "description": "Gene that contains the missense variants", 
+                "iri": "SEPIO:0000278", 
+                "cg-label": "gene", 
+                "entityId": "E43", 
+                "cardinality": "0..1", 
+                "isReference": "yes", 
+                "id": "A094", 
+                "@valueSetId": "SEPIO:0000396"
+            }, 
+            {
+                "name": "statementOutcome", 
+                "precedence": 20.0, 
+                "dataType": "@id", 
+                "iri-label": "asserted_conclusion", 
+                "description": "The rate at which Benign missense variants occur within the region", 
+                "iri": "SEPIO:0000197", 
+                "cg-label": "statementOutcome", 
+                "entityId": "E43", 
+                "cardinality": "1..1", 
+                "isReference": "yes", 
+                "id": "A080", 
+                "@valueSetId": "SEPIO:0000349"
+            }
+        ], 
+        "id": "E43", 
+        "description": "A statement about the frequency at which missense variants in a particular region are tolerated (i.e. do not cause a pathological condition)"
+    }, 
+    "E12": {
+        "name": "Agent", 
+        "iri": "PROV:agent", 
+        "iri-label": "Agent", 
+        "level2": "SEPIO", 
+        "comments": "Agents are entities that actively contribute to the creation, modification or assessment of some artifact such as an assertion, evidence line, or data item. In doing so, an 'agent role' is realized.  Types of entities that play this role can include persons, organizations, and software.", 
+        "level1": "Foundation", 
+        "parentType": "E00", 
+        "link": "Agent", 
+        "attributes": [
+            {
+                "name": "label", 
+                "precedence": 1.0, 
+                "dataType": "string", 
+                "iri-label": "label", 
+                "iri": "RDFS:label", 
+                "cg-label": "label", 
+                "entityId": "E00", 
+                "cardinality": "0..1", 
+                "id": "A200", 
+                "description": "A name given to the resource."
+            }, 
+            {
+                "name": "description", 
+                "precedence": 2.0, 
+                "dataType": "string", 
+                "iri-label": "description", 
+                "iri": "DC:description", 
+                "cg-label": "description", 
+                "entityId": "E00", 
+                "cardinality": "0..1", 
+                "id": "A201", 
+                "description": "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."
+            }, 
+            {
+                "name": "agentFor", 
+                "precedence": 30.0, 
+                "dataType": "Agent", 
+                "iri-label": "agent_for", 
+                "iri": "SEPIO:0000169", 
+                "cg-label": "agentFor", 
+                "entityId": "E12", 
+                "cardinality": "1..1", 
+                "id": "A190", 
+                "description": "a relation between an agent and an other agent, typically an organization, on whose behalf a Contribution is made."
+            }
+        ], 
+        "id": "E12", 
+        "description": "An agent is something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent's activity (from PROV)."
+    }, 
+    "E14": {
+        "name": "GeneticCondition", 
+        "iri": "SEPIO:0000219", 
+        "iri-label": "genetic condition", 
+        "level2": "Interpretation", 
+        "comments": "CB: It appears that most descriptions of mendelian conditions do emphasize the single-locus nature.  (Many say monogenic, but single-locus makes more sense to me for something like a large-deletion?)  The problem, perhapse is that we have allowed Mendelian Condition to contain terms that are not, strictly speaking, Mendelian conditions.  For instance, parent nodes in a disease ontology which is a parent to many different monogenic diseases that all share similary phenotypic features (like hearing loss).\n\nMB: I think the 'typically' accommodates this in the definition, but CG should add clarifying comments as noted above.\n\nTODO:CG to add clarifying coments here about monogenic nature of mendelian conditions ", 
+        "level1": "Domain Entity", 
+        "parentType": "E40", 
+        "link": "GenCond", 
+        "attributes": [
+            {
+                "name": "label", 
+                "precedence": 1.0, 
+                "dataType": "string", 
+                "iri-label": "label", 
+                "iri": "RDFS:label", 
+                "cg-label": "label", 
+                "entityId": "E00", 
+                "cardinality": "0..1", 
+                "id": "A200", 
+                "description": "A name given to the resource."
+            }, 
+            {
+                "name": "description", 
+                "precedence": 2.0, 
+                "dataType": "string", 
+                "iri-label": "description", 
+                "iri": "DC:description", 
+                "cg-label": "description", 
+                "entityId": "E00", 
+                "cardinality": "0..1", 
+                "id": "A201", 
+                "description": "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."
+            }, 
+            {
+                "name": "disease", 
+                "precedence": 10.0, 
+                "dataType": "@id", 
+                "iri-label": "has part", 
+                "description": "The diseases that define the Genetic Condition", 
+                "iri": "BFO:0000051", 
+                "cg-label": "disease", 
+                "entityId": "E14", 
+                "cardinality": "0..*", 
+                "id": "A158", 
+                "@valueSetId": "SEPIO:0000372"
+            }, 
+            {
+                "name": "phenotype", 
+                "precedence": 11.0, 
+                "dataType": "@id", 
+                "iri-label": "has part", 
+                "description": "Phenotypes used to define a particular GeneticCondition", 
+                "iri": "BFO:0000051", 
+                "cg-label": "phenotype", 
+                "entityId": "E14", 
+                "cardinality": "0..*", 
+                "id": "A141", 
+                "@valueSetId": "SEPIO:0000375"
+            }, 
+            {
+                "name": "gene", 
+                "precedence": 12.0, 
+                "dataType": "@id", 
+                "iri-label": "has participant", 
+                "description": "The gene used to define a particular GeneticCondition", 
+                "iri": "RO:0000057", 
+                "cg-label": "gene", 
+                "entityId": "E14", 
+                "cardinality": "0..1", 
+                "id": "A143", 
+                "@valueSetId": "SEPIO:0000396"
+            }, 
+            {
+                "name": "inheritancePattern", 
+                "precedence": 15.0, 
+                "dataType": "@id", 
+                "iri-label": "has disposition", 
+                "description": "The manner in which a genetic condition is inherited", 
+                "iri": "RO:0000091", 
+                "cg-label": "inheritancePattern", 
+                "entityId": "E14", 
+                "cardinality": "0..1", 
+                "isReference": "yes", 
+                "id": "A142", 
+                "@valueSetId": "SEPIO:0000416"
+            }
+        ], 
+        "id": "E14", 
+        "description": "A disease, or a set of one or more co-occurring phenotypes, typically controlled by a single locus with a defined inheritance pattern."
     }, 
     "E39": {
         "name": "UserLabel", 
@@ -1003,7 +1003,7 @@
             }, 
             {
                 "name": "labelFor", 
-                "precedence": 1.0, 
+                "precedence": 10.0, 
                 "dataType": "@id", 
                 "iri-label": "label_for", 
                 "description": "The object to which a user-assigned label applies", 
@@ -1016,7 +1016,7 @@
             }, 
             {
                 "name": "contribution", 
-                "precedence": 4.0, 
+                "precedence": 20.0, 
                 "dataType": "Contribution", 
                 "iri-label": "qualified_contribution", 
                 "description": "Provenance of the label, describing who created the label and when it was created", 
@@ -1066,7 +1066,7 @@
             }, 
             {
                 "name": "referenceSequence", 
-                "precedence": 1.0, 
+                "precedence": 10.0, 
                 "dataType": "@id", 
                 "iri-label": "reference", 
                 "iri": "FALDO:reference", 
@@ -1078,7 +1078,7 @@
             }, 
             {
                 "name": "start", 
-                "precedence": 2.0, 
+                "precedence": 20.0, 
                 "dataType": "Position", 
                 "iri-label": "start_position", 
                 "iri": "GENO:0000894", 
@@ -1089,7 +1089,7 @@
             }, 
             {
                 "name": "end", 
-                "precedence": 3.0, 
+                "precedence": 21.0, 
                 "dataType": "Position", 
                 "iri-label": "end_position", 
                 "iri": "GENO:0000895", 
@@ -1100,7 +1100,7 @@
             }, 
             {
                 "name": "refState", 
-                "precedence": 4.0, 
+                "precedence": 30.0, 
                 "dataType": "string", 
                 "iri-label": "reference state", 
                 "iri": "CG:0008", 
@@ -1147,7 +1147,7 @@
             }, 
             {
                 "name": "name", 
-                "precedence": 1.0, 
+                "precedence": 10.0, 
                 "dataType": "string", 
                 "iri-label": "name", 
                 "iri": "CG:0006", 
@@ -1157,19 +1157,8 @@
                 "id": "A920"
             }, 
             {
-                "name": "preferred", 
-                "precedence": 2.0, 
-                "dataType": "boolean", 
-                "iri-label": "preferred", 
-                "iri": "CG:0007", 
-                "cg-label": "preferred", 
-                "entityId": "E90", 
-                "cardinality": "1..1", 
-                "id": "A921"
-            }, 
-            {
                 "name": "nameType", 
-                "precedence": 2.0, 
+                "precedence": 11.0, 
                 "dataType": "@id", 
                 "iri-label": "name type", 
                 "iri": "CG:0015", 
@@ -1178,79 +1167,29 @@
                 "cardinality": "1..1", 
                 "id": "A943", 
                 "@valueSetId": "SEPIO-CG:65903"
+            }, 
+            {
+                "name": "preferred", 
+                "precedence": 12.0, 
+                "dataType": "boolean", 
+                "iri-label": "preferred", 
+                "iri": "CG:0007", 
+                "cg-label": "preferred", 
+                "entityId": "E90", 
+                "cardinality": "1..1", 
+                "id": "A921"
             }
         ], 
         "id": "E90"
     }, 
-    "E41": {
-        "name": "IdentifierSystem", 
-        "iri": "SEPIO:0000374", 
-        "iri-label": "identifier system", 
-        "level2": "Terminology", 
-        "comments": "", 
-        "level1": "Foundation", 
-        "parentType": "E40", 
-        "link": "IdSys", 
-        "attributes": [
-            {
-                "name": "label", 
-                "precedence": 1.0, 
-                "dataType": "string", 
-                "iri-label": "label", 
-                "iri": "RDFS:label", 
-                "cg-label": "label", 
-                "entityId": "E00", 
-                "cardinality": "0..1", 
-                "id": "A200", 
-                "description": "A name given to the resource."
-            }, 
-            {
-                "name": "description", 
-                "precedence": 2.0, 
-                "dataType": "string", 
-                "iri-label": "description", 
-                "iri": "DC:description", 
-                "cg-label": "description", 
-                "entityId": "E00", 
-                "cardinality": "0..1", 
-                "id": "A201", 
-                "description": "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."
-            }, 
-            {
-                "name": "prefix", 
-                "precedence": 3.0, 
-                "dataType": "string", 
-                "iri-label": "prefix", 
-                "iri": "SEPIO-CG:70011", 
-                "cg-label": "prefix", 
-                "entityId": "E41", 
-                "cardinality": "0..1", 
-                "id": "A152"
-            }, 
-            {
-                "name": "urlPattern", 
-                "precedence": 4.0, 
-                "dataType": "string", 
-                "iri-label": "url_pattern", 
-                "iri": "SEPIO-CG:70012", 
-                "cg-label": "urlPattern", 
-                "entityId": "E41", 
-                "cardinality": "1..1", 
-                "id": "A154", 
-                "@valueSetId": ""
-            }
-        ], 
-        "id": "E41", 
-        "description": "(LB) this is not directly related to the model, but it is needed for our work in order to store the data for all the Systems and related meta data, URIs, prefixes, OIDs, etc. that provide externally referenced identifiers.  "
-    }, 
-    "E29": {
-        "name": "Haplotype", 
-        "iri": "GENO:0000871", 
-        "iri-label": "haplotype", 
-        "level2": "Interpretation", 
+    "E92": {
+        "name": "Position", 
+        "iri": "CG:0022", 
+        "iri-label": "contextual allele coordinate position", 
+        "level2": "Allele", 
         "level1": "Domain Entity", 
         "parentType": "E40", 
-        "link": "Haplo", 
+        "link": "CtxPos", 
         "attributes": [
             {
                 "name": "label", 
@@ -1277,21 +1216,18 @@
                 "description": "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."
             }, 
             {
-                "name": "hasPart", 
-                "precedence": 1.0, 
-                "dataType": "CanonicalAllele", 
-                "iri-label": "has part", 
-                "description": "Individual Alleles that constitute the haplotype", 
-                "iri": "BFO:0000051", 
-                "cg-label": "hasPart", 
-                "entityId": "E29", 
-                "cardinality": "1..*", 
-                "id": "A067", 
-                "@valueSetId": ""
+                "name": "index", 
+                "precedence": 10.0, 
+                "dataType": "integer", 
+                "iri-label": "index", 
+                "iri": "CG:0012", 
+                "cg-label": "index", 
+                "entityId": "E92", 
+                "cardinality": "0..1", 
+                "id": "A940"
             }
         ], 
-        "id": "E29", 
-        "description": "A set of alleles on the same molecule (i.e. in cis)"
+        "id": "E92"
     }, 
     "E54": {
         "name": "ValueSet", 
@@ -1329,7 +1265,7 @@
             }, 
             {
                 "name": "valueSetExtensibility", 
-                "precedence": 3.0, 
+                "precedence": 10.0, 
                 "dataType": "@id", 
                 "iri-label": "value_set_extensibility", 
                 "description": "The type of valueset is either extendsible or fixed, which determines whether or not the list of concepts defined for the value set can be extended or not when bound to specific attributes.", 
@@ -1342,9 +1278,10 @@
             }, 
             {
                 "name": "valueSetIdentifierSystems", 
-                "precedence": 4.0, 
+                "precedence": 11.0, 
                 "dataType": "IdentifierSystem", 
                 "iri-label": "value_set_identifier_system", 
+                "description": "The set of identifier systems or which the concepts are bound", 
                 "iri": "SEPIO:0000373", 
                 "cg-label": "valueSetIdentifierSystems", 
                 "entityId": "E54", 
@@ -1354,10 +1291,10 @@
             }, 
             {
                 "name": "concept", 
-                "precedence": 5.0, 
+                "precedence": 20.0, 
                 "dataType": "@id", 
                 "iri-label": "concept", 
-                "description": "An individual entry in a ValueSet", 
+                "description": "The members of the value set, predefined - constraining or recommeded if extensibility is fixed or extensible, respectively.", 
                 "iri": "SEPIO-CG:70004", 
                 "cg-label": "concept", 
                 "entityId": "E54", 
@@ -1406,7 +1343,7 @@
             }, 
             {
                 "name": "userLabelDictionary", 
-                "precedence": 2.0, 
+                "precedence": 89.0, 
                 "dataType": "UserLabel", 
                 "iri-label": "user_label_dictionary", 
                 "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.", 
@@ -1473,7 +1410,7 @@
             }, 
             {
                 "name": "canonicalAllele", 
-                "precedence": 1.0, 
+                "precedence": 10.0, 
                 "dataType": "CanonicalAllele", 
                 "iri-label": "is_about_allele", 
                 "description": "Allele being tested for cosegregation", 
@@ -1487,7 +1424,7 @@
             }, 
             {
                 "name": "condition", 
-                "precedence": 2.0, 
+                "precedence": 11.0, 
                 "dataType": "GeneticCondition", 
                 "iri-label": "is_about_condition", 
                 "description": "Condition being tested for cosegregation", 
@@ -1499,34 +1436,8 @@
                 "@valueSetId": ""
             }, 
             {
-                "name": "totalNumberOfSegregations", 
-                "precedence": 3.0, 
-                "dataType": "integer", 
-                "iri-label": "total segregation count", 
-                "description": "Total number of segregations across families", 
-                "iri": "SEPIO:0000288", 
-                "cg-label": "totalNumberOfSegregations", 
-                "entityId": "E46", 
-                "cardinality": "0..1", 
-                "id": "A088", 
-                "@valueSetId": ""
-            }, 
-            {
-                "name": "familySegregation", 
-                "precedence": 4.0, 
-                "dataType": "FamilySegregation", 
-                "iri-label": "family segregation data", 
-                "description": "List of FamilySegregrationData that have been aggregated", 
-                "iri": "SEPIO:0000287", 
-                "cg-label": "familySegregation", 
-                "entityId": "E46", 
-                "cardinality": "0..*", 
-                "id": "A089", 
-                "@valueSetId": ""
-            }, 
-            {
                 "name": "inheritancePatternParameter", 
-                "precedence": 5.0, 
+                "precedence": 12.0, 
                 "dataType": "@id", 
                 "iri-label": "has_supporting_parameter", 
                 "description": "Inheritance pattern used in evaluation of co-segregation", 
@@ -1538,8 +1449,34 @@
                 "@valueSetId": "SEPIO:0000416"
             }, 
             {
+                "name": "familySegregation", 
+                "precedence": 13.0, 
+                "dataType": "FamilySegregation", 
+                "iri-label": "family segregation data", 
+                "description": "List of FamilySegregrationData that have been aggregated", 
+                "iri": "SEPIO:0000287", 
+                "cg-label": "familySegregation", 
+                "entityId": "E46", 
+                "cardinality": "0..*", 
+                "id": "A089", 
+                "@valueSetId": ""
+            }, 
+            {
+                "name": "totalNumberOfSegregations", 
+                "precedence": 20.0, 
+                "dataType": "integer", 
+                "iri-label": "total segregation count", 
+                "description": "Total number of segregations across families", 
+                "iri": "SEPIO:0000288", 
+                "cg-label": "totalNumberOfSegregations", 
+                "entityId": "E46", 
+                "cardinality": "0..1", 
+                "id": "A088", 
+                "@valueSetId": ""
+            }, 
+            {
                 "name": "totalOfAllelePosConditionPosIndividuals", 
-                "precedence": 6.0, 
+                "precedence": 22.0, 
                 "dataType": "integer", 
                 "iri-label": "allele positive condition positive individual count", 
                 "description": "Number of individuals across families that have the allele and the condition", 
@@ -1552,7 +1489,7 @@
             }, 
             {
                 "name": "totalOfAlleleNegConditionNegIndividuals", 
-                "precedence": 7.0, 
+                "precedence": 23.0, 
                 "dataType": "integer", 
                 "iri-label": "allele negative condition negative individual count", 
                 "description": "Number of individuals across families that lack both the allele and the condition", 
@@ -1565,7 +1502,7 @@
             }, 
             {
                 "name": "totalOfAllelePosConditionNegIndividuals", 
-                "precedence": 8.0, 
+                "precedence": 24.0, 
                 "dataType": "integer", 
                 "iri-label": "allele positive condition negative individual count", 
                 "description": "Number of individuals across families that have the allele but not the condition", 
@@ -1578,7 +1515,7 @@
             }, 
             {
                 "name": "totalOfAlleleNegConditionPosIndividuals", 
-                "precedence": 9.0, 
+                "precedence": 25.0, 
                 "dataType": "integer", 
                 "iri-label": "allele negative condition positive individual count", 
                 "description": "Number of individuals across families that do not have the allele but do have the condition", 
@@ -1591,7 +1528,7 @@
             }, 
             {
                 "name": "totalOfUntestedConditionPosIndividuals", 
-                "precedence": 10.0, 
+                "precedence": 26.0, 
                 "dataType": "integer", 
                 "iri-label": "untested condition positive individual count", 
                 "description": "Number of individuals across families that have the condition but whose allele is untested", 
@@ -1604,7 +1541,7 @@
             }, 
             {
                 "name": "totalOfUntestedConditionNegIndividuals", 
-                "precedence": 11.0, 
+                "precedence": 27.0, 
                 "dataType": "integer", 
                 "iri-label": "untested condition negative individual count", 
                 "description": "Number of individuals across families that do not have the condition but whose allele is untested", 
@@ -1617,7 +1554,7 @@
             }, 
             {
                 "name": "totalOfFamiliesWithInconsistentSegregations", 
-                "precedence": 12.0, 
+                "precedence": 28.0, 
                 "dataType": "integer", 
                 "iri-label": "families with inconsistent segregation count", 
                 "description": "Number of families containing segregations that are inconsistent with the allele causing the condition", 
@@ -1668,7 +1605,7 @@
             }, 
             {
                 "name": "evidenceStrength", 
-                "precedence": 2.0, 
+                "precedence": 10.0, 
                 "dataType": "@id", 
                 "iri-label": "evidence_has_strength", 
                 "description": "The strength of support given to the assertion by this line of evidence.", 
@@ -1681,7 +1618,7 @@
             }, 
             {
                 "name": "evidenceItem", 
-                "precedence": 3.0, 
+                "precedence": 20.0, 
                 "dataType": "Statement", 
                 "iri-label": "has_evidence_item", 
                 "description": "The individual pieces of evidence that constitute an EvidenceLine", 
@@ -1694,7 +1631,7 @@
             }, 
             {
                 "name": "contribution", 
-                "precedence": 4.0, 
+                "precedence": 30.0, 
                 "dataType": "Contribution", 
                 "iri-label": "qualified_contribution", 
                 "description": "The contributions (agent, time and role) made to this entity", 
@@ -1745,7 +1682,7 @@
             }, 
             {
                 "name": "userLabelDictionary", 
-                "precedence": 2.0, 
+                "precedence": 89.0, 
                 "dataType": "UserLabel", 
                 "iri-label": "user_label_dictionary", 
                 "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.", 
@@ -1812,7 +1749,7 @@
             }, 
             {
                 "name": "allele", 
-                "precedence": 1.0, 
+                "precedence": 10.0, 
                 "dataType": "CanonicalAllele", 
                 "iri-label": "is_about_allele", 
                 "description": "The allele for which conservation values are given", 
@@ -1825,21 +1762,8 @@
                 "@valueSetId": ""
             }, 
             {
-                "name": "algorithm", 
-                "precedence": 2.0, 
-                "dataType": "string", 
-                "iri-label": "asserted_by", 
-                "description": "Method or program used to calculate conservation", 
-                "iri": "SEPIO:0000130", 
-                "cg-label": "algorithm", 
-                "entityId": "E51", 
-                "cardinality": "0..1", 
-                "id": "A113", 
-                "@valueSetId": ""
-            }, 
-            {
                 "name": "statementOutcome", 
-                "precedence": 3.0, 
+                "precedence": 20.0, 
                 "dataType": "@id", 
                 "iri-label": "asserted_conclusion", 
                 "description": "The conservation classification from sequence ontology.", 
@@ -1849,6 +1773,19 @@
                 "cardinality": "1..1", 
                 "id": "A112", 
                 "@valueSetId": "SEPIO-CG:65124"
+            }, 
+            {
+                "name": "algorithm", 
+                "precedence": 30.0, 
+                "dataType": "string", 
+                "iri-label": "asserted_by", 
+                "description": "Method or program used to calculate conservation", 
+                "iri": "SEPIO:0000130", 
+                "cg-label": "algorithm", 
+                "entityId": "E51", 
+                "cardinality": "0..1", 
+                "id": "A113", 
+                "@valueSetId": ""
             }
         ], 
         "id": "E51", 
@@ -1890,7 +1827,7 @@
             }, 
             {
                 "name": "userLabelDictionary", 
-                "precedence": 2.0, 
+                "precedence": 89.0, 
                 "dataType": "UserLabel", 
                 "iri-label": "user_label_dictionary", 
                 "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.", 
@@ -1957,7 +1894,7 @@
             }, 
             {
                 "name": "condition", 
-                "precedence": 1.0, 
+                "precedence": 10.0, 
                 "dataType": "GeneticCondition", 
                 "iri-label": "is_about_condition", 
                 "description": "Condition for which the penetrance is described", 
@@ -1970,7 +1907,7 @@
             }, 
             {
                 "name": "statementOutcome", 
-                "precedence": 2.0, 
+                "precedence": 20.0, 
                 "dataType": "@id", 
                 "iri-label": "asserted_conclusion", 
                 "description": "Qualitative penetrance value", 
@@ -2021,7 +1958,7 @@
             }, 
             {
                 "name": "userLabelDictionary", 
-                "precedence": 2.0, 
+                "precedence": 89.0, 
                 "dataType": "UserLabel", 
                 "iri-label": "user_label_dictionary", 
                 "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.", 
@@ -2088,7 +2025,7 @@
             }, 
             {
                 "name": "allele", 
-                "precedence": 1.0, 
+                "precedence": 10.0, 
                 "dataType": "CanonicalAllele", 
                 "iri-label": "is_about_allele", 
                 "description": "The allele for which conservation values are given", 
@@ -2101,21 +2038,8 @@
                 "@valueSetId": ""
             }, 
             {
-                "name": "algorithm", 
-                "precedence": 2.0, 
-                "dataType": "string", 
-                "iri-label": "asserted_by", 
-                "description": "Method or program used to calculate conservation", 
-                "iri": "SEPIO:0000130", 
-                "cg-label": "algorithm", 
-                "entityId": "E53", 
-                "cardinality": "0..1", 
-                "id": "A187", 
-                "@valueSetId": ""
-            }, 
-            {
                 "name": "score", 
-                "precedence": 3.0, 
+                "precedence": 20.0, 
                 "dataType": "number", 
                 "iri-label": "assertion_confidence_score", 
                 "description": "Numerical score for the conservation of the allele", 
@@ -2124,6 +2048,19 @@
                 "entityId": "E53", 
                 "cardinality": "0..1", 
                 "id": "A114", 
+                "@valueSetId": ""
+            }, 
+            {
+                "name": "algorithm", 
+                "precedence": 30.0, 
+                "dataType": "string", 
+                "iri-label": "asserted_by", 
+                "description": "Method or program used to calculate conservation", 
+                "iri": "SEPIO:0000130", 
+                "cg-label": "algorithm", 
+                "entityId": "E53", 
+                "cardinality": "0..1", 
+                "id": "A187", 
                 "@valueSetId": ""
             }
         ], 
@@ -2166,7 +2103,7 @@
             }, 
             {
                 "name": "userLabelDictionary", 
-                "precedence": 2.0, 
+                "precedence": 89.0, 
                 "dataType": "UserLabel", 
                 "iri-label": "user_label_dictionary", 
                 "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.", 
@@ -2233,9 +2170,10 @@
             }, 
             {
                 "name": "canonicalAllele", 
-                "precedence": 1.0, 
+                "precedence": 10.0, 
                 "dataType": "CanonicalAllele", 
                 "iri-label": "is_about_allele", 
+                "description": "The canonical allele on which the prediction is made", 
                 "iri": "SEPIO:0000275", 
                 "cg-label": "canonicalAllele", 
                 "entityId": "E52", 
@@ -2245,7 +2183,7 @@
             }, 
             {
                 "name": "transcript", 
-                "precedence": 2.0, 
+                "precedence": 11.0, 
                 "dataType": "@id", 
                 "iri-label": "is_about_transcript", 
                 "description": "The transcript on which the prediction is made", 
@@ -2257,20 +2195,8 @@
                 "@valueSetId": "SEPIO-CG:65119"
             }, 
             {
-                "name": "predictionType", 
-                "precedence": 3.0, 
-                "dataType": "@id", 
-                "iri-label": "has_supporting_method", 
-                "iri": "SEPIO:0000255", 
-                "cg-label": "predictionType", 
-                "entityId": "E52", 
-                "cardinality": "1..1", 
-                "id": "A183", 
-                "@valueSetId": "SEPIO:0000345"
-            }, 
-            {
                 "name": "prediction", 
-                "precedence": 4.0, 
+                "precedence": 20.0, 
                 "dataType": "number", 
                 "iri-label": "assertion_confidence_score", 
                 "description": "The quantitative score ascribed by an InSilico predictor", 
@@ -2282,10 +2208,24 @@
                 "@valueSetId": ""
             }, 
             {
+                "name": "predictionType", 
+                "precedence": 30.0, 
+                "dataType": "@id", 
+                "iri-label": "has_supporting_method", 
+                "description": "The type of prediction being made", 
+                "iri": "SEPIO:0000255", 
+                "cg-label": "predictionType", 
+                "entityId": "E52", 
+                "cardinality": "1..1", 
+                "id": "A183", 
+                "@valueSetId": "SEPIO:0000345"
+            }, 
+            {
                 "name": "algorithm", 
-                "precedence": 4.0, 
+                "precedence": 31.0, 
                 "dataType": "string", 
                 "iri-label": "asserted_by", 
+                "description": "The computational tool or algorithm that makes the prediction", 
                 "iri": "SEPIO:0000130", 
                 "cg-label": "algorithm", 
                 "entityId": "E52", 
@@ -2333,7 +2273,7 @@
             }, 
             {
                 "name": "referenceSequence", 
-                "precedence": 1.0, 
+                "precedence": 10.0, 
                 "dataType": "@id", 
                 "iri-label": "reference", 
                 "description": "Sequence on which the region is defined", 
@@ -2347,7 +2287,7 @@
             }, 
             {
                 "name": "start", 
-                "precedence": 2.0, 
+                "precedence": 20.0, 
                 "dataType": "integer", 
                 "iri-label": "start_position", 
                 "description": "Start of the region in 0-based coordinates", 
@@ -2360,7 +2300,7 @@
             }, 
             {
                 "name": "stop", 
-                "precedence": 3.0, 
+                "precedence": 21.0, 
                 "dataType": "integer", 
                 "iri-label": "end_position", 
                 "description": "End of the region in 0-based coordinates", 
@@ -2374,97 +2314,6 @@
         ], 
         "id": "E22", 
         "description": "An attribute of a sequence feature related to the location of its starting and ending residues according to some reference coordinate system."
-    }, 
-    "E14": {
-        "name": "GeneticCondition", 
-        "iri": "SEPIO:0000219", 
-        "iri-label": "genetic condition", 
-        "level2": "Interpretation", 
-        "comments": "CB: It appears that most descriptions of mendelian conditions do emphasize the single-locus nature.  (Many say monogenic, but single-locus makes more sense to me for something like a large-deletion?)  The problem, perhapse is that we have allowed Mendelian Condition to contain terms that are not, strictly speaking, Mendelian conditions.  For instance, parent nodes in a disease ontology which is a parent to many different monogenic diseases that all share similary phenotypic features (like hearing loss).\n\nMB: I think the 'typically' accommodates this in the definition, but CG should add clarifying comments as noted above.\n\nTODO:CG to add clarifying coments here about monogenic nature of mendelian conditions ", 
-        "level1": "Domain Entity", 
-        "parentType": "E40", 
-        "link": "GenCond", 
-        "attributes": [
-            {
-                "name": "label", 
-                "precedence": 1.0, 
-                "dataType": "string", 
-                "iri-label": "label", 
-                "iri": "RDFS:label", 
-                "cg-label": "label", 
-                "entityId": "E00", 
-                "cardinality": "0..1", 
-                "id": "A200", 
-                "description": "A name given to the resource."
-            }, 
-            {
-                "name": "description", 
-                "precedence": 2.0, 
-                "dataType": "string", 
-                "iri-label": "description", 
-                "iri": "DC:description", 
-                "cg-label": "description", 
-                "entityId": "E00", 
-                "cardinality": "0..1", 
-                "id": "A201", 
-                "description": "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."
-            }, 
-            {
-                "name": "disease", 
-                "precedence": 2.0, 
-                "dataType": "@id", 
-                "iri-label": "has part", 
-                "description": "The diseases that define the Genetic Condition", 
-                "iri": "BFO:0000051", 
-                "cg-label": "disease", 
-                "entityId": "E14", 
-                "cardinality": "0..*", 
-                "id": "A158", 
-                "@valueSetId": "SEPIO:0000372"
-            }, 
-            {
-                "name": "phenotype", 
-                "precedence": 3.0, 
-                "dataType": "@id", 
-                "iri-label": "has part", 
-                "description": "Phenotypes used to define a particular GeneticCondition", 
-                "iri": "BFO:0000051", 
-                "cg-label": "phenotype", 
-                "entityId": "E14", 
-                "cardinality": "0..*", 
-                "id": "A141", 
-                "@valueSetId": "SEPIO:0000375"
-            }, 
-            {
-                "name": "inheritancePattern", 
-                "precedence": 4.0, 
-                "dataType": "@id", 
-                "iri-label": "has disposition", 
-                "description": "The manner in which a genetic condition is inherited", 
-                "iri": "RO:0000091", 
-                "cg-label": "inheritancePattern", 
-                "entityId": "E14", 
-                "cardinality": "0..1", 
-                "isReference": "yes", 
-                "id": "A142", 
-                "@valueSetId": "SEPIO:0000416"
-            }, 
-            {
-                "name": "gene", 
-                "precedence": 5.0, 
-                "dataType": "@id", 
-                "iri-label": "has participant", 
-                "description": "The gene used to define a particular GeneticCondition", 
-                "iri": "RO:0000057", 
-                "cg-label": "gene", 
-                "entityId": "E14", 
-                "cardinality": "0..1", 
-                "id": "A143", 
-                "@valueSetId": "SEPIO:0000396"
-            }
-        ], 
-        "id": "E14", 
-        "description": "A disease, or a set of one or more co-occurring phenotypes, typically controlled by a single locus with a defined inheritance pattern."
     }, 
     "E45": {
         "name": "FamilyCosegregationStatement", 
@@ -2502,7 +2351,7 @@
             }, 
             {
                 "name": "userLabelDictionary", 
-                "precedence": 2.0, 
+                "precedence": 89.0, 
                 "dataType": "UserLabel", 
                 "iri-label": "user_label_dictionary", 
                 "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.", 
@@ -2569,7 +2418,7 @@
             }, 
             {
                 "name": "canonicalAllele", 
-                "precedence": 1.0, 
+                "precedence": 10.0, 
                 "dataType": "CanonicalAllele", 
                 "iri-label": "is_about_allele", 
                 "description": "Allele being tested for cosegregation", 
@@ -2583,7 +2432,7 @@
             }, 
             {
                 "name": "condition", 
-                "precedence": 2.0, 
+                "precedence": 11.0, 
                 "dataType": "GeneticCondition", 
                 "iri-label": "is_about_condition", 
                 "description": "Condition being tested for cosegregation", 
@@ -2596,7 +2445,7 @@
             }, 
             {
                 "name": "family", 
-                "precedence": 3.0, 
+                "precedence": 12.0, 
                 "dataType": "@id", 
                 "iri-label": "is_about_family", 
                 "description": "Family in which segregation is being tested", 
@@ -2609,7 +2458,7 @@
             }, 
             {
                 "name": "phenotypePositiveAllelePositive", 
-                "precedence": 4.0, 
+                "precedence": 13.0, 
                 "dataType": "integer", 
                 "iri-label": "allele positive condition positive individual count", 
                 "description": "Number of (non-proband) individuals with both the condition and the allele", 
@@ -2622,7 +2471,7 @@
             }, 
             {
                 "name": "phenotypePositiveAlleleNegative", 
-                "precedence": 5.0, 
+                "precedence": 14.0, 
                 "dataType": "integer", 
                 "iri-label": "allele negative condition positive individual count", 
                 "description": "Number of (non-proband) individuals with the condition and without the allele", 
@@ -2635,7 +2484,7 @@
             }, 
             {
                 "name": "phenotypeNegativeAllelePositive", 
-                "precedence": 6.0, 
+                "precedence": 15.0, 
                 "dataType": "integer", 
                 "iri-label": "allele positive condition negative individual count", 
                 "description": "Number of (non-proband) individuals without the condition and with the allele", 
@@ -2648,7 +2497,7 @@
             }, 
             {
                 "name": "phenotypeNegativeAlleleNegative", 
-                "precedence": 7.0, 
+                "precedence": 16.0, 
                 "dataType": "integer", 
                 "iri-label": "allele negative condition negative individual count", 
                 "description": "The number of non-proband family members that have neither the allele nor the phenotype", 
@@ -2660,60 +2509,8 @@
                 "@valueSetId": ""
             }, 
             {
-                "name": "pedigree", 
-                "precedence": 8.0, 
-                "dataType": "string", 
-                "iri-label": "pedigree data", 
-                "description": "Detailed information about the family structure, affected status, and genotypes in pedigree/linkage format.", 
-                "iri": "SEPIO:0000318", 
-                "cg-label": "pedigree", 
-                "entityId": "E45", 
-                "cardinality": "0..*", 
-                "id": "A093", 
-                "@valueSetId": ""
-            }, 
-            {
-                "name": "columns", 
-                "precedence": 9.0, 
-                "dataType": "string", 
-                "iri-label": "pedigree column names", 
-                "description": "Column names for the pedigree data element", 
-                "iri": "SEPIO:0000316", 
-                "cg-label": "columns", 
-                "entityId": "E45", 
-                "cardinality": "0..*", 
-                "id": "A090", 
-                "@valueSetId": ""
-            }, 
-            {
-                "name": "genotypeValues", 
-                "precedence": 10.0, 
-                "dataType": "string", 
-                "iri-label": "pedigree genotype values map", 
-                "description": "Map describing how genotypes are represented in the pedigree", 
-                "iri": "SEPIO:0000317", 
-                "cg-label": "genotypeValues", 
-                "entityId": "E45", 
-                "cardinality": "0..*", 
-                "id": "A092", 
-                "@valueSetId": ""
-            }, 
-            {
-                "name": "affectedValues", 
-                "precedence": 11.0, 
-                "dataType": "string", 
-                "iri-label": "pedigree_affected_values_map", 
-                "description": "Map describing how affected status is represented in the pedigree", 
-                "iri": "SEPIO:0000313", 
-                "cg-label": "affectedValues", 
-                "entityId": "E45", 
-                "cardinality": "0..*", 
-                "id": "A091", 
-                "@valueSetId": ""
-            }, 
-            {
                 "name": "inconsistentSegregationsObserved", 
-                "precedence": 12.0, 
+                "precedence": 17.0, 
                 "dataType": "@id", 
                 "iri-label": "inconsistent segregations observed", 
                 "description": "Whether phenotype positive/allele negative or phenotype negative/allele positive individuals are in the family", 
@@ -2726,7 +2523,7 @@
             }, 
             {
                 "name": "inconsistentSegregationCount", 
-                "precedence": 13.0, 
+                "precedence": 18.0, 
                 "dataType": "integer", 
                 "iri-label": "inconsistent segregation count", 
                 "description": "The number of segregations inconsistent with allele pathogenicity", 
@@ -2736,20 +2533,72 @@
                 "cardinality": "0..1", 
                 "id": "A079", 
                 "@valueSetId": ""
+            }, 
+            {
+                "name": "columns", 
+                "precedence": 20.0, 
+                "dataType": "string", 
+                "iri-label": "pedigree column names", 
+                "description": "Column names for the pedigree data element", 
+                "iri": "SEPIO:0000316", 
+                "cg-label": "columns", 
+                "entityId": "E45", 
+                "cardinality": "0..*", 
+                "id": "A090", 
+                "@valueSetId": ""
+            }, 
+            {
+                "name": "pedigree", 
+                "precedence": 21.0, 
+                "dataType": "string", 
+                "iri-label": "pedigree data", 
+                "description": "Detailed information about the family structure, affected status, and genotypes in pedigree/linkage format.", 
+                "iri": "SEPIO:0000318", 
+                "cg-label": "pedigree", 
+                "entityId": "E45", 
+                "cardinality": "0..*", 
+                "id": "A093", 
+                "@valueSetId": ""
+            }, 
+            {
+                "name": "genotypeValues", 
+                "precedence": 22.0, 
+                "dataType": "string", 
+                "iri-label": "pedigree genotype values map", 
+                "description": "Map describing how genotypes are represented in the pedigree", 
+                "iri": "SEPIO:0000317", 
+                "cg-label": "genotypeValues", 
+                "entityId": "E45", 
+                "cardinality": "0..*", 
+                "id": "A092", 
+                "@valueSetId": ""
+            }, 
+            {
+                "name": "affectedValues", 
+                "precedence": 23.0, 
+                "dataType": "string", 
+                "iri-label": "pedigree_affected_values_map", 
+                "description": "Map describing how affected status is represented in the pedigree", 
+                "iri": "SEPIO:0000313", 
+                "cg-label": "affectedValues", 
+                "entityId": "E45", 
+                "cardinality": "0..*", 
+                "id": "A091", 
+                "@valueSetId": ""
             }
         ], 
         "id": "E45", 
         "description": "A statement describing the observed correlation between transmission of a particular allele and a particular genetic condition, across a single family pedigree (i.e. the co-segregation of an allele and a condition as observed across a family pedigree).\n"
     }, 
-    "E04": {
-        "name": "VariantPathogenicityInterpretationCriterion", 
-        "iri": "SEPIO:0000192", 
-        "iri-label": "variant pathogenicity interpretation criterion", 
-        "level2": "Framework", 
-        "comments": "\tIn the process of generating a variant interpretation, criterion support the generation of intermediate assertions ('criterion assessments') that establish whether a variant meets the standards set forth in the criterion. Many criterion also define a default strength to a particular type of evidence it defines (e.g. the ACMG criteria for pathogenicity are categorized as very string, strong, moderate, and supporting). These strengths are ultimately used by rules that combine the outcomes of all satisfied criterion to make a final interpretation of the variant's pathogenicity.", 
-        "level1": "Foundation", 
-        "parentType": "E40", 
-        "link": "Crit", 
+    "E03": {
+        "name": "ConditionMechanismStatement", 
+        "iri": "SEPIO:0000228", 
+        "iri-label": "condition mechanism statement", 
+        "level2": "Condition", 
+        "comments": "", 
+        "level1": "Evidence Statement", 
+        "parentType": "E01", 
+        "link": "CondMech", 
         "attributes": [
             {
                 "name": "label", 
@@ -2776,32 +2625,274 @@
                 "description": "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."
             }, 
             {
-                "name": "defaultStrength", 
-                "precedence": 3.0, 
-                "dataType": "@id", 
-                "iri-label": "default_criterion_strength", 
-                "iri": "SEPIO:0000196", 
-                "cg-label": "defaultStrength", 
-                "entityId": "E04", 
-                "cardinality": "0..1", 
-                "id": "A153", 
-                "@valueSetId": "SEPIO:0000353"
+                "name": "userLabelDictionary", 
+                "precedence": 89.0, 
+                "dataType": "UserLabel", 
+                "iri-label": "user_label_dictionary", 
+                "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.", 
+                "iri": "SEPIO:0000422", 
+                "cg-label": "userLabelDictionary", 
+                "entityId": "E01", 
+                "cardinality": "0..*", 
+                "isReference": "yes", 
+                "id": "A073", 
+                "@valueSetId": ""
             }, 
             {
-                "name": "usageNotes", 
-                "precedence": 4.0, 
+                "name": "outcomeQualifier", 
+                "precedence": 90.0, 
                 "dataType": "string", 
-                "iri-label": "usage note", 
-                "iri": "SEPIO:0000184", 
-                "cg-label": "usageNotes", 
-                "entityId": "E04", 
+                "iri-label": "statement_qualifier", 
+                "description": "Use \u201cNOT\u201d as the value of this property to assert that the statement is negated.", 
+                "iri": "SEPIO:0000346", 
+                "cg-label": "outcomeQualifier", 
+                "entityId": "E01", 
                 "cardinality": "0..1", 
-                "id": "A150", 
-                "description": "Additional comments about the application of the criterion"
+                "id": "A004", 
+                "@valueSetId": ""
+            }, 
+            {
+                "name": "evidenceLine", 
+                "precedence": 91.0, 
+                "dataType": "EvidenceLine", 
+                "iri-label": "has_evidence_line", 
+                "description": "supporting evidence", 
+                "iri": "SEPIO:0000006", 
+                "cg-label": "evidenceLine", 
+                "entityId": "E01", 
+                "cardinality": "0..*", 
+                "id": "A055", 
+                "@valueSetId": ""
+            }, 
+            {
+                "name": "contribution", 
+                "precedence": 93.0, 
+                "dataType": "Contribution", 
+                "iri-label": "qualified_contribution", 
+                "description": "The contributions (agent, time and role) made to this entity", 
+                "iri": "SEPIO:0000159", 
+                "cg-label": "contribution", 
+                "entityId": "E01", 
+                "cardinality": "0..*", 
+                "id": "A119", 
+                "@valueSetId": ""
+            }, 
+            {
+                "name": "source", 
+                "precedence": 94.0, 
+                "dataType": "string", 
+                "iri-label": "source", 
+                "description": "A string indicating the source of a Statement", 
+                "iri": "DC:source", 
+                "cg-label": "source", 
+                "entityId": "E01", 
+                "cardinality": "0..*", 
+                "isReference": "yes", 
+                "id": "A127", 
+                "@valueSetId": ""
+            }, 
+            {
+                "name": "condition", 
+                "precedence": 10.0, 
+                "dataType": "GeneticCondition", 
+                "iri-label": "is_about_condition", 
+                "description": "The condition whose mechanism is being described", 
+                "iri": "SEPIO:0000276", 
+                "cg-label": "condition", 
+                "entityId": "E03", 
+                "cardinality": "1..1", 
+                "id": "A012", 
+                "@valueSetId": ""
+            }, 
+            {
+                "name": "gene", 
+                "precedence": 11.0, 
+                "dataType": "@id", 
+                "iri-label": "is_about_gene", 
+                "description": "Gene in which the given variants occur", 
+                "iri": "SEPIO:0000278", 
+                "cg-label": "gene", 
+                "entityId": "E03", 
+                "cardinality": "1..1", 
+                "isReference": "yes", 
+                "id": "A011", 
+                "@valueSetId": "SEPIO:0000396"
+            }, 
+            {
+                "name": "statementOutcome", 
+                "precedence": 20.0, 
+                "dataType": "@id", 
+                "iri-label": "asserted_conclusion", 
+                "description": "SO term for a class of variants", 
+                "iri": "SEPIO:0000197", 
+                "cg-label": "statementOutcome", 
+                "entityId": "E03", 
+                "cardinality": "1..1", 
+                "isReference": "yes", 
+                "id": "A002", 
+                "@valueSetId": "SEPIO-CG:65108"
+            }, 
+            {
+                "name": "mechanismConfidence", 
+                "precedence": 30.0, 
+                "dataType": "@id", 
+                "iri-label": "assertion_confidence_level", 
+                "description": "Qualifier on the Condition/Mechanism pair", 
+                "iri": "SEPIO:0000167", 
+                "cg-label": "mechanismConfidence", 
+                "entityId": "E03", 
+                "cardinality": "0..1", 
+                "isReference": "yes", 
+                "id": "A003", 
+                "@valueSetId": "SEPIO:0000354"
             }
         ], 
-        "id": "E04", 
-        "description": "A specification that describes how to interpret the direction and strength of evidence provided by a specific type of information, as relevant to the pathogenicity or benignancy of a genetic variant.\n\nA specification that describes how to interpret the direction and strength of evidence provided by a specific type of information for the pathogenicity or benignancy of a genetic variant."
+        "id": "E03", 
+        "description": "A statement about the mechanism underlying a genetic condition (e.g. if that LOF mutations in a particular gene are a known mechanism of disease)."
+    }, 
+    "E48": {
+        "name": "LocusHeterogeneityStatement", 
+        "iri": "SEPIO:0000250", 
+        "iri-label": "\nlocus heterogeneity statement", 
+        "level2": "Condition", 
+        "comments": "The gene-specificity for a condition is low if the condition can be caused by other genes or factors, and high/complete if mutations in the gene are only known cause.", 
+        "level1": "Evidence Statement", 
+        "parentType": "E01", 
+        "link": "LocHet", 
+        "attributes": [
+            {
+                "name": "label", 
+                "precedence": 1.0, 
+                "dataType": "string", 
+                "iri-label": "label", 
+                "iri": "RDFS:label", 
+                "cg-label": "label", 
+                "entityId": "E00", 
+                "cardinality": "0..1", 
+                "id": "A200", 
+                "description": "A name given to the resource."
+            }, 
+            {
+                "name": "description", 
+                "precedence": 2.0, 
+                "dataType": "string", 
+                "iri-label": "description", 
+                "iri": "DC:description", 
+                "cg-label": "description", 
+                "entityId": "E00", 
+                "cardinality": "0..1", 
+                "id": "A201", 
+                "description": "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."
+            }, 
+            {
+                "name": "userLabelDictionary", 
+                "precedence": 89.0, 
+                "dataType": "UserLabel", 
+                "iri-label": "user_label_dictionary", 
+                "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.", 
+                "iri": "SEPIO:0000422", 
+                "cg-label": "userLabelDictionary", 
+                "entityId": "E01", 
+                "cardinality": "0..*", 
+                "isReference": "yes", 
+                "id": "A073", 
+                "@valueSetId": ""
+            }, 
+            {
+                "name": "outcomeQualifier", 
+                "precedence": 90.0, 
+                "dataType": "string", 
+                "iri-label": "statement_qualifier", 
+                "description": "Use \u201cNOT\u201d as the value of this property to assert that the statement is negated.", 
+                "iri": "SEPIO:0000346", 
+                "cg-label": "outcomeQualifier", 
+                "entityId": "E01", 
+                "cardinality": "0..1", 
+                "id": "A004", 
+                "@valueSetId": ""
+            }, 
+            {
+                "name": "evidenceLine", 
+                "precedence": 91.0, 
+                "dataType": "EvidenceLine", 
+                "iri-label": "has_evidence_line", 
+                "description": "supporting evidence", 
+                "iri": "SEPIO:0000006", 
+                "cg-label": "evidenceLine", 
+                "entityId": "E01", 
+                "cardinality": "0..*", 
+                "id": "A055", 
+                "@valueSetId": ""
+            }, 
+            {
+                "name": "contribution", 
+                "precedence": 93.0, 
+                "dataType": "Contribution", 
+                "iri-label": "qualified_contribution", 
+                "description": "The contributions (agent, time and role) made to this entity", 
+                "iri": "SEPIO:0000159", 
+                "cg-label": "contribution", 
+                "entityId": "E01", 
+                "cardinality": "0..*", 
+                "id": "A119", 
+                "@valueSetId": ""
+            }, 
+            {
+                "name": "source", 
+                "precedence": 94.0, 
+                "dataType": "string", 
+                "iri-label": "source", 
+                "description": "A string indicating the source of a Statement", 
+                "iri": "DC:source", 
+                "cg-label": "source", 
+                "entityId": "E01", 
+                "cardinality": "0..*", 
+                "isReference": "yes", 
+                "id": "A127", 
+                "@valueSetId": ""
+            }, 
+            {
+                "name": "condition", 
+                "precedence": 10.0, 
+                "dataType": "GeneticCondition", 
+                "iri-label": "is_about_condition", 
+                "description": "The condition for which the eitiology is defined", 
+                "iri": "SEPIO:0000276", 
+                "cg-label": "condition", 
+                "entityId": "E48", 
+                "cardinality": "1..1", 
+                "id": "A100", 
+                "@valueSetId": ""
+            }, 
+            {
+                "name": "gene", 
+                "precedence": 11.0, 
+                "dataType": "@id", 
+                "iri-label": "is_about_gene", 
+                "description": "Gene that causes the condition", 
+                "iri": "SEPIO:0000278", 
+                "cg-label": "gene", 
+                "entityId": "E48", 
+                "cardinality": "1..1", 
+                "id": "A101", 
+                "@valueSetId": "SEPIO:0000396"
+            }, 
+            {
+                "name": "statementOutcome", 
+                "precedence": 20.0, 
+                "dataType": "@id", 
+                "iri-label": "asserted_conclusion", 
+                "description": "Specificity of the Gene for the Condition", 
+                "iri": "SEPIO:0000197", 
+                "cg-label": "statementOutcome", 
+                "entityId": "E48", 
+                "cardinality": "1..1", 
+                "id": "A102", 
+                "@valueSetId": "SEPIO:0000348"
+            }
+        ], 
+        "id": "E48", 
+        "description": "A statement about the specificity with which a genetic condition is caused by variants in a particular gene or locus (i.e. whether it is the only known gene associated with the condition, or one or more other genes have been linked to the condition)."
     }, 
     "E24": {
         "name": "RegionTypeStatement", 
@@ -2839,7 +2930,7 @@
             }, 
             {
                 "name": "userLabelDictionary", 
-                "precedence": 2.0, 
+                "precedence": 89.0, 
                 "dataType": "UserLabel", 
                 "iri-label": "user_label_dictionary", 
                 "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.", 
@@ -2906,7 +2997,7 @@
             }, 
             {
                 "name": "region", 
-                "precedence": 1.0, 
+                "precedence": 10.0, 
                 "dataType": "SequenceLocation", 
                 "iri-label": "is_about_region", 
                 "description": "The region whose type is being defined", 
@@ -2920,7 +3011,7 @@
             }, 
             {
                 "name": "statementOutcome", 
-                "precedence": 2.0, 
+                "precedence": 20.0, 
                 "dataType": "@id", 
                 "iri-label": "asserted_conclusion", 
                 "description": "Annotation about the type or importance of a region", 
@@ -2936,15 +3027,15 @@
         "id": "E24", 
         "description": "A statement that classifies a particular region of biological sequence as being of a specified type or types  (e.g. using terms from the Sequence Ontology)."
     }, 
-    "E43": {
-        "name": "BenignMissenseVariationRateStatement", 
-        "iri": "SEPIO:0000246", 
-        "iri-label": "benign missense variation rate statement", 
-        "level2": "Feature", 
+    "E25": {
+        "name": "RegionAllelesStatement", 
+        "iri": "SEPIO:0000244", 
+        "iri-label": "region alleles statement", 
+        "level2": "Allele", 
         "comments": "", 
         "level1": "Evidence Statement", 
         "parentType": "E01", 
-        "link": "BMVR", 
+        "link": "RegAll", 
         "attributes": [
             {
                 "name": "label", 
@@ -2972,7 +3063,7 @@
             }, 
             {
                 "name": "userLabelDictionary", 
-                "precedence": 2.0, 
+                "precedence": 89.0, 
                 "dataType": "UserLabel", 
                 "iri-label": "user_label_dictionary", 
                 "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.", 
@@ -3038,50 +3129,48 @@
                 "@valueSetId": ""
             }, 
             {
-                "name": "region", 
-                "precedence": 1.0, 
-                "dataType": "SequenceLocation", 
-                "iri-label": "is_about_region", 
-                "description": "Sequence on which the region is defined", 
-                "iri": "SEPIO:0000279", 
-                "cg-label": "region", 
-                "entityId": "E43", 
-                "cardinality": "0..1", 
-                "isReference": "yes", 
-                "id": "A076", 
+                "name": "allele", 
+                "precedence": 10.0, 
+                "dataType": "ContextualAllele", 
+                "iri-label": "is_about_allele", 
+                "description": "Alleles that are being explicited assessed as either included or excluded from the region.", 
+                "iri": "SEPIO:0000275", 
+                "cg-label": "allele", 
+                "entityId": "E25", 
+                "cardinality": "0..*", 
+                "id": "A058", 
                 "@valueSetId": ""
             }, 
             {
-                "name": "gene", 
-                "precedence": 1.0, 
-                "dataType": "@id", 
-                "iri-label": "is_about_gene", 
-                "description": "Gene that contains the missense variants", 
-                "iri": "SEPIO:0000278", 
-                "cg-label": "gene", 
-                "entityId": "E43", 
-                "cardinality": "0..1", 
-                "isReference": "yes", 
-                "id": "A094", 
-                "@valueSetId": "SEPIO:0000396"
-            }, 
-            {
                 "name": "statementOutcome", 
-                "precedence": 2.0, 
+                "precedence": 20.0, 
                 "dataType": "@id", 
                 "iri-label": "asserted_conclusion", 
-                "description": "The rate at which Benign missense variants occur within the region", 
+                "description": "Assessed outcome of specified alleles as either included or excluded.", 
                 "iri": "SEPIO:0000197", 
                 "cg-label": "statementOutcome", 
-                "entityId": "E43", 
+                "entityId": "E25", 
+                "cardinality": "1..1", 
+                "id": "A059", 
+                "@valueSetId": "SEPIO-CG:65129"
+            }, 
+            {
+                "name": "region", 
+                "precedence": 30.0, 
+                "dataType": "SequenceLocation", 
+                "iri-label": "is_about_region", 
+                "description": "Region within which alleles are being measured", 
+                "iri": "SEPIO:0000279", 
+                "cg-label": "region", 
+                "entityId": "E25", 
                 "cardinality": "1..1", 
                 "isReference": "yes", 
-                "id": "A080", 
-                "@valueSetId": "SEPIO:0000349"
+                "id": "A071", 
+                "@valueSetId": ""
             }
         ], 
-        "id": "E43", 
-        "description": "A statement about the frequency at which missense variants in a particular region are tolerated (i.e. do not cause a pathological condition)"
+        "id": "E25", 
+        "description": "A statement about the positional relationship between a region of genomic sequence and one or more alleles. (i.e. whether the region overlaps or is adjacent to the allele)."
     }, 
     "E40": {
         "name": "DomainEntity", 
@@ -3119,15 +3208,15 @@
         "id": "E40", 
         "description": "Parent class for all concepts that may fit the following uses: \n- referenced in a ValueSet\n- provide for an optional UserLabel in lieu of the registered id label\n- define a novel concept with only a UserLabel for a given subclass"
     }, 
-    "E05": {
-        "name": "CanonicalAllele", 
-        "iri": "GENO:0000890", 
-        "iri-label": "canonical allele", 
-        "level2": "Allele", 
+    "E41": {
+        "name": "IdentifierSystem", 
+        "iri": "SEPIO:0000374", 
+        "iri-label": "identifier system", 
+        "level2": "Terminology", 
         "comments": "", 
-        "level1": "Domain Entity", 
+        "level1": "Foundation", 
         "parentType": "E40", 
-        "link": "CanAll", 
+        "link": "IdSys", 
         "attributes": [
             {
                 "name": "label", 
@@ -3154,55 +3243,33 @@
                 "description": "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."
             }, 
             {
-                "name": "relatedContextualAllele", 
-                "precedence": 1.0, 
-                "dataType": "ContextualAllele", 
-                "iri-label": "related contextual allele", 
-                "iri": "CG:0001", 
-                "cg-label": "relatedContextualAllele", 
-                "entityId": "E05", 
-                "cardinality": "1..*", 
-                "id": "A900", 
-                "description": "HIDE from docs / USE in context"
+                "name": "prefix", 
+                "precedence": 10.0, 
+                "dataType": "string", 
+                "iri-label": "prefix", 
+                "iri": "SEPIO-CG:70011", 
+                "cg-label": "prefix", 
+                "entityId": "E41", 
+                "cardinality": "0..1", 
+                "id": "A152", 
+                "description": "The QNames or namespace prefixes used to build CURIEs for a given fully qualified url."
             }, 
             {
-                "name": "canonicalAlleleType", 
-                "precedence": 2.0, 
-                "dataType": "@id", 
-                "iri-label": "canonical allele type", 
-                "iri": "CG:0013", 
-                "cg-label": "canonicalAlleleType", 
-                "entityId": "E05", 
+                "name": "urlPattern", 
+                "precedence": 11.0, 
+                "dataType": "string", 
+                "iri-label": "url_pattern", 
+                "description": "The fully qualified iri for the identifier system.", 
+                "iri": "SEPIO-CG:70012", 
+                "cg-label": "urlPattern", 
+                "entityId": "E41", 
                 "cardinality": "1..1", 
-                "id": "A941", 
-                "@valueSetId": "SEPIO-CG:65901"
-            }, 
-            {
-                "name": "complexity", 
-                "precedence": 3.0, 
-                "dataType": "@id", 
-                "iri-label": "complexity", 
-                "iri": "CG:0014", 
-                "cg-label": "complexity", 
-                "entityId": "E05", 
-                "cardinality": "1..1", 
-                "id": "A942", 
-                "@valueSetId": "SEPIO-CG:65902"
-            }, 
-            {
-                "name": "relatedIdentifier", 
-                "precedence": 4.0, 
-                "dataType": "@id", 
-                "iri-label": "related identifier", 
-                "iri": "CG:0017", 
-                "cg-label": "relatedIdentifier", 
-                "entityId": "E05", 
-                "cardinality": "0..*", 
-                "id": "A945"
+                "id": "A154", 
+                "@valueSetId": ""
             }
         ], 
-        "id": "E05", 
-        "description": "One of a set of coexisting sequence variants at a defined genomic locus, or a set of such variants located in cis on the same copy of the chromosome.\n"
+        "id": "E41", 
+        "description": "(LB) this is not directly related to the model, but it is needed for our work in order to store the data for all the Systems and related meta data, URIs, prefixes, OIDs, etc. that provide externally referenced identifiers.  "
     }, 
     "E20": {
         "name": "AlleleFunctionalImpactStatement", 
@@ -3240,7 +3307,7 @@
             }, 
             {
                 "name": "userLabelDictionary", 
-                "precedence": 2.0, 
+                "precedence": 89.0, 
                 "dataType": "UserLabel", 
                 "iri-label": "user_label_dictionary", 
                 "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.", 
@@ -3307,7 +3374,7 @@
             }, 
             {
                 "name": "contextualAllele", 
-                "precedence": 1.0, 
+                "precedence": 10.0, 
                 "dataType": "ContextualAllele", 
                 "iri-label": "is_about_allele", 
                 "description": "Allele defined with respect to the measured transcript", 
@@ -3320,7 +3387,7 @@
             }, 
             {
                 "name": "gene", 
-                "precedence": 2.0, 
+                "precedence": 11.0, 
                 "dataType": "@id", 
                 "iri-label": "is_about_gene", 
                 "description": "Gene to which the functional data applies", 
@@ -3333,7 +3400,7 @@
             }, 
             {
                 "name": "resultDescription", 
-                "precedence": 3.0, 
+                "precedence": 20.0, 
                 "dataType": "string", 
                 "iri-label": "result_description", 
                 "description": "Result of the functional experiment", 
@@ -3346,7 +3413,7 @@
             }, 
             {
                 "name": "assayType", 
-                "precedence": 4.0, 
+                "precedence": 30.0, 
                 "dataType": "@id", 
                 "iri-label": "has_supporting_method", 
                 "description": "Specific type of functional data collected", 
@@ -3398,7 +3465,7 @@
             }, 
             {
                 "name": "userLabelDictionary", 
-                "precedence": 2.0, 
+                "precedence": 89.0, 
                 "dataType": "UserLabel", 
                 "iri-label": "user_label_dictionary", 
                 "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.", 
@@ -3465,7 +3532,7 @@
             }, 
             {
                 "name": "canonicalAllele", 
-                "precedence": 1.0, 
+                "precedence": 10.0, 
                 "dataType": "CanonicalAllele", 
                 "iri-label": "is_about_allele", 
                 "description": "The allele studied in the case-control experiment", 
@@ -3479,7 +3546,7 @@
             }, 
             {
                 "name": "condition", 
-                "precedence": 2.0, 
+                "precedence": 11.0, 
                 "dataType": "GeneticCondition", 
                 "iri-label": "is_about_condition", 
                 "description": "The condition studied in the case-control experiment", 
@@ -3492,7 +3559,7 @@
             }, 
             {
                 "name": "caseGroupFrequency", 
-                "precedence": 3.0, 
+                "precedence": 12.0, 
                 "dataType": "AlleleFrequency", 
                 "iri-label": "case allele frequency statement", 
                 "description": "The group of individuals with the condition", 
@@ -3505,7 +3572,7 @@
             }, 
             {
                 "name": "controlGroupFrequency", 
-                "precedence": 4.0, 
+                "precedence": 13.0, 
                 "dataType": "AlleleFrequency", 
                 "iri-label": "control allele frequency statement", 
                 "description": "The group of individuals without the condition", 
@@ -3518,7 +3585,7 @@
             }, 
             {
                 "name": "oddsRatio", 
-                "precedence": 5.0, 
+                "precedence": 14.0, 
                 "dataType": "number", 
                 "iri-label": "odds ratio", 
                 "description": "Ratio of the probability of having the condition given the allele to the probability of the condition without the allele.", 
@@ -3531,7 +3598,7 @@
             }, 
             {
                 "name": "confidenceLevel", 
-                "precedence": 6.0, 
+                "precedence": 15.0, 
                 "dataType": "number", 
                 "iri-label": "confidence score", 
                 "description": "Confidence level in percent", 
@@ -3544,7 +3611,7 @@
             }, 
             {
                 "name": "confidenceIntervalLower", 
-                "precedence": 7.0, 
+                "precedence": 16.0, 
                 "dataType": "number", 
                 "iri-label": "lower confidence limit", 
                 "description": "Lower bound of the confidence interval for the odds ratio", 
@@ -3557,7 +3624,7 @@
             }, 
             {
                 "name": "confidenceIntervalUpper", 
-                "precedence": 8.0, 
+                "precedence": 17.0, 
                 "dataType": "number", 
                 "iri-label": "upper confidence limit", 
                 "description": "Upper bound of the confidence interval for the odds ratio", 
@@ -3608,7 +3675,7 @@
             }, 
             {
                 "name": "userLabelDictionary", 
-                "precedence": 2.0, 
+                "precedence": 89.0, 
                 "dataType": "UserLabel", 
                 "iri-label": "user_label_dictionary", 
                 "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.", 
@@ -3675,7 +3742,7 @@
             }, 
             {
                 "name": "contextualAllele", 
-                "precedence": 1.0, 
+                "precedence": 10.0, 
                 "dataType": "ContextualAllele", 
                 "iri-label": "is_about_allele", 
                 "description": "The allele that is being described", 
@@ -3688,7 +3755,7 @@
             }, 
             {
                 "name": "statementOutcome", 
-                "precedence": 2.0, 
+                "precedence": 20.0, 
                 "dataType": "@id", 
                 "iri-label": "asserted_conclusion", 
                 "description": "The null mutation classification from sequence ontology.", 
@@ -3739,7 +3806,7 @@
             }, 
             {
                 "name": "userLabelDictionary", 
-                "precedence": 2.0, 
+                "precedence": 89.0, 
                 "dataType": "UserLabel", 
                 "iri-label": "user_label_dictionary", 
                 "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.", 
@@ -3806,7 +3873,7 @@
             }, 
             {
                 "name": "criterion", 
-                "precedence": 1.0, 
+                "precedence": 10.0, 
                 "dataType": "Criterion", 
                 "iri-label": "is_specified_by", 
                 "description": "The rule describing how the data is being used", 
@@ -3820,7 +3887,7 @@
             }, 
             {
                 "name": "variant", 
-                "precedence": 2.0, 
+                "precedence": 11.0, 
                 "dataType": "CanonicalAllele", 
                 "iri-label": "is_about_allele", 
                 "description": "Variant about which the assemssment is made", 
@@ -3832,21 +3899,8 @@
                 "@valueSetId": ""
             }, 
             {
-                "name": "condition", 
-                "precedence": 3.0, 
-                "dataType": "GeneticCondition", 
-                "iri-label": "is_about_condition", 
-                "description": "Condition for which the assessment is made", 
-                "iri": "SEPIO:0000276", 
-                "cg-label": "condition", 
-                "entityId": "E09", 
-                "cardinality": "0..*", 
-                "id": "A118", 
-                "@valueSetId": ""
-            }, 
-            {
                 "name": "statementOutcome", 
-                "precedence": 4.0, 
+                "precedence": 20.0, 
                 "dataType": "@id", 
                 "iri-label": "asserted_conclusion", 
                 "description": "Result of assessing the data and criterion", 
@@ -3857,6 +3911,19 @@
                 "isReference": "yes", 
                 "id": "A116", 
                 "@valueSetId": "SEPIO:0000347"
+            }, 
+            {
+                "name": "condition", 
+                "precedence": 30.0, 
+                "dataType": "GeneticCondition", 
+                "iri-label": "is_about_condition", 
+                "description": "Condition for which the assessment is made", 
+                "iri": "SEPIO:0000276", 
+                "cg-label": "condition", 
+                "entityId": "E09", 
+                "cardinality": "0..*", 
+                "id": "A118", 
+                "@valueSetId": ""
             }
         ], 
         "id": "E09", 
@@ -3897,19 +3964,20 @@
                 "description": "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."
             }, 
             {
-                "name": "relatedCanonicalAllele", 
-                "precedence": 1.0, 
-                "dataType": "CanonicalAllele", 
-                "iri-label": "related canonical allele", 
-                "iri": "CG:0100", 
-                "cg-label": "canonicalAllele", 
+                "name": "contextualAlleleType", 
+                "precedence": 10.0, 
+                "dataType": "@id", 
+                "iri-label": "contextual allele type", 
+                "iri": "CG:0016", 
+                "cg-label": "contextualAlleleType", 
                 "entityId": "E06", 
-                "cardinality": "0..1", 
-                "id": "A910"
+                "cardinality": "1..1", 
+                "id": "A944", 
+                "@valueSetId": "SEPIO-CG:65904"
             }, 
             {
                 "name": "alleleName", 
-                "precedence": 2.0, 
+                "precedence": 11.0, 
                 "dataType": "ContextualAlleleName", 
                 "iri-label": "allele name", 
                 "iri": "CG:0003", 
@@ -3920,7 +3988,7 @@
             }, 
             {
                 "name": "state", 
-                "precedence": 3.0, 
+                "precedence": 12.0, 
                 "dataType": "string", 
                 "iri-label": "state", 
                 "iri": "CG:0004", 
@@ -3931,7 +3999,7 @@
             }, 
             {
                 "name": "referenceCoordinate", 
-                "precedence": 4.0, 
+                "precedence": 20.0, 
                 "dataType": "ReferenceCoordinate", 
                 "iri-label": "reference coordinate", 
                 "iri": "CG:0005", 
@@ -3941,16 +4009,15 @@
                 "id": "A913"
             }, 
             {
-                "name": "contextualAlleleType", 
-                "precedence": 6.0, 
-                "dataType": "@id", 
-                "iri-label": "contextual allele type", 
-                "iri": "CG:0016", 
-                "cg-label": "contextualAlleleType", 
+                "name": "relatedCanonicalAllele", 
+                "precedence": 30.0, 
+                "dataType": "CanonicalAllele", 
+                "iri-label": "related canonical allele", 
+                "iri": "CG:0100", 
+                "cg-label": "canonicalAllele", 
                 "entityId": "E06", 
-                "cardinality": "1..1", 
-                "id": "A944", 
-                "@valueSetId": "SEPIO-CG:65904"
+                "cardinality": "0..1", 
+                "id": "A910"
             }
         ], 
         "id": "E06", 
@@ -3992,7 +4059,7 @@
             }, 
             {
                 "name": "userLabelDictionary", 
-                "precedence": 2.0, 
+                "precedence": 89.0, 
                 "dataType": "UserLabel", 
                 "iri-label": "user_label_dictionary", 
                 "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.", 
@@ -4059,7 +4126,7 @@
             }, 
             {
                 "name": "individual", 
-                "precedence": 1.0, 
+                "precedence": 10.0, 
                 "dataType": "@id", 
                 "iri-label": "is_about_individual", 
                 "description": "Person whose alleles the data represents", 
@@ -4072,8 +4139,22 @@
                 "@valueSetId": ""
             }, 
             {
+                "name": "statementOutcome", 
+                "precedence": 20.0, 
+                "dataType": "@id", 
+                "iri-label": "asserted_conclusion", 
+                "description": "The assessed outcome of the allelic state of one or more alleles in the genome of an individual (e.g. zygosity information, or phase relative to a second allele).", 
+                "iri": "SEPIO:0000197", 
+                "cg-label": "statementOutcome", 
+                "entityId": "E28", 
+                "cardinality": "1..1", 
+                "isReference": "yes", 
+                "id": "A188", 
+                "@valueSetId": "SEPIO-CG:65900"
+            }, 
+            {
                 "name": "genotype", 
-                "precedence": 2.0, 
+                "precedence": 30.0, 
                 "dataType": "Genotype", 
                 "iri-label": "is_about_genotype", 
                 "description": "Genotype the individual has", 
@@ -4084,33 +4165,20 @@
                 "isReference": "yes", 
                 "id": "A066", 
                 "@valueSetId": ""
-            }, 
-            {
-                "name": "statementOutcome", 
-                "precedence": 3.0, 
-                "dataType": "@id", 
-                "iri-label": "asserted_conclusion", 
-                "iri": "SEPIO:0000197", 
-                "cg-label": "statementOutcome", 
-                "entityId": "E28", 
-                "cardinality": "1..1", 
-                "isReference": "yes", 
-                "id": "A188", 
-                "@valueSetId": "SEPIO-CG:65900"
             }
         ], 
         "id": "E28", 
         "description": "A statement about the allelic state of one or more alleles in the genome of an individual (e.g. zygosity information, or phase relative to a second allele)."
     }, 
-    "E48": {
-        "name": "LocusHeterogeneityStatement", 
-        "iri": "SEPIO:0000250", 
-        "iri-label": "\nlocus heterogeneity statement", 
-        "level2": "Condition", 
-        "comments": "The gene-specificity for a condition is low if the condition can be caused by other genes or factors, and high/complete if mutations in the gene are only known cause.", 
-        "level1": "Evidence Statement", 
-        "parentType": "E01", 
-        "link": "LocHet", 
+    "E04": {
+        "name": "VariantPathogenicityInterpretationCriterion", 
+        "iri": "SEPIO:0000192", 
+        "iri-label": "variant pathogenicity interpretation criterion", 
+        "level2": "Framework", 
+        "comments": "\tIn the process of generating a variant interpretation, criterion support the generation of intermediate assertions ('criterion assessments') that establish whether a variant meets the standards set forth in the criterion. Many criterion also define a default strength to a particular type of evidence it defines (e.g. the ACMG criteria for pathogenicity are categorized as very string, strong, moderate, and supporting). These strengths are ultimately used by rules that combine the outcomes of all satisfied criterion to make a final interpretation of the variant's pathogenicity.", 
+        "level1": "Foundation", 
+        "parentType": "E40", 
+        "link": "Crit", 
         "attributes": [
             {
                 "name": "label", 
@@ -4137,114 +4205,32 @@
                 "description": "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."
             }, 
             {
-                "name": "userLabelDictionary", 
-                "precedence": 2.0, 
-                "dataType": "UserLabel", 
-                "iri-label": "user_label_dictionary", 
-                "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.", 
-                "iri": "SEPIO:0000422", 
-                "cg-label": "userLabelDictionary", 
-                "entityId": "E01", 
-                "cardinality": "0..*", 
-                "isReference": "yes", 
-                "id": "A073", 
-                "@valueSetId": ""
-            }, 
-            {
-                "name": "outcomeQualifier", 
-                "precedence": 90.0, 
-                "dataType": "string", 
-                "iri-label": "statement_qualifier", 
-                "description": "Use \u201cNOT\u201d as the value of this property to assert that the statement is negated.", 
-                "iri": "SEPIO:0000346", 
-                "cg-label": "outcomeQualifier", 
-                "entityId": "E01", 
+                "name": "defaultStrength", 
+                "precedence": 10.0, 
+                "dataType": "@id", 
+                "iri-label": "default_criterion_strength", 
+                "iri": "SEPIO:0000196", 
+                "cg-label": "defaultStrength", 
+                "entityId": "E04", 
                 "cardinality": "0..1", 
-                "id": "A004", 
-                "@valueSetId": ""
+                "id": "A153", 
+                "@valueSetId": "SEPIO:0000353"
             }, 
             {
-                "name": "evidenceLine", 
-                "precedence": 91.0, 
-                "dataType": "EvidenceLine", 
-                "iri-label": "has_evidence_line", 
-                "description": "supporting evidence", 
-                "iri": "SEPIO:0000006", 
-                "cg-label": "evidenceLine", 
-                "entityId": "E01", 
-                "cardinality": "0..*", 
-                "id": "A055", 
-                "@valueSetId": ""
-            }, 
-            {
-                "name": "contribution", 
-                "precedence": 93.0, 
-                "dataType": "Contribution", 
-                "iri-label": "qualified_contribution", 
-                "description": "The contributions (agent, time and role) made to this entity", 
-                "iri": "SEPIO:0000159", 
-                "cg-label": "contribution", 
-                "entityId": "E01", 
-                "cardinality": "0..*", 
-                "id": "A119", 
-                "@valueSetId": ""
-            }, 
-            {
-                "name": "source", 
-                "precedence": 94.0, 
+                "name": "usageNotes", 
+                "precedence": 11.0, 
                 "dataType": "string", 
-                "iri-label": "source", 
-                "description": "A string indicating the source of a Statement", 
-                "iri": "DC:source", 
-                "cg-label": "source", 
-                "entityId": "E01", 
-                "cardinality": "0..*", 
-                "isReference": "yes", 
-                "id": "A127", 
-                "@valueSetId": ""
-            }, 
-            {
-                "name": "condition", 
-                "precedence": 1.0, 
-                "dataType": "GeneticCondition", 
-                "iri-label": "is_about_condition", 
-                "description": "The condition for which the eitiology is defined", 
-                "iri": "SEPIO:0000276", 
-                "cg-label": "condition", 
-                "entityId": "E48", 
-                "cardinality": "1..1", 
-                "id": "A100", 
-                "@valueSetId": ""
-            }, 
-            {
-                "name": "gene", 
-                "precedence": 2.0, 
-                "dataType": "@id", 
-                "iri-label": "is_about_gene", 
-                "description": "Gene that causes the condition", 
-                "iri": "SEPIO:0000278", 
-                "cg-label": "gene", 
-                "entityId": "E48", 
-                "cardinality": "1..1", 
-                "id": "A101", 
-                "@valueSetId": "SEPIO:0000396"
-            }, 
-            {
-                "name": "statementOutcome", 
-                "precedence": 3.0, 
-                "dataType": "@id", 
-                "iri-label": "asserted_conclusion", 
-                "description": "Specificity of the Gene for the Condition", 
-                "iri": "SEPIO:0000197", 
-                "cg-label": "statementOutcome", 
-                "entityId": "E48", 
-                "cardinality": "1..1", 
-                "id": "A102", 
-                "@valueSetId": "SEPIO:0000348"
+                "iri-label": "usage note", 
+                "iri": "SEPIO:0000184", 
+                "cg-label": "usageNotes", 
+                "entityId": "E04", 
+                "cardinality": "0..1", 
+                "id": "A150", 
+                "description": "Additional comments about the application of the criterion"
             }
         ], 
-        "id": "E48", 
-        "description": "A statement about the specificity with which a genetic condition is caused by variants in a particular gene or locus (i.e. whether it is the only known gene associated with the condition, or one or more other genes have been linked to the condition)."
+        "id": "E04", 
+        "description": "A specification that describes how to interpret the direction and strength of evidence provided by a specific type of information, as relevant to the pathogenicity or benignancy of a genetic variant.\n\nA specification that describes how to interpret the direction and strength of evidence provided by a specific type of information for the pathogenicity or benignancy of a genetic variant."
     }, 
     "E49": {
         "name": "ConditionPrevelanceStatement", 
@@ -4282,7 +4268,7 @@
             }, 
             {
                 "name": "userLabelDictionary", 
-                "precedence": 2.0, 
+                "precedence": 89.0, 
                 "dataType": "UserLabel", 
                 "iri-label": "user_label_dictionary", 
                 "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.", 
@@ -4349,7 +4335,7 @@
             }, 
             {
                 "name": "condition", 
-                "precedence": 1.0, 
+                "precedence": 10.0, 
                 "dataType": "GeneticCondition", 
                 "iri-label": "is_about_condition", 
                 "description": "Condition for which the prevelance is described", 
@@ -4362,7 +4348,7 @@
             }, 
             {
                 "name": "population", 
-                "precedence": 2.0, 
+                "precedence": 11.0, 
                 "dataType": "@id", 
                 "iri-label": "is_about_population", 
                 "description": "Population over which the prevelance is defined", 
@@ -4375,7 +4361,7 @@
             }, 
             {
                 "name": "minimum", 
-                "precedence": 3.0, 
+                "precedence": 12.0, 
                 "dataType": "number", 
                 "iri-label": "condition prevalance lower bound", 
                 "description": "Minimum bound on the condition's prevelance", 
@@ -4388,7 +4374,7 @@
             }, 
             {
                 "name": "maximum", 
-                "precedence": 4.0, 
+                "precedence": 13.0, 
                 "dataType": "number", 
                 "iri-label": "condition prevalance upper bound", 
                 "description": "Maximum bound on the condition's prevelance", 
@@ -4401,7 +4387,7 @@
             }, 
             {
                 "name": "prevelance", 
-                "precedence": 5.0, 
+                "precedence": 20.0, 
                 "dataType": "number", 
                 "iri-label": "condition prevalance", 
                 "description": "Prevelance of the condition in the population", 
@@ -4452,7 +4438,7 @@
             }, 
             {
                 "name": "userLabelDictionary", 
-                "precedence": 2.0, 
+                "precedence": 89.0, 
                 "dataType": "UserLabel", 
                 "iri-label": "user_label_dictionary", 
                 "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.", 
@@ -4519,7 +4505,7 @@
             }, 
             {
                 "name": "contextualAllele", 
-                "precedence": 1.0, 
+                "precedence": 10.0, 
                 "dataType": "ContextualAllele", 
                 "iri-label": "is_about_allele", 
                 "description": "The contextual (reference-specific) allele that is being classified", 
@@ -4533,7 +4519,7 @@
             }, 
             {
                 "name": "statementOutcome", 
-                "precedence": 3.0, 
+                "precedence": 20.0, 
                 "dataType": "@id", 
                 "iri-label": "asserted_conclusion", 
                 "description": "Classification of allele based on the manner in which it alters the sequence", 
@@ -4548,15 +4534,14 @@
         "id": "E02", 
         "description": "A statement about the expected effect of a variant allele at the level of genomic or transcript sequence (e.g. how it might affect splicing, truncate a gene product, etc.)."
     }, 
-    "E03": {
-        "name": "ConditionMechanismStatement", 
-        "iri": "SEPIO:0000228", 
-        "iri-label": "condition mechanism statement", 
-        "level2": "Condition", 
-        "comments": "", 
-        "level1": "Evidence Statement", 
-        "parentType": "E01", 
-        "link": "CondMech", 
+    "E29": {
+        "name": "Haplotype", 
+        "iri": "GENO:0000871", 
+        "iri-label": "haplotype", 
+        "level2": "Interpretation", 
+        "level1": "Domain Entity", 
+        "parentType": "E40", 
+        "link": "Haplo", 
         "attributes": [
             {
                 "name": "label", 
@@ -4583,130 +4568,21 @@
                 "description": "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."
             }, 
             {
-                "name": "userLabelDictionary", 
-                "precedence": 2.0, 
-                "dataType": "UserLabel", 
-                "iri-label": "user_label_dictionary", 
-                "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.", 
-                "iri": "SEPIO:0000422", 
-                "cg-label": "userLabelDictionary", 
-                "entityId": "E01", 
-                "cardinality": "0..*", 
-                "isReference": "yes", 
-                "id": "A073", 
+                "name": "hasPart", 
+                "precedence": 10.0, 
+                "dataType": "CanonicalAllele", 
+                "iri-label": "has part", 
+                "description": "Individual Alleles that constitute the haplotype", 
+                "iri": "BFO:0000051", 
+                "cg-label": "hasPart", 
+                "entityId": "E29", 
+                "cardinality": "1..*", 
+                "id": "A067", 
                 "@valueSetId": ""
-            }, 
-            {
-                "name": "outcomeQualifier", 
-                "precedence": 90.0, 
-                "dataType": "string", 
-                "iri-label": "statement_qualifier", 
-                "description": "Use \u201cNOT\u201d as the value of this property to assert that the statement is negated.", 
-                "iri": "SEPIO:0000346", 
-                "cg-label": "outcomeQualifier", 
-                "entityId": "E01", 
-                "cardinality": "0..1", 
-                "id": "A004", 
-                "@valueSetId": ""
-            }, 
-            {
-                "name": "evidenceLine", 
-                "precedence": 91.0, 
-                "dataType": "EvidenceLine", 
-                "iri-label": "has_evidence_line", 
-                "description": "supporting evidence", 
-                "iri": "SEPIO:0000006", 
-                "cg-label": "evidenceLine", 
-                "entityId": "E01", 
-                "cardinality": "0..*", 
-                "id": "A055", 
-                "@valueSetId": ""
-            }, 
-            {
-                "name": "contribution", 
-                "precedence": 93.0, 
-                "dataType": "Contribution", 
-                "iri-label": "qualified_contribution", 
-                "description": "The contributions (agent, time and role) made to this entity", 
-                "iri": "SEPIO:0000159", 
-                "cg-label": "contribution", 
-                "entityId": "E01", 
-                "cardinality": "0..*", 
-                "id": "A119", 
-                "@valueSetId": ""
-            }, 
-            {
-                "name": "source", 
-                "precedence": 94.0, 
-                "dataType": "string", 
-                "iri-label": "source", 
-                "description": "A string indicating the source of a Statement", 
-                "iri": "DC:source", 
-                "cg-label": "source", 
-                "entityId": "E01", 
-                "cardinality": "0..*", 
-                "isReference": "yes", 
-                "id": "A127", 
-                "@valueSetId": ""
-            }, 
-            {
-                "name": "condition", 
-                "precedence": 1.0, 
-                "dataType": "GeneticCondition", 
-                "iri-label": "is_about_condition", 
-                "description": "The condition whose mechanism is being described", 
-                "iri": "SEPIO:0000276", 
-                "cg-label": "condition", 
-                "entityId": "E03", 
-                "cardinality": "1..1", 
-                "id": "A012", 
-                "@valueSetId": ""
-            }, 
-            {
-                "name": "gene", 
-                "precedence": 2.0, 
-                "dataType": "@id", 
-                "iri-label": "is_about_gene", 
-                "description": "Gene in which the given variants occur", 
-                "iri": "SEPIO:0000278", 
-                "cg-label": "gene", 
-                "entityId": "E03", 
-                "cardinality": "1..1", 
-                "isReference": "yes", 
-                "id": "A011", 
-                "@valueSetId": "SEPIO:0000396"
-            }, 
-            {
-                "name": "statementOutcome", 
-                "precedence": 3.0, 
-                "dataType": "@id", 
-                "iri-label": "asserted_conclusion", 
-                "description": "SO term for a class of variants", 
-                "iri": "SEPIO:0000197", 
-                "cg-label": "statementOutcome", 
-                "entityId": "E03", 
-                "cardinality": "1..1", 
-                "isReference": "yes", 
-                "id": "A002", 
-                "@valueSetId": "SEPIO-CG:65108"
-            }, 
-            {
-                "name": "mechanismConfidence", 
-                "precedence": 4.0, 
-                "dataType": "@id", 
-                "iri-label": "assertion_confidence_level", 
-                "description": "Qualifier on the Condition/Mechanism pair", 
-                "iri": "SEPIO:0000167", 
-                "cg-label": "mechanismConfidence", 
-                "entityId": "E03", 
-                "cardinality": "0..1", 
-                "isReference": "yes", 
-                "id": "A003", 
-                "@valueSetId": "SEPIO:0000354"
             }
         ], 
-        "id": "E03", 
-        "description": "A statement about the mechanism underlying a genetic condition (e.g. if that LOF mutations in a particular gene are a known mechanism of disease)."
+        "id": "E29", 
+        "description": "A set of alleles on the same molecule (i.e. in cis)"
     }, 
     "E00": {
         "name": "Entity", 
@@ -4780,7 +4656,7 @@
             }, 
             {
                 "name": "userLabelDictionary", 
-                "precedence": 2.0, 
+                "precedence": 89.0, 
                 "dataType": "UserLabel", 
                 "iri-label": "user_label_dictionary", 
                 "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.", 
@@ -4849,69 +4725,6 @@
         "id": "E01", 
         "description": "An information content entity expressing a declarative sentence that is either true or false."
     }, 
-    "E30": {
-        "name": "Genotype", 
-        "iri": "GENO:0000719", 
-        "iri-label": "intrinsic genotype", 
-        "level2": "Interpretation", 
-        "comments": "", 
-        "level1": "Domain Entity", 
-        "parentType": "E40", 
-        "link": "Geno", 
-        "attributes": [
-            {
-                "name": "label", 
-                "precedence": 1.0, 
-                "dataType": "string", 
-                "iri-label": "label", 
-                "iri": "RDFS:label", 
-                "cg-label": "label", 
-                "entityId": "E00", 
-                "cardinality": "0..1", 
-                "id": "A200", 
-                "description": "A name given to the resource."
-            }, 
-            {
-                "name": "description", 
-                "precedence": 2.0, 
-                "dataType": "string", 
-                "iri-label": "description", 
-                "iri": "DC:description", 
-                "cg-label": "description", 
-                "entityId": "E00", 
-                "cardinality": "0..1", 
-                "id": "A201", 
-                "description": "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."
-            }, 
-            {
-                "name": "hasPart", 
-                "precedence": 1.0, 
-                "dataType": "Haplotype", 
-                "iri-label": "has part", 
-                "description": "Individual Haplotypes that constitute the Genotype", 
-                "iri": "BFO:0000051", 
-                "cg-label": "hasPart", 
-                "entityId": "E30", 
-                "cardinality": "1..*", 
-                "id": "A068", 
-                "@valueSetId": ""
-            }, 
-            {
-                "name": "zygosity", 
-                "precedence": 2.0, 
-                "dataType": "@id", 
-                "iri-label": "has_zygosity", 
-                "iri": "GENO:0000608", 
-                "cg-label": "zygosity", 
-                "entityId": "E30", 
-                "cardinality": "0..1", 
-                "id": "A069", 
-                "@valueSetId": "SEPIO:0000338"
-            }
-        ], 
-        "id": "E30", 
-        "description": "A set of haplotypes on different molecules (i.e. in trans)"
-    }, 
     "E17": {
         "name": "IndividualConditionStatement", 
         "iri": "SEPIO:0000238", 
@@ -4948,7 +4761,7 @@
             }, 
             {
                 "name": "userLabelDictionary", 
-                "precedence": 2.0, 
+                "precedence": 89.0, 
                 "dataType": "UserLabel", 
                 "iri-label": "user_label_dictionary", 
                 "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.", 
@@ -5015,7 +4828,7 @@
             }, 
             {
                 "name": "individual", 
-                "precedence": 1.0, 
+                "precedence": 10.0, 
                 "dataType": "@id", 
                 "iri-label": "is_about_individual", 
                 "description": "The person being assessed for the condition", 
@@ -5028,21 +4841,8 @@
                 "@valueSetId": ""
             }, 
             {
-                "name": "condition", 
-                "precedence": 2.0, 
-                "dataType": "GeneticCondition", 
-                "iri-label": "is_about_condition", 
-                "description": "The condition that the person may have", 
-                "iri": "SEPIO:0000276", 
-                "cg-label": "condition", 
-                "entityId": "E17", 
-                "cardinality": "1..*", 
-                "id": "A017", 
-                "@valueSetId": ""
-            }, 
-            {
                 "name": "statementOutcome", 
-                "precedence": 3.0, 
+                "precedence": 20.0, 
                 "dataType": "@id", 
                 "iri-label": "asserted_conclusion", 
                 "description": "Whether or not the person has the condition", 
@@ -5052,10 +4852,194 @@
                 "cardinality": "0..1", 
                 "id": "A018", 
                 "@valueSetId": "SEPIO-CG:65126"
+            }, 
+            {
+                "name": "condition", 
+                "precedence": 30.0, 
+                "dataType": "GeneticCondition", 
+                "iri-label": "is_about_condition", 
+                "description": "The condition that the person may have", 
+                "iri": "SEPIO:0000276", 
+                "cg-label": "condition", 
+                "entityId": "E17", 
+                "cardinality": "1..*", 
+                "id": "A017", 
+                "@valueSetId": ""
             }
         ], 
         "id": "E17", 
         "description": "A statement about whether a individual is affected by or exhibits a particular condition."
+    }, 
+    "E47": {
+        "name": "InSilicoPredictionStatement", 
+        "iri": "SEPIO:0000249", 
+        "iri-label": "in silico prediction statement", 
+        "level2": "Allele", 
+        "comments": "", 
+        "level1": "Evidence Statement", 
+        "parentType": "E01", 
+        "link": "InSilicoPred", 
+        "attributes": [
+            {
+                "name": "label", 
+                "precedence": 1.0, 
+                "dataType": "string", 
+                "iri-label": "label", 
+                "iri": "RDFS:label", 
+                "cg-label": "label", 
+                "entityId": "E00", 
+                "cardinality": "0..1", 
+                "id": "A200", 
+                "description": "A name given to the resource."
+            }, 
+            {
+                "name": "description", 
+                "precedence": 2.0, 
+                "dataType": "string", 
+                "iri-label": "description", 
+                "iri": "DC:description", 
+                "cg-label": "description", 
+                "entityId": "E00", 
+                "cardinality": "0..1", 
+                "id": "A201", 
+                "description": "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."
+            }, 
+            {
+                "name": "userLabelDictionary", 
+                "precedence": 89.0, 
+                "dataType": "UserLabel", 
+                "iri-label": "user_label_dictionary", 
+                "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.", 
+                "iri": "SEPIO:0000422", 
+                "cg-label": "userLabelDictionary", 
+                "entityId": "E01", 
+                "cardinality": "0..*", 
+                "isReference": "yes", 
+                "id": "A073", 
+                "@valueSetId": ""
+            }, 
+            {
+                "name": "outcomeQualifier", 
+                "precedence": 90.0, 
+                "dataType": "string", 
+                "iri-label": "statement_qualifier", 
+                "description": "Use \u201cNOT\u201d as the value of this property to assert that the statement is negated.", 
+                "iri": "SEPIO:0000346", 
+                "cg-label": "outcomeQualifier", 
+                "entityId": "E01", 
+                "cardinality": "0..1", 
+                "id": "A004", 
+                "@valueSetId": ""
+            }, 
+            {
+                "name": "evidenceLine", 
+                "precedence": 91.0, 
+                "dataType": "EvidenceLine", 
+                "iri-label": "has_evidence_line", 
+                "description": "supporting evidence", 
+                "iri": "SEPIO:0000006", 
+                "cg-label": "evidenceLine", 
+                "entityId": "E01", 
+                "cardinality": "0..*", 
+                "id": "A055", 
+                "@valueSetId": ""
+            }, 
+            {
+                "name": "contribution", 
+                "precedence": 93.0, 
+                "dataType": "Contribution", 
+                "iri-label": "qualified_contribution", 
+                "description": "The contributions (agent, time and role) made to this entity", 
+                "iri": "SEPIO:0000159", 
+                "cg-label": "contribution", 
+                "entityId": "E01", 
+                "cardinality": "0..*", 
+                "id": "A119", 
+                "@valueSetId": ""
+            }, 
+            {
+                "name": "source", 
+                "precedence": 94.0, 
+                "dataType": "string", 
+                "iri-label": "source", 
+                "description": "A string indicating the source of a Statement", 
+                "iri": "DC:source", 
+                "cg-label": "source", 
+                "entityId": "E01", 
+                "cardinality": "0..*", 
+                "isReference": "yes", 
+                "id": "A127", 
+                "@valueSetId": ""
+            }, 
+            {
+                "name": "canonicalAllele", 
+                "precedence": 10.0, 
+                "dataType": "CanonicalAllele", 
+                "iri-label": "is_about_allele", 
+                "description": "The canonical allele on which the prediction is made", 
+                "iri": "SEPIO:0000275", 
+                "cg-label": "canonicalAllele", 
+                "entityId": "E47", 
+                "cardinality": "1..1", 
+                "isReference": "yes", 
+                "id": "A096", 
+                "@valueSetId": ""
+            }, 
+            {
+                "name": "transcript", 
+                "precedence": 11.0, 
+                "dataType": "@id", 
+                "iri-label": "is_about_transcript", 
+                "description": "The transcript on which the prediction is made", 
+                "iri": "SEPIO:0000283", 
+                "cg-label": "transcript", 
+                "entityId": "E47", 
+                "cardinality": "0..1", 
+                "id": "A034", 
+                "@valueSetId": "SEPIO-CG:65119"
+            }, 
+            {
+                "name": "statementOutcome", 
+                "precedence": 20.0, 
+                "dataType": "@id", 
+                "iri-label": "asserted_conclusion", 
+                "description": "The value of the prediction", 
+                "iri": "SEPIO:0000197", 
+                "cg-label": "statementOutcome", 
+                "entityId": "E47", 
+                "cardinality": "1..1", 
+                "id": "A099", 
+                "@valueSetId": "SEPIO-CG:65900"
+            }, 
+            {
+                "name": "predictionType", 
+                "precedence": 30.0, 
+                "dataType": "@id", 
+                "iri-label": "has_supporting_method", 
+                "description": "The type of prediction being made", 
+                "iri": "SEPIO:0000255", 
+                "cg-label": "predictionType", 
+                "entityId": "E47", 
+                "cardinality": "1..1", 
+                "id": "A097", 
+                "@valueSetId": "SEPIO:0000345"
+            }, 
+            {
+                "name": "algorithm", 
+                "precedence": 31.0, 
+                "dataType": "string", 
+                "iri-label": "asserted_by", 
+                "description": "The computational tool or algorithm that makes the prediction", 
+                "iri": "SEPIO:0000130", 
+                "cg-label": "algorithm", 
+                "entityId": "E47", 
+                "cardinality": "0..1", 
+                "id": "A098", 
+                "@valueSetId": ""
+            }
+        ], 
+        "id": "E47", 
+        "description": "A statement asserting the predicted impact of a particular allele on the function of its resulting gene product (e.g. that it is 'deleterious', 'damaging', 'tolerated', etc.). Such assertions are typically based on interpretation of the quantitative output of predictive computational algorithms."
     }, 
     "E23": {
         "name": "PopulationAlleleFrequencyStatement", 
@@ -5093,7 +5077,7 @@
             }, 
             {
                 "name": "userLabelDictionary", 
-                "precedence": 2.0, 
+                "precedence": 89.0, 
                 "dataType": "UserLabel", 
                 "iri-label": "user_label_dictionary", 
                 "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.", 
@@ -5160,7 +5144,7 @@
             }, 
             {
                 "name": "allele", 
-                "precedence": 1.0, 
+                "precedence": 10.0, 
                 "dataType": "CanonicalAllele", 
                 "iri-label": "is_about_allele", 
                 "description": "The variant for which the frequency is given", 
@@ -5173,34 +5157,8 @@
                 "@valueSetId": ""
             }, 
             {
-                "name": "population", 
-                "precedence": 2.0, 
-                "dataType": "@id", 
-                "iri-label": "is_about_population", 
-                "description": "Ancestry of population or group over which the frequency was measured", 
-                "iri": "SEPIO:0000277", 
-                "cg-label": "population", 
-                "entityId": "E23", 
-                "cardinality": "0..1", 
-                "id": "A047", 
-                "@valueSetId": "SEPIO-CG:65112"
-            }, 
-            {
-                "name": "ascertainment", 
-                "precedence": 3.0, 
-                "dataType": "@id", 
-                "iri-label": "has_supporting_method", 
-                "description": "The criteria applied to create the dataset in which the frequency was measured", 
-                "iri": "SEPIO:0000255", 
-                "cg-label": "ascertainment", 
-                "entityId": "E23", 
-                "cardinality": "0..1", 
-                "id": "A030", 
-                "@valueSetId": "SEPIO:0000409"
-            }, 
-            {
                 "name": "alleleFrequency", 
-                "precedence": 4.0, 
+                "precedence": 20.0, 
                 "dataType": "number", 
                 "iri-label": "allele frequency", 
                 "description": "Frequency of the named allele in the population", 
@@ -5212,8 +5170,21 @@
                 "@valueSetId": ""
             }, 
             {
+                "name": "population", 
+                "precedence": 30.0, 
+                "dataType": "@id", 
+                "iri-label": "is_about_population", 
+                "description": "Ancestry of population or group over which the frequency was measured", 
+                "iri": "SEPIO:0000277", 
+                "cg-label": "population", 
+                "entityId": "E23", 
+                "cardinality": "0..1", 
+                "id": "A047", 
+                "@valueSetId": "SEPIO-CG:65112"
+            }, 
+            {
                 "name": "alleleCount", 
-                "precedence": 5.0, 
+                "precedence": 40.0, 
                 "dataType": "integer", 
                 "iri-label": "variant allele count", 
                 "description": "Frequency numerator: number of times the allele was observed", 
@@ -5226,7 +5197,7 @@
             }, 
             {
                 "name": "alleleNumber", 
-                "precedence": 6.0, 
+                "precedence": 41.0, 
                 "dataType": "integer", 
                 "iri-label": "total allele count", 
                 "description": "Frequency denominator: number of observations", 
@@ -5239,7 +5210,7 @@
             }, 
             {
                 "name": "individualCount", 
-                "precedence": 7.0, 
+                "precedence": 42.0, 
                 "dataType": "integer", 
                 "iri-label": "total individual count", 
                 "description": "Number of individuals sampled", 
@@ -5252,7 +5223,7 @@
             }, 
             {
                 "name": "homozygousAlleleIndividualCount", 
-                "precedence": 8.0, 
+                "precedence": 43.0, 
                 "dataType": "integer", 
                 "iri-label": "homozygous individual count", 
                 "description": "Number of individuals in the group that are homozygous for the allele", 
@@ -5265,7 +5236,7 @@
             }, 
             {
                 "name": "heterozygousAlleleIndividualCount", 
-                "precedence": 9.0, 
+                "precedence": 44.0, 
                 "dataType": "integer", 
                 "iri-label": "heterozygous individual count", 
                 "description": "Number of individuals in the group who are heterozygous for the allele.", 
@@ -5278,7 +5249,7 @@
             }, 
             {
                 "name": "hemizygousAlleleIndividualCount", 
-                "precedence": 10.0, 
+                "precedence": 45.0, 
                 "dataType": "integer", 
                 "iri-label": "hemizygous individual count", 
                 "description": "Number of individuals in the group that are hemizygous for the allele", 
@@ -5291,7 +5262,7 @@
             }, 
             {
                 "name": "medianCoverage", 
-                "precedence": 11.0, 
+                "precedence": 46.0, 
                 "dataType": "number", 
                 "iri-label": "median sequencing coverage", 
                 "description": "Median coverage at the allele site in the data set", 
@@ -5301,19 +5272,33 @@
                 "cardinality": "0..1", 
                 "id": "A062", 
                 "@valueSetId": ""
+            }, 
+            {
+                "name": "ascertainment", 
+                "precedence": 50.0, 
+                "dataType": "@id", 
+                "iri-label": "has_supporting_method", 
+                "description": "The criteria applied to create the dataset in which the frequency was measured", 
+                "iri": "SEPIO:0000255", 
+                "cg-label": "ascertainment", 
+                "entityId": "E23", 
+                "cardinality": "0..1", 
+                "id": "A030", 
+                "@valueSetId": "SEPIO:0000409"
             }
         ], 
         "id": "E23", 
         "description": "A statement that describes the observed frequency of an allele as determined in a defined group of individuals (typically a representative sampling that serves as a proxy for some larger population of individuals).\n"
     }, 
-    "E92": {
-        "name": "Position", 
-        "iri": "CG:0022", 
-        "iri-label": "contextual allele coordinate position", 
+    "E05": {
+        "name": "CanonicalAllele", 
+        "iri": "GENO:0000890", 
+        "iri-label": "canonical allele", 
         "level2": "Allele", 
+        "comments": "", 
         "level1": "Domain Entity", 
         "parentType": "E40", 
-        "link": "CtxPos", 
+        "link": "CanAll", 
         "attributes": [
             {
                 "name": "label", 
@@ -5340,17 +5325,54 @@
                 "description": "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."
             }, 
             {
-                "name": "index", 
-                "precedence": 1.0, 
-                "dataType": "integer", 
-                "iri-label": "index", 
-                "iri": "CG:0012", 
-                "cg-label": "index", 
-                "entityId": "E92", 
-                "cardinality": "0..1", 
-                "id": "A940"
+                "name": "canonicalAlleleType", 
+                "precedence": 10.0, 
+                "dataType": "@id", 
+                "iri-label": "canonical allele type", 
+                "iri": "CG:0013", 
+                "cg-label": "canonicalAlleleType", 
+                "entityId": "E05", 
+                "cardinality": "1..1", 
+                "id": "A941", 
+                "@valueSetId": "SEPIO-CG:65901"
+            }, 
+            {
+                "name": "complexity", 
+                "precedence": 11.0, 
+                "dataType": "@id", 
+                "iri-label": "complexity", 
+                "iri": "CG:0014", 
+                "cg-label": "complexity", 
+                "entityId": "E05", 
+                "cardinality": "1..1", 
+                "id": "A942", 
+                "@valueSetId": "SEPIO-CG:65902"
+            }, 
+            {
+                "name": "relatedIdentifier", 
+                "precedence": 12.0, 
+                "dataType": "@id", 
+                "iri-label": "related identifier", 
+                "iri": "CG:0017", 
+                "cg-label": "relatedIdentifier", 
+                "entityId": "E05", 
+                "cardinality": "0..*", 
+                "id": "A945"
+            }, 
+            {
+                "name": "relatedContextualAllele", 
+                "precedence": 20.0, 
+                "dataType": "ContextualAllele", 
+                "iri-label": "related contextual allele", 
+                "iri": "CG:0001", 
+                "cg-label": "relatedContextualAllele", 
+                "entityId": "E05", 
+                "cardinality": "1..*", 
+                "id": "A900", 
+                "description": "HIDE from docs / USE in context"
             }
         ], 
-        "id": "E92"
+        "id": "E05", 
+        "description": "One of a set of coexisting sequence variants at a defined genomic locus, or a set of such variants located in cis on the same copy of the chromosome.\n"
     }
 }

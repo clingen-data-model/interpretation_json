@@ -16,6 +16,7 @@ class DomainEntityFactory:
     def __init__(self,vsdir=''):
         """Read value sets from disk.  Create maps of the value set entries
            and relationship with particular domain entities"""
+        self.next_sequence = 0
         self.vsets = {}
         self.extensibility = {}
         self.entity_types = {}
@@ -54,23 +55,29 @@ class DomainEntityFactory:
                 except KeyError:
                     #This concept doesn't have a type. That's ok, and in fact pretty common these days.
                     pass
-                    
+
     def get_value_sets(self):
         return self.vsets
 
     def get_extensibility(self):
         return self.extensibility
 
+    def get_next_blank_iri(self):
+        iri = "_:b"+str(self.next_sequence)
+        self.next_sequence += 1
+        return iri
+
     def lookup_entity(self,valueset_id,lookup):
         """Given a lookup value, return a well-formed Domain Entity.
 
         Given the lookup value, and a value set id, look in the value set
         for a value that matches either the id, the code or the display.
-        Create the correct type of DomainEntity, set its values and return 
+        Create the correct type of DomainEntity, set its values and return
         it"""
         #valueset_id = self.entity_types[entity_type_name]
         vset = self.vsets[valueset_id]
         found = False
+        extensible = self.extensibility[valueset_id]['id'] == 'SEPIO:0000365'
         for key in ['id','label']:
             for coding in vset:
                 if coding[key].upper() == lookup.upper():
@@ -78,16 +85,16 @@ class DomainEntityFactory:
                     node = Node(coding['id'])
                     node.set_label(coding[LABEL])
                     return node
-                    #e = entity_class(coding['id'])
-                    #e.set_label(coding[LABEL])
-                    #e.set_description(coding['description'])
-                    #return e
-        if not found:
+        if not found and not extensible:
             raise Exception("Did not find %s in %s" % (lookup, valueset_id))
+
         import entities_generated
-        entity_class = getattr(entities_generated, valueset_id)
+        try:
+            entity_class = getattr(entities_generated, valueset_id)
+        except AttributeError:
+            entity_class = Node
         #If we didn't find the value, we create without the IRI, and set label
-        e = entity_class()
+        e = entity_class(self.get_next_blank_iri())
         e.set_label(lookup)
         return e
 
@@ -106,4 +113,3 @@ def get_factory_entity(domain_entity_typename):
             return func(*alist,**kwargs)
         return wrapper
     return decorate
-        

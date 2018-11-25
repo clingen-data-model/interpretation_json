@@ -26,9 +26,10 @@ CLASSDEF = \
 '''class %s(%s):
     def __init__(self,iri=None):
         self.data = {}
-        if iri is not None:
-            self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = %s ''' 
+        if iri is None:
+            iri = the_factory.get_next_blank_iri()
+        self.data[DMWG_ID_KEY] = iri
+        self.data[DMWG_TYPE_KEY] = %s '''
 
 SETTER = '''
     def set_%s(self,x):
@@ -56,8 +57,8 @@ def type_is_entity(dtype, types_and_atts):
 
 def attribute_is_entity(attribute, types_and_atts):
     """Determine whether a particular attribute points to a DomainEntity"""
-    att_typename = attribute[TYPE] 
-    #The type is a string name of the type, not the id, so we have to 
+    att_typename = attribute[TYPE]
+    #The type is a string name of the type, not the id, so we have to
     # search our type map for it
     for dtype in types_and_atts.values():
         if dtype[NAME] == att_typename:
@@ -139,12 +140,12 @@ def write_library(types_and_atts,libname,entname, enumname):
     t_const, a_const = write_constants( types_and_atts, enumname )
     lib = file(libname,'w')
     lib.write('from interpretation_constants import *\n')
-    lib.write('from domain_entity_factory import get_factory_entity\n')
+    lib.write('from domain_entity_factory import *\n')
     lib.write('from node import Node\n\n')
     entf = file(entname,'w')
     entf.write('from interpretation_constants import *\n')
     entf.write('from interpretation_generated import Entity\n')
-    entf.write('from domain_entity_factory import get_factory_entity\n')
+    entf.write('from domain_entity_factory import *\n')
     entf.write('from node import Node\n\n')
     type_ids = sort_types(types_and_atts)
     for type_id in type_ids:
@@ -155,7 +156,7 @@ def write_library(types_and_atts,libname,entname, enumname):
         write_data_type(types_and_atts,type_id,outf,t_const,a_const)
     lib.close()
     entf.close()
-    
+
 
 def write_constants(types_and_atts,enumname):
     type_constants = {}
@@ -225,7 +226,7 @@ def go():
     """Main function for creating library.
 
     In order to create JSON objects, we want to pull Type/Attribute/Value
-    definitions from the web and use those definitions to create python 
+    definitions from the web and use those definitions to create python
     classes and constants"""
     type_url = 'http://dataexchange.clinicalgenome.org/interpretation/master/json/Types'
     t_res = requests.get(type_url)

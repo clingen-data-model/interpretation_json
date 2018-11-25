@@ -2,7 +2,7 @@
   "id": "SEPIO:0000396",
   "type": "ValueSet",
   "label": "Gene Value Set",
-  "description": "TODO",
+  "description": "The genes in the the genome.",
   "valueSetExtensibility": {
     "id": "SEPIO:0000365",
     "label": "extensible"
@@ -19,7 +19,7 @@
       "id": "https://www.ncbi.nlm.nih.gov/gene#",
       "type": "IdentifierSystem",
       "label": "NCBI Gene",
-      "prefix": "GENE",
+      "prefix": "NCBIGene",
       "urlPattern": "https://www.ncbi.nlm.nih.gov/gene/"
     }
   ],

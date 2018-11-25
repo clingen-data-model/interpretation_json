@@ -2,7 +2,7 @@
   "id": "SEPIO-CG:65132",
   "type": "ValueSet",
   "label": "Variant Interpretation Guideline Value Set",
-  "description": "TODO",
+  "description": "The assertion method guidelines for variant pathogenicity interpretation. ACMG-AMP IVS guidelines 2015 is a typical case, but there may be alternative or derivative guidelines as well.",
   "valueSetExtensibility": {
     "id": "SEPIO:0000365",
     "label": "extensible"
