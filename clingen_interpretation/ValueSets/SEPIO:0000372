@@ -13,14 +13,14 @@
       "type": "IdentifierSystem",
       "label": "OMIM",
       "prefix": "OMIM",
-      "urlPattern": "http://www.omim.org/"
+      "urlPattern": "http://identifiers.org/omim/"
     },
     {
       "id": "http://www.orpha.net/",
       "type": "IdentifierSystem",
       "label": "Orphanet",
       "prefix": "Orphanet",
-      "urlPattern": "http://www.orpha.net/"
+      "urlPattern": "http://purl.obolibrary.org/obo/Orphanet_"
     },
     {
       "id": "http://purl.obolibrary.org/obo/doid#",
@@ -33,8 +33,8 @@
       "id": "https://meshb.nlm.nih.gov/",
       "type": "IdentifierSystem",
       "label": "Medical Subject Headers",
-      "prefix": "MESH",
-      "urlPattern": "https://meshb.nlm.nih.gov/"
+      "prefix": "MeSH",
+      "urlPattern": "http://identifiers.org/mesh/"
     },
     {
       "id": "http://purl.obolibrary.org/obo/mondo#",
@@ -42,6 +42,13 @@
       "label": "Monarch Initiative Disease Ontology",
       "prefix": "MONDO",
       "urlPattern": "http://purl.obolibrary.org/obo/MONDO_"
+    },
+    {
+      "id": "http://umlsks.nlm.nih.gov/",
+      "type": "IdentifierSystem",
+      "label": "UMLS Ontology",
+      "prefix": "UMLS",
+      "urlPattern": "http://linkedlifedata.com/resource/umls/id/"
     }
   ],
   "@context": "http://dataexchange.clinicalgenome.org/interpretation/json/context"

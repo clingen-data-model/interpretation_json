@@ -1,0 +1,122 @@
+{
+  "id": "SEPIO-CG:65905",
+  "type": "ValueSet",
+  "label": "Chromosome Value Set",
+  "description": "TODO",
+  "valueSetExtensibility": {
+    "id": "SEPIO:0000364",
+    "label": "fixed"
+  },
+  "valueSetIdentifierSystems": [
+    {
+      "id": "http://purl.obolibrary.org/obo/sepio-clingen#",
+      "type": "IdentifierSystem",
+      "label": "ClinGen extensions to SEPIO",
+      "prefix": "SEPIO-CG",
+      "urlPattern": "http://purl.obolibrary.org/obo/SEPIO-CG_"
+    }
+  ],
+  "concept": [
+    {
+      "id": "SEPIO-CG:98101",
+      "label": "1"
+    },
+    {
+      "id": "SEPIO-CG:98102",
+      "label": "2"
+    },
+    {
+      "id": "SEPIO-CG:98103",
+      "label": "3"
+    },
+    {
+      "id": "SEPIO-CG:98104",
+      "label": "4"
+    },
+    {
+      "id": "SEPIO-CG:98105",
+      "label": "5"
+    },
+    {
+      "id": "SEPIO-CG:98106",
+      "label": "6"
+    },
+    {
+      "id": "SEPIO-CG:98107",
+      "label": "7"
+    },
+    {
+      "id": "SEPIO-CG:98108",
+      "label": "8"
+    },
+    {
+      "id": "SEPIO-CG:98109",
+      "label": "9"
+    },
+    {
+      "id": "SEPIO-CG:98110",
+      "label": "10"
+    },
+    {
+      "id": "SEPIO-CG:98111",
+      "label": "11"
+    },
+    {
+      "id": "SEPIO-CG:98112",
+      "label": "12"
+    },
+    {
+      "id": "SEPIO-CG:98113",
+      "label": "13"
+    },
+    {
+      "id": "SEPIO-CG:98114",
+      "label": "14"
+    },
+    {
+      "id": "SEPIO-CG:98115",
+      "label": "15"
+    },
+    {
+      "id": "SEPIO-CG:98116",
+      "label": "16"
+    },
+    {
+      "id": "SEPIO-CG:98117",
+      "label": "17"
+    },
+    {
+      "id": "SEPIO-CG:98118",
+      "label": "18"
+    },
+    {
+      "id": "SEPIO-CG:98119",
+      "label": "19"
+    },
+    {
+      "id": "SEPIO-CG:98120",
+      "label": "20"
+    },
+    {
+      "id": "SEPIO-CG:98121",
+      "label": "21"
+    },
+    {
+      "id": "SEPIO-CG:98122",
+      "label": "22"
+    },
+    {
+      "id": "SEPIO-CG:98123",
+      "label": "X"
+    },
+    {
+      "id": "SEPIO-CG:98124",
+      "label": "Y"
+    },
+    {
+      "id": "SEPIO-CG:98125",
+      "label": "M"
+    }
+  ],
+  "@context": "http://dataexchange.clinicalgenome.org/interpretation/json/context"
+}

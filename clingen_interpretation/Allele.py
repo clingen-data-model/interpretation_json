@@ -66,16 +66,19 @@ def extract_gene_symbol(clinvar_variant_title):
 #
 # TODO Fix all the type names and stuff.
 class Variant(Node):
-    def __init__(self,car_rep, clinvar_variant_title=None):
+    def __init__(self, car_rep, clinvar_variant_title=None):
         self.data={}
         self.data[DMWG_ID_KEY] = car_rep[ALLELE_REGISTRY_ID_KEY]
         self.data[DMWG_TYPE_KEY] = 'CanonicalAllele'
         self.data['canonicalAlleleType'] = car_rep['type']
-        if clinvar_variant_title is not None:
-            self.data[DMWG_A200_LABEL_KEY] = clinvar_variant_title
         #todo: double check this?
         self.data['complexity'] = 'simple'
 
+        # the preferred sequence is the accession in the clinvar_variant_title
+        preferred_sequence = None
+        if clinvar_variant_title is not None:
+            self.data[DMWG_A200_LABEL_KEY] = clinvar_variant_title
+            preferred_sequence = extract_accession(clinvar_variant_title)
         if 'externalRecords' in car_rep:
             car_external_ids = car_rep['externalRecords']
             if 'ClinVarVariations' in car_external_ids:
@@ -84,14 +87,23 @@ class Variant(Node):
             if 'dbSNP' in car_external_ids:
                 for rsid in car_external_ids['dbSNP']:
                     self.add_external_identifier('dbSNP', rsid['rs'])
-        preferred_sequence = extract_accession(clinvar_variant_title)
         self.data['relatedContextualAllele'] = []
         for gen_ctx_allele in car_rep['genomicAlleles']:
-            self.data['relatedContextualAllele'].append( ContextualAllele( gen_ctx_allele, car_rep[ALLELE_REGISTRY_ID_KEY], 'genomic',preferred_sequence) )
+            ctx_allele = ContextualAllele( gen_ctx_allele, car_rep[ALLELE_REGISTRY_ID_KEY], 'genomic', preferred_sequence)
+            if 'referenceGenome' in gen_ctx_allele:
+                ctx_allele.set_referenceGenome(gen_ctx_allele['referenceGenome'])
+                # if no preferred sequence then set GRCh38 as the preferred sequence by default
+                if (preferred_sequence is None) and (gen_ctx_allele['referenceGenome'] == 'GRCh38'):
+                    ctx_allele.set_preferred(True)
+            if 'chromosome' in gen_ctx_allele:
+                ctx_allele.set_relatedChromosome(gen_ctx_allele['chromosome'])
+            self.data['relatedContextualAllele'].append( ctx_allele )
         for trx_ctx_allele in car_rep['transcriptAlleles']:
-            self.data['relatedContextualAllele'].append( ContextualAllele( trx_ctx_allele, car_rep[ALLELE_REGISTRY_ID_KEY], 'transcript',preferred_sequence) )
-
-    def add_external_identifier(self,source,value,display=None):
+            ctx_allele = ContextualAllele( trx_ctx_allele, car_rep[ALLELE_REGISTRY_ID_KEY], 'transcript', preferred_sequence)
+            if 'gene' in trx_ctx_allele:
+                ctx_allele.set_relatedGene({'id': 'NCBIGene:'+str(trx_ctx_allele['geneNCBI_id']), 'label': trx_ctx_allele['geneSymbol']})
+            self.data['relatedContextualAllele'].append( ctx_allele )
+    def add_external_identifier(self, source, value, display=None):
         if 'relatedIdentifier' not in self.data:
             self.data['relatedIdentifier'] = []
         #if source == 'ClinVar':
@@ -114,7 +126,7 @@ class Variant(Node):
         return None
 
 class ContextualAllele(Node):
-    def __init__(self,ctx_allele_rep,canonical_allele_id, allele_type, preferred_sequence=None):
+    def __init__(self, ctx_allele_rep, canonical_allele_id, allele_type, preferred_sequence=None):
         self.data = {}
         self.data[DMWG_TYPE_KEY] = 'ContextualAllele'
         self.data['relatedCanonicalAllele'] = canonical_allele_id
@@ -126,23 +138,34 @@ class ContextualAllele(Node):
             nm = { 'nameType':'hgvs', 'name':hgvs }
             self.data['alleleName'].append(nm)
             seqnames.append( hgvs.split(':')[0] )
-        if 'referenceGenome' in ctx_allele_rep:
-            self.ref_genome = ctx_allele_rep['referenceGenome']
-            if (preferred_sequence is None) and (ctx_allele_rep['referenceGenome'] == 'GRCh38'):
-                self.data['preferred'] = True
         bestname = seqnames[0]
         if (preferred_sequence is not None) and (preferred_sequence == bestname):
-            self.data['preferred'] = True
+            self.set_preferred(True)
         ref_sequence = {'id': ctx_allele_rep['referenceSequence'], 'label': bestname}
         start = {'index': ctx_allele_rep['coordinates'][0]['start'] }
         end = {'index': ctx_allele_rep['coordinates'][0]['end'] }
         ref_allele = ctx_allele_rep['coordinates'][0]['referenceAllele']
         ref_coord = {'referenceSequence': ref_sequence, 'start':start, 'end':end, 'refState': ref_allele }
         self.data['referenceCoordinate'] = ref_coord
-        if 'chromosome' in ctx_allele_rep:
-            self.data['chromosome'] = ctx_allele_rep['chromosome']
-        if 'gene' in ctx_allele_rep:
-            self.data['gene'] = {'id': 'NCBIGene:'+str(ctx_allele_rep['geneNCBI_id']), 'label': ctx_allele_rep['geneSymbol']}
+    @get_factory_entity('SEPIO-CG:65906')
+    def set_referenceGenome(self, x):
+        self.data[DMWG_A952_REFERENCEGENOME_KEY] = x
+    def get_referenceGenome(self):
+        return self.data[DMWG_A952_REFERENCEGENOME_KEY]
+    def set_preferred(self, x):
+        self.data[DMWG_A921_PREFERRED_KEY] = x
+    def get_preferred(self):
+        return self.data[DMWG_A921_PREFERRED_KEY]
+    @get_factory_entity('SEPIO-CG:65905')
+    def set_relatedChromosome(self,x):
+        self.data[DMWG_A950_RELATEDCHROMOSOME_KEY] = x
+    def get_relatedChromosome(self):
+        return self.data[DMWG_A950_RELATEDCHROMOSOME_KEY]
+    @get_factory_entity('SEPIO:0000396')
+    def set_relatedGene(self,x):
+        self.data[DMWG_A951_RELATEDGENE_KEY] = x
+    def get_relatedGene(self):
+        return self.data[DMWG_A951_RELATEDGENE_KEY]
 
 class ClinVarVariant(Node):
     """In the case when we have something like a structural variant, CAR won't handle it, so we need to make an allele
@@ -158,20 +181,39 @@ class ClinVarVariant(Node):
         gene_symbol = extract_gene_symbol( clinvar_variant_title )
         self.add_external_identifier('ClinVar', vci_rep['clinvarVariantId'], clinvar_variant_title)
         self.data['relatedContextualAllele'] = []
-        for ref in ['GRCh38','GRCh37']:
+        for ref in ['GRCh38','GRCh37','NCBI36']:
             if ref in vci_rep['hgvsNames']:
-                self.data['relatedContextualAllele'].append(ClinVarContextualAllele(cvid, 'genomic', vci_rep['hgvsNames'][ref], preferred_sequence, gene_symbol, ref))
+                hgvs = vci_rep['hgvsNames'][ref]
+                clinvar_ctx_allele = ClinVarContextualAllele(cvid, 'genomic', hgvs, preferred_sequence)
+                clinvar_ctx_allele.set_referenceGenome(ref)
+                sequence = hgvs.split(':')[0]
+                if (sequence is not None) and (sequence == preferred_sequence):
+                    clinvar_ctx_allele.set_preferred(True)
+                    # only set gene symbol on preferred because it is linked in the clinvar_variant_title
+                    if gene_symbol is not None:
+                        clinvar_ctx_allele.set_relatedGene(gene_symbol)
+                chr = derive_chromosome(sequence)
+                if chr is not None:
+                    clinvar_ctx_allele.set_relatedChromosome(chr)
+                self.data['relatedContextualAllele'].append(clinvar_ctx_allele)
         if 'others' in vci_rep['hgvsNames']:
             for hgvs in vci_rep['hgvsNames']['others']:
-                if hgvs.startswith(('NC', 'NG')):
+                if re.search('^((NC|NG)_[0-9]+\.[0-9]{1,2}|LRG_[0-9]+):g\..*$', hgvs):
                     alleleType = 'genomic'
-                elif hgvs.startswith(('NM', 'NR', 'XM')):
+                elif re.search('^((NM|NR|XM|XR)_[0-9]+\.[0-9]{1,2}|LRG_[0-9]+t[0-9]+|ENST[0-9]+\.[0-9]+):(c|n|r)\..*$', hgvs):
                     alleleType = 'transcript'
-                elif hgvs.startswith(('NP', 'XP')):
+                elif re.search('^((NP|XP)_[0-9]+\.[0-9]{1,2}|LRG_[0-9]+p[0-9]+|ENSP[0-9]+\.[0-9]+):p\..*$', hgvs):
                     alleleType = 'protein'
                 else:
                     alleleType = None
-                self.data['relatedContextualAllele'].append(ClinVarContextualAllele(cvid, alleleType, hgvs, preferred_sequence, gene_symbol))
+                clinvar_ctx_allele = ClinVarContextualAllele(cvid, alleleType, hgvs, preferred_sequence)
+                sequence = hgvs.split(':')[0]
+                if (sequence is not None) and (sequence == preferred_sequence):
+                    clinvar_ctx_allele.set_preferred(True)
+                    # only set gene symbol on preferred because it is linked in the clinvar_variant_title
+                    if gene_symbol is not None:
+                        clinvar_ctx_allele.set_relatedGene(gene_symbol)
+                self.data['relatedContextualAllele'].append(clinvar_ctx_allele)
     def add_external_identifier(self,source,value,display=None):
         if 'relatedIdentifier' not in self.data:
             self.data['relatedIdentifier'] = []
@@ -181,7 +223,7 @@ class ClinVarVariant(Node):
         self.data['relatedIdentifier'].append(ext_identifier)
 
 class ClinVarContextualAllele(Node):
-    def __init__(self,canonical_allele_id,allele_type,hgvs,preferred_sequence,gene_symbol,ref_genome=None):
+    def __init__(self, canonical_allele_id, allele_type, hgvs, preferred_sequence):
         self.data = {}
         self.data[DMWG_TYPE_KEY] = 'ContextualAllele'
         self.data['relatedCanonicalAllele'] = canonical_allele_id
@@ -190,13 +232,22 @@ class ClinVarContextualAllele(Node):
         nm = { 'nameType':'hgvs', 'name':hgvs }
         self.data['alleleName'] = []
         self.data['alleleName'].append(nm)
-        if ref_genome is not None:
-            self.ref_genome = ref_genome
-        sequence = hgvs.split(':')[0]
-        if (sequence is not None) and (sequence == preferred_sequence):
-            self.data['preferred'] = True
-            if gene_symbol is not None:
-                self.data['gene'] = {'label': gene_symbol}
-        chr = derive_chromosome(sequence)
-        if chr is not None:
-            self.data['chromosome'] = chr
+    @get_factory_entity('SEPIO-CG:65906')
+    def set_referenceGenome(self, x):
+        self.data[DMWG_A952_REFERENCEGENOME_KEY] = x
+    def get_referenceGenome(self):
+        return self.data[DMWG_A952_REFERENCEGENOME_KEY]
+    def set_preferred(self, x):
+        self.data[DMWG_A921_PREFERRED_KEY] = x
+    def get_preferred(self):
+        return self.data[DMWG_A921_PREFERRED_KEY]
+    @get_factory_entity('SEPIO-CG:65905')
+    def set_relatedChromosome(self,x):
+        self.data[DMWG_A950_RELATEDCHROMOSOME_KEY] = x
+    def get_relatedChromosome(self):
+        return self.data[DMWG_A950_RELATEDCHROMOSOME_KEY]
+    @get_factory_entity('SEPIO:0000396')
+    def set_relatedGene(self,x):
+        self.data[DMWG_A951_RELATEDGENE_KEY] = x
+    def get_relatedGene(self):
+        return self.data[DMWG_A951_RELATEDGENE_KEY]

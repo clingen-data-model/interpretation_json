@@ -32,7 +32,7 @@ class DomainEntityFactory:
             try:
                 concepts = valueset['concept']
             except KeyError:
-                print 'No concepts in %s' % f
+                #print 'No concepts in %s' % f
                 concepts = {}
             self.vsets[vsid] = concepts
             self.extensibility[vsid] = valueset['valueSetExtensibility']
