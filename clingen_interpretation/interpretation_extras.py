@@ -32,9 +32,10 @@ def create_contribution(agent, ondate, role):
 
 #Utility methods for creating contributions
 def create_agent(id, label, agent_for=None):
-    if id is None:
-        id = the_factory.get_next_blank_iri()
-    agent = Agent(id)
+    # if id is None:
+    #     id = the_factory.get_next_blank_iri()
+    if id is not None:
+        agent = Agent(id)
     agent.set_label(label)
     if agent_for is not None:
         agent.set_agentFor(agent_for)
@@ -42,7 +43,7 @@ def create_agent(id, label, agent_for=None):
 
 #Utility methods for creating assertion methods (VariantPathogenicityInterpretationGuideline)
 def create_assertion_method(name, url=None):
-    method = VariantPathogenicityInterpretationGuideline(the_factory.get_next_blank_iri())
+    method = VariantPathogenicityInterpretationGuideline()
     method.set_label( name )
     if url is not None:
         method.set_url( url )

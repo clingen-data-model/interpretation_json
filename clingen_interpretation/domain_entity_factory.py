@@ -16,7 +16,7 @@ class DomainEntityFactory:
     def __init__(self,vsdir=''):
         """Read value sets from disk.  Create maps of the value set entries
            and relationship with particular domain entities"""
-        self.next_sequence = 0
+        # self.next_sequence = 0
         self.vsets = {}
         self.extensibility = {}
         self.entity_types = {}
@@ -45,10 +45,10 @@ class DomainEntityFactory:
                     #End workaround
                     if etype in self.entity_types:
                         if self.entity_types[etype] != vsid:
-                            print 'Type %s occurs in 2 Value Sets' % etype
-                            print vsid, self.entity_types[etype]
-                            print 'Need to make entity_types point to sets'
-                            print 'But have not yet'
+                            print('Type %s occurs in 2 Value Sets' % etype)
+                            print(vsid, self.entity_types[etype])
+                            print('Need to make entity_types point to sets')
+                            print('But have not yet')
                             sys.exit(1)
                     else:
                         self.entity_types[etype] = vsid
@@ -62,10 +62,10 @@ class DomainEntityFactory:
     def get_extensibility(self):
         return self.extensibility
 
-    def get_next_blank_iri(self):
-        iri = "_:b"+str(self.next_sequence)
-        self.next_sequence += 1
-        return iri
+    # def get_next_blank_iri(self):
+        # iri = "_:b"+str(self.next_sequence)
+        # self.next_sequence += 1
+        # return iri
 
     def lookup_entity(self,valueset_id,lookup):
         """Given a lookup value, return a well-formed Domain Entity.
@@ -93,8 +93,7 @@ class DomainEntityFactory:
             entity_class = getattr(entities_generated, valueset_id)
         except AttributeError:
             entity_class = Node
-        #If we didn't find the value, we create without the IRI, and set label
-        e = entity_class(self.get_next_blank_iri())
+        e = entity_class()
         e.set_label(lookup)
         return e
 
