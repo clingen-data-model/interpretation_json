@@ -6,6 +6,8 @@ from clingen_interpretation.node import Node
 class DomainEntity(Entity):
     def __init__(self,iri=None):
         self.data = {}
+        # if iri is None:
+        #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_DOMAINENTITY_TYPE 
@@ -17,6 +19,8 @@ class DomainEntity(Entity):
 class IdentifierSystem(DomainEntity):
     def __init__(self,iri=None):
         self.data = {}
+        # if iri is None:
+        #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_IDENTIFIERSYSTEM_TYPE 
@@ -36,6 +40,8 @@ class IdentifierSystem(DomainEntity):
 class GeneticCondition(DomainEntity):
     def __init__(self,iri=None):
         self.data = {}
+        # if iri is None:
+        #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_GENETICCONDITION_TYPE 
@@ -71,6 +77,8 @@ class GeneticCondition(DomainEntity):
 class Haplotype(DomainEntity):
     def __init__(self,iri=None):
         self.data = {}
+        # if iri is None:
+        #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_HAPLOTYPE_TYPE 
@@ -88,6 +96,8 @@ class Haplotype(DomainEntity):
 class Genotype(DomainEntity):
     def __init__(self,iri=None):
         self.data = {}
+        # if iri is None:
+        #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_GENOTYPE_TYPE 
@@ -178,6 +188,8 @@ class ContextualAlleleName(DomainEntity):
 class Position(DomainEntity):
     def __init__(self,iri=None):
         self.data = {}
+        # if iri is None:
+        #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_POSITION_TYPE 

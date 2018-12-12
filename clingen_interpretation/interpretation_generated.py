@@ -5,6 +5,8 @@ from clingen_interpretation.node import Node
 class Entity(Node):
     def __init__(self,iri=None):
         self.data = {}
+        # if iri is None:
+        #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_ENTITY_TYPE 
@@ -24,6 +26,8 @@ class Entity(Node):
 class Statement(Entity):
     def __init__(self,iri=None):
         self.data = {}
+        # if iri is None:
+        #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_STATEMENT_TYPE 
@@ -63,6 +67,8 @@ class Statement(Entity):
 class VariantPathogenicityInterpretation(Statement):
     def __init__(self,iri=None):
         self.data = {}
+        # if iri is None:
+        #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_VARIANTPATHOGENICITYINTERPRETATION_TYPE 
@@ -94,6 +100,8 @@ class VariantPathogenicityInterpretation(Statement):
 class CriterionAssessment(Statement):
     def __init__(self,iri=None):
         self.data = {}
+        # if iri is None:
+        #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_CRITERIONASSESSMENT_TYPE 
@@ -210,6 +218,8 @@ class AlleleConservationScoreStatement(Statement):
 class AlleleConservationStatement(Statement):
     def __init__(self,iri=None):
         self.data = {}
+        # if iri is None:
+        #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_ALLELECONSERVATIONSTATEMENT_TYPE 
@@ -234,6 +244,8 @@ class AlleleConservationStatement(Statement):
 class AlleleFunctionalImpactStatement(Statement):
     def __init__(self,iri=None):
         self.data = {}
+        # if iri is None:
+        #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_ALLELEFUNCTIONALIMPACTSTATEMENT_TYPE 
@@ -283,6 +295,8 @@ class AlleleMolecularConsequenceStatement(Statement):
 class CaseControlAlleleFrequencyStatement(Statement):
     def __init__(self,iri=None):
         self.data = {}
+        # if iri is None:
+        #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_CASECONTROLALLELEFREQUENCYSTATEMENT_TYPE 
@@ -398,6 +412,8 @@ class FamilyCosegregationStatement(Statement):
 class InSilicoPredictionScoreStatement(Statement):
     def __init__(self,iri=None):
         self.data = {}
+        # if iri is None:
+        #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_INSILICOPREDICTIONSCORESTATEMENT_TYPE 
@@ -443,7 +459,6 @@ class InSilicoPredictionStatement(Statement):
         self.data[DMWG_A034_TRANSCRIPT_KEY] = x
     def get_transcript(self):
         return self.data[DMWG_A034_TRANSCRIPT_KEY]
-    @get_factory_entity('SEPIO-CG:65900')
     def set_statementOutcome(self,x):
         self.data[DMWG_A099_STATEMENTOUTCOME_KEY] = x
     def get_statementOutcome(self):
@@ -598,6 +613,8 @@ class ConditionMechanismStatement(Statement):
 class ConditionPenetranceStatement(Statement):
     def __init__(self,iri=None):
         self.data = {}
+        # if iri is None:
+        #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_CONDITIONPENETRANCESTATEMENT_TYPE 
@@ -620,6 +637,8 @@ class ConditionPenetranceStatement(Statement):
 class ConditionPrevelanceStatement(Statement):
     def __init__(self,iri=None):
         self.data = {}
+        # if iri is None:
+        #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_CONDITIONPREVELANCESTATEMENT_TYPE 
@@ -679,6 +698,8 @@ class LocusHeterogeneityStatement(Statement):
 class BenignMissenseVariationRateStatement(Statement):
     def __init__(self,iri=None):
         self.data = {}
+        # if iri is None:
+        #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_BENIGNMISSENSEVARIATIONRATESTATEMENT_TYPE 
@@ -704,6 +725,8 @@ class BenignMissenseVariationRateStatement(Statement):
 class RegionTypeStatement(Statement):
     def __init__(self,iri=None):
         self.data = {}
+        # if iri is None:
+        #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_REGIONTYPESTATEMENT_TYPE 
@@ -726,6 +749,8 @@ class RegionTypeStatement(Statement):
 class FamilyConditionStatement(Statement):
     def __init__(self,iri=None):
         self.data = {}
+        # if iri is None:
+        #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_FAMILYCONDITIONSTATEMENT_TYPE 
@@ -752,6 +777,8 @@ class FamilyConditionStatement(Statement):
 class IndividualAlleleInheritanceStatement(Statement):
     def __init__(self,iri=None):
         self.data = {}
+        # if iri is None:
+        #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_INDIVIDUALALLELEINHERITANCESTATEMENT_TYPE 
@@ -783,6 +810,8 @@ class IndividualAlleleInheritanceStatement(Statement):
 class IndividualConditionStatement(Statement):
     def __init__(self,iri=None):
         self.data = {}
+        # if iri is None:
+        #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_INDIVIDUALCONDITIONSTATEMENT_TYPE 
@@ -809,6 +838,8 @@ class IndividualConditionStatement(Statement):
 class IndividualGenotypeStatement(Statement):
     def __init__(self,iri=None):
         self.data = {}
+        # if iri is None:
+        #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_INDIVIDUALGENOTYPESTATEMENT_TYPE 
@@ -835,6 +866,8 @@ class IndividualGenotypeStatement(Statement):
 class EvidenceLine(Entity):
     def __init__(self,iri=None):
         self.data = {}
+        # if iri is None:
+        #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_EVIDENCELINE_TYPE 
@@ -863,6 +896,8 @@ class EvidenceLine(Entity):
 class Agent(Entity):
     def __init__(self,iri=None):
         self.data = {}
+        # if iri is None:
+        #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_AGENT_TYPE 
@@ -878,6 +913,8 @@ class Agent(Entity):
 class Contribution(Entity):
     def __init__(self,iri=None):
         self.data = {}
+        # if iri is None:
+        #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_CONTRIBUTION_TYPE 
@@ -902,6 +939,8 @@ class Contribution(Entity):
 class UserLabel(Entity):
     def __init__(self,iri=None):
         self.data = {}
+        # if iri is None:
+        #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_USERLABEL_TYPE 
@@ -923,6 +962,8 @@ class UserLabel(Entity):
 class ValueSet(Entity):
     def __init__(self,iri=None):
         self.data = {}
+        # if iri is None:
+        #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_VALUESET_TYPE 
