@@ -68,7 +68,7 @@ def create_dmwg_disease(system, code, name):
 def read_criteria():
     this_dir, this_filename = os.path.split(__file__)
     crit_path = os.path.join(this_dir, 'ValueSets', 'SEPIO:0000395')
-    inf = file(crit_path,'r')
+    inf = open(crit_path,'r')
     jcrit = json.load(inf)
     inf.close()
     criteria = {}

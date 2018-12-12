@@ -87,7 +87,7 @@ class DomainEntityFactory:
         if not found and not extensible:
             raise Exception("Did not find %s in %s" % (lookup, valueset_id))
 
-        import entities_generated
+        import clingen_interpretation.entities_generated as entities_generated
         try:
             entity_class = getattr(entities_generated, valueset_id)
         except AttributeError:
@@ -102,7 +102,7 @@ def get_factory_entity(domain_entity_typename):
     def decorate(func):
         @wraps(func)
         def wrapper(*args, **kwargs):
-            from node import Node
+            from clingen_interpretation.node import Node
             if isinstance(args[1], Node):
                 return func(*args,**kwargs)
             coding = the_factory.lookup_entity(domain_entity_typename,args[1])
