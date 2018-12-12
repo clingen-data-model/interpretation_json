@@ -2,21 +2,21 @@
   "id": "SEPIO-CG:65132",
   "type": "ValueSet",
   "label": "Variant Interpretation Guideline Value Set",
-  "description": "TODO",
+  "description": "The assertion method guidelines for variant pathogenicity interpretation. ACMG-AMP IVS guidelines 2015 is a typical case, but there may be alternative or derivative guidelines as well.",
   "valueSetExtensibility": {
     "id": "SEPIO:0000365",
     "label": "extensible"
   },
   "concept": [
     {
-      "id": "CGEX:AssertMeth331",
+      "id": "SEPIO-CG:95000",
       "type": "VariantPathogenicityInterpretationGuideline",
-      "description": "ACMG ISV guidelines 2015",
+      "label": "ACMG guidelines 2015",
       "url": "https://www.acmg.net/docs/Standards_Guidelines_for_the_Interpretation_of_Sequence_Variants.pdf",
       "version": "1.0",
       "scoringAlgorithm": {
-        "id": "CGEX:AssertMethScoringAlgorithm001",
-        "description": "ACMG ISV 2015 combining/scoring algorithm"
+        "id": "SEPIO-CG:95900",
+        "label": "ACMG ISV 2015 combining/scoring algorithm"
       }
     }
   ],

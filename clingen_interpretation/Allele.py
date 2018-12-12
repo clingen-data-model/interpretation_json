@@ -1,6 +1,6 @@
-from node import Node
-from entities_generated import *
-from interpretation_constants import *
+from clingen_interpretation.node import Node
+from clingen_interpretation.entities_generated import *
+from clingen_interpretation.interpretation_constants import *
 
 
 '''

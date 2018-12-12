@@ -1,7 +1,7 @@
 import os,sys
 import json
 from functools import wraps
-from node import Node
+from clingen_interpretation.node import Node
 
 LABEL='label'
 
@@ -25,13 +25,13 @@ class DomainEntityFactory:
         files = os.listdir(vsdir)
         for f in files:
             fname='%s/%s'% (vsdir,f)
-            inf = file(fname,'r')
+            inf = open(fname,'r')
             valueset = json.load(inf)
             vsid = valueset['id']
             try:
                 concepts = valueset['concept']
             except KeyError:
-                print 'No concepts in %s' % f
+                print( 'No concepts in %s' % f )
                 concepts = {}
             self.vsets[vsid] = concepts
             self.extensibility[vsid] = valueset['valueSetExtensibility']
@@ -44,10 +44,10 @@ class DomainEntityFactory:
                     #End workaround
                     if etype in self.entity_types:
                         if self.entity_types[etype] != vsid:
-                            print 'Type %s occurs in 2 Value Sets' % etype
-                            print vsid, self.entity_types[etype]
-                            print 'Need to make entity_types point to sets'
-                            print 'But have not yet'
+                            print( 'Type %s occurs in 2 Value Sets' % etype )
+                            print( vsid, self.entity_types[etype] )
+                            print( 'Need to make entity_types point to sets' )
+                            print( 'But have not yet' )
                             sys.exit(1)
                     else:
                         self.entity_types[etype] = vsid

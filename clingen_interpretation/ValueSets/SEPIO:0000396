@@ -2,7 +2,7 @@
   "id": "SEPIO:0000396",
   "type": "ValueSet",
   "label": "Gene Value Set",
-  "description": "TODO",
+  "description": "The genes in the the genome.",
   "valueSetExtensibility": {
     "id": "SEPIO:0000365",
     "label": "extensible"
@@ -11,9 +11,16 @@
     {
       "id": "http://www.genenames.org/",
       "type": "IdentifierSystem",
-      "label": "HGNC",
+      "label": "Human Gene Nomenclature Committee",
       "prefix": "HGNC",
       "urlPattern": "http://www.genenames.org/"
+    },
+    {
+      "id": "https://www.ncbi.nlm.nih.gov/gene#",
+      "type": "IdentifierSystem",
+      "label": "NCBI Gene",
+      "prefix": "NCBIGene",
+      "urlPattern": "https://www.ncbi.nlm.nih.gov/gene/"
     }
   ],
   "@context": "http://dataexchange.clinicalgenome.org/interpretation/json/context"

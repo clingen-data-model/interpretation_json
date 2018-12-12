@@ -2,7 +2,7 @@
   "id": "SEPIO-CG:65119",
   "type": "ValueSet",
   "label": "Reference Sequence Value Set",
-  "description": "TODO",
+  "description": "Any public, immutable, accessioned DNA, RNA or amino acid sequences.",
   "valueSetExtensibility": {
     "id": "SEPIO:0000365",
     "label": "extensible"

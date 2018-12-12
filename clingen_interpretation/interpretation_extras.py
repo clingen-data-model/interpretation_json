@@ -1,7 +1,7 @@
-from interpretation_generated import *
-from entities_generated import *
+from clingen_interpretation.interpretation_generated import *
+from clingen_interpretation.entities_generated import *
 import json
-from domain_entity_factory import the_factory
+from clingen_interpretation.domain_entity_factory import the_factory
 import os
 
 #UtilityMethods for wrapping things in Evidence Lines

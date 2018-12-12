@@ -1,4 +1,4 @@
-from interpretation_constants import *
+from clingen_interpretation.interpretation_constants import *
 
 DMWG_LABEL_KEY = 'label'
 

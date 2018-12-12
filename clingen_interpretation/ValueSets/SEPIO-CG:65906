@@ -1,18 +1,12 @@
 {
-  "id": "SEPIO-CG:65133",
+  "id": "SEPIO-CG:65906",
   "type": "ValueSet",
-  "label": "Variant Interpretation Criterion Scoring Rules Value Set",
-  "description": "This is the description of how the weighting of the satisfied criterion are typically evaluated to arrive at a specific clinical significance.",
+  "label": "Reference Genome Build Value Set",
+  "description": "TODO",
   "valueSetExtensibility": {
     "id": "SEPIO:0000365",
     "label": "extensible"
   },
-  "concept": [
-    {
-      "id": "SEPIO-CG:95900",
-      "label": "ACMG ISV 2015 combining/scoring algorithm"
-    }
-  ],
   "valueSetIdentifierSystems": [
     {
       "id": "http://purl.obolibrary.org/obo/sepio-clingen#",
@@ -20,6 +14,23 @@
       "label": "ClinGen extensions to SEPIO",
       "prefix": "SEPIO-CG",
       "urlPattern": "http://purl.obolibrary.org/obo/SEPIO-CG_"
+    }
+  ],
+  "concept": [
+    {
+      "id": "SEPIO-CG:98201",
+      "label": "NCBI36",
+      "description": "hg18"
+    },
+    {
+      "id": "SEPIO-CG:98202",
+      "label": "GRCh37",
+      "description": "hg19"
+    },
+    {
+      "id": "SEPIO-CG:98203",
+      "label": "GRCh38",
+      "description": "hg38"
     }
   ],
   "@context": "http://dataexchange.clinicalgenome.org/interpretation/json/context"

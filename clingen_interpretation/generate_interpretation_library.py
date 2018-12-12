@@ -105,7 +105,7 @@ def write_data_type(types_and_atts,type_id,lib,t_const,a_const):
                 else:
                     lib.write( SETTER % (attname,attconst))
             except:
-                print attkey
+                print( attkey )
                 exit()
             lib.write( GETTER % (attname, attconst) )
     lib.write('\n\n')
@@ -137,15 +137,15 @@ def write_library(types_and_atts,libname,entname, enumname):
                libname: output file name for the generated library
                enumname: output file name for enumerations """
     t_const, a_const = write_constants( types_and_atts, enumname )
-    lib = file(libname,'w')
-    lib.write('from interpretation_constants import *\n')
-    lib.write('from domain_entity_factory import get_factory_entity\n')
-    lib.write('from node import Node\n\n')
-    entf = file(entname,'w')
-    entf.write('from interpretation_constants import *\n')
-    entf.write('from interpretation_generated import Entity\n')
-    entf.write('from domain_entity_factory import get_factory_entity\n')
-    entf.write('from node import Node\n\n')
+    lib = open(libname,'w')
+    lib.write('from clingen_interpretation.interpretation_constants import *\n')
+    lib.write('from clingen_interpretation.domain_entity_factory import get_factory_entity\n')
+    lib.write('from clingen_interpretation.node import Node\n\n')
+    entf = open(entname,'w')
+    entf.write('from clingen_interpretation.interpretation_constants import *\n')
+    entf.write('from clingen_interpretation.interpretation_generated import Entity\n')
+    entf.write('from clingen_interpretation.domain_entity_factory import get_factory_entity\n')
+    entf.write('from clingen_interpretation.node import Node\n\n')
     type_ids = sort_types(types_and_atts)
     for type_id in type_ids:
         if type_is_entity(types_and_atts[type_id], types_and_atts):
@@ -160,7 +160,7 @@ def write_library(types_and_atts,libname,entname, enumname):
 def write_constants(types_and_atts,enumname):
     type_constants = {}
     att_constants = {}
-    enum = file(enumname,'w')
+    enum = open(enumname,'w')
     enum.write("ALLELE_REGISTRY_ID_KEY = '@id'\n\n")
     enum.write("DMWG_ID_KEY = 'id'\n")
     enum.write("DMWG_TYPE_KEY = 'type'\n\n")
@@ -229,7 +229,7 @@ def go():
     classes and constants"""
     type_url = 'http://dataexchange.clinicalgenome.org/interpretation/master/json/Types'
     t_res = requests.get(type_url)
-    with file('types.json','w') as outf:
+    with open('types.json','w') as outf:
         outf.write(json.dumps(t_res.json(),indent=4))
     json_string = t_res.text
     types_and_atts = json.loads(json_string)

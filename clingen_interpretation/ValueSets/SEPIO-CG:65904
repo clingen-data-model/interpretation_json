@@ -1,18 +1,12 @@
 {
-  "id": "SEPIO-CG:65133",
+  "id": "SEPIO-CG:65904",
   "type": "ValueSet",
-  "label": "Variant Interpretation Criterion Scoring Rules Value Set",
-  "description": "This is the description of how the weighting of the satisfied criterion are typically evaluated to arrive at a specific clinical significance.",
+  "label": "Contextual Allele Type Value Set",
+  "description": "TODO",
   "valueSetExtensibility": {
     "id": "SEPIO:0000365",
     "label": "extensible"
   },
-  "concept": [
-    {
-      "id": "SEPIO-CG:95900",
-      "label": "ACMG ISV 2015 combining/scoring algorithm"
-    }
-  ],
   "valueSetIdentifierSystems": [
     {
       "id": "http://purl.obolibrary.org/obo/sepio-clingen#",
