@@ -107,11 +107,7 @@ def write_data_type(types_and_atts,type_id,lib,t_const,a_const):
                 else:
                     lib.write( SETTER % (attname,attconst))
             except:
-<<<<<<< HEAD
                 print( attkey )
-=======
-                print(attkey)
->>>>>>> ad224f0713e7a25ba339e864b12810cba356dc78
                 exit()
             lib.write( GETTER % (attname, attconst) )
     lib.write('\n\n')
@@ -144,7 +140,6 @@ def write_library(types_and_atts,libname,entname, enumname):
                enumname: output file name for enumerations """
     t_const, a_const = write_constants( types_and_atts, enumname )
     lib = open(libname,'w')
-<<<<<<< HEAD
     lib.write('from clingen_interpretation.interpretation_constants import *\n')
     lib.write('from clingen_interpretation.domain_entity_factory import get_factory_entity\n')
     lib.write('from clingen_interpretation.node import Node\n\n')
@@ -153,16 +148,6 @@ def write_library(types_and_atts,libname,entname, enumname):
     entf.write('from clingen_interpretation.interpretation_generated import Entity\n')
     entf.write('from clingen_interpretation.domain_entity_factory import get_factory_entity\n')
     entf.write('from clingen_interpretation.node import Node\n\n')
-=======
-    lib.write('from interpretation_constants import *\n')
-    lib.write('from domain_entity_factory import *\n')
-    lib.write('from node import Node\n\n')
-    entf = open(entname,'w')
-    entf.write('from interpretation_constants import *\n')
-    entf.write('from interpretation_generated import Entity\n')
-    entf.write('from domain_entity_factory import *\n')
-    entf.write('from node import Node\n\n')
->>>>>>> ad224f0713e7a25ba339e864b12810cba356dc78
     type_ids = sort_types(types_and_atts)
     for type_id in type_ids:
         if type_is_entity(types_and_atts[type_id], types_and_atts):

@@ -133,6 +133,8 @@ class CriterionAssessment(Statement):
 class AggregateCosegregationStatement(Statement):
     def __init__(self,iri=None):
         self.data = {}
+        # if iri is None:
+        #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_AGGREGATECOSEGREGATIONSTATEMENT_TYPE 
@@ -195,6 +197,8 @@ class AggregateCosegregationStatement(Statement):
 class AlleleConservationScoreStatement(Statement):
     def __init__(self,iri=None):
         self.data = {}
+        # if iri is None:
+        #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_ALLELECONSERVATIONSCORESTATEMENT_TYPE 
@@ -275,6 +279,8 @@ class AlleleFunctionalImpactStatement(Statement):
 class AlleleMolecularConsequenceStatement(Statement):
     def __init__(self,iri=None):
         self.data = {}
+        # if iri is None:
+        #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_ALLELEMOLECULARCONSEQUENCESTATEMENT_TYPE 
@@ -340,6 +346,8 @@ class CaseControlAlleleFrequencyStatement(Statement):
 class FamilyCosegregationStatement(Statement):
     def __init__(self,iri=None):
         self.data = {}
+        # if iri is None:
+        #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_FAMILYCOSEGREGATIONSTATEMENT_TYPE 
@@ -447,6 +455,8 @@ class InSilicoPredictionScoreStatement(Statement):
 class InSilicoPredictionStatement(Statement):
     def __init__(self,iri=None):
         self.data = {}
+        # if iri is None:
+        #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_INSILICOPREDICTIONSTATEMENT_TYPE 
@@ -480,6 +490,8 @@ class InSilicoPredictionStatement(Statement):
 class NullAlleleStatement(Statement):
     def __init__(self,iri=None):
         self.data = {}
+        # if iri is None:
+        #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_NULLALLELESTATEMENT_TYPE 
@@ -500,6 +512,8 @@ class NullAlleleStatement(Statement):
 class PopulationAlleleFrequencyStatement(Statement):
     def __init__(self,iri=None):
         self.data = {}
+        # if iri is None:
+        #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_POPULATIONALLELEFREQUENCYSTATEMENT_TYPE 
@@ -557,6 +571,8 @@ class PopulationAlleleFrequencyStatement(Statement):
 class RegionAllelesStatement(Statement):
     def __init__(self,iri=None):
         self.data = {}
+        # if iri is None:
+        #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_REGIONALLELESSTATEMENT_TYPE 
@@ -583,6 +599,8 @@ class RegionAllelesStatement(Statement):
 class ConditionMechanismStatement(Statement):
     def __init__(self,iri=None):
         self.data = {}
+        # if iri is None:
+        #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_CONDITIONMECHANISMSTATEMENT_TYPE 
@@ -673,6 +691,8 @@ class ConditionPrevelanceStatement(Statement):
 class LocusHeterogeneityStatement(Statement):
     def __init__(self,iri=None):
         self.data = {}
+        # if iri is None:
+        #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_LOCUSHETEROGENEITYSTATEMENT_TYPE 
@@ -847,7 +867,6 @@ class IndividualGenotypeStatement(Statement):
         self.data[DMWG_A065_INDIVIDUAL_KEY] = x
     def get_individual(self):
         return self.data[DMWG_A065_INDIVIDUAL_KEY]
-    @get_factory_entity('SEPIO-CG:65900')
     def set_statementOutcome(self,x):
         self.data[DMWG_A188_STATEMENTOUTCOME_KEY] = x
     def get_statementOutcome(self):

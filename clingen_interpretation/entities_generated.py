@@ -120,6 +120,8 @@ class Genotype(DomainEntity):
 class VariantPathogenicityInterpretationCriterion(DomainEntity):
     def __init__(self,iri=None):
         self.data = {}
+        # if iri is None:
+        #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_VARIANTPATHOGENICITYINTERPRETATIONCRITERION_TYPE 
@@ -140,6 +142,8 @@ class VariantPathogenicityInterpretationCriterion(DomainEntity):
 class VariantPathogenicityInterpretationGuideline(DomainEntity):
     def __init__(self,iri=None):
         self.data = {}
+        # if iri is None:
+        #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_VARIANTPATHOGENICITYINTERPRETATIONGUIDELINE_TYPE 
@@ -164,6 +168,8 @@ class VariantPathogenicityInterpretationGuideline(DomainEntity):
 class ContextualAlleleName(DomainEntity):
     def __init__(self,iri=None):
         self.data = {}
+        # if iri is None:
+        #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_CONTEXTUALALLELENAME_TYPE 
@@ -205,6 +211,8 @@ class Position(DomainEntity):
 class ReferenceCoordinate(DomainEntity):
     def __init__(self,iri=None):
         self.data = {}
+        # if iri is None:
+        #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_REFERENCECOORDINATE_TYPE 
@@ -233,6 +241,8 @@ class ReferenceCoordinate(DomainEntity):
 class SequenceLocation(DomainEntity):
     def __init__(self,iri=None):
         self.data = {}
+        # if iri is None:
+        #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
             self.data[DMWG_ID_KEY] = iri
         self.data[DMWG_TYPE_KEY] = DMWG_SEQUENCELOCATION_TYPE 
