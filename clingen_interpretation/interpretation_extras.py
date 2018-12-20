@@ -17,10 +17,10 @@ def add_evidenceItems( assessment, evidenceItems):
         evidence_line.add_evidenceItem( item )
         assessment.add_evidenceLine( evidence_line )
 
-DMWG_CURATOR_ROLE = 'curator'
-DMWG_ASSESSOR_ROLE = 'assessor'
-DMWG_APPROVER_ROLE = 'approver'
-DMWG_PUBLISHER_ROLE = 'publisher'
+PROP_CURATOR_ROLE = 'curator'
+PROP_ASSESSOR_ROLE = 'assessor'
+PROP_APPROVER_ROLE = 'approver'
+PROP_PUBLISHER_ROLE = 'publisher'
 
 #Utility methods for creating contributions
 def create_contribution(agent, ondate, role):
@@ -52,7 +52,7 @@ def create_assertion_method(name, url=None):
 #Utility method for creating diseases. Note that disease is not a type any more
 def create_dmwg_disease(system, code, name):
     iri = system+code
-    disease = Node(iri)
+    disease = Node(identifier=iri)
     disease.set_label(name)
     return disease
 

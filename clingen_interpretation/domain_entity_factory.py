@@ -81,7 +81,7 @@ class DomainEntityFactory:
             for coding in vset:
                 if coding[key].upper() == lookup.upper():
                     found = True
-                    node = Node(coding['id'])
+                    node = Node( identifier=coding['id'] )
                     node.set_label(coding[LABEL])
                     return node
         if not found and not extensible:

@@ -13,7 +13,7 @@ TYPE = 'dataType'
 VSID = '@valueSetId'
 ATTRIBUTES = 'attributes'
 ID = 'id'
-DMWG_LABEL_ID = 'LabelIdentifier'
+PROP_LABEL_ID = 'LabelIdentifier'
 
 def get_parent_name(dtype,types):
     if PARENT_KEY not in dtype:
@@ -29,8 +29,8 @@ CLASSDEF = \
         # if iri is None:
         #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
-            self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = %s '''
+            self.data[ID_KEY] = iri
+        self.data[TYPE_KEY] = %s '''
 
 SETTER = '''
     def set_%s(self,x):
@@ -74,7 +74,7 @@ def add_label(dtype):
     node.  It might make more sense to modify the transform code to handle extra attributes, but this is
     here for convenience sake"""
     LABEL = 'label'
-    attribute = {CARDINALITY: '0..1', NAME: LABEL, ENTITY_ID: dtype[ID], ID: DMWG_LABEL_ID }
+    attribute = {CARDINALITY: '0..1', NAME: LABEL, ENTITY_ID: dtype[ID], ID: PROP_LABEL_ID }
     dtype[ATTRIBUTES].append(attribute)
 
 def write_data_type(types_and_atts,type_id,lib,t_const,a_const):
@@ -107,7 +107,6 @@ def write_data_type(types_and_atts,type_id,lib,t_const,a_const):
                 else:
                     lib.write( SETTER % (attname,attconst))
             except:
-                print( attkey )
                 exit()
             lib.write( GETTER % (attname, attconst) )
     lib.write('\n\n')
@@ -164,12 +163,12 @@ def write_constants(types_and_atts,enumname):
     att_constants = {}
     enum = open(enumname,'w')
     enum.write("ALLELE_REGISTRY_ID_KEY = '@id'\n\n")
-    enum.write("DMWG_ID_KEY = 'id'\n")
-    enum.write("DMWG_TYPE_KEY = 'type'\n\n")
+    enum.write("ID_KEY = 'id'\n")
+    enum.write("TYPE_KEY = 'type'\n\n")
     for typekey in types_and_atts:
         dtype = types_and_atts[typekey]
         dname = dtype[NAME]
-        type_constant = 'DMWG_%s_TYPE' % (dname.upper())
+        type_constant = 'TYPE_%s' % (dname.upper())
         type_constants[typekey] = type_constant
         enum.write("%s = '%s'\n" % (type_constant, dname))
     enum.write('\n')
@@ -185,14 +184,14 @@ def write_constants(types_and_atts,enumname):
             except:
                 #print 'Missing fqname for %s' % attkey
                 attfqname = '%s.%s' % (attkey, attname)
-            att_constant = 'DMWG_%s_KEY' % ('_'.join(attfqname.upper().split('.')))
+            att_constant = 'PROP_%s_KEY' % ('_'.join(attfqname.upper().split('.')))
             att_constants[attkey] = att_constant
             if att_constant not in attconsts:
                 enum.write("%s = '%s'\n" % (att_constant, attname))
                 attconsts.add(att_constant)
     #Add label
-    att_constants[DMWG_LABEL_ID] = DMWG_LABEL_ID
-    enum.write("%s = 'label'\n" % DMWG_LABEL_ID)
+    att_constants[PROP_LABEL_ID] = PROP_LABEL_ID
+    enum.write("%s = 'label'\n" % PROP_LABEL_ID)
     #for aid in att_constants:
     #    print aid,att_constants[aid]
     enum.close()

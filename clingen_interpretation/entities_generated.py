@@ -9,8 +9,8 @@ class DomainEntity(Entity):
         # if iri is None:
         #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
-            self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_DOMAINENTITY_TYPE 
+            self.data[ID_KEY] = iri
+        self.data[TYPE_KEY] = TYPE_DOMAINENTITY 
     def set_label(self,x):
         self.data[LabelIdentifier] = x
     def get_label(self):
@@ -22,16 +22,16 @@ class IdentifierSystem(DomainEntity):
         # if iri is None:
         #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
-            self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_IDENTIFIERSYSTEM_TYPE 
+            self.data[ID_KEY] = iri
+        self.data[TYPE_KEY] = TYPE_IDENTIFIERSYSTEM 
     def set_prefix(self,x):
-        self.data[DMWG_A152_PREFIX_KEY] = x
+        self.data[PROP_A152_PREFIX_KEY] = x
     def get_prefix(self):
-        return self.data[DMWG_A152_PREFIX_KEY]
+        return self.data[PROP_A152_PREFIX_KEY]
     def set_urlPattern(self,x):
-        self.data[DMWG_A154_URLPATTERN_KEY] = x
+        self.data[PROP_A154_URLPATTERN_KEY] = x
     def get_urlPattern(self):
-        return self.data[DMWG_A154_URLPATTERN_KEY]
+        return self.data[PROP_A154_URLPATTERN_KEY]
     def set_label(self,x):
         self.data[LabelIdentifier] = x
     def get_label(self):
@@ -43,32 +43,32 @@ class GeneticCondition(DomainEntity):
         # if iri is None:
         #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
-            self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_GENETICCONDITION_TYPE 
+            self.data[ID_KEY] = iri
+        self.data[TYPE_KEY] = TYPE_GENETICCONDITION 
     @get_factory_entity('SEPIO:0000372')
     def add_disease(self,x):
-        if not DMWG_A158_DISEASE_KEY in self.data:
-            self.data[DMWG_A158_DISEASE_KEY] = []
-        self.data[DMWG_A158_DISEASE_KEY].append( x ) 
+        if not PROP_A158_DISEASE_KEY in self.data:
+            self.data[PROP_A158_DISEASE_KEY] = []
+        self.data[PROP_A158_DISEASE_KEY].append( x ) 
     def get_disease(self):
-        return self.data[DMWG_A158_DISEASE_KEY]
+        return self.data[PROP_A158_DISEASE_KEY]
     @get_factory_entity('SEPIO:0000375')
     def add_phenotype(self,x):
-        if not DMWG_A141_PHENOTYPE_KEY in self.data:
-            self.data[DMWG_A141_PHENOTYPE_KEY] = []
-        self.data[DMWG_A141_PHENOTYPE_KEY].append( x ) 
+        if not PROP_A141_PHENOTYPE_KEY in self.data:
+            self.data[PROP_A141_PHENOTYPE_KEY] = []
+        self.data[PROP_A141_PHENOTYPE_KEY].append( x ) 
     def get_phenotype(self):
-        return self.data[DMWG_A141_PHENOTYPE_KEY]
+        return self.data[PROP_A141_PHENOTYPE_KEY]
     @get_factory_entity('SEPIO:0000396')
     def set_gene(self,x):
-        self.data[DMWG_A143_GENE_KEY] = x
+        self.data[PROP_A143_GENE_KEY] = x
     def get_gene(self):
-        return self.data[DMWG_A143_GENE_KEY]
+        return self.data[PROP_A143_GENE_KEY]
     @get_factory_entity('SEPIO:0000416')
     def set_inheritancePattern(self,x):
-        self.data[DMWG_A142_INHERITANCEPATTERN_KEY] = x
+        self.data[PROP_A142_INHERITANCEPATTERN_KEY] = x
     def get_inheritancePattern(self):
-        return self.data[DMWG_A142_INHERITANCEPATTERN_KEY]
+        return self.data[PROP_A142_INHERITANCEPATTERN_KEY]
     def set_label(self,x):
         self.data[LabelIdentifier] = x
     def get_label(self):
@@ -80,14 +80,14 @@ class Haplotype(DomainEntity):
         # if iri is None:
         #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
-            self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_HAPLOTYPE_TYPE 
+            self.data[ID_KEY] = iri
+        self.data[TYPE_KEY] = TYPE_HAPLOTYPE 
     def add_hasPart(self,x):
-        if not DMWG_A067_HASPART_KEY in self.data:
-            self.data[DMWG_A067_HASPART_KEY] = []
-        self.data[DMWG_A067_HASPART_KEY].append( x ) 
+        if not PROP_A067_HASPART_KEY in self.data:
+            self.data[PROP_A067_HASPART_KEY] = []
+        self.data[PROP_A067_HASPART_KEY].append( x ) 
     def get_hasPart(self):
-        return self.data[DMWG_A067_HASPART_KEY]
+        return self.data[PROP_A067_HASPART_KEY]
     def set_label(self,x):
         self.data[LabelIdentifier] = x
     def get_label(self):
@@ -99,19 +99,19 @@ class Genotype(DomainEntity):
         # if iri is None:
         #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
-            self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_GENOTYPE_TYPE 
+            self.data[ID_KEY] = iri
+        self.data[TYPE_KEY] = TYPE_GENOTYPE 
     def add_hasPart(self,x):
-        if not DMWG_A068_HASPART_KEY in self.data:
-            self.data[DMWG_A068_HASPART_KEY] = []
-        self.data[DMWG_A068_HASPART_KEY].append( x ) 
+        if not PROP_A068_HASPART_KEY in self.data:
+            self.data[PROP_A068_HASPART_KEY] = []
+        self.data[PROP_A068_HASPART_KEY].append( x ) 
     def get_hasPart(self):
-        return self.data[DMWG_A068_HASPART_KEY]
+        return self.data[PROP_A068_HASPART_KEY]
     @get_factory_entity('SEPIO:0000338')
     def set_zygosity(self,x):
-        self.data[DMWG_A069_ZYGOSITY_KEY] = x
+        self.data[PROP_A069_ZYGOSITY_KEY] = x
     def get_zygosity(self):
-        return self.data[DMWG_A069_ZYGOSITY_KEY]
+        return self.data[PROP_A069_ZYGOSITY_KEY]
     def set_label(self,x):
         self.data[LabelIdentifier] = x
     def get_label(self):
@@ -123,17 +123,17 @@ class VariantPathogenicityInterpretationCriterion(DomainEntity):
         # if iri is None:
         #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
-            self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_VARIANTPATHOGENICITYINTERPRETATIONCRITERION_TYPE 
+            self.data[ID_KEY] = iri
+        self.data[TYPE_KEY] = TYPE_VARIANTPATHOGENICITYINTERPRETATIONCRITERION 
     @get_factory_entity('SEPIO:0000353')
     def set_defaultStrength(self,x):
-        self.data[DMWG_A153_DEFAULTSTRENGTH_KEY] = x
+        self.data[PROP_A153_DEFAULTSTRENGTH_KEY] = x
     def get_defaultStrength(self):
-        return self.data[DMWG_A153_DEFAULTSTRENGTH_KEY]
+        return self.data[PROP_A153_DEFAULTSTRENGTH_KEY]
     def set_usageNotes(self,x):
-        self.data[DMWG_A150_USAGENOTES_KEY] = x
+        self.data[PROP_A150_USAGENOTES_KEY] = x
     def get_usageNotes(self):
-        return self.data[DMWG_A150_USAGENOTES_KEY]
+        return self.data[PROP_A150_USAGENOTES_KEY]
     def set_label(self,x):
         self.data[LabelIdentifier] = x
     def get_label(self):
@@ -145,21 +145,21 @@ class VariantPathogenicityInterpretationGuideline(DomainEntity):
         # if iri is None:
         #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
-            self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_VARIANTPATHOGENICITYINTERPRETATIONGUIDELINE_TYPE 
+            self.data[ID_KEY] = iri
+        self.data[TYPE_KEY] = TYPE_VARIANTPATHOGENICITYINTERPRETATIONGUIDELINE 
     def set_version(self,x):
-        self.data[DMWG_A173_VERSION_KEY] = x
+        self.data[PROP_A173_VERSION_KEY] = x
     def get_version(self):
-        return self.data[DMWG_A173_VERSION_KEY]
+        return self.data[PROP_A173_VERSION_KEY]
     def set_url(self,x):
-        self.data[DMWG_A156_URL_KEY] = x
+        self.data[PROP_A156_URL_KEY] = x
     def get_url(self):
-        return self.data[DMWG_A156_URL_KEY]
+        return self.data[PROP_A156_URL_KEY]
     @get_factory_entity('SEPIO-CG:65133')
     def set_scoringAlgorithm(self,x):
-        self.data[DMWG_A174_SCORINGALGORITHM_KEY] = x
+        self.data[PROP_A174_SCORINGALGORITHM_KEY] = x
     def get_scoringAlgorithm(self):
-        return self.data[DMWG_A174_SCORINGALGORITHM_KEY]
+        return self.data[PROP_A174_SCORINGALGORITHM_KEY]
     def set_label(self,x):
         self.data[LabelIdentifier] = x
     def get_label(self):
@@ -171,21 +171,21 @@ class ContextualAlleleName(DomainEntity):
         # if iri is None:
         #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
-            self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_CONTEXTUALALLELENAME_TYPE 
+            self.data[ID_KEY] = iri
+        self.data[TYPE_KEY] = TYPE_CONTEXTUALALLELENAME 
     def set_name(self,x):
-        self.data[DMWG_A920_NAME_KEY] = x
+        self.data[PROP_A920_NAME_KEY] = x
     def get_name(self):
-        return self.data[DMWG_A920_NAME_KEY]
+        return self.data[PROP_A920_NAME_KEY]
     @get_factory_entity('SEPIO-CG:65903')
     def set_nameType(self,x):
-        self.data[DMWG_A943_NAMETYPE_KEY] = x
+        self.data[PROP_A943_NAMETYPE_KEY] = x
     def get_nameType(self):
-        return self.data[DMWG_A943_NAMETYPE_KEY]
+        return self.data[PROP_A943_NAMETYPE_KEY]
     def set_preferred(self,x):
-        self.data[DMWG_A921_PREFERRED_KEY] = x
+        self.data[PROP_A921_PREFERRED_KEY] = x
     def get_preferred(self):
-        return self.data[DMWG_A921_PREFERRED_KEY]
+        return self.data[PROP_A921_PREFERRED_KEY]
     def set_label(self,x):
         self.data[LabelIdentifier] = x
     def get_label(self):
@@ -197,12 +197,12 @@ class Position(DomainEntity):
         # if iri is None:
         #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
-            self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_POSITION_TYPE 
+            self.data[ID_KEY] = iri
+        self.data[TYPE_KEY] = TYPE_POSITION 
     def set_index(self,x):
-        self.data[DMWG_A940_INDEX_KEY] = x
+        self.data[PROP_A940_INDEX_KEY] = x
     def get_index(self):
-        return self.data[DMWG_A940_INDEX_KEY]
+        return self.data[PROP_A940_INDEX_KEY]
     def set_label(self,x):
         self.data[LabelIdentifier] = x
     def get_label(self):
@@ -214,25 +214,25 @@ class ReferenceCoordinate(DomainEntity):
         # if iri is None:
         #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
-            self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_REFERENCECOORDINATE_TYPE 
+            self.data[ID_KEY] = iri
+        self.data[TYPE_KEY] = TYPE_REFERENCECOORDINATE 
     @get_factory_entity('SEPIO-CG:65119')
     def set_referenceSequence(self,x):
-        self.data[DMWG_A933_REFERENCESEQUENCE_KEY] = x
+        self.data[PROP_A933_REFERENCESEQUENCE_KEY] = x
     def get_referenceSequence(self):
-        return self.data[DMWG_A933_REFERENCESEQUENCE_KEY]
+        return self.data[PROP_A933_REFERENCESEQUENCE_KEY]
     def set_start(self,x):
-        self.data[DMWG_A931_START_KEY] = x
+        self.data[PROP_A931_START_KEY] = x
     def get_start(self):
-        return self.data[DMWG_A931_START_KEY]
+        return self.data[PROP_A931_START_KEY]
     def set_end(self,x):
-        self.data[DMWG_A932_END_KEY] = x
+        self.data[PROP_A932_END_KEY] = x
     def get_end(self):
-        return self.data[DMWG_A932_END_KEY]
+        return self.data[PROP_A932_END_KEY]
     def set_refState(self,x):
-        self.data[DMWG_A930_REFSTATE_KEY] = x
+        self.data[PROP_A930_REFSTATE_KEY] = x
     def get_refState(self):
-        return self.data[DMWG_A930_REFSTATE_KEY]
+        return self.data[PROP_A930_REFSTATE_KEY]
     def set_label(self,x):
         self.data[LabelIdentifier] = x
     def get_label(self):
@@ -244,21 +244,21 @@ class SequenceLocation(DomainEntity):
         # if iri is None:
         #     iri = the_factory.get_next_blank_iri()
         if iri is not None:
-            self.data[DMWG_ID_KEY] = iri
-        self.data[DMWG_TYPE_KEY] = DMWG_SEQUENCELOCATION_TYPE 
+            self.data[ID_KEY] = iri
+        self.data[TYPE_KEY] = TYPE_SEQUENCELOCATION 
     @get_factory_entity('SEPIO-CG:65119')
     def set_referenceSequence(self,x):
-        self.data[DMWG_A052_REFERENCESEQUENCE_KEY] = x
+        self.data[PROP_A052_REFERENCESEQUENCE_KEY] = x
     def get_referenceSequence(self):
-        return self.data[DMWG_A052_REFERENCESEQUENCE_KEY]
+        return self.data[PROP_A052_REFERENCESEQUENCE_KEY]
     def set_start(self,x):
-        self.data[DMWG_A053_START_KEY] = x
+        self.data[PROP_A053_START_KEY] = x
     def get_start(self):
-        return self.data[DMWG_A053_START_KEY]
+        return self.data[PROP_A053_START_KEY]
     def set_stop(self,x):
-        self.data[DMWG_A054_STOP_KEY] = x
+        self.data[PROP_A054_STOP_KEY] = x
     def get_stop(self):
-        return self.data[DMWG_A054_STOP_KEY]
+        return self.data[PROP_A054_STOP_KEY]
     def set_label(self,x):
         self.data[LabelIdentifier] = x
     def get_label(self):
