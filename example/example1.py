@@ -1,30 +1,37 @@
 from clingen_interpretation.interpretation_generated import *
 from clingen_interpretation.interpretation_extras import *
 from clingen_interpretation.interpretation_constants import *
-from clingen_interpretation.Allele import Variant
+from clingen_interpretation.Allele import CanonicalAllele
 import requests
 
 def create_allele():
-    #For this example, we will use this HGVS
-    hgvs = 'NC_000014.8:g.23898488G>A'
-    # send a GET request with parameter
-    url = 'http://reg.genome.network/allele?hgvs='
-    # convert symbol > to special code %3E
-    url += requests.utils.quote(hgvs)
-    #retreive the ClinGen 
-    res = requests.get(url)
-    txt = res.text
-    cardata = json.loads(txt)
-    allele = Variant(cardata)
-    return allele
+    # For this example we will use a ClinVar id as source with the associated hgvs_names, dbsnp_ids and preferred_name
+    identifier = "ClinVar:11852"
+    hgvs_names = {  "GRCh37": "NC_000011.9:g.76869378G>A", \
+                    "GRCh38": "NC_000011.10:g.77158332G>A", \
+                    "others": [ \
+                        "NG_009086.1:g.35069G>A", \
+                        "NM_000260.3:c.905G>A", \
+                        "NP_000251.3:p.Arg302His", \
+                        "Q13402:p.Arg302His"]}
+    dbsnp_ids = [ "41298135" ]
+    preferred_name =  "NM_000260.3(MYO7A):c.905G>A (p.Arg302His)"
+
+    return CanonicalAllele( identifier=identifier, \
+                            hgvs_names=hgvs_names, \
+                            dbsnp_ids=dbsnp_ids, \
+                            preferred_name=preferred_name )
 
 def create_condition():
-    ontology = 'http://www.disease-ontology.org/term/'  
-    code = 'DOID_11984'
-    name = 'hypertrophic cardiomyopathy'
-    disease = create_dmwg_disease(ontology, code, name)
+    ontology = 'http://purl.obolibrary.org/obo/'
+    code = 'MONDO_0019501'
+    name = 'Usher syndrome'
+    disease = create_disease(ontology, code, name)
+
     condition = GeneticCondition()
     condition.add_disease(disease)
+    condition.set_inheritancePattern( "Autosomal recessive inheritance" )
+
     return condition
 
 def create_agent():
@@ -49,7 +56,8 @@ def create_assessment(allele,agent):
     assessment.set_statementOutcome('met')
     assessment.set_variant(allele)
     when = '2017-01-24T16:07:57.082704+00:00'
-    contribution = create_contribution(agent, when, DMWG_ASSESSOR_ROLE)
+    contribution = create_contribution(agent, when, PROP_ASSESSOR_ROLE)
+
     assessment.add_contribution(contribution)
     return assessment
 
@@ -59,14 +67,14 @@ def create_frequency_data(allele,agent):
     #the library will look up the code
     frequency.set_ascertainment('ExAC ascertainment method')
     #the library will look up the code
-    frequency.set_population('GNOMAD:nfe') 
+    frequency.set_population('GNOMAD:nfe')
     frequency.set_allele(allele)
     frequency.set_alleleCount(0)
     frequency.set_alleleNumber(1000)
     #The library will not calculate the frequency for you
-    frequency.set_alleleFrequency(0) 
+    frequency.set_alleleFrequency(0)
     when = '2016-01-24T16:07:57.082704+00:00'
-    contribution = create_contribution(agent, when, DMWG_CURATOR_ROLE)
+    contribution = create_contribution(agent, when, PROP_CURATOR_ROLE)
     frequency.add_contribution(contribution)
     return frequency
 
@@ -85,7 +93,7 @@ def create_example():
     #Create Agent/contribution
     agent = create_agent()
     when = '2017-01-24T16:16:59.073653+00:00'
-    contribution = create_contribution(agent, when, DMWG_INTERPRETER_ROLE)
+    contribution = create_contribution(agent, when, PROP_APPROVER_ROLE)
     interpretation.add_contribution(contribution)
     #Create assessment, (with same agent doing assessing & interpreting)
     assessment = create_assessment(allele,agent)
@@ -96,7 +104,7 @@ def create_example():
     add_evidenceItems( assessment, [frequency] )
 
     #Write interpretation JSON to file
-    outf = file('example1.json','w')
+    outf = open('example1.json','w')
     json.dump(interpretation, outf, sort_keys = True, indent=4, \
             separators=(',',': '), cls = InterpretationEncoder,\
             out_style = 'first')

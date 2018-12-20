@@ -11,9 +11,9 @@ The fundamental definition of the ClinGen model is a series of JSON files hosted
 
 ## Installation
 
- 1. (Optional) Generate the python library. This is only required if the model definition has changed.
+ 1. (Optional) Generate the python library. This is only required if the model definition has changed. To generate run ```python3 generate_interpretation_library.py``` from the clingen_interpretation folder.
 
- 2. Install the module locally with ```python setup.py install```. If necessary, this will also install prerequisites.
+ 2. Install the module locally with ```python3 setup.py install``` from the project root. If necessary, this will also install prerequisites.
 
 ## Example and Use
 
@@ -35,22 +35,34 @@ Now we want to add the necessary attributes to the interpretation. In particular
 
 ### Variants
 
-Alleles in the interpretation model are represented using the ClinGen allele model as described [here](http://dataexchange.clinicalgenome.org/allele/master/index.html). In particular, the allele about which an interpretation is made is a Canonical Allele: a stable identifier for the allele independent of genome reference version. Given a particular representation, such as an HGVS, we must obtain a canonical allele, and represent it in the correct format. The best solution for canonicalizing an allele is the [ClinGen Allele Registry](http://reg.genome.network/allele). At this site, we can look up an allele by one of its HGVS representations, returning a JSON. This JSON can then be passed to the constructor for a Variant and added to our interpretation.
+Alleles in the interpretation model are represented using the ClinGen allele model as described [here](http://dataexchange.clinicalgenome.org/allele/master/index.html). In particular, the allele about which an interpretation is made is a Canonical Allele: a stable identifier for the allele independent of genome reference version. Given the requirement of either a ClinGen Allele Registry identifier or a set of hgvs names one of which must be a GRCh38 version, we use either of those to construct a canonical allele in the correct format, preserving the source identifier and hgvs representations for each contextual allele that comprise it. The best solution for canonicalizing an allele is the [ClinGen Allele Registry](http://reg.genome.network/allele), however it is possible to construct a canonical allele from the set of hgvs names as well, even though they may not have the full set of detailed information. At this site, we can look up an allele by one of its HGVS representations, returning a JSON. This JSON can then be passed to the constructor for a Variant and added to our interpretation.
+
+The required structured set of named arguments that must be passed to the CanonicalAllele() constructor are as follows:
+identifier -> a string in the form ClinVar:<variationId> or CAR:<caid>. One of those two is required.
+hgvs_names -> an array of keyed values where the keys are 'GRCh38', 'GRCh37', 'NCBI36' or 'others'. The first three genome build keys would each have a single hgvs string representing the variant for that build. The 'others' key would be an array of hgvs strings that represent alternative forms of the variant.
+dbsnp_ids -> an optional array of dbnsnp id strings without the "rs" prefix.
+preferred_name -> an optional (but highly recommended) string that is the preferred human-readable name for the variant - typically hgvs. It should start with the refseq accession that is to be used to define the 'preferred' contextual allele from the list of hgvs_names.
+
+
 
 ```
 def create_allele():
-    #For this example, we will use this HGVS
-    hgvs = 'NC_000014.8:g.23898488G>A'
-    # send a GET request with parameter
-    url = 'http://reg.genome.network/allele?hgvs='
-    # convert symbol > to special code %3E
-    url += requests.utils.quote(hgvs)
-    #retrieve the ClinGen
-    res = requests.get(url)
-    txt = res.text
-    cardata = json.loads(txt)
-    allele = Variant(cardata)
-    return allele
+    # For this example we will use a ClinVar id as source with the associated hgvs_names, dbsnp_ids and preferred_name
+    identifier = "ClinVar:11852"
+    hgvs_names = {  "GRCh37": "NC_000011.9:g.76869378G>A", \
+                    "GRCh38": "NC_000011.10:g.77158332G>A", \
+                    "others": [ \
+                        "NG_009086.1:g.35069G>A", \
+                        "NM_000260.3:c.905G>A", \
+                        "NP_000251.3:p.Arg302His", \
+                        "Q13402:p.Arg302His"]}
+    dbsnp_ids = [ "41298135" ]
+    preferred_name =  "NM_000260.3(MYO7A):c.905G>A (p.Arg302His)"
+
+    return CanonicalAllele( identifier=identifier, \
+                            hgvs_names=hgvs_names, \
+                            dbsnp_ids=dbsnp_ids, \
+                            preferred_name=preferred_name )
 
 def create_example():
     ...
@@ -62,18 +74,22 @@ def create_example():
 
 In the ClinGen interpretation model, variants are associated with conditions. A condition is a flexible structure that can be used to aggregate multiple diseases or phenotypes. In this example, we will show the most common case: a condition that is a single disease. Diseases are defined through a combination of an ontology (MONDO, Orphanet), a code (the code for the disease in that ontology), and a human readable name (also from the ontology).
 
-Diseases, along with many other controlled vocabularies, are modeled in ClinGen interpretations using Codings and Codeable Concepts, structures that come from the HL7 project [FHIR](https://www.hl7.org/fhir/). While these classes provide some nice features, they can be somewhat complicated to work with. So rather than requiring users of the interpretation model to implement them directly, we provide some utility methods for creating them. One such method is ```create_dmwg_disease```. Here we use this utility method to create the disease, create the Condition from the disease, and attach the condition to the interpretation:
+Diseases, along with many other controlled vocabularies, are modeled in ClinGen interpretations using Codings and Codeable Concepts, structures that come from the HL7 project [FHIR](https://www.hl7.org/fhir/). While these classes provide some nice features, they can be somewhat complicated to work with. So rather than requiring users of the interpretation model to implement them directly, we provide some utility methods for creating them. One such method is ```create_disease```. Here we use this utility method to create the disease, create the Condition from the disease, and attach the condition to the interpretation:
 
 
 ```
 def create_condition():
-    ontology = 'http://www.disease-ontology.org/term/'
-    code = 'DOID_11984'
-    name = 'hypertrophic cardiomyopathy'
-    disease = create_dmwg_disease(ontology, code, name)
+    ontology = 'http://purl.obolibrary.org/obo/'
+    code = 'MONDO_0019501'
+    name = 'Usher syndrome'
+    disease = create_disease(ontology, code, name)
+
     condition = GeneticCondition()
     condition.add_disease(disease)
+    condition.set_inheritancePattern( "Autosomal recessive inheritance" )
+
     return condition
+
 
 def create_example():
     ...
@@ -93,7 +109,7 @@ def create_example():
 
 ### Contributions and Agents
 
-Many elements in the ClinGen interpretation model allow the user to attach information related to the provenance of that element by attaching a Contribution. A Contribution notes who participated in the creation of the element, when they completed their contribution, and their role in creating it. The "who" portion of a contribution is an Agent. An Agent has a user managed ID, as well as a name and description. Role is defined as a codeable concept, meaning that if one of the known codes is passed into the Agent creator, the correct Coding will be found. If an unknown code is passed in, a free-text style CodeableConcept will be created. In other words, if you want to track a contribution role that we have not created a code for, you may enter that role, and use it without problems. The pre-existing values of role are 'curator', 'interpreter', and 'assessor', which are represented with the package constants DMWG_CURATOR_ROLE, DMWG_INTERPRETER_ROLE, and DMWG_ASSESSOR_ROLE. Here, we will create a fictional agent, and a contribution stating that this agent was the interpreter. Current, the timestamp of a contribution is not interpreted as a datetime by the library, but simply as a string that is passed into the output JSON. It is expected, however, that the programmer will use a standard datetime format.
+Many elements in the ClinGen interpretation model allow the user to attach information related to the provenance of that element by attaching a Contribution. A Contribution notes who participated in the creation of the element, when they completed their contribution, and their role in creating it. The "who" portion of a contribution is an Agent. An Agent has a user managed ID, as well as a name and description. Role is defined as a codeable concept, meaning that if one of the known codes is passed into the Agent creator, the correct Coding will be found. If an unknown code is passed in, a free-text style CodeableConcept will be created. In other words, if you want to track a contribution role that we have not created a code for, you may enter that role, and use it without problems. The pre-existing values of role are 'curator', 'approver', 'publisher' and 'assessor', which are represented with the package constants PROP_CURATOR_ROLE, PROP_APPROVER_ROLE, PROP_PUBLISHER_ROLE and PROP_ASSESSOR_ROLE. Here, we will create a fictional agent, and a contribution stating that this agent was the interpreter. Current, the timestamp of a contribution is not interpreted as a datetime by the library, but simply as a string that is passed into the output JSON. It is expected, however, that the programmer will use a standard datetime format.
 
 ```
 def create_agent():
@@ -105,7 +121,7 @@ def create_agent():
 def create_example():
     agent = create_agent()
     when = '2017-01-24T16:16:59.073653+00:00'
-    contribution = create_contribution(agent, when, DMWG_INTERPRETER_ROLE)
+    contribution = create_contribution(agent, when, PROP_APPROVER_ROLE)
     interpretation.add_contribution(contribution)
 ```
 

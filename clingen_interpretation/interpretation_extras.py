@@ -50,20 +50,11 @@ def create_assertion_method(name, url=None):
     return method
 
 #Utility method for creating diseases. Note that disease is not a type any more
-def create_dmwg_disease(system, code, name):
+def create_disease(system, code, name):
     iri = system+code
     disease = Node(identifier=iri)
     disease.set_label(name)
     return disease
-
-#Utility method to make sure that coding gets the ID set correctly
-#def create_entity(system,display,code):
-#    iri = system+code
-#    coding = Coding(iri)
-#    coding.set_display(display)
-#    coding.set_code(code)
-#    coding.set_system(system)
-#    return coding
 
 def read_criteria():
     this_dir, this_filename = os.path.split(__file__)

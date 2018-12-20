@@ -4,10 +4,14 @@
         {
             "disease": [
                 {
-                    "id": "http://www.disease-ontology.org/term/DOID_11984",
-                    "label": "hypertrophic cardiomyopathy"
+                    "id": "http://purl.obolibrary.org/obo/MONDO_0019501",
+                    "label": "Usher syndrome"
                 }
             ],
+            "inheritancePattern": {
+                "id": "HP:0000007",
+                "label": "Autosomal recessive inheritance"
+            },
             "type": "GeneticCondition"
         }
     ],
@@ -20,8 +24,8 @@
             },
             "contributionDate": "2017-01-24T16:16:59.073653+00:00",
             "contributionRole": {
-                "id": "SEPIO:0000331",
-                "label": "interpreter role"
+                "id": "SEPIO:0000155",
+                "label": "approver"
             },
             "type": "Contribution"
         }
@@ -36,7 +40,7 @@
                             "contributionDate": "2017-01-24T16:07:57.082704+00:00",
                             "contributionRole": {
                                 "id": "SEPIO:0000154",
-                                "label": "assessor role"
+                                "label": "assessor"
                             },
                             "type": "Contribution"
                         }
@@ -55,130 +59,161 @@
                             "evidenceItem": [
                                 {
                                     "allele": {
-                                        "canonicalAlleleType": "nucleotide",
-                                        "complexity": "simple",
-                                        "id": "http://reg.genome.network/allele/CA010360",
+                                        "id": "ClinVar:11852",
+                                        "label": "NM_000260.3(MYO7A):c.905G>A (p.Arg302His)",
                                         "relatedContextualAllele": [
                                             {
                                                 "alleleName": [
                                                     {
-                                                        "name": "NC_000014.9:g.23429279G>A",
-                                                        "nameType": "hgvs"
-                                                    },
-                                                    {
-                                                        "name": "CM000676.2:g.23429279G>A",
+                                                        "name": "NC_000011.10:g.77158332G>A",
                                                         "nameType": "hgvs"
                                                     }
                                                 ],
                                                 "contextualAlleleType": "genomic",
+                                                "referenceCoordinate": {
+                                                    "end": {
+                                                        "index": 77158332
+                                                    },
+                                                    "refState": "G",
+                                                    "referenceSequence": {
+                                                        "label": "NC_000011.10"
+                                                    },
+                                                    "start": {
+                                                        "index": 77158331
+                                                    }
+                                                },
+                                                "referenceGenome": {
+                                                    "id": "SEPIO-CG:98203",
+                                                    "label": "GRCh38"
+                                                },
+                                                "relatedCanonicalAllele": "ClinVar:11852",
+                                                "relatedChromosome": {
+                                                    "id": "SEPIO-CG:98111",
+                                                    "label": "11"
+                                                },
+                                                "state": "A",
+                                                "type": "ContextualAllele"
+                                            },
+                                            {
+                                                "alleleName": [
+                                                    {
+                                                        "name": "NC_000011.9:g.76869378G>A",
+                                                        "nameType": "hgvs"
+                                                    }
+                                                ],
+                                                "contextualAlleleType": "genomic",
+                                                "referenceCoordinate": {
+                                                    "end": {
+                                                        "index": 76869378
+                                                    },
+                                                    "refState": "G",
+                                                    "referenceSequence": {
+                                                        "label": "NC_000011.9"
+                                                    },
+                                                    "start": {
+                                                        "index": 76869377
+                                                    }
+                                                },
+                                                "referenceGenome": {
+                                                    "id": "SEPIO-CG:98202",
+                                                    "label": "GRCh37"
+                                                },
+                                                "relatedCanonicalAllele": "ClinVar:11852",
+                                                "relatedChromosome": {
+                                                    "id": "SEPIO-CG:98111",
+                                                    "label": "11"
+                                                },
+                                                "state": "A",
+                                                "type": "ContextualAllele"
+                                            },
+                                            {
+                                                "alleleName": [
+                                                    {
+                                                        "name": "NG_009086.1:g.35069G>A",
+                                                        "nameType": "hgvs"
+                                                    }
+                                                ],
+                                                "contextualAlleleType": "genomic",
+                                                "referenceCoordinate": {
+                                                    "end": {
+                                                        "index": 35069
+                                                    },
+                                                    "refState": "G",
+                                                    "referenceSequence": {
+                                                        "label": "NG_009086.1"
+                                                    },
+                                                    "start": {
+                                                        "index": 35068
+                                                    }
+                                                },
+                                                "relatedCanonicalAllele": "ClinVar:11852",
+                                                "state": "A",
+                                                "type": "ContextualAllele"
+                                            },
+                                            {
+                                                "alleleName": [
+                                                    {
+                                                        "name": "NM_000260.3:c.905G>A",
+                                                        "nameType": "hgvs"
+                                                    }
+                                                ],
+                                                "contextualAlleleType": "transcript",
                                                 "preferred": true,
                                                 "referenceCoordinate": {
                                                     "end": {
-                                                        "index": 23429279
+                                                        "index": 1177
                                                     },
                                                     "refState": "G",
                                                     "referenceSequence": {
-                                                        "label": "NC_000014.9",
-                                                        "reference": "http://reg.genome.network/refseq/RS000062"
+                                                        "label": "NM_000260.3"
                                                     },
                                                     "start": {
-                                                        "index": 23429278
+                                                        "index": 1176
                                                     }
                                                 },
-                                                "relatedCanonicalAllele": "http://reg.genome.network/allele/CA010360",
+                                                "relatedCanonicalAllele": "ClinVar:11852",
+                                                "relatedGene": {
+                                                    "id": "NCBIGene:4647",
+                                                    "label": "MYO7A"
+                                                },
                                                 "state": "A",
                                                 "type": "ContextualAllele"
                                             },
                                             {
                                                 "alleleName": [
                                                     {
-                                                        "name": "NC_000014.7:g.22968328G>A",
+                                                        "name": "NP_000251.3:p.Arg302His",
                                                         "nameType": "hgvs"
                                                     }
                                                 ],
-                                                "contextualAlleleType": "genomic",
+                                                "contextualAlleleType": "protein",
                                                 "referenceCoordinate": {
-                                                    "end": {
-                                                        "index": 22968328
-                                                    },
-                                                    "refState": "G",
                                                     "referenceSequence": {
-                                                        "label": "NC_000014.7",
-                                                        "reference": "http://reg.genome.network/refseq/RS000014"
-                                                    },
-                                                    "start": {
-                                                        "index": 22968327
+                                                        "label": "NP_000251.3"
                                                     }
                                                 },
-                                                "relatedCanonicalAllele": "http://reg.genome.network/allele/CA010360",
-                                                "state": "A",
+                                                "relatedCanonicalAllele": "ClinVar:11852",
                                                 "type": "ContextualAllele"
                                             },
                                             {
                                                 "alleleName": [
                                                     {
-                                                        "name": "NC_000014.8:g.23898488G>A",
-                                                        "nameType": "hgvs"
-                                                    },
-                                                    {
-                                                        "name": "CM000676.1:g.23898488G>A",
+                                                        "name": "Q13402:p.Arg302His",
                                                         "nameType": "hgvs"
                                                     }
                                                 ],
-                                                "contextualAlleleType": "genomic",
-                                                "referenceCoordinate": {
-                                                    "end": {
-                                                        "index": 23898488
-                                                    },
-                                                    "refState": "G",
-                                                    "referenceSequence": {
-                                                        "label": "NC_000014.8",
-                                                        "reference": "http://reg.genome.network/refseq/RS000038"
-                                                    },
-                                                    "start": {
-                                                        "index": 23898487
-                                                    }
-                                                },
-                                                "relatedCanonicalAllele": "http://reg.genome.network/allele/CA010360",
-                                                "state": "A",
-                                                "type": "ContextualAllele"
-                                            },
-                                            {
-                                                "alleleName": [
-                                                    {
-                                                        "name": "NG_007884.1:g.11383C>T",
-                                                        "nameType": "hgvs"
-                                                    },
-                                                    {
-                                                        "name": "LRG_384:g.11383C>T",
-                                                        "nameType": "hgvs"
-                                                    }
-                                                ],
-                                                "contextualAlleleType": "genomic",
-                                                "referenceCoordinate": {
-                                                    "end": {
-                                                        "index": 11383
-                                                    },
-                                                    "refState": "C",
-                                                    "referenceSequence": {
-                                                        "label": "",
-                                                        "reference": "http://reg.genome.network/refseq/RS000691"
-                                                    },
-                                                    "start": {
-                                                        "index": 11382
-                                                    }
-                                                },
-                                                "relatedCanonicalAllele": "http://reg.genome.network/allele/CA010360",
-                                                "state": "T",
+                                                "referenceCoordinate": {},
+                                                "relatedCanonicalAllele": "ClinVar:11852",
                                                 "type": "ContextualAllele"
                                             }
                                         ],
                                         "relatedIdentifier": [
                                             {
-                                                "label": "NM_000257.3(MYH7):c.1207C>T (p.Arg403Trp)"
+                                                "id": "http://reg.genome.network/allele/CA132454",
+                                                "label": "NM_000260.3(MYO7A):c.905G>A (p.Arg302His)"
                                             },
                                             {
-                                                "id": "dbSNP:3218714"
+                                                "id": "dbSNP:41298135"
                                             }
                                         ],
                                         "type": "CanonicalAllele"
@@ -200,7 +235,7 @@
                                             "contributionDate": "2016-01-24T16:07:57.082704+00:00",
                                             "contributionRole": {
                                                 "id": "SEPIO:0000156",
-                                                "label": "curator role"
+                                                "label": "curator"
                                             },
                                             "type": "Contribution"
                                         }
@@ -221,7 +256,7 @@
                         "label": "Met"
                     },
                     "type": "CriterionAssessment",
-                    "variant": "http://reg.genome.network/allele/CA010360"
+                    "variant": "ClinVar:11852"
                 }
             ],
             "evidenceStrength": "SEPIO:0000216",
@@ -234,5 +269,5 @@
         "label": "Pathogenic"
     },
     "type": "VariantPathogenicityInterpretation",
-    "variant": "http://reg.genome.network/allele/CA010360"
+    "variant": "ClinVar:11852"
 }
