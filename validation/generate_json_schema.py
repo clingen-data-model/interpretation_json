@@ -3,10 +3,10 @@ import requests
 
 def make_def(typedef):
     """The meat of the json schema generation creates a dictionary that
-    will serialized into the definitions section of the schema, for a given 
+    will serialized into the definitions section of the schema, for a given
     typedef, as read from our json definitions"""
     #These all have structure.  Non-structured are handled with LabeledIRI
-    definition = { "type":"object"} 
+    definition = { "type":"object"}
     #Description is special, and goes outside properties
     if 'description' in typedef:
         definition['description'] = typedef['description']
@@ -28,7 +28,7 @@ def make_def(typedef):
         # We are defining the type either as a primitive, or as something
         # in our definitions
         dt = attribute['dataType']
-        if dt == 'string' or dt == 'Datetime': 
+        if dt == 'string' or dt == 'Datetime':
             prop = { 'type': 'string' }
         elif dt == 'integer':
             prop = { 'type': 'integer' }
@@ -52,10 +52,10 @@ def make_def(typedef):
 def make_labeled_id():
     """We use a lot of external identifiers, which would usually be "string"
       type in json, but we allow people to make them an object and attach
-      a label as well. 
+      a label as well.
 
-      This type is either a string or an object with a string id and 
-      a string label""" 
+      This type is either a string or an object with a string id and
+      a string label"""
     definition = { "anyOf": [ {"type": "string"}, {"type":"object", 'properties': {'id': {'type':'string'}, 'label': {'type':'string'}} , 'required': ['id'] } ] }
     return definition
 
@@ -75,7 +75,7 @@ def write_schema(types_and_atts, outfname):
     schema['title'] = 'VariantPathogenicityInterpretation'
     schema.update(videf)
     #dump the schema
-    with file(outfname,'w') as outf:
+    with open(outfname,'w') as outf:
         outf.write(json.dumps(schema, indent=4))
 
 def write_value_set(types_and_atts, outname):
