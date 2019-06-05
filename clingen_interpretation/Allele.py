@@ -90,7 +90,7 @@ def get_car_hgvs_ctx_allele_dict(hgvs_38, ca_id):
                     hgvs_ctx_dict.update( { hgvs: ctx_allele} )
 
         # also return external records info
-        external_recs = car_rep['externalRecords']
+        external_recs = car_rep['externalRecords'] if 'externalRecords' in car_rep else None
 
     # return a dict to get multiple values back
     return {'hgvs38_ca_id':hgvs38_ca_id, 'hgvs_ctx_dict':hgvs_ctx_dict, 'external_recs':external_recs}
