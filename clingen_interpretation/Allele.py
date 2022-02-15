@@ -121,7 +121,7 @@ def extract_accession_and_type(hgvs):
 # attempt to derive the chromosome from the NCBI NC_* refseq accession.
 def derive_chromosome(sequence):
     chr = None
-    m = re.search('^NC_0+([0-9]+|12920)\.[0-9]+$', sequence)
+    m = re.search('^NC_0+([0-9]+|12920)\.[0-9]+$', sequence) if sequence is not None else None
     if m is not None:
         val = m.group(1)
         if val == '23':
