@@ -96,6 +96,10 @@ class VariantPathogenicityInterpretation(Statement):
         self.data[LabelIdentifier] = x
     def get_label(self):
         return self.data[LabelIdentifier]
+    def set_cspec(self, property, x):
+        self.data[property] = x
+    def get_cspec(self, property):
+        return self.data[property]
 
 class CriterionAssessment(Statement):
     def __init__(self,iri=None):
