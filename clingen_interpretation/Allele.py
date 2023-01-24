@@ -77,17 +77,18 @@ def get_car_hgvs_ctx_allele_dict(hgvs_38, ca_id):
     if car_rep:
         hgvs_ctx_dict = {}
         for ref in ['genomicAlleles', 'transcriptAlleles']:
-            for ctx_allele in car_rep[ref]:
-                # always add the hgvs_38 key to the ctx_allele dict if available,
-                # which likely originated from the ClinVar hgvs representation,
-                # The ClinVar and CAR hgvs representations do not use the same
-                # alignment and precise hgvs del/ins/dup representations.
-                # This will ensure that the CAR ctx-allele will always be
-                # findable later when needed to build the interp json output.
-                if hgvs_38 and ref == 'genomicAlleles' and 'referenceGenome' in ctx_allele and ctx_allele['referenceGenome'] == 'GRCh38':
-                    hgvs_ctx_dict.update( {hgvs_38: ctx_allele} )
-                for hgvs in ctx_allele['hgvs']:
-                    hgvs_ctx_dict.update( { hgvs: ctx_allele} )
+            if ref in car_rep:
+                for ctx_allele in car_rep[ref]:
+                    # always add the hgvs_38 key to the ctx_allele dict if available,
+                    # which likely originated from the ClinVar hgvs representation,
+                    # The ClinVar and CAR hgvs representations do not use the same
+                    # alignment and precise hgvs del/ins/dup representations.
+                    # This will ensure that the CAR ctx-allele will always be
+                    # findable later when needed to build the interp json output.
+                    if hgvs_38 and ref == 'genomicAlleles' and 'referenceGenome' in ctx_allele and ctx_allele['referenceGenome'] == 'GRCh38':
+                        hgvs_ctx_dict.update( {hgvs_38: ctx_allele} )
+                    for hgvs in ctx_allele['hgvs']:
+                        hgvs_ctx_dict.update( { hgvs: ctx_allele} )
 
         # also return external records info
         external_recs = car_rep['externalRecords'] if 'externalRecords' in car_rep else None
@@ -120,7 +121,7 @@ def extract_accession_and_type(hgvs):
 # attempt to derive the chromosome from the NCBI NC_* refseq accession.
 def derive_chromosome(sequence):
     chr = None
-    m = re.search('^NC_0+([0-9]+|12920)\.[0-9]+$', sequence)
+    m = re.search('^NC_0+([0-9]+|12920)\.[0-9]+$', sequence) if sequence is not None else None
     if m is not None:
         val = m.group(1)
         if val == '23':
